@@ -7,7 +7,7 @@ Este sitio utiliza:
 - Imágenes de viajes de Pexels [Pexels](https://www.pexels.com/search/travel/)
 - Fuentes Google fonts [Google fonts](https://fonts.google.com/)
 
-###Estilos:
+### Estilos:
 
 ```
 fuente general del sitio-> font-family: 'Montserrat';
