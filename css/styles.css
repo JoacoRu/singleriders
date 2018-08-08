@@ -1,0 +1,142 @@
+
+* {
+  font-family: 'Montserrat';
+}
+
+body {
+  background-image: url(../images/bg-body02.jpg);
+  height: 100%;
+  background-attachment: fixed;
+  /*background-blend-mode: overlay;*/
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  /*background-color: #512DA8;*/
+}
+
+
+header .navbar {
+  background-color: rgba(2, 136, 209, 0.5);
+  box-shadow: 1px 3px 15px -3px #3F51B5;
+}
+
+.logo-container {
+  position: relative;
+  width: 55px;
+  height: 30px;
+}
+
+.single, .riders {
+  display: inline-block;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  font-family: 'Pacifico';
+}
+
+.single {
+  position: absolute;
+  background-color: rebeccapurple;
+  z-index: 1;
+}
+
+.riders {
+  background-color: #4CAF50;
+  position: absolute;
+  right: 0;
+}
+
+.iniciar {
+  cursor: pointer;
+}
+
+.ingresar .shadow {
+  box-shadow: 1px 3px 15px -3px #000000;
+}
+
+.titulo-sr-home {
+  font-family: 'Abel';
+}
+
+.single-f {
+  font-family: 'Pacifico';
+}
+
+.objetive .col-6 {
+  font-family: 'Montserrat';
+}
+
+.obj-viajes {
+  font-family: 'Abel';
+  border: 1px dashed #D1C4E9;
+}
+
+.features-sr div {
+  line-height: 16px;
+}
+
+.features-sr > ul {
+  list-style: none;
+}
+
+.fa-search {
+    color: orange;
+}
+
+.fa-hand-pointer {
+    color: #673AB7;
+}
+
+.fa-plus, .fa-map-marker-alt {
+    color: #4CAF50;
+}
+
+.fa-map-marker-alt {
+    margin-right: 3px;
+}
+
+.sr-textdecoration {
+  text-decoration: underline;
+  text-decoration-color: #757575;
+}
+
+.fa-share-alt {
+    color: #757575;
+}
+
+.sr-footer {
+  background-color: #0097A7;
+}
+
+.sr-footer ul {
+  list-style: none;
+  display: inline-block;
+  padding-left: 0;
+  min-width: 176px;
+}
+
+.sr-footer .fab {
+  margin-right: 5px;
+}
+
+.sr-footer .col-md-4 {
+  display: flex;
+  justify-content: center;
+}
+
+
+.contacto-sr {
+    height: 100%;
+    margin-bottom: 0;
+    padding-bottom: 15px;
+}
+
+
+@media(min-width:768px){
+  .contacto-sr {
+      display: flex !important;
+      flex-flow: column;
+      justify-content: space-between;
+  }
+}
