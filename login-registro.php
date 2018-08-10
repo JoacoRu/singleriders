@@ -1,7 +1,25 @@
 <!doctype html>
-
-
 <html lang="en">
+
+<?php
+require_once('funciones.php');
+$tabActivo = 'login';
+if ($_POST) {
+  if (isset($_POST['nombre'])) {
+    registrar($_POST);
+    
+    $tabActivo = 'registro';
+  }
+
+}else {
+  $tabActivo = 'login';
+}
+
+
+
+
+?>
+
   <head>
     <title>Single Riders</title>
     <meta charset="utf-8">
@@ -54,27 +72,27 @@
             <h1 class="titulo-sr-home text-center mb-4"><span class="single-f mr-2">Single</span><span class="single-f">Riders</span></h1>
             <!--<div class="dropdown-divider mb-4 mt-4 ml-3 mr-3"></div>-->
             <!-- NOTE: tabs -->
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <ul class="nav nav-tabs" role="tablist">
               <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Ingresá</a>
+                <a class="nav-link <?= $tabActivo=='login' ? 'active' : '' ?>" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Ingresá</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#registro" role="tab" aria-controls="registro" aria-selected="false">Registrate</a>
+                <a class="nav-link <?= $tabActivo=='registro' ? 'active' : '' ?>" id="registro-tab" data-toggle="tab" href="#registro" role="tab" aria-controls="registro" aria-selected="false">Registrate</a>
               </li>
             </ul>
-            <div class="card border-top-0 rounded-0">
+            <div class="card border-top-0 rounded-0 bottom-radius">
               <div class="car-body">
                 <div class="container mt-3">
                   <div class="row">
                     <div class="col-12">
-                      <div class="tab-content" id="myTabContent">
+                      <div class="tab-content">
                         <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
-                          <form>
+                          <form method="post" enctype="multipart/form-data">
                             <div class="form-group">
-                              <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Correo electrónico">
+                              <input name="useremail" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Correo electrónico">
                             </div>
                             <div class="form-group">
-                              <input type="password" class="form-control" placeholder="Contraseña">
+                              <input name="userpassword" type="password" class="form-control" placeholder="Contraseña">
                             </div>
                             <div class="container">
                               <div class="row flex-column flex-md-row justify-content-md-between align-items-md-center">
@@ -91,28 +109,24 @@
                           </form>
                         </div>
                         <div class="tab-pane fade" id="registro" role="tabpanel" aria-labelledby="profile-tab">
-                          <form>
+                          <form method="post" enctype="multipart/form-data">
                             <div class="form-group">
-                              <input type="nombre" class="form-control" aria-describedby="nombreHelp" placeholder="Nombre">
+                              <input type="text" name="nombre" class="form-control" aria-describedby="nombreHelp" placeholder="Nombre">
                             </div>
                             <div class="form-group">
-                              <input type="apellido" class="form-control" aria-describedby="apellidoHelp" placeholder="Apellido">
+                              <input type="text" name="apellido" class="form-control" aria-describedby="apellidoHelp" placeholder="Apellido">
                             </div>
                             <div class="form-group">
-                              <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Correo electrónico">
+                              <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Correo electrónico">
                             </div>
                             <div class="form-group">
-                              <input type="password" class="form-control" placeholder="Contraseña">
+                              <input name="password" type="password" class="form-control" placeholder="Contraseña">
                             </div>
                             <div class="container">
                               <div class="row flex-column flex-md-row justify-content-md-between align-items-md-center">
                                 <button type="submit" class="btn btn-primary iniciar mb-3 mb-md-0">Registrate</button>
                               </div>
                               <div class="row mt-3">
-                                <label>
-                                  <input type="checkbox" value="1" name="recordarme" checked="checked">
-                                    Recordarme
-                                </label>
                               </div>
                             </div>
                           </form>

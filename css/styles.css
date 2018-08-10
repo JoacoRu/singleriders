@@ -144,6 +144,24 @@ header .navbar {
   cursor: pointer;
 }
 
+.bottom-radius {
+  border-bottom-right-radius: .25rem !important;
+  border-bottom-left-radius: .25rem !important;
+}
+
+#login-tab.active, #registro-tab.active {
+  border-top: 3px solid #007bff;
+}
+
+#login-tab:not(.active), #registro-tab:not(.active) {
+  border-top: 3px solid transparent;
+}
+
+#login-tab:hover:not(.active), #registro-tab:hover:not(.active) {
+  border-top: 3px solid #e9ecef;
+}
+
+
 @media(min-width:768px){
   .contacto-sr {
       display: flex !important;
