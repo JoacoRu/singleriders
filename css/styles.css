@@ -132,6 +132,17 @@ header .navbar {
     padding-bottom: 15px;
 }
 
+.card-viajes {
+  font-family: 'Montserrat';
+  font-weight: normal;
+  font-size: 16px;
+  text-transform: none;
+}
+
+.overbuttons:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
 
 @media(min-width:768px){
   .contacto-sr {

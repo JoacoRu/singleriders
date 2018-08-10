@@ -13,7 +13,7 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-dark navbar-fixed">
+      <nav class="navbar navbar-dark fixed-top">
         <a class="navbar-brand" href="#">
           <div>
             <div class="logo-container">
@@ -47,32 +47,82 @@
         </div>
       </nav>
     </header>
-    <section class="ingresar">
+    <section class="ingresar mt-5">
       <div class="container-fluid">
         <div class="row justify-content-center">
           <div class="col-10 col-lg-5 bg-white p-4 mt-5 rounded shadow">
-            <h1 class="titulo-sr-home text-center mb-4"><span class="single-f">S</span>ingle <span class="single-f">R</span>iders</h1>
+            <h1 class="titulo-sr-home text-center mb-4"><span class="single-f mr-2">Single</span><span class="single-f">Riders</span></h1>
             <!--<div class="dropdown-divider mb-4 mt-4 ml-3 mr-3"></div>-->
-            <form>
-              <div class="form-group">
-                <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Correo electrónico">
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control" placeholder="Contraseña">
-              </div>
-              <div class="container">
-                <div class="row flex-column flex-md-row justify-content-md-between align-items-md-center">
-                  <button type="submit" class="btn btn-primary iniciar mb-3 mb-md-0">Iniciar sesión</button>
-                  <a class="text-center text-md-left" href="#">¿Olvidaste tu contraseña?</a>
+            <!-- NOTE: tabs -->
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Ingresá</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#registro" role="tab" aria-controls="registro" aria-selected="false">Registrate</a>
+              </li>
+            </ul>
+            <div class="card border-top-0 rounded-0">
+              <div class="car-body">
+                <div class="container mt-3">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                          <form>
+                            <div class="form-group">
+                              <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Correo electrónico">
+                            </div>
+                            <div class="form-group">
+                              <input type="password" class="form-control" placeholder="Contraseña">
+                            </div>
+                            <div class="container">
+                              <div class="row flex-column flex-md-row justify-content-md-between align-items-md-center">
+                                <button type="submit" class="btn btn-primary iniciar mb-3 mb-md-0">Iniciar sesión</button>
+                                <a class="text-center text-md-left" href="#">¿Olvidaste tu contraseña?</a>
+                              </div>
+                              <div class="row mt-3">
+                                <label>
+                                  <input type="checkbox" value="1" name="recordarme" checked="checked">
+                                    Recordarme
+                                </label>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                        <div class="tab-pane fade" id="registro" role="tabpanel" aria-labelledby="profile-tab">
+                          <form>
+                            <div class="form-group">
+                              <input type="nombre" class="form-control" aria-describedby="nombreHelp" placeholder="Nombre">
+                            </div>
+                            <div class="form-group">
+                              <input type="apellido" class="form-control" aria-describedby="apellidoHelp" placeholder="Apellido">
+                            </div>
+                            <div class="form-group">
+                              <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Correo electrónico">
+                            </div>
+                            <div class="form-group">
+                              <input type="password" class="form-control" placeholder="Contraseña">
+                            </div>
+                            <div class="container">
+                              <div class="row flex-column flex-md-row justify-content-md-between align-items-md-center">
+                                <button type="submit" class="btn btn-primary iniciar mb-3 mb-md-0">Registrate</button>
+                              </div>
+                              <div class="row mt-3">
+                                <label>
+                                  <input type="checkbox" value="1" name="recordarme" checked="checked">
+                                    Recordarme
+                                </label>
+                              </div>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="row mt-3">
-                  <label>
-                    <input type="checkbox" value="1" name="recordarme" checked="checked">
-                      Recordarme
-                  </label>
-                </div>
               </div>
-            </form>
+            </div>
             <article class="mt-4 objetive">
               <div class="card">
                 <div class="card-body">
@@ -92,14 +142,14 @@
                          <li><i class="fa fa-share-alt"></i> Compartir tus experiencias para ayudar a otros viajeros</li>
                        </ul>
                      </div>-->
-                      <div class="col-6 text-center features-sr">
+                      <div class="col-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsebuscar').collapse('toggle')">
                         <div>
                           Buscá
                           <i class="fa fa-search"></i>
                         </div>
                         <i class="fa fa-angle-down"></i>
                       </div>
-                      <div class="col-6 text-center features-sr">
+                      <div class="col-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsecrear').collapse('toggle')">
                         <div>
                           Creá
                           <i class="fa fa-plus"></i>
@@ -113,19 +163,39 @@
                       <div class="col-12 obj-viajes text-uppercase text-center p-1 font-weight-bold">
                         viajes
                         <i class="fa fa-suitcase"></i>
+                        <div class="collapse card-viajes" id="collapsebuscar">
+                          <div class="card card-body border-0">
+                            Buscá: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                          </div>
+                        </div>
+                        <div class="collapse card-viajes" id="collapsecrear">
+                          <div class="card card-body border-0">
+                            Creá: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                          </div>
+                        </div>
+                        <div class="collapse card-viajes" id="collapseunirse">
+                          <div class="card card-body border-0">
+                            Unite: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                          </div>
+                        </div>
+                        <div class="collapse card-viajes" id="collapsecompartir">
+                          <div class="card card-body border-0">
+                            Compartí: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div class="container">
                     <div class="row">
-                      <div class="col-6 text-center features-sr">
+                      <div class="col-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapseunirse').collapse('toggle')">
                         <i class="fa fa-angle-up"></i>
                         <div>
                           Unite a
                           <i class="far fa-hand-pointer"></i>
                         </div>
                       </div>
-                      <div class="col-6 text-center features-sr">
+                      <div class="col-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsecompartir').collapse('toggle')">
                         <i class="fa fa-angle-up"></i>
                         <div>
                           Compartí
