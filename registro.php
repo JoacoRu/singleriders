@@ -3,18 +3,16 @@
 
 <?php
 require_once('funciones.php');
-$tabActivo = 'login';
+
 if ($_POST) {
   if (isset($_POST['nombre'])) {
     registrar($_POST);
-    
-    $tabActivo = 'registro';
+
   }
 
 }else {
-  $tabActivo = 'login';
-}
 
+}
 
 
 
@@ -30,41 +28,7 @@ if ($_POST) {
     <link rel="stylesheet" href="./css/styles.css">
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-dark fixed-top">
-        <a class="navbar-brand" href="#">
-          <div>
-            <div class="logo-container">
-              <div class="single">
-                S
-              </div>
-              <div class="riders">
-                R
-              </div>
-            </div>
-          </div>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Faqs</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+    <?php require_once('header.php'); ?>
     <section class="ingresar mt-5">
       <div class="container-fluid">
         <div class="row justify-content-center">
@@ -74,10 +38,10 @@ if ($_POST) {
             <!-- NOTE: tabs -->
             <ul class="nav nav-tabs" role="tablist">
               <li class="nav-item">
-                <a class="nav-link <?= $tabActivo=='login' ? 'active' : '' ?>" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Ingresá</a>
+                <a class="nav-link" id="login-tab" href="login.php">Ingresá</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link <?= $tabActivo=='registro' ? 'active' : '' ?>" id="registro-tab" data-toggle="tab" href="#registro" role="tab" aria-controls="registro" aria-selected="false">Registrate</a>
+                <a class="nav-link active" id="registro-tab" data-toggle="tab" href="#registro" role="tab" aria-controls="registro" aria-selected="false">Registrate</a>
               </li>
             </ul>
             <div class="card border-top-0 rounded-0 bottom-radius">
@@ -86,7 +50,7 @@ if ($_POST) {
                   <div class="row">
                     <div class="col-12">
                       <div class="tab-content">
-                        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                        <div class="tab-pane" id="login" role="tabpanel" aria-labelledby="login-tab">
                           <form method="post" enctype="multipart/form-data">
                             <div class="form-group">
                               <input name="useremail" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Correo electrónico">
@@ -108,19 +72,23 @@ if ($_POST) {
                             </div>
                           </form>
                         </div>
-                        <div class="tab-pane fade" id="registro" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="tab-pane fade show active" id="registro" role="tabpanel" aria-labelledby="profile-tab">
                           <form method="post" enctype="multipart/form-data">
-                            <div class="form-group">
-                              <input type="text" name="nombre" class="form-control" aria-describedby="nombreHelp" placeholder="Nombre">
+                            <div class="form-label-group">
+                              <input type="text" name="nombre" id="nombre" class="form-control" aria-describedby="nombreHelp" placeholder="Nombre">
+                              <label for="nombre">Nombre</label>
                             </div>
-                            <div class="form-group">
-                              <input type="text" name="apellido" class="form-control" aria-describedby="apellidoHelp" placeholder="Apellido">
+                            <div class="form-label-group">
+                              <input type="text" name="apellido" id="apellido" class="form-control" aria-describedby="apellidoHelp" placeholder="Apellido">
+                              <label for="apellido">Apellido</label>
                             </div>
-                            <div class="form-group">
-                              <input name="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Correo electrónico">
+                            <div class="form-label-group">
+                              <input name="email" id="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Correo electrónico">
+                              <label for="email">Correo electrónico</label>
                             </div>
-                            <div class="form-group">
-                              <input name="password" type="password" class="form-control" placeholder="Contraseña">
+                            <div class="form-label-group">
+                              <input name="password" id="password" type="password" class="form-control" placeholder="Contraseña">
+                              <label for="password">Contraseña</label>
                             </div>
                             <div class="container">
                               <div class="row flex-column flex-md-row justify-content-md-between align-items-md-center">
@@ -156,14 +124,14 @@ if ($_POST) {
                          <li><i class="fa fa-share-alt"></i> Compartir tus experiencias para ayudar a otros viajeros</li>
                        </ul>
                      </div>-->
-                      <div class="col-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsebuscar').collapse('toggle')">
+                      <div class="col-12 col-sm-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsebuscar').collapse('toggle')">
                         <div>
                           Buscá
                           <i class="fa fa-search"></i>
                         </div>
                         <i class="fa fa-angle-down"></i>
                       </div>
-                      <div class="col-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsecrear').collapse('toggle')">
+                      <div class="col-12 col-sm-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsecrear').collapse('toggle')">
                         <div>
                           Creá
                           <i class="fa fa-plus"></i>
@@ -202,14 +170,14 @@ if ($_POST) {
                   </div>
                   <div class="container">
                     <div class="row">
-                      <div class="col-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapseunirse').collapse('toggle')">
+                      <div class="col-12 col-sm-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapseunirse').collapse('toggle')">
                         <i class="fa fa-angle-up"></i>
                         <div>
                           Unite a
                           <i class="far fa-hand-pointer"></i>
                         </div>
                       </div>
-                      <div class="col-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsecompartir').collapse('toggle')">
+                      <div class="col-12 col-sm-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsecompartir').collapse('toggle')">
                         <i class="fa fa-angle-up"></i>
                         <div>
                           Compartí
@@ -226,37 +194,7 @@ if ($_POST) {
       </div>
     </section>
 
-    <footer class="sr-footer mt-5 pt-4 text-white">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <ul>
-              <li>Nosotros</li>
-              <li>Quiénes somos</li>
-              <li>Preguntas frecuentes</li>
-              <li>Registrate</li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul>
-              <li class="mb-2"><strong>Nuestras redes:</strong></li>
-              <li><i class="fab fa-twitter"></i>Twitter</li>
-              <li><i class="fab fa-facebook"></i>Facebook</li>
-              <li><i class="fab fa-instagram"></i>Instagram</li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="contacto-sr">
-              <li>Contacto</li>
-              <li>Copyright © 2018.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <?php require_once('footer.php'); ?>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-  </body>
+    </body>
 </html>
