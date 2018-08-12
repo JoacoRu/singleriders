@@ -8,8 +8,10 @@ $errores = [];
 
 if ($_POST) {
   $email = trim($_POST['email']);
-  $errores = validar($_POST);
-
+  $errores = validar($_POST,'login');
+  if (empty($errores)) {
+    login();
+  }
 }
 
 ?>
@@ -173,7 +175,7 @@ if ($_POST) {
                       <div class="col-12 col-sm-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapseunirse').collapse('toggle')">
                         <i class="fa fa-angle-up"></i>
                         <div>
-                          Unite a
+                          Unite
                           <i class="far fa-hand-pointer"></i>
                         </div>
                       </div>
