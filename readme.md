@@ -3,7 +3,6 @@
 
 Este sitio utiliza:
 - Framework Boostrap [Bootstrap](https://getbootstrap.com/)
-- Bootstrap material design
 - Íconos de Fontawesome [Fontawesome](https://fontawesome.com/)
 - Imágenes de viajes de Pexels [Pexels](https://www.pexels.com/search/travel/)
 - Fuentes Google fonts [Google fonts](https://fonts.google.com/)
