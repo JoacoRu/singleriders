@@ -3,14 +3,16 @@
 
 <?php
 require_once('funciones.php');
+$nombre = '';
+$apellido = '';
+$email = '';
+$errores = [];
 
 if ($_POST) {
-  if (isset($_POST['nombre'])) {
-    registrar($_POST);
-
-  }
-
-}else {
+  $nombre = trim($_POST['nombre']);
+  $apellido = trim($_POST['apellido']);
+  $email = trim($_POST['email']);
+  $errores = validar($_POST);
 
 }
 
@@ -75,20 +77,32 @@ if ($_POST) {
                         <div class="tab-pane fade show active" id="registro" role="tabpanel" aria-labelledby="profile-tab">
                           <form method="post" enctype="multipart/form-data">
                             <div class="form-label-group">
-                              <input type="text" name="nombre" id="nombre" class="form-control" aria-describedby="nombreHelp" placeholder="Nombre">
+                              <input type="text" name="nombre" id="nombre" aria-describedby="nombreHelp" placeholder="Nombre" value="<?=$nombre?>" class="form-control <?= strlen($errores['nombre']) > 0 ? 'errores-form-sr':'' ?>">
                               <label for="nombre">Nombre</label>
+                              <?php if (isset($errores['nombre'])): ?>
+                                <small id="nombreHelp" class="form-text text-danger"><?= $errores['nombre'] ?></small>
+                              <?php endif; ?>
                             </div>
                             <div class="form-label-group">
-                              <input type="text" name="apellido" id="apellido" class="form-control" aria-describedby="apellidoHelp" placeholder="Apellido">
+                              <input type="text" name="apellido" id="apellido" aria-describedby="apellidoHelp" placeholder="Apellido" value="<?=$apellido?>" class="form-control <?= strlen($errores['apellido']) > 0 ? 'errores-form-sr':'' ?>">
                               <label for="apellido">Apellido</label>
+                              <?php if (isset($errores['apellido'])): ?>
+                                <small id="apellidoHelp" class="form-text text-danger"><?= $errores['apellido'] ?></small>
+                              <?php endif; ?>
                             </div>
                             <div class="form-label-group">
-                              <input name="email" id="email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Correo electrónico">
+                              <input name="email" id="email" type="text" aria-describedby="emailHelp" placeholder="Correo electrónico" value="<?=$email?>" class="form-control <?= strlen($errores['email']) > 0 ? 'errores-form-sr':'' ?>">
                               <label for="email">Correo electrónico</label>
+                              <?php if (isset($errores['email'])): ?>
+                                <small id="emailHelp" class="form-text text-danger"><?= $errores['email'] ?></small>
+                              <?php endif; ?>
                             </div>
                             <div class="form-label-group">
-                              <input name="password" id="password" type="password" class="form-control" placeholder="Contraseña">
+                              <input name="password" id="password" type="password" aria-describedby="passwordHelp" placeholder="Contraseña" class="form-control <?= strlen($errores['password']) > 0 ? 'errores-form-sr':'' ?>">
                               <label for="password">Contraseña</label>
+                              <?php if (isset($errores['password'])): ?>
+                                <small id="passwordHelp" class="form-text text-danger"><?= $errores['password'] ?></small>
+                              <?php endif; ?>
                             </div>
                             <div class="container">
                               <div class="row flex-column flex-md-row justify-content-md-between align-items-md-center">
