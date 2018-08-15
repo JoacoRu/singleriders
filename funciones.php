@@ -71,7 +71,9 @@ function registrar($datosuser){
     $datosuser['id'] = $id;
     $userjson = json_encode($datosuser);
     file_put_contents('usuarios.json', $userjson . PHP_EOL, FILE_APPEND);
-    header('location:login.php');
+    $_SESSION['id'] = $id;
+
+    header('location:home.php');
 }
 
 //login de usuario
@@ -103,6 +105,21 @@ function obtenerUltimoId(){
   $ultimo = array_pop($arrUsuarioPHP);
   $id = $ultimo['id'];
   return $id;
+}
+
+//obtener id de usuario
+function obtenerId($id){
+  $usuarios = buscarUsuarios();
+  $usuario = [];
+  if (!empty($usuarios)) {
+    foreach ($usuarios as $usuario) {
+      //var_dump($usuario['id']);
+      if ($id == $usuario['id']) {
+        return $usuario;
+      }
+    }
+  }
+  return false;
 }
 
 

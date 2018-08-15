@@ -20,6 +20,10 @@ header .navbar {
   box-shadow: 1px 3px 15px -3px #3F51B5;
 }
 
+.home .logo h2, #loguerla h2{
+    font-family: 'pacifico';
+}
+
 .logo-container {
   position: relative;
   width: 55px;

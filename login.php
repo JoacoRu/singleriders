@@ -19,7 +19,7 @@
       $usuariologin = buscarUsuario($email);
       $_SESSION['id'] = $usuariologin['id'];
       if(!isset($_COOKIE['id']) && $_POST['recordarme']) {
-        setcookie('id', $usuariologin['id'], time() + 3600, '/');
+        setcookie('id', $usuariologin['id'], time() + 3600);
       }
       login();
     }
