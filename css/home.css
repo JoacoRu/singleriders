@@ -413,7 +413,13 @@ header .navbar {
 }
 
 /* RESPONSIVE */
+@media(min-width: 400px){
+  .dropdown-menu {
+  left: -66px;
+  }
+}
 @media(min-width: 500px){
+
     .home .foto-publicar{
         width: 64%;
         height: 200px;

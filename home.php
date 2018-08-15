@@ -67,7 +67,7 @@
     </div>
     </nav>-->
   </header>
-  <section class="container-fluid bg-white">
+  <section class="container-fluid bg-white mt-5">
   <div class="relleno" style="width: 100%; height: 50px;"></div>
   <article class="perfil">
     <div class="imagen_perfil">
