@@ -280,7 +280,7 @@
             </div>
           </div>
 
-        <article class="publicacion" style="margin-top: 50px;">
+        <div class="publicacion">
             <div class="publicacion_usuarios">
               <div class="publicacion_foto_usuario">
                 <img src="images/perfil.jpg" alt="" width="60px">
@@ -305,7 +305,7 @@
               <div class="comentario_area">
                 <textarea name="" id="" cols="30" rows="10" placeholder="Escribe tu comentario..."></textarea>
               </div>
-          </article>
+          </div>
     </div>
   </div>
     <div class="lateral-derecho">
