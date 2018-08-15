@@ -2,25 +2,28 @@
 <html lang="en">
 
 <?php
-require_once('funciones.php');
-if (isset($_SESSION['id']) || isset($_COOKIE['id'])) {
-    header('location:home.php');
-}
-$email = '';
-$errores = [];
 
-if ($_POST) {
-  $email = trim($_POST['email']);
-  $errores = validar($_POST,'login');
-  if (empty($errores)) {
-    $usuariologin = buscarUsuario($email);
-    $_SESSION['id'] = $usuariologin['id'];
-    if(!isset($_COOKIE['id']) && $_POST['recordarme']) {
-      setcookie('id', $usuariologin['id'], time() + 3600, '/');
-    }
-    login();
+  require_once('funciones.php');
+
+  if (isset($_SESSION['id']) || isset($_COOKIE['id'])) {
+    header('location:home.php');
   }
-}
+
+  $email = '';
+  $errores = [];
+
+  if ($_POST) {
+    $email = trim($_POST['email']);
+    $errores = validar($_POST,'login');
+    if (empty($errores)) {
+      $usuariologin = buscarUsuario($email);
+      $_SESSION['id'] = $usuariologin['id'];
+      if(!isset($_COOKIE['id']) && $_POST['recordarme']) {
+        setcookie('id', $usuariologin['id'], time() + 3600, '/');
+      }
+      login();
+    }
+  }
 
 ?>
 

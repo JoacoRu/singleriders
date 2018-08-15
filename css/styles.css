@@ -264,6 +264,55 @@ header .navbar {
 }
 
 
+/* NOTE: estilos faqs */
+
+.faqs .container-postal{
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+/*
+.postal{
+  background-image: url(../images/fondo-postal3.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 100%;
+  margin-top: 10%;
+  background-position: center;
+}
+*/
+
+.faqs .row-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    background-position: center;
+    margin: 0 auto;
+}
+
+.faqs .respuestas{
+  background-image: url(../images/fondo-respuestas3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: auto;
+}
+
+
+.faqs .tab-content  p{
+  background-color: rgba(2, 136, 209, 0.5);
+  margin:5%;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+
+}
+
+/* NOTE: fin estilos faqs */
+
+
 @media(min-width:768px){
   .contacto-sr {
       display: flex !important;
