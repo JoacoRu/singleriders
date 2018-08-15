@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 //validacion de campos para el registro y el alta de usuario
 function validar($datosuser, $formulario){
   $usuariologin = buscarUsuario(trim($datosuser['email']));
@@ -63,7 +65,10 @@ function validar($datosuser, $formulario){
 
 //registro de usuario
 function registrar($datosuser){
-    $datosuser['password']=password_hash($datosuser['password'],PASSWORD_DEFAULT);
+    $datosuser['password'] = password_hash($datosuser['password'],PASSWORD_DEFAULT);
+    $id = obtenerUltimoId();
+    $id ? $id = $id + 1 : $id = 1;
+    $datosuser['id'] = $id;
     $userjson = json_encode($datosuser);
     file_put_contents('usuarios.json', $userjson . PHP_EOL, FILE_APPEND);
     header('location:login.php');
@@ -86,6 +91,21 @@ function buscarUsuarios(){
   return $arrUsuarioPHP;
 }
 
+//obtener id del ultimo usuario
+function obtenerUltimoId(){
+  $usuarios = file_get_contents('usuarios.json');
+  $arrUsuariosJSON = explode(PHP_EOL,$usuarios);
+  $arrUsuarioPHP = [];
+  array_pop($arrUsuariosJSON);
+  foreach ($arrUsuariosJSON as $key => $usuario) {
+      $arrUsuarioPHP[] = json_decode($usuario,true);
+  }
+  $ultimo = array_pop($arrUsuarioPHP);
+  $id = $ultimo['id'];
+  return $id;
+}
+
+
 //obtener un usuario
 function buscarUsuario($email){
   $usuarios = buscarUsuarios();
@@ -99,6 +119,8 @@ function buscarUsuario($email){
   }
   return false;
 }
+
+//agregar file upload para el perfil de usuario
 
 
 

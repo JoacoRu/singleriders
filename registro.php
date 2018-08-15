@@ -3,6 +3,9 @@
 
 <?php
 require_once('funciones.php');
+if (isset($_SESSION['id']) || isset($_COOKIE['id'])) {
+    header('location:home.php');
+}
 $nombre = '';
 $apellido = '';
 $email = '';
