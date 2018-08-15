@@ -317,6 +317,13 @@ header .navbar {
 /* NOTE: fin estilos faqs */
 
 
+@media(min-width: 400px){
+  .dropdown-menu {
+  left: -66px;
+  }
+}
+
+
 @media(min-width:768px){
   .contacto-sr {
       display: flex !important;
