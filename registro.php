@@ -15,10 +15,10 @@ if ($_POST) {
   $nombre = trim($_POST['nombre']);
   $apellido = trim($_POST['apellido']);
   $email = trim($_POST['email']);
-  $errores = validar($_POST,'registro');
+  $errores = validar($_POST,'registro',$_FILES);
   if (empty($errores)) {
 
-      registrar($_POST);
+      registrar($_POST,$_FILES);
 
   }
 }
@@ -87,31 +87,38 @@ if ($_POST) {
                         <div class="tab-pane fade show active" id="registro" role="tabpanel" aria-labelledby="profile-tab">
                           <form method="post" enctype="multipart/form-data">
                             <div class="form-label-group">
-                              <input type="text" name="nombre" id="nombre" aria-describedby="nombreHelp" placeholder="Nombre" value="<?=$nombre?>" class="form-control <?= strlen($errores['nombre']) > 0 ? 'errores-form-sr':'' ?>">
+                              <input type="text" name="nombre" id="nombre" aria-describedby="nombreHelp" placeholder="Nombre" value="<?=$nombre?>" class="form-control <?= isset($errores['nombre']) ? strlen($errores['nombre']) > 0 ? 'errores-form-sr':'' : '' ?>">
                               <label for="nombre">Nombre</label>
                               <?php if (isset($errores['nombre'])): ?>
                                 <small id="nombreHelp" class="form-text text-danger"><?= $errores['nombre'] ?></small>
                               <?php endif; ?>
                             </div>
                             <div class="form-label-group">
-                              <input type="text" name="apellido" id="apellido" aria-describedby="apellidoHelp" placeholder="Apellido" value="<?=$apellido?>" class="form-control <?= strlen($errores['apellido']) > 0 ? 'errores-form-sr':'' ?>">
+                              <input type="text" name="apellido" id="apellido" aria-describedby="apellidoHelp" placeholder="Apellido" value="<?=$apellido?>" class="form-control <?= isset($errores['apellido']) ? strlen($errores['apellido']) > 0 ? 'errores-form-sr':'' : '' ?>">
                               <label for="apellido">Apellido</label>
                               <?php if (isset($errores['apellido'])): ?>
                                 <small id="apellidoHelp" class="form-text text-danger"><?= $errores['apellido'] ?></small>
                               <?php endif; ?>
                             </div>
                             <div class="form-label-group">
-                              <input name="email" id="email" type="text" aria-describedby="emailHelp" placeholder="Correo electrónico" value="<?=$email?>" class="form-control <?= strlen($errores['email']) > 0 ? 'errores-form-sr':'' ?>">
+                              <input name="email" id="email" type="text" aria-describedby="emailHelp" placeholder="Correo electrónico" value="<?=$email?>" class="form-control <?= isset($errores['email']) ? strlen($errores['email']) > 0 ? 'errores-form-sr':'' : '' ?>">
                               <label for="email">Correo electrónico</label>
                               <?php if (isset($errores['email'])): ?>
                                 <small id="emailHelp" class="form-text text-danger"><?= $errores['email'] ?></small>
                               <?php endif; ?>
                             </div>
                             <div class="form-label-group">
-                              <input name="password" id="password" type="password" aria-describedby="passwordHelp" placeholder="Contraseña" class="form-control <?= strlen($errores['password']) > 0 ? 'errores-form-sr':'' ?>">
+                              <input name="password" id="password" type="password" aria-describedby="passwordHelp" placeholder="Contraseña" class="form-control <?= isset ($errores['password']) ? strlen($errores['password']) > 0 ? 'errores-form-sr':'' : '' ?>">
                               <label for="password">Contraseña</label>
                               <?php if (isset($errores['password'])): ?>
                                 <small id="passwordHelp" class="form-text text-danger"><?= $errores['password'] ?></small>
+                              <?php endif; ?>
+                            </div>
+                            <div class="form-label-group">
+                              <input name="imgperfil" id="imgperfil" type="file" aria-describedby="imgperfilHelp" placeholder="Imagen de perfil" class="form-control <?= isset($errores['imgperfil']) ? strlen($errores['imgperfil']) > 0 ? 'errores-form-sr':'' : '' ?>">
+                              <label for="password">Imagen de perfil</label>
+                              <?php if (isset($errores['imgperfil'])): ?>
+                                <small id="imgperfilHelp" class="form-text text-danger"><?= $errores['imgperfil'] ?></small>
                               <?php endif; ?>
                             </div>
                             <div class="container">
@@ -217,6 +224,26 @@ if ($_POST) {
         </div>
       </div>
     </section>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Bienvenido!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Ya formás parte de la comunidad Single Riders, a continuación accederás a la página principal desde la que podrás compartir, publicar, buscar viajes.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <?php require_once('footer.php'); ?>
 

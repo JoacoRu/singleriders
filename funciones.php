@@ -2,8 +2,10 @@
 
 session_start();
 
+// NOTE: prueba
+
 //validacion de campos para el registro y el alta de usuario
-function validar($datosuser, $formulario){
+function validar($datosuser, $formulario, $imagenperfil = false){
   $usuariologin = buscarUsuario(trim($datosuser['email']));
   $errores = [];
   foreach ($datosuser as $clave => $dato) {
@@ -60,21 +62,62 @@ function validar($datosuser, $formulario){
       }
     }
   }
+  if ($formulario == 'registro') {
+
+    if ($imagenperfil['imgperfil']['error'] === UPLOAD_ERR_OK) {
+        $ext = strtolower(pathinfo($imagenperfil['imgperfil']['name'], PATHINFO_EXTENSION));
+        if ($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg') {
+          $errores['imgperfil'] = 'Extension no válida (debe ser jpg, jpeg o png)';
+        }
+    }else {
+        $errores['imgperfil'] = 'Seleccioná una imagen de perfil';
+    }
+  }
   return $errores;
 }
 
 //registro de usuario
-function registrar($datosuser){
+function registrar($datosuser,$imagenperfil=false){
     $datosuser['password'] = password_hash($datosuser['password'],PASSWORD_DEFAULT);
     $id = obtenerUltimoId();
     $id ? $id = $id + 1 : $id = 1;
     $datosuser['id'] = $id;
+    $ext = strtolower(pathinfo($imagenperfil['imgperfil']['name'], PATHINFO_EXTENSION));
+    $hasta = '/images/profileImg/'.'perf'.$id.'.'.$ext;
+    $datosuser['srcImagenperfil'] = $hasta;
     $userjson = json_encode($datosuser);
     file_put_contents('usuarios.json', $userjson . PHP_EOL, FILE_APPEND);
+    subirImgPerfil($imagenperfil,$id);
+
     $_SESSION['id'] = $id;
 
     header('location:home.php');
 }
+
+//subir imagen
+
+function subirImgPerfil($imagen,$id){
+  if ($imagen['imgperfil']['error'] === UPLOAD_ERR_OK) {
+      $ext = strtolower(pathinfo($imagen['imgperfil']['name'], PATHINFO_EXTENSION));
+      if ($ext == 'jpg' || $ext == 'png' || $ext == 'jpeg') {
+          $hasta = dirname(__FILE__) .'/images/profileImg/'.'perf'.$id.'.'.$ext ;
+          $desde = $imagen['imgperfil']['tmp_name'];
+          $end = end(explode('/', $hasta));
+          if (file_exists($hasta)) {
+            echo "<br>";
+            echo "<p>El archivo ya existe, no será subido</p>";
+          }else {
+            move_uploaded_file($desde, $hasta);
+          }
+
+      }else {
+          var_dump('extension invalida!');
+      }
+  }else {
+      var_dump('error al subir');
+  }
+}
+
 
 //login de usuario
 function login(){
