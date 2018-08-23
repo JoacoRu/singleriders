@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-
   require_once('funciones.php');
-
+  $nombres = traerNombreDeUsuarios();
+  if($_POST){
+    $guardarMsj = crearMensaje();
+  }
   if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
     header('location:login.php');
   }else if (isset($_SESSION['id'])) {
@@ -13,7 +15,6 @@
   }else {
     header('location:login.php');
   }
-
 ?>
 <head>
   <meta charset="UTF-8">
@@ -311,6 +312,28 @@
               </div>
           </div>
     </div>
+    <div>
+        <form method="post">
+          <select name="to">
+            <option value="elige_usuario">Selecciona un usuario</option>
+            <?php print_r($nombres); foreach ($nombres['usuarios'] as $nombre) { ?>
+            <option value="<?php echo $nombre; ?>"><?php echo $nombre; ?></option>
+            <?php } ?>
+          </select>
+            
+            <textarea name="mensaje" placeholder="Envia tu mensaje..."></textarea>
+
+            <input type="submit">
+
+        </form>
+         
+      </div>
+
+     <!-- <div>
+        <h3>Aca recibimos el msj</h3>
+              <p></p>
+      </div>-->
+
   </div>
     <div class="lateral-derecho">
     <article>

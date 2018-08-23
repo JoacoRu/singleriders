@@ -182,6 +182,70 @@ function buscarUsuario($email){
 
 //agregar file upload para el perfil de usuario
 
+//Todos los nombres en un array
+function traerNombreDeUsuarios(){
+
+  $todosLosUsuarios = buscarUsuarios();
+  $ultimoId = obtenerUltimoId();
+  $nombres = [];
+  $nombres['usuarios'] = array_map(function($item){
+    return $item['nombre']; 
+    }, $todosLosUsuarios);
+    unset($nombres['usuarios'][0]);
+    return $nombres;
+  }
+
+/* // crea el mensaje
+
+  function crearMensaje(){
+    $mensaje = [
+      'from' => $_SESSION['id'],
+
+      'to'  => $_POST['to'],
+      
+      'msj'  => $_POST['mensaje'],
+    ];
+    $msjJson = json_encode($mensaje, true);
+    file_put_contents('mensajes.json', $msjJson . PHP_EOL, FILE_APPEND);
+    header('location:home.php');
+  }
+
+  //decodea el msj
+
+  function recibirMensaje(){
+    $msjJson= file_get_contents('mensajes.json');
+    $msjArray = explode(PHP_EOL, $msjJson);
+    array_pop($msjArray);
+    $arrayPhp = [];
+
+    foreach ($msjArray as $contenido) {
+      $arrayPhp[] = json_decode($contenido, true);
+    }
+
+    return $arrayPhp;
+  }
+
+  // convertir el nombre en un id
+    function deNombreAid($nombre){
+      $todosLosUsuarios = buscarUsuarios();
+      var_dump($todosLosUsuarios);
+    }
+
+
+
+  //mostrar msj
+
+   function mostrarMsj(){
+    $msj = recibirMensaje();
+    $mensaje = [];
+    
+    foreach ($msj as $msjs) {
+      
+    }
+    var_dump($mensaje['destinatario']);
+   }*/ 
+
+
 
 
 
