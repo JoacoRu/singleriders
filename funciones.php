@@ -5,7 +5,7 @@ session_start();
 // NOTE: prueba
 
 //validacion de campos para el registro y el alta de usuario
-function validar($datosuser, $formulario, $imagenperfil = false){
+function validar($datosuser, $formulario, $imagenperfil = false, $mailModificacion = ''){
   $usuariologin = buscarUsuario(trim($datosuser['email']));
   $errores = [];
   foreach ($datosuser as $clave => $dato) {
@@ -30,12 +30,19 @@ function validar($datosuser, $formulario, $imagenperfil = false){
             }
           }
         }
-        if ($formulario == 'login') {
+        elseif ($formulario == 'login') {
             if (!$usuariologin) {
               if (!isset($errores[$clave])) {
                 $errores[$clave] = 'Usuario incorrecto';
               }
             }
+        }
+        else if ($formulario == 'modificacion' && $mailModificacion != '') {
+          if (buscarUsuario(trim($dato))) {
+            if (!isset($errores[$clave])) {
+              $errores[$clave] = 'El email ya fue registrado';
+            }
+          }
         }
       }
       if ($clave == 'password') {
@@ -73,6 +80,18 @@ function validar($datosuser, $formulario, $imagenperfil = false){
         $errores['imgperfil'] = 'Seleccioná una imagen de perfil';
     }
   }
+  if ($formulario == 'modificacion' && $imagenperfil) {
+    if ($imagenperfil['imgperfil']['error'] === UPLOAD_ERR_OK) {
+        $ext = strtolower(pathinfo($imagenperfil['imgperfil']['name'], PATHINFO_EXTENSION));
+        if ($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg') {
+          $errores['imgperfil'] = 'Extension no válida (debe ser jpg, jpeg o png)';
+        }
+    }elseif ($imagenperfil['imgperfil']['error'] === 4) {
+        //var_dump($imagenperfil);
+        //exit;
+        //$errores['imgperfil'] = 'Seleccioná una imagen chango';
+    }
+  }
   return $errores;
 }
 
@@ -91,7 +110,7 @@ function registrar($datosuser,$imagenperfil=false){
 
     $_SESSION['id'] = $id;
 
-    header('location:home.php');
+    header('location:muro.php');
 }
 
 //subir imagen
@@ -102,10 +121,11 @@ function subirImgPerfil($imagen,$id){
       if ($ext == 'jpg' || $ext == 'png' || $ext == 'jpeg') {
           $hasta = dirname(__FILE__) .'/images/profileImg/'.'perf'.$id.'.'.$ext ;
           $desde = $imagen['imgperfil']['tmp_name'];
-          $end = end(explode('/', $hasta));
+          //$end = end(explode('/', $hasta));
           if (file_exists($hasta)) {
-            echo "<br>";
-            echo "<p>El archivo ya existe, no será subido</p>";
+            //echo "<br>";
+            //echo "<p>El archivo ya existe, no será subido</p>";
+            move_uploaded_file($desde, $hasta);
           }else {
             move_uploaded_file($desde, $hasta);
           }
@@ -121,7 +141,7 @@ function subirImgPerfil($imagen,$id){
 
 //login de usuario
 function login(){
-  header('location:home.php');
+  header('location:muro.php');
 }
 
 //obtener usuarios (para registrar si no existe el mail o para loguear si son correctas las credenciales y el email)
@@ -180,71 +200,95 @@ function buscarUsuario($email){
   return false;
 }
 
-//agregar file upload para el perfil de usuario
+//actualizar perfil de usuario
+function actualizarusuario($imagenperfil,$datosuser,$id){
+  // NOTE: obtener los usuarios en usuarios.json, transformandolos en un array
+  $usuarios = buscarUsuarios();
+  // NOTE: recorrer array de todos los usuarios y sobreescribir el registro que corresponda al usuario a editar
+  if (!empty($usuarios)) {
+    // NOTE: vacio el archivo usuarios.json para poder insertar las modificaciones sin duplicar al usuario
+      file_put_contents('usuarios.json', '');
+      foreach ($usuarios as $usuario) {
+        // NOTE: si encuentro al usuario guardo las modificaciones
+        if (strtolower($id) == strtolower($usuario['id'])) {
+          $usuario['nombre'] = $datosuser['nombre'];
+          $usuario['apellido'] = $datosuser['apellido'];
+          $usuario['email'] = $datosuser['email'];
+          if ($usuario['password'] != $datosuser['password']) {
+            $usuario['password'] = password_hash($datosuser['password'],PASSWORD_DEFAULT);
+          }
+          if ($imagenperfil['imgperfil']['error'] === UPLOAD_ERR_OK) {
+            $ext = strtolower(pathinfo($imagenperfil['imgperfil']['name'], PATHINFO_EXTENSION));
+            $hasta = '/images/profileImg/'.'perf'.$id.'.'.$ext;
+            $usuario['srcImagenperfil'] = $hasta;
+        }
+        $userjson = json_encode($usuario);
+        file_put_contents('usuarios.json', $userjson . PHP_EOL, FILE_APPEND);
+        subirImgPerfil($imagenperfil,$id);
+      }else {
+        // NOTE: si no encuentro al usuario guardo a los demas sin cambios
+        $userjson = json_encode($usuario);
+        file_put_contents('usuarios.json', $userjson . PHP_EOL, FILE_APPEND);
+      }
+    }
+  }
+  // NOTE: volver a convertir a json y guardar archivo usuarios.json
+  //$userjson = json_encode($usuarios);
+  //file_put_contents('usuarios2.json', $userjson . PHP_EOL, FILE_APPEND);
+  //subirImgPerfil($imagenperfil,$id);
+
+
+}
 
 //Todos los nombres en un array
 function traerNombreDeUsuarios(){
-
   $todosLosUsuarios = buscarUsuarios();
   $ultimoId = obtenerUltimoId();
   $nombres = [];
   $nombres['usuarios'] = array_map(function($item){
-    return $item['nombre']; 
+    return $item['nombre'];
     }, $todosLosUsuarios);
     unset($nombres['usuarios'][0]);
     return $nombres;
   }
-
 /* // crea el mensaje
-
   function crearMensaje(){
     $mensaje = [
       'from' => $_SESSION['id'],
-
       'to'  => $_POST['to'],
-      
+
       'msj'  => $_POST['mensaje'],
     ];
     $msjJson = json_encode($mensaje, true);
     file_put_contents('mensajes.json', $msjJson . PHP_EOL, FILE_APPEND);
     header('location:home.php');
   }
-
   //decodea el msj
-
   function recibirMensaje(){
     $msjJson= file_get_contents('mensajes.json');
     $msjArray = explode(PHP_EOL, $msjJson);
     array_pop($msjArray);
     $arrayPhp = [];
-
     foreach ($msjArray as $contenido) {
       $arrayPhp[] = json_decode($contenido, true);
     }
-
     return $arrayPhp;
   }
-
   // convertir el nombre en un id
     function deNombreAid($nombre){
       $todosLosUsuarios = buscarUsuarios();
       var_dump($todosLosUsuarios);
     }
-
-
-
   //mostrar msj
-
    function mostrarMsj(){
     $msj = recibirMensaje();
     $mensaje = [];
-    
+
     foreach ($msj as $msjs) {
-      
+
     }
     var_dump($mensaje['destinatario']);
    }*/ 
-
 
 
 

@@ -61,9 +61,6 @@ header .navbar {
 
 .titulo-sr-home {
   font-family: 'Abel';
-  position: sticky;
-  top: 1px;
-  z-index: 1;
 }
 
 .single-f {
@@ -137,6 +134,11 @@ header .navbar {
   opacity: 0.6;
 }
 
+a:hover {
+    color: #0056b3;
+    text-decoration: none;
+}
+
 .contacto-sr {
     height: 100%;
     margin-bottom: 0;
@@ -150,6 +152,26 @@ header .navbar {
   text-transform: none;
 }
 
+.second-section .card img {
+    max-width: 200px;
+    max-height: 200px;
+    border-radius: 50%;
+    margin: 25px auto;
+    display: block;
+    position: relative;
+    border: 5px solid white;
+}
+
+.second-section .fondo-card {
+  position: absolute;
+  width: 100%;
+  height: 125px;
+  background-color: #3F51B5;
+  top: 0;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
 .overbuttons:hover {
   opacity: 0.6;
   cursor: pointer;
@@ -158,6 +180,10 @@ header .navbar {
 .bottom-radius {
   border-bottom-right-radius: .25rem !important;
   border-bottom-left-radius: .25rem !important;
+}
+
+.custom-file-label::after {
+  content:'Buscar';
 }
 
 /* NOTE: inicio labels flotantes */
@@ -185,7 +211,8 @@ header .navbar {
   width: 100%;
   height: 2em; /* agregado */
   margin-bottom: 0; /* Override default `<label>` margin */
-  line-height: 1.5;
+  /*line-height: 1.5;*/
+  line-height: 1.8;
   color: #acacac;
   cursor: text; /* Match the input under the label */
   border: 1px solid transparent;
@@ -235,6 +262,10 @@ header .navbar {
 #imgperfil:not(:placeholder-shown) {
     padding-top: calc(var(--input-padding-y) + var(--input-padding-y) * (1.2 ));
     padding-bottom: calc(var(--input-padding-y) / 1.2);
+}
+
+.form-control {
+    height: auto !important;
 }
 
 /* Fallback for Edge
@@ -308,6 +339,9 @@ header .navbar {
   background-repeat: no-repeat;
   background-size: cover;
   overflow: auto;
+  display: flex;
+/* justify-content: center; */
+  align-items: center;
 }
 
 
@@ -331,9 +365,96 @@ header .navbar {
 /* NOTE: fin estilos faqs */
 
 
+/* NOTE: inicio estilos perfil */
+.home-container {
+  margin-top: 5em !important;
+}
+
+/* NOTE: fin estilos perfil */
+
+/* NOTE: estilos nueva home  */
+/*.carousel-item {
+    border: 20px solid transparent;
+    border-image: url(../images/fondo2.png) 30 round;
+}*/
+.items-home-slider {
+    list-style: none;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    color: white;
+    padding: 0;
+}
+.items-home-slider li {
+    height: 200px;
+    width: 200px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 25px 25px;
+    font-family: 'Abel';
+    font-size: 1.2em;
+}
+
+.carousel-caption-top {
+  top:45%;
+  z-index:0;
+}
+
+.home-mod-login {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 2;
+}
+
+.home-row-main {
+  position: relative;
+}
+
+.second-section {
+  background: #e9ecef;
+}
+
+.second-section .card {
+  border: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-shadow: 3px 5px 10px #888888;
+}
+
+.home-carousel {
+  display: none;
+}
+
+#map {
+  height: 347px;
+  /*max-width: 384px;*/
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* NOTE: fin estilos nueva home */
+
+
 @media(min-width: 400px){
   .dropdown-menu {
   left: -66px;
+  }
+}
+
+@media(min-width:460px){
+  .titulo-sr-home {
+    font-family: 'Abel';
+    position: sticky;
+    top: 1px;
+    z-index: 1;
   }
 }
 
@@ -350,5 +471,17 @@ header .navbar {
       display: flex !important;
       flex-flow: column;
       justify-content: space-between;
+  }
+
+  .home-mod-login {
+      position: absolute;
+      right: 15px !important;
+      left: auto !important;
+      margin: auto !important;
+      top: 1.8em;
+  }
+
+  .home-carousel {
+    display: block;
   }
 }

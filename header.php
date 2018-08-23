@@ -14,7 +14,7 @@
 
     <header>
       <nav class="navbar navbar-dark fixed-top">
-        <a class="navbar-brand" href="home.php">
+        <a class="navbar-brand" href="index.php">
           <div>
             <div class="logo-container">
               <div class="single">
@@ -41,7 +41,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item active">
-                <a class="nav-link" href="home.php">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="faqs.php">Faqs</a>
@@ -63,7 +63,7 @@
             <?=$usuariologin['nombre']; ?>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="#">Editar Perfil</a>
+            <a class="dropdown-item" href="perfil.php">Editar Perfil</a>
             <a class="dropdown-item" href="#">Mis Viajes</a>
             <a class="dropdown-item" href="#">Cambiar Cuenta</a>
             <a class="dropdown-item" href="faqs.php">faqs</a>
