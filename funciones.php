@@ -248,15 +248,34 @@ function traerNombreDeUsuarios(){
   $nombres['usuarios'] = array_map(function($item){
     return $item['nombre'];
     }, $todosLosUsuarios);
-    unset($nombres['usuarios'][0]);
+    //unset($nombres['usuarios'][0]);
     return $nombres;
   }
-/* // crea el mensaje
+
+  // asociar el nombre a una id
+  function nombreAsocId($nombre){
+    $todosLosUsuarios = buscarUsuarios();
+    $datosDeUsuario = [];
+    $idDelUsuario;
+    foreach ($todosLosUsuarios as $usuario) {
+      if($usuario['nombre'] == $nombre){
+        $datosDeUsuario[] = $usuario;
+      }
+    }
+    foreach ($datosDeUsuario as $dato) {
+      $idDelUsuario = $dato['id'];
+    }
+  
+    return $idDelUsuario;
+  }
+
+ // crea el mensaje
   function crearMensaje(){
+    $convertidor = nombreAsocId($_POST['to']);
     $mensaje = [
       'from' => $_SESSION['id'],
       'to'  => $_POST['to'],
-
+      'idDestinatario' => $convertidor,
       'msj'  => $_POST['mensaje'],
     ];
     $msjJson = json_encode($mensaje, true);
@@ -274,22 +293,20 @@ function traerNombreDeUsuarios(){
     }
     return $arrayPhp;
   }
-  // convertir el nombre en un id
-    function deNombreAid($nombre){
-      $todosLosUsuarios = buscarUsuarios();
-      var_dump($todosLosUsuarios);
+
+  //selecciona el msj
+
+  function msjAseleccionar(){
+    $recibe = recibirMensaje();
+    $idEnSesion = $_SESSION['id'];
+    $datosDelMensaje = [];
+    foreach ($recibe as $dato) {
+      if($dato['idDestinatario'] == $idEnSesion){
+        $datosDelMensaje[] = $dato;
+      }
     }
-  //mostrar msj
-   function mostrarMsj(){
-    $msj = recibirMensaje();
-    $mensaje = [];
-
-    foreach ($msj as $msjs) {
-
-    }
-    var_dump($mensaje['destinatario']);
-   }*/ 
-
+    return $datosDelMensaje;
+  }
 
 
 
