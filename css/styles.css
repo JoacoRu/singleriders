@@ -372,6 +372,28 @@ a:hover {
 
 /* NOTE: fin estilos perfil */
 
+/* NOTE: estilos muro2 */
+.top-muro-image {
+  background-image: url(../images/muro/banner.jpg);
+  height: 150px;
+  background-size: cover;
+  background-position: top;
+}
+
+.stepper-muro {
+  height:30px;
+  width: 30px;
+}
+
+.linea-steps {
+  flex: 1 auto;
+  height: 1px;
+  background: #cccccc;
+  align-self: center;
+}
+
+/* NOTE: fin estilos muro2 */
+
 /* NOTE: estilos nueva home  */
 /*.carousel-item {
     border: 20px solid transparent;

@@ -265,22 +265,23 @@ function traerNombreDeUsuarios(){
     foreach ($datosDeUsuario as $dato) {
       $idDelUsuario = $dato['id'];
     }
-  
+
     return $idDelUsuario;
   }
 
  // crea el mensaje
-  function crearMensaje(){
+  function crearMensaje($remitente='anónimo'){
     $convertidor = nombreAsocId($_POST['to']);
     $mensaje = [
       'from' => $_SESSION['id'],
       'to'  => $_POST['to'],
+      'nombreRemitente' => $remitente,
       'idDestinatario' => $convertidor,
       'msj'  => $_POST['mensaje'],
     ];
     $msjJson = json_encode($mensaje, true);
     file_put_contents('mensajes.json', $msjJson . PHP_EOL, FILE_APPEND);
-    header('location:home.php');
+    header('location:mensajes.php');
   }
   //decodea el msj
   function recibirMensaje(){
