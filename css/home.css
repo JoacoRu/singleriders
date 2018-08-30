@@ -197,6 +197,10 @@ header{
 }
 /*HEADER MURO*/
 
+.muro{
+    width: 100%;
+}
+
 .header_muro{
     display: flex;
     max-width: 100%;
