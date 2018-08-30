@@ -27,49 +27,94 @@ if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Abel|Montserrat:400,400i,700,700i|Pacifico" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <!-- FUENTE MENU DE NAVEGACION IZQUIERDO-->
+    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+    <!-- CSS-->
     <link rel="stylesheet" href="css/home.css">
     <title>Document</title>
 </head>
 <body>
     <header>
-        <?php
-        include_once "header.php";
-        ?>
+        
     </header>
-    <section class="super-container">
+    <section class="super-container container">
         <!-- CAJA RELLENO -->
         <div class="relleno"></div>
         <!-- CAJA IZQUIERDA -->
         <article class="izquierda">
-            <div class="datos_perfil_container">
-                <div class="perfil  container">
-                    <img src="images/perfil.jpg" alt="una imagen de perfil" width="25px" height="25px">
-                    <h4><?= $usuariologin['nombre'];?></h4>
+            <div class="datos-perfil">
+                <img src="images/perfil.jpg" alt="" id="foto-perfil">
+                <button id="editar-foto"><img src="images/iconos/home/editar.png" alt=""> <p>Editar foto de perfil</p></button>
+                <ul class="navegacion-perfil">
+                    <li>
+                        <img src="images/iconos/home/perfil_chico.png" alt="" width="20px">
+                        <a href="#">Ver mi Perfil</a>
+                    </li>
+                    <li>
+                        <img src="images/iconos/home/crear_viaje.png" alt="">
+                        <a href="#">Crear Viaje</a>
+                    </li>
+                    <li>
+                        <img src="images/iconos/home/ver_mis_viajes.png" alt="">
+                        <a href="#">Ver mis Viajes</a>
+                    </li>
+                    <li>
+                        <img src="images/iconos/home/crear_grupo.png" alt="">
+                        <a href="#">Crear Grupo</a>
+                    </li>
+                    <li>
+                        <img src="images/iconos/home/unirte_a_viaje.png" alt="">
+                        <a href="#">Unirte a Grupo</a>
+                    </li>
+                    <li>
+                        <img src="images/iconos/home/sobre.png" alt="">
+                        <a href="#">Ver mis Mensajes</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="redes">
+                <div class="redes-titulo">
+                    <h5>
+                        Social
+                    </h5>
                 </div>
-                &nbsp
-                &nbsp
-                <div class="funciones container">
-                    <button class="crear_viaje"><img src="images/iconos/home/funciones_crear-viaje.png" alt="" width="15px" heigth="15px"><p>Crear Viaje</p></button>
-                    
-                    <button class="crear_viaje"><img src="images/iconos/home/funciones_grupo.png" alt="" width="15px" heigth="15px" id="grupo"><p>Crear Grupo</p></button>
-                    
-                   
-                    <button class="crear_viaje"><img src="images/iconos/home/funciones-usuario.png" alt="" width="15px" heigth="15px" id="grupo"><p> Usuarios</p></button>
-
-                     <button class="crear_viaje"><img src="images/iconos/home/funciones_unete.png" alt="" width="15px" heigth="15px" id="grupo"><p> Unirte a un Viaje</p></button>
-
-                     <button class="crear_viaje"><img src="images/iconos/home/funciones_mis_viajes.png" alt="" width="15px" heigth="15px" id="grupo"><p> Ver mis Viajes</p></button>
-
-                     <p id="acceso">Accesos Directos</p>
-
-
+                <div class="menu-social">
+                    <ul>
+                        <li>
+                            <a href="#"><img src="images/iconos/home/redes/facebook.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="images/iconos/home/redes/instagram.png" alt=""></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="images/iconos/home/redes/twitter.png" alt="" style="border-radius: 5px;"></a>
+                        </li>
+                        <li>
+                            <a href="#"><img src="images/iconos/home/redes/google-plus.png" alt="" style="border-radius: 5px;"></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="redes">
+                <div class="redes-titulo">
+                    <h5>
+                        Viajes Aleatorios
+                    </h5>
+                </div>
+                <div class="viajes_aleatorios">
+                    <p>Proximamente</p>
                 </div>
             </div>
         </article>
         <!-- CAJA CENTRO -->
-        <article class="centro"></article>
-        <!-- CAJA DERECHA -->
-        <article class="derecha"></article>
+        <article class="centro">
+            <div class="muro">
+                <div class="header_muro">
+                     <h4>Muro</h5>
+                    <h4><?= $usuariologin['nombre']; ?></h4>
+                </div>
+            </div>
+        </article>
     </section>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

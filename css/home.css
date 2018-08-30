@@ -4,90 +4,203 @@
     box-sizing: border-box;
 }
 
+/*HEADER*/
+header{
+    background-color: green;
+    width: 100%;
+    height: 54px;
+}
+/*CONTAINER*/
 
-/* MURO*/
 .super-container{
     display: flex;
     flex-wrap: wrap;
 }
 
-.relleno{
-    height: 178px;
-    width: 100%;
-}
+/*CAJA IZQUIERDA*/
 
-/* COLUMNA IZQUIERDA*/
 .izquierda{
-    display: flex;
-    background-color: transparent;
-    width: 50%;
-    flex-wrap: wrap;
-}
-
-.perfil{
-    display: inline-flex;
-    margin-top: 5px;
-}
-
-.perfil img{
-    border-radius: 50%;
-
-}
-
-.perfil h4{
-    text-transform: capitalize;
-    margin-left: 5px;
-    font-size: 15px;
-}
-
-/*(BOTONES FUNCIONES)*/
-.funciones{
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-}
-
-.crear_viaje{
-    display: inline-flex;
     background-color: #fff;
-    border:none;
-    margin-bottom: 5px;
-}
-
-
-.crear_viaje p {
-    font-size: 7px;
-    margin-bottom: 0;
-    margin-left: 3px;
-}
-
-.grupo{
-    border-radius: 50%;
-    background-color: #007bff;
-}
-
-#acceso {
-    color: #555555;
-    font-weight: bold;
-    font-size: 8px;
-}
-
-/*(ANIMACION BOTONES)*/
-
-#crear_viaje:hover{
-    background-color: #E0E0E0;
-    outline: none;
-    width: 100%;
-}
-
-/*CENTRO*/
-.centro{
+    width: 30%;
+    margin-top: 2.083%;
     display: flex;
-    background-color: red;
-    height: 400px;
-    width: 50%;
+    align-content: center;
+    flex-direction: column;
+    margin-right: 1%;
 }
 
-/* DERECHA*/
+.datos-perfil{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-top: 8px solid grey;
+    border-right: 4px solid grey;
+    border-left: 4px solid grey;
+    border-bottom: 5px solid grey;
+    border-radius: 4px 4px 0px 0px;
 
+}
 
+#foto-perfil{
+    margin-top: 7%;
+    width: 80%;
+    height: 1%;
+}
+
+#editar-foto{
+    margin-top: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4px;
+    border-radius: 3px;
+    background-color: #E8E8E8;
+    border: none;
+}
+
+#editar-foto img{
+    width: 10%;
+    margin-right: 4%;
+}
+
+#editar-foto p{
+    font-size: 0.9%;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 0px;
+}
+/* CAJA IZQUIERDA MENU DE NAVEGACION*/
+
+.navegacion-perfil{
+    margin-top: 11%;
+    margin-bottom: 4%;
+    margin-left: 1%;
+}
+
+.navegacion-perfil li{
+    display: flex;
+    margin-bottom: 10%;
+    margin-left: 3%;
+}
+
+.navegacion-perfil li:last-child{
+    margin-top: 0%;
+}
+
+.navegacion-perfil li img{
+    width: 20%;
+    height: 1%;
+}
+
+.navegacion-perfil li a{
+    color: black;
+    font-size: 9px;
+    margin-left: 3%;
+    font-family: 'Acme', sans-serif;
+}
+
+.navegacion-perfil li a:hover{
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navegacion-perfil li:hover{
+    background-color: #F8F8F8;
+    padding: 5px;
+}
+
+.navegacion-perfil li:active{
+    background-color: #E0E0E0;
+}
+/* MIS REDES*/
+
+.redes{
+    border-top: 8px solid grey;
+    border-right: 4px solid grey;
+    border-left: 4px solid grey;
+    border-bottom: 5px solid grey;
+}
+
+.redes-titulo{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.redes-titulo h5{
+    display: flex;
+    font-size: 14px;
+    margin-bottom: 0px;
+    padding: 2px;
+    font-family: 'Acme', sans-serif;
+    color: white;
+    background-color: #007bff;
+    width: 100%;
+    justify-content: center;
+}
+
+.redes-titulo img{
+    height: 18px;
+    padding-right: 3px;
+}
+
+.menu-social{
+    display: flex;
+    
+}
+
+.menu-social ul{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.menu-social ul li{
+    display: flex;
+    float: left;
+    margin-right: 3px;
+}
+
+.menu-social ul li:last-child{
+    margin-right: 0px;
+}
+
+.menu-social ul{
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 3%;
+}
+
+/*VIAJES ALEATORIOS*/
+
+.viajes_aleatorios{
+    background-color: aquamarine;
+    text-align: center;
+    font-family: 'Acme', sans-serif;
+}
+
+.viajes_aleatorios p{
+    margin-bottom: 0;
+    font-size: 11px;
+}
+
+/* CAJA CENTRO*/
+
+.centro{
+    background-color: grey;
+    width: 69%;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 2.083%;
+}
+/*HEADER MURO*/
+
+.header_muro{
+    display: flex;
+    max-width: 100%;
+    background-color: #007bff;
+    font-family: 'Acme', sans-serif;
+    color: white;
+}
