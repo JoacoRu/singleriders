@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+p{
+    margin-bottom: 0;
+}
+
 /*HEADER*/
 header{
     background-color: green;
@@ -15,12 +19,17 @@ header{
 .super-container{
     display: flex;
     flex-wrap: wrap;
+    background-image: url(../images/bgi-home.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #66999;
 }
 
 /*CAJA IZQUIERDA*/
 
 .izquierda{
-    background-color: #fff;
     width: 30%;
     margin-top: 2.083%;
     display: flex;
@@ -31,14 +40,15 @@ header{
 
 .datos-perfil{
     display: flex;
+    background-color: #fff;
     justify-content: center;
     flex-wrap: wrap;
-    border-top: 8px solid #F0F0F0;
-    border-right: 4px solid #F0F0F0;
-    border-left: 4px solid #F0F0F0;
-    border-bottom: 5px solid #F0F0F0;
-    border-radius: 4px 4px 0px 0px;
-
+    border-top: 8px solid #e4e9f5;
+    border-right: 4px solid #e4e9f5;
+    border-left: 4px solid #e4e9f5;
+    border-bottom: 5px solid #e4e9f5;
+    border-radius: 4px 4px 4px 4px;
+    margin-bottom: 1%;
 }
 
 #foto-perfil{
@@ -48,13 +58,15 @@ header{
 }
 
 #editar-foto{
-    margin-top: 10%;
-    display: flex;
-    flex-wrap: wrap;
+    display: inline-flex;
+    flex-wrap: initial;
     padding: 4px;
     border-radius: 3px;
     background-color: #E8E8E8;
     border: none;
+    margin: 10% 2% 2% 2%;
+    justify-content: center;
+    overflow: hidden;
 }
 
 #editar-foto img{
@@ -69,6 +81,13 @@ header{
     margin-bottom: 0px;
 }
 /* CAJA IZQUIERDA MENU DE NAVEGACION*/
+
+.caja-navegacion-perfil{
+    border: 4px solid  #e4e9f5;
+    border-radius: 4px 4px 4px 4px;
+    background-color: #fff;
+    margin-bottom: 1%;
+}
 
 .navegacion-perfil{
     margin-top: 11%;
@@ -114,10 +133,13 @@ header{
 /* MIS REDES*/
 
 .redes{
-    border-top: 8px solid#E8E8E8;
-    border-right: 4px solid#E8E8E8;
-    border-left: 4px solid#E8E8E8;
-    border-bottom: 5px solid#E8E8E8 ;
+    border-top: 8px solid#e4e9f5;
+    border-right: 4px solid#e4e9f5;
+    border-left: 4px solid#e4e9f5;
+    border-bottom: 5px solid#e4e9f5;
+    background-color: #fff;
+    margin-bottom: 2%;
+    border-radius: 4px 4px 4px 4px;
 }
 
 .redes-titulo{
@@ -134,14 +156,9 @@ header{
     padding: 2px;
     font-family: 'Acme', sans-serif;
     color: white;
-    background-color: #007bff;
+    background-color:#3b5998;
     width: 100%;
     justify-content: center;
-}
-
-.redes-titulo img{
-    height: 18px;
-    padding-right: 3px;
 }
 
 .menu-social{
@@ -161,6 +178,11 @@ header{
     margin-right: 3px;
 }
 
+.menu-social ul li img{
+    width: 15px;
+    height: 15px;
+}
+
 .menu-social ul li:last-child{
     margin-right: 0px;
 }
@@ -169,7 +191,8 @@ header{
     overflow: hidden;
     margin: 0 auto;
     margin-top: 2%;
-    margin-bottom: 3%;
+    margin-bottom: 8%;
+    padding: 0px 2px 0px 2px;
 }
 
 /*VIAJES ALEATORIOS*/
@@ -188,7 +211,6 @@ header{
 /* CAJA CENTRO*/
 
 .centro{
-    background-color: grey;
     width: 69%;
     height: 400px;
     display: flex;
@@ -207,16 +229,17 @@ header{
     background-color: #007bff;
     font-family: 'Acme', sans-serif;
     color: white;
+    height: 20px;
+    border-top: 1px solid #e4e9f5;
+    border-right: 1px solid #e4e9f5;
+    border-left: 1px solid #e4e9f5;
+    border-radius: 4px 4px 4px 4px;
 }
 
-.primer_hijo{
-    display: flex;
-    height: auto;
-}
-
-.primer_hijo h4{
+.header_muro p{
     margin-bottom: 0;
-    font-size: 100px;
+    font-size: 13px;
+    margin-left: 2%;
 }
 
 

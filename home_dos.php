@@ -44,7 +44,9 @@ if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
         <article class="izquierda">
             <div class="datos-perfil">
                 <img src="images/perfil.jpg" alt="" id="foto-perfil">
-                <button id="editar-foto"><img src="images/iconos/home/editar.png" alt=""> <p>Editar foto de perfil</p></button>
+                <button id="editar-foto"><img src="images/iconos/home/editar.png" alt=""> <p>Editar foto </p></button>
+            </div>
+            <div class="caja-navegacion-perfil">
                 <ul class="navegacion-perfil">
                     <li>
                         <img src="images/iconos/home/perfil_chico.png" alt="" width="20px">
@@ -110,9 +112,8 @@ if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
         <article class="centro">
             <div class="muro">
                 <div class="header_muro">
-                     <h4>Muro</h4>
+                     <p>Muro</p>
                 </div>
-                
             </div>
         </article>
     </section>
