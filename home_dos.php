@@ -110,9 +110,9 @@ if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
         <article class="centro">
             <div class="muro">
                 <div class="header_muro">
-                     <h4>Muro</h5>
-                    <h4><?= $usuariologin['nombre']; ?></h4>
+                     <h4>Muro</h4>
                 </div>
+                
             </div>
         </article>
     </section>
