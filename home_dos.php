@@ -114,7 +114,23 @@ if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
                 <div class="header_muro">
                      <p>Muro</p>
                 </div>
-            </div>
+                <div class="contenido_muro">
+                    <div class="centro-muro container">
+                        <div class="foto-publicar">
+                            <div class="imagen_foto">
+                                <img src="images/perfil.jpg" alt="" width="50px">
+                                <p><?= $usuariologin['nombre']; ?></p>
+                            </div>
+                            <div class="caja_texto container">
+                                <form action="get">
+                                    <textarea name="publicacion" id="" cols="15" rows="3" placeholder="¿Que estas pensando?"></textarea>
+                                    <br>
+                                    <input type="submit" value="Publicar">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </article>
     </section>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -24,7 +24,6 @@ header{
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-color: #66999;
 }
 
 /*CAJA IZQUIERDA*/
@@ -233,15 +232,77 @@ header{
     border-top: 1px solid #e4e9f5;
     border-right: 1px solid #e4e9f5;
     border-left: 1px solid #e4e9f5;
-    border-radius: 4px 4px 4px 4px;
+    border-radius: 4px 4px 0px 0px;
 }
 
 .header_muro p{
     margin-bottom: 0;
     font-size: 13px;
     margin-left: 2%;
+    font-family: 'Acme', sans-serif;
 }
 
+/* MURO */
+
+.contenido_muro{
+    display: flex;
+    background-color: #fff;
+    border-top: 1px solid #e4e9f5;
+    border-right: 1px solid #e4e9f5;
+    border-left: 1px solid #e4e9f5;
+    border-radius: 0px 0px 4px 4px;
+}
+
+ /* REALIZAR PUBLICACION */
+
+ .foto-publicar{
+    display: flex;
+    background-color: 	#D8D8D8 ;
+    border:1px solid rgba(0,0,0,.125);
+    width: 90%;
+    height: 150px;
+    flex-wrap: wrap;
+    padding-bottom: 5px;
+    border-radius: 5px;
+}
+
+.imagen_foto{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    margin-top: 2%;
+    justify-content: center;
+}
+
+.imagen_foto p {
+    font-size: 13px;
+    font-family: 'Acme', sans-serif;
+    text-transform: capitalize;
+}
+
+.imagen_foto img{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin-right: 1%;
+}
+
+.caja_texto textarea{
+    resize: none;
+    border: none;
+    text-decoration: none;
+    background-color: #d2e0f7;
+}
+
+.caja_texto input[type=submit]{
+    border: none;
+    text-decoration: none;
+    background-color: #007bff;
+    border-radius: 5px;
+    padding: 3px;
+    color: #e4e9f5;
+    font-family: 'Acme', sans-serif;
+}
 
 
 
