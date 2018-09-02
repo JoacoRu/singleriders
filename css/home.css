@@ -251,6 +251,7 @@ header{
     border-right: 1px solid #e4e9f5;
     border-left: 1px solid #e4e9f5;
     border-radius: 0px 0px 4px 4px;
+    height: 400px;
 }
 
  /* REALIZAR PUBLICACION */
@@ -304,5 +305,108 @@ header{
     font-family: 'Acme', sans-serif;
 }
 
+@media (min-width: 400px){
+    #editar-foto{
+        padding: 6px;
+    }
 
+    #editar-foto img{
+        width:17%;
+    }
+
+    #editar-foto p{
+        font-size: 9px;
+    }
+
+    .navegacion-perfil li a{
+        font-size: 11px;
+    }
+
+    .redes-titulo h5{
+        font-size: 14px;
+    }
+
+    .menu-social ul li img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .header_muro{
+        height: 22px;
+    }
+
+    .header_muro p{
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 500px){
+    #editar-foto{
+        padding: 7px;
+    }
+
+    #editar-foto p{
+        font-size: 11px;
+    }
+
+    .navegacion-perfil li img{
+        width: 15%;
+    }
+
+    .navegacion-perfil li a{
+        font-size: 14px;
+    }
+
+    .redes-titulo h5{
+        font-size: 16px;
+    }
+
+    .menu.social ul li img{
+        width: 24px;
+        height: 24px;
+    }
+
+    .viajes_aleatorios p {
+        font-size: 15px;
+    }
+
+    .header_muro p{
+        font-size: 16px;
+    }
+
+    .header_muro{
+        height: 23px;
+    }
+}
+
+@media (min-width: 800px){
+    .navegacion-perfil li a {
+        font-size: 17px;
+    }
+
+    .navegacion-perfil li img{
+        width: 12%;
+    }
+
+    .redes-titulo h5{
+        font-size: 18px;
+    }
+
+    .menu-social ul li img{
+        width: 30px;
+        height: 30px;
+    }
+
+    .menu-social ul {
+        margin-top: 7%;
+    }
+
+    .header_muro{
+        height: 30px;
+    }
+
+    .header_muro p{
+        font-size: 21px;
+    }
+}
 

@@ -70,7 +70,7 @@
             <?=$usuariologin['nombre']; ?>
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="perfil.php">Editar Perfil</a>
+            <a class="dropdown-item" href="editar_perfil.php">Editar Perfil</a>
             <a class="dropdown-item" href="#">Mis Viajes</a>
             <a class="dropdown-item" href="#">Cambiar Cuenta</a>
             <a class="dropdown-item" href="faqs.php">faqs</a>
