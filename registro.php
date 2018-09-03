@@ -1,52 +1,46 @@
 <!doctype html>
-
-
 <html lang="en">
+
+<?php
+require_once('funciones.php');
+if (isset($_SESSION['id']) || isset($_COOKIE['id'])) {
+    header('location:muro.php');
+}
+$nombre = '';
+$apellido = '';
+$email = '';
+$errores = [];
+
+if ($_POST) {
+  $nombre = trim($_POST['nombre']);
+  $apellido = trim($_POST['apellido']);
+  $email = trim($_POST['email']);
+  $errores = validar($_POST,'registro',$_FILES);
+  if (empty($errores)) {
+
+      registrar($_POST,$_FILES);
+
+  }
+}
+
+
+
+
+
+
+?>
+
   <head>
     <title>Single Riders</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Abel|Montserrat:400,400i,700,700i|Pacifico" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/styles.css">
   </head>
   <body>
-    <header>
-      <nav class="navbar navbar-dark fixed-top">
-        <a class="navbar-brand" href="#">
-          <div>
-            <div class="logo-container">
-              <div class="single">
-                S
-              </div>
-              <div class="riders">
-                R
-              </div>
-            </div>
-          </div>
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home<span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Nosotros</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Faqs</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Login</a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </header>
+    <?php require_once('header.php'); ?>
     <section class="ingresar mt-5">
       <div class="container-fluid">
         <div class="row justify-content-center">
@@ -54,27 +48,27 @@
             <h1 class="titulo-sr-home text-center mb-4"><span class="single-f mr-2">Single</span><span class="single-f">Riders</span></h1>
             <!--<div class="dropdown-divider mb-4 mt-4 ml-3 mr-3"></div>-->
             <!-- NOTE: tabs -->
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <ul class="nav nav-tabs" role="tablist">
               <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login" aria-selected="true">Ingresá</a>
+                <a class="nav-link" id="login-tab" href="login.php">Ingresá</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#registro" role="tab" aria-controls="registro" aria-selected="false">Registrate</a>
+                <a class="nav-link active" id="registro-tab" data-toggle="tab" href="#registro" role="tab" aria-controls="registro" aria-selected="false">Registrate</a>
               </li>
             </ul>
-            <div class="card border-top-0 rounded-0">
+            <div class="card border-top-0 rounded-0 bottom-radius">
               <div class="car-body">
                 <div class="container mt-3">
                   <div class="row">
                     <div class="col-12">
-                      <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
-                          <form>
+                      <div class="tab-content">
+                        <div class="tab-pane" id="login" role="tabpanel" aria-labelledby="login-tab">
+                          <form method="post" enctype="multipart/form-data">
                             <div class="form-group">
-                              <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Correo electrónico">
+                              <input name="useremail" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Correo electrónico">
                             </div>
                             <div class="form-group">
-                              <input type="password" class="form-control" placeholder="Contraseña">
+                              <input name="userpassword" type="password" class="form-control" placeholder="Contraseña">
                             </div>
                             <div class="container">
                               <div class="row flex-column flex-md-row justify-content-md-between align-items-md-center">
@@ -90,29 +84,48 @@
                             </div>
                           </form>
                         </div>
-                        <div class="tab-pane fade" id="registro" role="tabpanel" aria-labelledby="profile-tab">
-                          <form>
-                            <div class="form-group">
-                              <input type="nombre" class="form-control" aria-describedby="nombreHelp" placeholder="Nombre">
+                        <div class="tab-pane fade show active" id="registro" role="tabpanel" aria-labelledby="profile-tab">
+                          <form method="post" enctype="multipart/form-data">
+                            <div class="form-label-group">
+                              <input type="text" name="nombre" id="nombre" aria-describedby="nombreHelp" placeholder="Nombre" value="<?=$nombre?>" class="form-control <?= isset($errores['nombre']) ? strlen($errores['nombre']) > 0 ? 'errores-form-sr':'' : '' ?>">
+                              <label for="nombre">Nombre</label>
+                              <?php if (isset($errores['nombre'])): ?>
+                                <small id="nombreHelp" class="form-text text-danger"><?= $errores['nombre'] ?></small>
+                              <?php endif; ?>
                             </div>
-                            <div class="form-group">
-                              <input type="apellido" class="form-control" aria-describedby="apellidoHelp" placeholder="Apellido">
+                            <div class="form-label-group">
+                              <input type="text" name="apellido" id="apellido" aria-describedby="apellidoHelp" placeholder="Apellido" value="<?=$apellido?>" class="form-control <?= isset($errores['apellido']) ? strlen($errores['apellido']) > 0 ? 'errores-form-sr':'' : '' ?>">
+                              <label for="apellido">Apellido</label>
+                              <?php if (isset($errores['apellido'])): ?>
+                                <small id="apellidoHelp" class="form-text text-danger"><?= $errores['apellido'] ?></small>
+                              <?php endif; ?>
                             </div>
-                            <div class="form-group">
-                              <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Correo electrónico">
+                            <div class="form-label-group">
+                              <input name="email" id="email" type="text" aria-describedby="emailHelp" placeholder="Correo electrónico" value="<?=$email?>" class="form-control <?= isset($errores['email']) ? strlen($errores['email']) > 0 ? 'errores-form-sr':'' : '' ?>">
+                              <label for="email">Correo electrónico</label>
+                              <?php if (isset($errores['email'])): ?>
+                                <small id="emailHelp" class="form-text text-danger"><?= $errores['email'] ?></small>
+                              <?php endif; ?>
                             </div>
-                            <div class="form-group">
-                              <input type="password" class="form-control" placeholder="Contraseña">
+                            <div class="form-label-group">
+                              <input name="password" id="password" type="password" aria-describedby="passwordHelp" placeholder="Contraseña" class="form-control <?= isset ($errores['password']) ? strlen($errores['password']) > 0 ? 'errores-form-sr':'' : '' ?>">
+                              <label for="password">Contraseña</label>
+                              <?php if (isset($errores['password'])): ?>
+                                <small id="passwordHelp" class="form-text text-danger"><?= $errores['password'] ?></small>
+                              <?php endif; ?>
+                            </div>
+                            <div class="form-label-group">
+                              <input name="imgperfil" id="imgperfil" type="file" aria-describedby="imgperfilHelp" placeholder="Imagen de perfil" class="form-control <?= isset($errores['imgperfil']) ? strlen($errores['imgperfil']) > 0 ? 'errores-form-sr':'' : '' ?>">
+                              <label for="password">Imagen de perfil</label>
+                              <?php if (isset($errores['imgperfil'])): ?>
+                                <small id="imgperfilHelp" class="form-text text-danger"><?= $errores['imgperfil'] ?></small>
+                              <?php endif; ?>
                             </div>
                             <div class="container">
                               <div class="row flex-column flex-md-row justify-content-md-between align-items-md-center">
                                 <button type="submit" class="btn btn-primary iniciar mb-3 mb-md-0">Registrate</button>
                               </div>
                               <div class="row mt-3">
-                                <label>
-                                  <input type="checkbox" value="1" name="recordarme" checked="checked">
-                                    Recordarme
-                                </label>
                               </div>
                             </div>
                           </form>
@@ -142,14 +155,14 @@
                          <li><i class="fa fa-share-alt"></i> Compartir tus experiencias para ayudar a otros viajeros</li>
                        </ul>
                      </div>-->
-                      <div class="col-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsebuscar').collapse('toggle')">
+                      <div class="col-12 col-sm-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsebuscar').collapse('toggle')">
                         <div>
                           Buscá
                           <i class="fa fa-search"></i>
                         </div>
                         <i class="fa fa-angle-down"></i>
                       </div>
-                      <div class="col-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsecrear').collapse('toggle')">
+                      <div class="col-12 col-sm-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsecrear').collapse('toggle')">
                         <div>
                           Creá
                           <i class="fa fa-plus"></i>
@@ -188,14 +201,14 @@
                   </div>
                   <div class="container">
                     <div class="row">
-                      <div class="col-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapseunirse').collapse('toggle')">
+                      <div class="col-12 col-sm-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapseunirse').collapse('toggle')">
                         <i class="fa fa-angle-up"></i>
                         <div>
-                          Unite a
+                          Unite
                           <i class="far fa-hand-pointer"></i>
                         </div>
                       </div>
-                      <div class="col-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsecompartir').collapse('toggle')">
+                      <div class="col-12 col-sm-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsecompartir').collapse('toggle')">
                         <i class="fa fa-angle-up"></i>
                         <div>
                           Compartí
@@ -211,38 +224,28 @@
         </div>
       </div>
     </section>
-
-    <footer class="sr-footer mt-5 pt-4 text-white">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4">
-            <ul>
-              <li>Nosotros</li>
-              <li>Quiénes somos</li>
-              <li>Preguntas frecuentes</li>
-              <li>Registrate</li>
-            </ul>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Bienvenido!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
-          <div class="col-md-4">
-            <ul>
-              <li class="mb-2"><strong>Nuestras redes:</strong></li>
-              <li><i class="fab fa-twitter"></i>Twitter</li>
-              <li><i class="fab fa-facebook"></i>Facebook</li>
-              <li><i class="fab fa-instagram"></i>Instagram</li>
-            </ul>
+          <div class="modal-body">
+            Ya formás parte de la comunidad Single Riders, a continuación accederás a la página principal desde la que podrás compartir, publicar, buscar viajes.
           </div>
-          <div class="col-md-4">
-            <ul class="contacto-sr">
-              <li>Contacto</li>
-              <li>Copyright © 2018.</li>
-            </ul>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-  </body>
+    <?php require_once('footer.php'); ?>
+
+    </body>
 </html>

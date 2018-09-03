@@ -14,5 +14,6 @@ fuente general del sitio-> font-family: 'Montserrat';
 fuente logo navbar-> font-family: 'Pacifico';
 background color del navbar-> background-color: rgba(2, 136, 209, 0.5);
 Otras fuentes usadas-> font-family: 'Abel';
+Labels flotantes para los inputs: línea 159 de la hoja de estilos principal, sacado de ejemplos de [ejemplo de Bootstrap] (https://getbootstrap.com/docs/4.1/examples/floating-labels/)
 
 ```
