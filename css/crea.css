@@ -1,0 +1,54 @@
+* {
+  font-family: 'Montserrat';
+}
+.titulos{
+  display: flex;
+  top:20%;
+  flex-direction: column;
+  text-align: center;
+}
+.titulos h1{
+
+  color: white;
+  font-family: 'Alegreya', serif;
+  padding: 0;
+}
+.titulos h2{
+
+  color: white;
+  text-align: center;
+  padding:0;
+  font-family: 'Alegreya', serif;
+}
+.titulos h3{
+  justify-content: center;
+  display: flex;
+  color: white;
+  text-align: center;
+  padding:0;
+  font-family: 'Alegreya', serif;
+}
+
+.titulos2 {
+  justify-content: center;
+  position: absolute;
+  top: 33%;
+}
+.formulario-viaje{
+  min-width: 60%;
+}
+.info-destinos{
+  min-width: 40%;
+}
+.encabezado img{
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  height: auto;
+}
+
+.cuerpo-pagina{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}

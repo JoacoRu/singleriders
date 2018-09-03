@@ -4,10 +4,8 @@
 <?php
 
   require_once('funciones.php');
-  if (isset($_SESSION['id'])) {
-    $usuariologin = obtenerId($_SESSION['id']);
-  }else if (isset($_COOKIE['id'])) {
-    $usuariologin = obtenerId($_COOKIE['id']);
+  if (isset($_SESSION['id']) || isset($_COOKIE['id'])) {
+    header('location:home.php');
   }
 
 
