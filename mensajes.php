@@ -5,6 +5,7 @@
 
   require_once('funciones.php');
   $nombres = traerNombreDeUsuarios();
+  $allUsers = buscarUsuarios();
   $msj = msjAseleccionar();
 
 
@@ -72,8 +73,8 @@
                 <div class="form-label-group" id="touser">
                   <select name="to" class="form-control" onchange="$('#mensajearea').show();setactivo($('.stepdosmsj'));">
                     <option value="elige_usuario">Seleccioná un usuario</option>
-                    <?php print_r($nombres); foreach ($nombres['usuarios'] as $nombre) { ?>
-                    <option value="<?php echo $nombre; ?>"><?php echo $nombre; ?></option>
+                    <?php print_r($nombres); foreach ($allUsers as $nombre) { ?>
+                    <option value="<?php echo $nombre['id']; ?>"><?php echo $nombre['email']; ?></option>
                     <?php } ?>
                   </select>
                 </div>

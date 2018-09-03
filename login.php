@@ -6,7 +6,7 @@
   require_once('funciones.php');
 
   if (isset($_SESSION['id']) || isset($_COOKIE['id'])) {
-    header('location:muro.php');
+    header('location:home.php');
   }
 
   $email = '';

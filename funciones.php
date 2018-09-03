@@ -110,7 +110,7 @@ function registrar($datosuser,$imagenperfil=false){
 
     $_SESSION['id'] = $id;
 
-    header('location:muro.php');
+    header('location:home.php');
 }
 
 //subir imagen
@@ -141,7 +141,7 @@ function subirImgPerfil($imagen,$id){
 
 //login de usuario
 function login(){
-  header('location:muro.php');
+  header('location:home.php');
 }
 
 //obtener usuarios (para registrar si no existe el mail o para loguear si son correctas las credenciales y el email)
@@ -271,12 +271,12 @@ function traerNombreDeUsuarios(){
 
  // crea el mensaje
   function crearMensaje($remitente='anónimo'){
-    $convertidor = nombreAsocId($_POST['to']);
+    $convertidor = nombreAsocId(intval($_POST['to']));
     $mensaje = [
       'from' => $_SESSION['id'],
-      'to'  => $_POST['to'],
+      'to'  => intval($_POST['to']),
       'nombreRemitente' => $remitente,
-      'idDestinatario' => $convertidor,
+      'idDestinatario' => intval($_POST['to']),
       'msj'  => $_POST['mensaje'],
     ];
     $msjJson = json_encode($mensaje, true);
@@ -390,6 +390,51 @@ function validarviaje($data){
       $arrayCiudadesPhp[] = json_decode($value, true);
     }
     return $arrayCiudadesPhp;
+  }
+
+  // NOTE: viajes.php
+  function obtenerTodosLosViajes() {
+    $viajes = file_get_contents('viajes.json');
+    $arrViajesJSON = explode(PHP_EOL,$viajes);
+    $arrUsuarioViajes = [];
+    $arrUsuarioViajestmp = [];
+    array_pop($arrViajesJSON);
+    $counter = 0;
+    foreach ($arrViajesJSON as $key => $usuario) {
+
+          $arrUsuarioViaje[] = json_decode($usuario,true);
+
+    }
+
+    $usuarioviaje['counter'] = $counter+1;
+    $usuarioviaje['viajes'] = $arrUsuarioViaje;
+
+    return $usuarioviaje;
+  }
+
+  function obtenerViajes($id) {
+    $viajes = file_get_contents('viajes.json');
+    $arrViajesJSON = explode(PHP_EOL,$viajes);
+    $arrUsuarioViajes = [];
+    $arrUsuarioViajestmp = [];
+    array_pop($arrViajesJSON);
+    $counter = 0;
+    foreach ($arrViajesJSON as $key => $usuario) {
+
+        $arrUsuarioViajetmp[] = json_decode($usuario,true);
+        if ($arrUsuarioViajetmp[0]['creadorDeViaje'] == $id) {
+          $counter++;
+          $arrUsuarioViaje[] = json_decode($usuario,true);
+
+        }
+        $arrUsuarioViajetmp = [];
+
+    }
+
+    $usuarioviaje['counter'] = $counter+1;
+    $usuarioviaje['viajes'] = $arrUsuarioViaje;
+
+    return $usuarioviaje;
   }
 
 

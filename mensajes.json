@@ -8,3 +8,10 @@
 {"from":1,"to":"prueba","nombreRemitente":"Gabriel","idDestinatario":15,"msj":"otro mensajes al usuario prueba"}
 {"from":1,"to":"prueba","nombreRemitente":"Gabriel","idDestinatario":15,"msj":"otro mensaje al user prueba"}
 {"from":2,"to":"Gabriel","nombreRemitente":"joaco","idDestinatario":1,"msj":"holiss\r\n"}
+{"from":1,"to":1,"nombreRemitente":"Gabriel","idDestinatario":null,"msj":"qwwwqqqw"}
+{"from":1,"to":0,"nombreRemitente":"Gabriel","idDestinatario":15,"msj":"prueba a mi mismo"}
+{"from":1,"to":1,"nombreRemitente":"Gabriel","idDestinatario":null,"msj":"asasas"}
+{"from":1,"to":1,"nombreRemitente":"Gabriel","idDestinatario":1,"msj":"prueba a mi mismo"}
+{"from":1,"to":1,"nombreRemitente":"Gabriel","idDestinatario":1,"msj":"quisiera ir a la India c\u00f3mo hago?"}
+{"from":1,"to":2,"nombreRemitente":"Gabriel","idDestinatario":2,"msj":"prueba mensaje desde viajes.php"}
+{"from":1,"to":1,"nombreRemitente":"Gabriel","idDestinatario":1,"msj":"123456"}
