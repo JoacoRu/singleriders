@@ -235,7 +235,8 @@ $userViajes = obtenerViajes($usuariologin['id']);
                 </div>
         </article>
     </section>
-    <?php require_once('footer.php'); ?>
-
+    <footer>
+        <?php require_once('footer.php'); ?>
+    </footer>
 </body>
 </html>

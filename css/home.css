@@ -67,8 +67,15 @@ header{
     overflow: hidden;
 }
 
+#editar-foto a{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 #editar-foto img{
-    width: 10%;
+    width: 9%;
+    height: 8px;
     margin-right: 4%;
 }
 
@@ -104,16 +111,21 @@ header{
 }
 
 .navegacion-perfil li img{
-    width: 20%;
+    width: 13%;
     height: 1%;
 }
 
 .navegacion-perfil li a{
     color: black;
-    font-size: 9px;
+    font-size: 8px;
     margin-left: 3%;
     font-family: 'Acme', sans-serif;
 }
+
+.navegacion-perfil li a:last-child{
+    font-size: 7px;
+}
+
 
 .navegacion-perfil li a:hover{
     text-decoration: none;
@@ -314,14 +326,14 @@ header{
     }
 
     #editar-foto img{
-        width:17%;
+        width:10%;
     }
 
     #editar-foto p{
-        font-size: 9px;
+        font-size: 7px;
     }
 
-    .navegacion-perfil li a{
+    .navegacion-perfil li a:last-child{
         font-size: 11px;
     }
 
@@ -330,7 +342,7 @@ header{
     }
 
     .menu-social ul li img {
-        width: 20px;
+        width: 20px;    
         height: 20px;
     }
 
@@ -341,6 +353,11 @@ header{
     .header_muro p{
         font-size: 14px;
     }
+
+    .navegacion-perfil li img{
+        width: 16%;
+        height: 1%;
+    }
 }
 
 @media (min-width: 500px){
@@ -349,14 +366,18 @@ header{
     }
 
     #editar-foto p{
-        font-size: 11px;
+        font-size: 7px;
+    }
+
+    #editar-foto img{
+        width: 13%;
     }
 
     .navegacion-perfil li img{
         width: 15%;
     }
 
-    .navegacion-perfil li a{
+    .navegacion-perfil li a:last-child{
         font-size: 14px;
     }
 
@@ -384,11 +405,15 @@ header{
 
 @media (min-width: 800px){
     .navegacion-perfil li a {
-        font-size: 17px;
+        font-size: 15px;
     }
 
     .navegacion-perfil li img{
-        width: 12%;
+        width: 10%;
+    }
+
+    .navegacion-perfil li a:last-child{
+        font-size: 12px;
     }
 
     .redes-titulo h5{
@@ -410,5 +435,20 @@ header{
 
     .header_muro p{
         font-size: 21px;
+    }
+}
+
+@media (min-width: 1000px){
+
+    .navegacion-perfil li a {
+        font-size: 15px;
+    }
+
+    .navegacion-perfil li img{
+        width: 7%;
+    }
+
+    .navegacion-perfil li a:last-child{
+        font-size: 15px;
     }
 }
