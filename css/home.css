@@ -110,7 +110,7 @@ header{
 
 .navegacion-perfil li a{
     color: black;
-    font-size: 9px;
+    font-size: 7px;
     margin-left: 3%;
     font-family: 'Acme', sans-serif;
 }
@@ -388,7 +388,7 @@ header{
     }
 
     .navegacion-perfil li img{
-        width: 12%;
+        width: 7%;
     }
 
     .redes-titulo h5{
