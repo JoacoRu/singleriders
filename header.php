@@ -13,7 +13,7 @@
 ?>
 
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top <?= isset($usuariologin) ? 'd-flex justify-content-between' : '' ?>">
         <a class="navbar-brand" href="index.php">
           <div>
             <div class="logo-container">
