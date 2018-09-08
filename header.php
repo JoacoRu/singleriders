@@ -33,7 +33,7 @@
         <?php endif; ?>
         <?php if (isset($usuariologin)): ?>
         <div id="loguerla">
-        <h2>Single Riders</h2>
+          <h2>Single Riders</h2>
         </div>
         <?php endif; ?>
         <?php // NOTE: Navbar no logueado ?>
