@@ -1,17 +1,17 @@
-<?php 
+<?php
 include_once('register.php');
 $errores = [];
 
 if($_POST)
 {
-    
+
     $usuario = new Register();
     $usuario->validarLogin();
     if(empty($errores))
     {
         $usuario->guardarUsuario();
     }
-    
+
 }
 
 

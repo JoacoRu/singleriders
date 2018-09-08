@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 class Register
 {
@@ -66,12 +66,12 @@ class Register
         if($this->nombre == '')
         {
             $errores['nombre'] = 'Completa el campo "nombre"';
-            
-        } 
+
+        }
         if($this->apellido == ''){
             $errores['apellido'] = 'Completa el campo "Apellido"';
-            
-        } 
+
+        }
         if($this->pass == '')
         {
             $errores['pass'] = 'Completa el campo "Contraseña"';
@@ -80,12 +80,12 @@ class Register
         if($this->email == '')
         {
             $errores['email'] = 'Completa el campo "Email"';
-            
+
         }
         elseif(!filter_var($this->email, FILTER_VALIDATE_EMAIL))
         {
             $errores['email'] = 'Porfavor ingresa un email con formato valido';
-            
+
         }elseif($this->existeEmail($this->email))
         {
             $errores['email'] = 'El email ingresado ya existe, Porfavor elije otro!';
@@ -135,7 +135,7 @@ class Register
         $id = $ultimo['Id'];
         return $id;
       }
-    
+
     public function existeEmail($email){
 		// Traigo todos los usuarios
 		$todos = $this->traerTodos();
@@ -148,15 +148,15 @@ class Register
 		}
 		return false;
     }
-    
+
     public function crearUsuario()
     {
         $arrayPhp =[
-            'Nombre' => [$this->nombre],
-            'Apellido' => [$this->apellido],
-            'Email' => [$this->email],
-            'Pass' => [$this->pass],
-            'Id' => [$this->id],
+            'Nombre' => $this->nombre,
+            'Apellido' => $this->apellido,
+            'Email' => $this->email,
+            'Pass' => $this->pass,
+            'Id' => $this->traerUltimoID(),
         ];
 
         return $arrayPhp;
