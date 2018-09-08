@@ -4,13 +4,13 @@
 <?php
 
   require_once('funciones.php');
-  if (isset($_SESSION['id'])) {
-    $usuariologin = obtenerId($_SESSION['id']);
-  }else if (isset($_COOKIE['id'])) {
-    $usuariologin = obtenerId($_COOKIE['id']);
+  if (isset($_SESSION['id']) || isset($_COOKIE['id'])) {
+    header('location:home.php');
   }
 
-
+  $userViajes = obtenerTodosLosViajes();
+  //ultimos 3 viajes
+  $userviajes2 = array_splice($userViajes['viajes'], count($userViajes['viajes']) - 3, 3);
 ?>
 
   <head>
@@ -112,34 +112,28 @@
           <div class="col-12 second-section mt-2">
             <h3 class="mb-5 mt-5 pt-3 pb-3 text-center">Últimos viajes publicados</h3>
             <div class="card-columns">
+              <?php foreach ($userviajes2 as $key => $value) : ?>
               <div class="card">
                 <div class="fondo-card"></div>
-                <img class="card-img-top" src="./images/flags/india.png" alt="Card image cap">
+                <?php if ($value['pais'] == 'india') :?>
+                  <img class="card-img-top" src="./images/flags/<?= $value['pais'] ?>.png" alt="Card image cap">
+
+                <?php elseif ($value['pais'] == 'egipto') :?>
+                  <img class="card-img-top" src="./images/flags/<?= $value['pais'] ?>.png" alt="Card image cap">
+
+                <?php elseif ($value['pais'] == 'nueva guinea') :?>
+                  <img class="card-img-top" src="./images/flags/nuevaguinea.png" alt="Card image cap">
+
+                <?php else :?>
+                  <img class="card-img-top" src="./images/flags/india.png" alt="Card image cap">
+                <?php endif; ?>
                 <div class="card-body">
-                  <h5 class="card-title text-center"><strong>India</strong></h5>
+                  <h5 class="card-title text-center"><strong><?= $value['textmensaje'] ?></strong></h5>
                   <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 </div>
               </div>
-              <div class="card">
-                <div class="fondo-card"></div>
-                <img class="card-img-top" src="./images/flags/nuevaguinea.png" alt="Card image cap">
-                <div class="card-body">
-                  <h5 class="card-title text-center"><strong>Papua Nueva Guinea</strong></h5>
-                  <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
-              <div class="card">
-                <div class="fondo-card"></div>
-                <img class="card-img" src="./images/flags/egipto.png" alt="Card image">
-              </div>
-              <div class="card">
-                <div class="card-body">
-                  <h5 class="card-title text-center"><strong>Egipto</strong></h5>
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
+              <?php endforeach; ?>
+
             </div>
           </div>
           <div class="col-12 mt-2 mb-5">

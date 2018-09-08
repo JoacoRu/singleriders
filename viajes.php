@@ -17,7 +17,8 @@ if($_POST){
   $guardarMsj = crearMensaje($usuariologin['nombre']);
 }
 
-$userViajes = obtenerViajes($usuariologin['id']);
+
+$userViajes = obtenerTodosLosViajes();
 
 ?>
 <!DOCTYPE html>
@@ -61,7 +62,7 @@ $userViajes = obtenerViajes($usuariologin['id']);
                     </li>
                     <li>
                         <img src="images/iconos/home/ver_mis_viajes.png" alt="">
-                        <a href="#">Ver mis Viajes</a>
+                        <a href="home.php">Ver mis Viajes</a>
                     </li>
                     <li>
                         <img src="images/iconos/home/ver_mis_viajes.png" alt="">
@@ -138,20 +139,23 @@ $userViajes = obtenerViajes($usuariologin['id']);
                         </div> -->
                         <?php $contadormodal=0; ?>
                         <?php foreach ($userViajes['viajes'] as $key => $value) : ?>
-                            <?php $contadormodal++; ?>
+                            <?php
+                            $contadormodal++;
+                            $publisher = obtenerId($value['creadorDeViaje']);
+                            ?>
                             <div class="card p-3 m-3">
                               <div class="fondo-card"></div>
                               <?php if ($value['pais'] == 'india') :?>
                                 <img class="card-img-top" src="./images/flags/<?= $value['pais'] ?>.png" alt="Card image cap">
 
-                            <?php elseif ($value['pais'] == 'egipto') :?>
+                              <?php elseif ($value['pais'] == 'egipto') :?>
                                 <img class="card-img-top" src="./images/flags/<?= $value['pais'] ?>.png" alt="Card image cap">
 
-                            <?php elseif ($value['pais'] == 'nueva guinea') :?>
-                                <img class="card-img-top" src="./images/flags/<?= $value['pais'] ?>.png" alt="Card image cap">
+                              <?php elseif ($value['pais'] == 'nueva guinea') :?>
+                                <img class="card-img-top" src="./images/flags/nuevaguinea.png" alt="Card image cap">
 
-                            <?php else :?>
-                                <img class="card-img-top" src="./images/flags/<?= $value['pais'] ?>.png" alt="Card image cap">
+                              <?php else :?>
+                                <img class="card-img-top" src="./images/flags/india.png" alt="Card image cap">
                               <?php endif; ?>
 
                               <div class="card-body">
@@ -163,7 +167,7 @@ $userViajes = obtenerViajes($usuariologin['id']);
                                     <br>
                                     <strong>Publicado por:</strong>
                                     <span class="ml-1">
-                                      <?= $usuariologin['nombre'] ?>
+                                      <?= $publisher['nombre'] ?>
                                     </span>
                                   </p>
                                   <!-- Button trigger modal -->
@@ -200,12 +204,12 @@ $userViajes = obtenerViajes($usuariologin['id']);
                                       <br>
                                       <strong>Publicado por:</strong>
                                       <span class="ml-1">
-                                        <?= $usuariologin['nombre'] ?>
+                                        <?= $publisher['nombre'] ?>
                                       </span>
                                       <br>
                                       <strong>Email:</strong>
                                       <span class="ml-1">
-                                        <?= $usuariologin['email'] ?>
+                                        <?= $publisher['email'] ?>
                                       </span>
                                       <br>
                                       <form method="post" class="mt-4">

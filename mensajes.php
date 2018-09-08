@@ -5,6 +5,7 @@
 
   require_once('funciones.php');
   $nombres = traerNombreDeUsuarios();
+  $allUsers = buscarUsuarios();
   $msj = msjAseleccionar();
 
 
@@ -44,11 +45,11 @@
             <h1 class="font-weight-bold">Mensajes</h1>
           </div>
           <div class="col-12 pt-3 col-md-3 d-flex justify-content-center">
-            <ul class="list-unstyled">
+            <!--<ul class="list-unstyled">
               <li>Mis viajes</li>
               <li>Mensajes</li>
               <li>Buscar destinos</li>
-            </ul>
+            </ul>-->
           </div>
           <div class="col-12 p-md-0 col-md-6">
             <h2 class="mt-4 mb-4">Enviar Mensaje</h2>
@@ -72,8 +73,8 @@
                 <div class="form-label-group" id="touser">
                   <select name="to" class="form-control" onchange="$('#mensajearea').show();setactivo($('.stepdosmsj'));">
                     <option value="elige_usuario">Seleccioná un usuario</option>
-                    <?php print_r($nombres); foreach ($nombres['usuarios'] as $nombre) { ?>
-                    <option value="<?php echo $nombre; ?>"><?php echo $nombre; ?></option>
+                    <?php print_r($nombres); foreach ($allUsers as $nombre) { ?>
+                    <option value="<?php echo $nombre['id']; ?>"><?php echo $nombre['email']; ?></option>
                     <?php } ?>
                   </select>
                 </div>
@@ -100,12 +101,12 @@
             </div>
           </div>
           <div class="col-12 pt-3 col-md-3 d-flex align-items-center flex-column">
-            <h5 class="mb-3">Top destinos</h5>
+            <!--<h5 class="mb-3">Top destinos</h5>
             <ul class="list-unstyled">
               <li>Europa del este</li>
               <li>Asia</li>
               <li>América</li>
-            </ul>
+            </ul>-->
           </div>
         </div>
       </div>
