@@ -172,7 +172,21 @@ function validarviaje($data){
     return $usuarioviaje;
   }
 
+   function nombreAsocId($nombre){
+    $todosLosUsuarios = $this->buscarUsuarios();
+    $datosDeUsuario = [];
+    $idDelUsuario;
+    foreach ($todosLosUsuarios as $usuario) {
+      if($usuario['nombre'] == $nombre){
+        $datosDeUsuario[] = $usuario;
+      }
+    }
+    foreach ($datosDeUsuario as $dato) {
+      $idDelUsuario = $dato['id'];
+    }
 
+    return $idDelUsuario;
+  }
 
 
  ?>
