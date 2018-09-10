@@ -155,9 +155,8 @@ class Register
             'Nombre' => $this->nombre,
             'Apellido' => $this->apellido,
             'Email' => $this->email,
-            'Pass' => password_hash($this->pass, PASSWORD_DEFAULT),
+            'Pass' => $this->pass,
             'Id' => $this->traerUltimoID(),
-            'Img' => 'img/' . $this->email. '.' . pathinfo($_FILES['imgperfil']['name'], PATHINFO_EXTENSION),
         ];
 
         return $arrayPhp;
@@ -173,31 +172,6 @@ class Register
         return $usuario;
     }
 
-    public function guardarImagen(){
-		$errores = [];
-		if ($_FILES['imgperfil']['error'] == UPLOAD_ERR_OK) {
-			// Capturo el nombre de la imagen, para obtener la extensión
-			$nombreArchivo = $_FILES['imgperfil']['name'];
-			// Obtengo la extensión de la imagen
-			$ext = pathinfo($nombreArchivo, PATHINFO_EXTENSION);
-			// Capturo el archivo temporal
-			$archivoFisico = $_FILES['imgperfil']['tmp_name'];
-			// Pregunto si la extensión es la deseada
-			if ($ext == 'jpg' || $ext == 'jpeg' || $ext == 'png') {
-				// Armo la ruta donde queda gurdada la imagen
-				$dondeEstoyParado = dirname(__FILE__);
-				$rutaFinalConNombre = $dondeEstoyParado . '/img/' . $_POST['email'] . '.' . $ext;
-				// Subo la imagen definitivamente
-				move_uploaded_file($archivoFisico, $rutaFinalConNombre);
-			} else {
-				$errores['imagen'] = 'El formato tiene que ser JPG, JPEG, PNG o GIF';
-			}
-		} else {
-			// Genero error si no se puede subir
-			$errores['imagen'] = 'No subiste nada';
-		}
-		return $errores;
-	}
 
 }
 

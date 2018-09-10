@@ -49,11 +49,6 @@ if($_POST)
         <p> <?php if (isset($errores['email'])): ?>
             <?= $errores['email'] ?>
             <?php endif; ?></p>
-        <input type="file" name="imgperfil" id="imgperfil">
-        <br>
-        <p> <?php if (isset($errores['img'])): ?>
-            <?= $errores['img'] ?>
-            <?php endif; ?></p>
         <button type="submit">Registrarse!</button>
     </form>
 </body>

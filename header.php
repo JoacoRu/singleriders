@@ -1,19 +1,15 @@
-
 <?php
-
   require_once('funciones.php');
-
+  require_once('loader.php');
   if (isset($_SESSION['id'])) {
-    $usuariologin = obtenerId($_SESSION['id']);
+    $usuariologin = $usuario->obtenerId($_SESSION['id']);
   }else if (isset($_COOKIE['id'])) {
-    $usuariologin = obtenerId($_COOKIE['id']);
+    $usuariologin = $usuario->obtenerId($_COOKIE['id']);
   }
-
-
 ?>
 
     <header>
-      <nav class="navbar navbar-dark fixed-top">
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top <?= isset($usuariologin) ? 'd-flex justify-content-between' : '' ?>">
         <a class="navbar-brand" href="index.php">
           <div>
             <div class="logo-container">
@@ -33,23 +29,23 @@
         <?php endif; ?>
         <?php if (isset($usuariologin)): ?>
         <div id="loguerla">
-        <h2>Single Riders</h2>
+          <h2>Single Riders</h2>
         </div>
         <?php endif; ?>
         <?php // NOTE: Navbar no logueado ?>
         <?php if (!isset($usuariologin)): ?>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-              <li class="nav-item active">
+              <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'index.php') > -1  ? 'active' : ''  ?>">
                 <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'faqs.php') > -1  ? 'active' : ''  ?>">
                 <a class="nav-link" href="faqs.php">Faqs</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'login.php') > -1  ? 'active' : ''  ?>">
                 <a class="nav-link" href="login.php">Login</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'registro.php') > -1  ? 'active' : ''  ?>">
                 <a class="nav-link" href="registro.php">Registro</a>
               </li>
             </ul>
@@ -74,4 +70,3 @@
         <?php endif; ?>
       </nav>
     </header>
-  

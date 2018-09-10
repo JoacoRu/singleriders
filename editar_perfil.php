@@ -3,13 +3,14 @@
 <?php
 
   require_once('funciones.php');
+  require_once('loader.php');
 
   if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
     header('location:login.php');
   }else if (isset($_SESSION['id'])) {
-    $usuariologin = obtenerId($_SESSION['id']);
+    $usuariologin = $usuario->obtenerId($_SESSION['id']);
   }else if (isset($_COOKIE['id'])) {
-    $usuariologin = obtenerId($_COOKIE['id']);
+    $usuariologin = $usuario->obtenerId($_COOKIE['id']);
   }else {
     header('location:login.php');
   }
@@ -29,16 +30,16 @@
     if ($email != $usuariologin['email']) {
       $mailModificacion = $usuariologin['email'];
     }
-    $errores = validar($_POST,'modificacion',$_FILES,$mailModificacion);
+    $errores = $validador->validar($_POST,'modificacion',$_FILES,$usuario,$mailModificacion);
     if (empty($errores)) {
 
-        actualizarUsuario($_FILES,$_POST,$usuariologin['id']);
+        $usuario->actualizarUsuario($_FILES,$_POST,$usuariologin['id']);
 
     }
 
   }
   // NOTE: subir imagenes de usuario al muro
-  function obtenerPublicacion($id) {
+  /*function obtenerPublicacion($id) {
     $posteos = file_get_contents('posteos.json');
     $arrPosteosJSON = explode(PHP_EOL,$posteos);
     $arrUsuarioPosteo = [];
@@ -96,11 +97,11 @@
     }else {
         return false;
     }
-  }
+  }*/
 
 
 // NOTE: obtengo array con los posteos de usuario para mostrar las cards
-$userPosts = obtenerPublicacion($usuariologin['id']);
+//$userPosts = obtenerPublicacion($usuariologin['id']);
 
 
 ?>

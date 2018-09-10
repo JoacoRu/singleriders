@@ -4,23 +4,24 @@
 <?php
 
   require_once('funciones.php');
-  $nombres = traerNombreDeUsuarios();
-  $allUsers = buscarUsuarios();
+  require_once('loader.php');
+  $nombres = $usuario->traerNombreDeUsuarios();
+  $allUsers = $usuario->buscarUsuarios();
   $msj = msjAseleccionar();
 
 
   if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
     header('location:login.php');
   }else if (isset($_SESSION['id'])) {
-    $usuariologin = obtenerId($_SESSION['id']);
+    $usuariologin = $usuario->obtenerId($_SESSION['id']);
   }else if (isset($_COOKIE['id'])) {
-    $usuariologin = obtenerId($_COOKIE['id']);
+    $usuariologin = $usuario->obtenerId($_COOKIE['id']);
   }else {
     header('location:login.php');
   }
 
   if($_POST){
-    $guardarMsj = crearMensaje($usuariologin['nombre']);
+    $guardarMsj = crearMensaje($usuariologin['nombre'],$usuario);
   }
 
 

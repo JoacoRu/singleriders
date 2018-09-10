@@ -2,12 +2,13 @@
 <html lang="en" dir="ltr">
 <?php
 require_once('funciones.php');
+require_once('loader.php');
 if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
   header('location:login.php');
 }else if (isset($_SESSION['id'])) {
-  $usuariologin = obtenerId($_SESSION['id']);
+  $usuariologin = $usuario->obtenerId($_SESSION['id']);
 }else if (isset($_COOKIE['id'])) {
-  $usuariologin = obtenerId($_COOKIE['id']);
+  $usuariologin = $usuario->obtenerId($_COOKIE['id']);
 }else {
   header('location:login.php');
 }
@@ -34,7 +35,7 @@ if ($_POST) {
   $creadorDeViaje = $_SESSION['id'];
   $errores = validarviaje($_POST);
   if (empty($errores)) {
-      guardarViaje($_POST);
+      guardarViaje($_POST,$creadorDeViaje);
   }
 }
 ?>
@@ -166,7 +167,7 @@ if ($_POST) {
                                 </select>
                               </div>
                               <div class="descripcion">
-                                <textarea id="descripcion" class="form-control" name="mensaje-iti" placeholder="Que vas a hacer en esta ciudad?..."></textarea>
+                                <textarea id="descripcion" class="form-control" name="mensajeiti" placeholder="Que vas a hacer en esta ciudad?..."></textarea>
                               </div>
                             </div>
                           </div>
