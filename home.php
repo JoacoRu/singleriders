@@ -3,7 +3,8 @@
 require_once('loader.php');
 require_once('funciones.php');
 $nombres = $usuario->traerNombreDeUsuarios();
-msjAseleccionar();
+$mensaje = new Mensaje();
+//msjAseleccionar();
 
 if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
   header('location:login.php');
@@ -15,7 +16,7 @@ if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
   header('location:login.php');
 }
 if($_POST){
-  $guardarMsj = crearMensaje($usuariologin['nombre'],$usuario);
+  $guardarMsj = $mensaje->crearMensaje($usuariologin['nombre'],$usuario);
 }
 
 $userViajes = obtenerViajes($usuariologin['id']);

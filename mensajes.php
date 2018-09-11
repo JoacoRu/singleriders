@@ -7,7 +7,8 @@
   require_once('loader.php');
   $nombres = $usuario->traerNombreDeUsuarios();
   $allUsers = $usuario->buscarUsuarios();
-  $msj = msjAseleccionar();
+  $mensaje = new Mensaje();
+  $msj = $mensaje->msjAseleccionar();
 
 
   if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
@@ -21,7 +22,7 @@
   }
 
   if($_POST){
-    $guardarMsj = crearMensaje($usuariologin['nombre'],$usuario);
+    $guardarMsj = $mensaje->crearMensaje($usuariologin['nombre'],$usuario);
   }
 
 

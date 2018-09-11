@@ -6,6 +6,7 @@
     //require_once("classes/Auth.php");
     require_once("classes/Validador.php");
     require_once("classes/Usuario.php");
+    require_once("classes/Mensaje.php");
 
     //instancias de objetos que necesitamos para la logica de login y registro
     //$db = new DbMySQL();
