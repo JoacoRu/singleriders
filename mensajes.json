@@ -2,3 +2,5 @@
 {"from":1,"to":1,"nombreRemitente":"Gabriel","idDestinatario":1,"msj":"from gabriel to gabriel","fecha":"11-09-2018 22:40:47"}
 {"from":1,"to":2,"nombreRemitente":"Gabriel","idDestinatario":2,"msj":"enviado 23:04","fecha":"11-09-2018 23:04:54"}
 {"from":2,"to":1,"nombreRemitente":"Joaco","idDestinatario":1,"msj":"enviado 23:05","fecha":"11-09-2018 23:05:54"}
+{"from":29,"to":2,"nombreRemitente":null,"idDestinatario":2,"msj":"hola joaco\r\n","fecha":"12-09-2018 15:03:52"}
+{"from":29,"to":16,"nombreRemitente":null,"idDestinatario":16,"msj":"Hola\r\n","fecha":"12-09-2018 15:04:03"}
