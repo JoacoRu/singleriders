@@ -101,7 +101,7 @@
 
               <?php foreach ($msj as $key) :?>
               <?php if (($key['to'] == $usuariologin['id'] && $key['from'] == $userchat) || ($key['from'] == $usuariologin['id'] && $key['to'] == $userchat)) :?>
-                <p><strong>(<?= $key['from'] == $usuariologin['id'] ? $usuariologin['nombre'].' el '.$key['fecha'] : $key['nombreRemitente'].' el '.$key['fecha']  ?>)</strong>: <?= $key['msj'] ?></p>
+                <p><strong><span class="<?= ( $key['from'] == $usuariologin['id'] ) ? 'userchatlogueado' : 'otrouserchat'  ?>"><?= $key['from'] == $usuariologin['id'] ? $usuariologin['nombre'].'</span> (el '.$key['fecha'] : $key['nombreRemitente'].'</span> (el '.$key['fecha']  ?>)</strong>: <?= $key['msj'] ?></p>
               <?php endif; ?>
               <?php endforeach; ?>
 

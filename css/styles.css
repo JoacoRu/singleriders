@@ -267,6 +267,14 @@ a:hover {
     height: auto !important;
 }
 
+.userchatlogueado {
+  color: tomato;
+}
+
+.otrouserchat {
+  color: #4CAF50;
+}
+
 /* Fallback for Edge
 -------------------------------------------------- */
 @supports (-ms-ime-align: auto) {
