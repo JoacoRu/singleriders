@@ -21,9 +21,12 @@
     header('location:login.php');
   }
 
+  isset($_GET['userchat']) ? $userchat = intval($_GET['userchat']) : $userchat = '';
+
   if($_POST){
-    $guardarMsj = $mensaje->crearMensaje($usuariologin['nombre'],$usuario);
+    $guardarMsj = $mensaje->crearMensaje($usuariologin['nombre'],$usuario,$userchat);
   }
+
 
 
 ?>
@@ -56,12 +59,12 @@
           <div class="col-12 p-md-0 col-md-6">
             <h2 class="mt-4 mb-4">Enviar Mensaje</h2>
             <div class="w-100 d-flex mt-4 pl-3 pr-3">
-              <div class="d-flex justify-content-center align-items-center border rounded-circle stepper-muro stepunomsj btn-primary">
+              <div class="d-flex justify-content-center align-items-center border rounded-circle stepper-muro stepunomsj <?= !isset($_GET['userchat']) ? 'btn-primary' : '' ?>">
                 1
               </div>
               <div class="d-flex linea-steps" style="width:auto;height:1px;background:#cccccc">
               </div>
-              <div class="d-flex justify-content-center align-items-center border rounded-circle stepper-muro stepdosmsj">
+              <div class="d-flex justify-content-center align-items-center border rounded-circle stepper-muro stepdosmsj <?= isset($_GET['userchat']) ? 'btn-primary' : '' ?>">
                 2
               </div>
               <div class="d-flex linea-steps" style="width:auto;height:1px;background:#cccccc">
@@ -73,14 +76,14 @@
             <div>
               <form method="post" class="mt-4">
                 <div class="form-label-group" id="touser">
-                  <select name="to" class="form-control" onchange="$('#mensajearea').show();setactivo($('.stepdosmsj'));">
+                  <select id="to" name="to" class="form-control" onchange="$('#mensajearea').show();setactivo($('.stepdosmsj'));window.location.assign(window.location.origin+window.location.pathname+'?userchat='+document.getElementById('to').value)">
                     <option value="elige_usuario">Seleccioná un usuario</option>
-                    <?php print_r($nombres); foreach ($allUsers as $nombre) { ?>
-                    <option value="<?php echo $nombre['id']; ?>"><?php echo $nombre['email']; ?></option>
+                    <?php foreach ($allUsers as $nombre) { ?>
+                    <option <?= $nombre['id'] == $userchat ? 'selected' : '' ?> value="<?php echo $nombre['id']; ?>"><?php echo $nombre['email']; ?></option>
                     <?php } ?>
                   </select>
                 </div>
-                <div class="form-label-group" id="mensajearea">
+                <div class="form-label-group" id="mensajearea" style="display:<?= isset($_GET['userchat']) ? 'block' : 'none' ?>">
                   <textarea onkeyup="$('#enviar').show();setactivo($('.steptresmsj'));" class="form-control" name="mensaje" placeholder="Escribí tu mensaje..."></textarea>
                 </div>
                 <div class="container" id="enviar">
@@ -94,10 +97,12 @@
               </form>
             </div>
             <div>
-              <h2 class="mt-4 mb-4">Mensajes recibidos</h2>
+              <h2 class="mt-4 mb-4">Mensajes</h2>
 
               <?php foreach ($msj as $key) :?>
-                <p><strong>(<?= isset($key['nombreRemitente']) ? $key['nombreRemitente'] : 'Anónimo' ?>)</strong>: <?= $key['msj'] ?></p>
+              <?php if (($key['to'] == $usuariologin['id'] && $key['from'] == $userchat) || ($key['from'] == $usuariologin['id'] && $key['to'] == $userchat)) :?>
+                <p><strong>(<?= $key['from'] == $usuariologin['id'] ? $usuariologin['nombre'].' el '.$key['fecha'] : $key['nombreRemitente'].' el '.$key['fecha']  ?>)</strong>: <?= $key['msj'] ?></p>
+              <?php endif; ?>
               <?php endforeach; ?>
 
             </div>
@@ -118,7 +123,7 @@
 
     </body>
     <script type="text/javascript">
-      $('#mensajearea').hide();
+      //$('#mensajearea').hide();
       $('#enviar').hide();
       function setactivo(valor) {
         $('.stepunomsj').removeClass('btn-primary');

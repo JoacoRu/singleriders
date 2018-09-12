@@ -16,7 +16,7 @@ if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
   header('location:login.php');
 }
 if($_POST){
-  $guardarMsj = $mensaje->crearMensaje($usuariologin['nombre'],$usuario);
+  $guardarMsj = $mensaje->crearMensaje($usuariologin['nombre'],$usuario,$usuariologin['id']);
 }
 
 $userViajes = obtenerViajes($usuariologin['id']);

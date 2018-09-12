@@ -16,7 +16,7 @@ if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
 }
 if($_POST){
   $mensaje = new Mensaje();
-  $guardarMsj = $mensaje->crearMensaje($usuariologin['nombre'],$usuario);
+  $guardarMsj = $mensaje->crearMensaje($usuariologin['nombre'],$usuario,$_POST['to']);
 }
 
 
