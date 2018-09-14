@@ -42,18 +42,26 @@
     <?php require_once('header.php'); ?>
     <section class="mt-5">
       <div class="container-fluid pt-5">
-        <div class="row p-0 m-0 bg-white rounded home-row-main">
+        <div class="row p-0 m-0 bg-white rounded home-row-main justify-content-center">
           <div class="col-12 p-0 top-muro-image d-flex align-items-center justify-content-center">
             <h1 class="font-weight-bold text-center">Todos los viajes</h1>
           </div>
-          <div class="col-12 pt-5 col-md-3 d-flex justify-content-center">
-            <ul class="list-unstyled">
-              <li><a href="perfil.php">Ver mi Perfil</a></li>
-              <li><a href="crea2.php">Crear Viaje</a></li>
-              <li><a href="home.php">Ver mis Viajes</a></li>
-              <li><a href="viajes.php">Todos los Viajes</a></li>
-              <li><a href="mensajes.php">Ver mis Mensajes</a></li>
-            </ul>
+          <div class="col-12 pt-4 col-md-3 d-flex flex-column justify-content-flex-start align-items-center">
+            <div class="row pt-2">
+              <ul class="d-block list-unstyled w-100 px-4 px-lg-5 py-3 border rounded">
+                <li><img style="max-width: 150px;" class="border rounded-circle" src=".<?=$usuariologin['srcImagenperfil']?>" alt="" id="foto-perfil"></li>
+                <li class="text-center mt-3"><a class="btn btn-outline-secondary" href="editar_perfil.php"><img src="images/iconos/home/editar.png" alt=""> <p class="mb-1">Editar perfil</p></a></li>
+              </ul>
+            </div>
+            <div class="row justify-content-center">
+              <ul class="d-block list-unstyled mt-4 text-center p-3 border rounded">
+                <li><a href="perfil.php">Ver mi Perfil</a></li>
+                <li><a href="crea2.php">Crear Viaje</a></li>
+                <li><a href="home.php">Ver mis Viajes</a></li>
+                <li><a href="viajes.php">Todos los Viajes</a></li>
+                <li><a href="mensajes.php">Ver mis Mensajes</a></li>
+              </ul>
+            </div>
           </div>
           <div class="col-12 p-0 col-md-8">
             <!--<div class="w-100 d-flex mt-4 pl-3 pr-3">
