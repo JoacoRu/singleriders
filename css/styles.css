@@ -400,6 +400,11 @@ a:hover {
 }
 
 /* NOTE: fin estilos muro2 */
+.shadow-perfil {
+  /*box-shadow: 5px 5px 10px 0px lightgrey;*/
+  box-shadow: 3px 1px 10px 1px lightgrey;
+  border: 10px solid transparent !important;
+}
 
 /* NOTE: estilos nueva home  */
 /*.carousel-item {
@@ -514,7 +519,10 @@ a:hover {
     display: block;
   }
 
-  /*.navbar-expand-lg {
+  .navbar-expand-lg {
     position: absolute;
-  }*/
+  }
+  .titulo-sr-home {
+    position: relative;
+  }
 }
