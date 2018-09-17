@@ -7,12 +7,12 @@
       </ul>
     </div>
     <div class="row justify-content-center">
-      <ul class="d-block list-unstyled mt-4 text-center p-3 border rounded">
+      <ul class="d-block list-unstyled mt-4 text-center p-3 border navegacion-perfil">
         <!--<li><a href="perfil.php">Ver mi Perfil</a></li>-->
-        <li><a href="crea2.php">Crear Viaje</a></li>
-        <li><a href="home.php">Ver mis Viajes</a></li>
-        <li><a href="viajes.php">Todos los Viajes</a></li>
-        <li><a href="mensajes.php">Ver mis Mensajes</a></li>
+        <li class="d-flex align-items-center mb-2"><img class="mr-1" src="images/iconos/home/crear_viaje.png" alt=""><a href="crea2.php">Crear Viaje</a></li>
+        <li class="d-flex align-items-center mb-2"><img class="mr-1" src="images/iconos/home/ver_mis_viajes.png" alt=""><a class="mt-1" href="home.php">Ver mis Viajes</a></li>
+        <li class="d-flex align-items-center mb-2"><img class="mr-1" src="images/iconos/home/ver_mis_viajes.png" alt=""><a href="viajes.php">Todos los Viajes</a></li>
+        <li class="d-flex align-items-center mb-2"><img class="mr-1" style="width:24px;height:24px;" src="images/iconos/home/sobre.png" alt=""><a href="mensajes.php">Ver mis Mensajes</a></li>
       </ul>
     </div>
   </div>

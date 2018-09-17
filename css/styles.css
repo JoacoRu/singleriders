@@ -400,6 +400,14 @@ a:hover {
 }
 
 /* NOTE: fin estilos muro2 */
+
+/* NOTE: estilos lateral izquierdo */
+.navegacion-perfil li:hover {
+    background-color: #F8F8F8;
+    padding: 5px;
+}
+
+/* NOTE: fin estilos lateral izquierdo */
 .shadow-perfil {
   /*box-shadow: 5px 5px 10px 0px lightgrey;*/
   box-shadow: 3px 1px 10px 1px lightgrey;
