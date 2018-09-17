@@ -26,10 +26,16 @@ if($_POST)
 
     <form method="post">
         <label for="seguir">
-            <input type="radio" name="seguir" id="hola"  onClick="document.getElementById('boton').click();">
+            <div name="seguir" value="1" id="hola" onClick="document.getElementById('boton').click()">
             <button type="submit" id="boton" style="visibility: hidden">
         </label>
     </form>
-    
+    <style>
+    #hola{
+        background-color: black;
+        width: 30px;
+        height: 30px;
+    }
+    </style>
 </body>
 </html>
