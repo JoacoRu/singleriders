@@ -14,7 +14,7 @@ function login(){
 
   //Funcion guardar viaje del formulario crea tu viaje//
 //cuando vincule funciones a crea2.php , complete el formulario y puse enviar, me dio error de validacion //
-function validarviaje($data){
+/*function validarviaje($data){
     $mensaje = trim($data['mensaje']);
     $datein = trim($data['datein']);
     $dateout = trim($data['dateout']);
@@ -35,9 +35,9 @@ function validarviaje($data){
     if ($pais == '') {
               $errores['pais']  = 'Por favor indica el País al que viajas';
        }
-    /*if ($ciudad == '') {
-              $errores['ciudad']  = 'Por favor indica la ciudad a visitar';
-       }*/
+    //if ($ciudad == '') {
+              //$errores['ciudad']  = 'Por favor indica la ciudad a visitar';
+       //}
     if ($importe == '') {
               $errores['importe']  = 'Por favor indica tu presupuesto';
       }
@@ -61,7 +61,7 @@ function validarviaje($data){
       ];
     $viajeJSON= json_encode($viaje);
     file_put_contents('viajes.json', $viajeJSON . PHP_EOL, FILE_APPEND);
-  }
+  }*/
   function traerViajes(){
       $allViajes = file_get_contents('viajes.json');
       $arrayDeViajes = explode(PHP_EOL, $allViajes);
