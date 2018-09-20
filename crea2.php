@@ -91,7 +91,7 @@ if ($_POST) {
                 <br></br>
               Partida: <input type="date" name="datein" value="<?=$datein?>">
               Regreso: <input type="date" name="dateout" value="<?=$dateout?>"><br></br>
-              <label for="inlineRadioOptions"> ¿Tus Fechas son flexibles?</label>
+              <label for="inlineRadioOptions"> ¿Tus Fechas son flexibles?</label><br></br>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="infoGeneral" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Si, seguro!</label>
