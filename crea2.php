@@ -91,7 +91,13 @@ if ($_POST) {
                 <br></br>
               Partida: <input type="date" name="datein" value="<?=$datein?>">
               Regreso: <input type="date" name="dateout" value="<?=$dateout?>"><br></br>
-              <label for="inlineRadioOptions"> ¿Tus Fechas son flexibles?</label><br></br>
+              <?php if (isset($errores['datein'])):?>
+                  <p><?= $errores['datein']?></p>
+                <?php endif;?>
+                <?php if (isset($errores['dateout'])):?>
+                    <p><?= $errores['dateout']?></p>
+                  <?php endif;?>
+                <label for="inlineRadioOptions"> ¿Tus Fechas son flexibles?</label><br></br>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="infoGeneral" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Si, seguro!</label>
@@ -108,6 +114,9 @@ if ($_POST) {
               <article id="tab2">
                 <label for="pais">¿Adonde queres ir?</label>
                 <select class="form-control" name="pais"<?=$pais?>>
+                  <?php if (isset($errores['pais'])):?>
+                      <p><?= $errores['pais']?></p>
+                    <?php endif;?>
                   <option value="">Selecciona el país a visitar</option>
                   <?php foreach ($paises as $key => $value) :?>
                       <option value="<?= $value['CODIGO'] ?>"><?= $value['NOMBRE'] ?></option>
@@ -135,6 +144,9 @@ if ($_POST) {
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text">Importe</span>
+                      <?php if (isset($errores['importe'])):?>
+                          <p><?= $errores['importe']?></p>
+                        <?php endif;?>
                       </div>
                       <input type="text" class="form-control" name="importe" aria-label="Amount (to the nearest dollar)">
                       <div class="input-group-append">
@@ -144,6 +156,9 @@ if ($_POST) {
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
                         <span class="input-group-text">Moneda</span>
+                        <?php if (isset($errores['moneda'])):?>
+                            <p><?= $errores['moneda']?></p>
+                          <?php endif;?>
                         </div>
                         <input type="text" class="form-control" name="moneda" aria-label="Amount (to the nearest dollar)">
                       </div>
