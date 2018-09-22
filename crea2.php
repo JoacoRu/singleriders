@@ -56,7 +56,9 @@ if ($_POST) {
 
       <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
       <script src="crea.js"></script>
+      <link rel="stylesheet" href="css/styles.css">
       <link rel="stylesheet" href="css/crea.css">
+
 
     <title></title>
   </head>
@@ -88,16 +90,18 @@ if ($_POST) {
                 <?php if (isset($errores['mensaje'])):?>
                   <p><?= $errores['mensaje'] ?></p>
                 <?php endif; ?>
-                <br></br>
-              Partida: <input type="date" name="datein" value="<?=$datein?>">
-              Regreso: <input type="date" name="dateout" value="<?=$dateout?>"><br></br>
-              <?php if (isset($errores['datein'])):?>
-                  <p><?= $errores['datein']?></p>
-                <?php endif;?>
-                <?php if (isset($errores['dateout'])):?>
-                    <p><?= $errores['dateout']?></p>
+
+              <div class="d-flex flex-column flex-md-row align-items-md-center mt-2">
+                Partida: <input class="ml-2 mr-4" type="date" name="datein" value="<?=$datein?>">
+                Regreso: <input class="ml-2 mr-4" type="date" name="dateout" value="<?=$dateout?>"><br></br>
+                <?php if (isset($errores['datein'])):?>
+                    <p><?= $errores['datein']?></p>
                   <?php endif;?>
-                <label for="inlineRadioOptions"> ¿Tus Fechas son flexibles?</label><br></br>
+                  <?php if (isset($errores['dateout'])):?>
+                      <p><?= $errores['dateout']?></p>
+                    <?php endif;?>
+              </div>
+              <label for="inlineRadioOptions"> ¿Tus Fechas son flexibles?</label><br></br>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="inlineRadioOptions" id="infoGeneral" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Si, seguro!</label>
