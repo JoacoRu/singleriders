@@ -44,10 +44,10 @@ class Usuario
             }
 
         }else {
-            var_dump('extension invalida!');
+            //var_dump('extension invalida!');
         }
     }else {
-        var_dump('error al subir');
+        //var_dump('error al subir');
     }
   }
 

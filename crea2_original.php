@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
 <?php
 require_once('funciones.php');
 require_once('loader.php');
@@ -39,6 +37,8 @@ if ($_POST) {
   }
 }
 ?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device

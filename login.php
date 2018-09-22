@@ -1,8 +1,4 @@
-<!doctype html>
-<html lang="en">
-
 <?php
-
   require_once('funciones.php');
   require_once('loader.php');
 
@@ -27,7 +23,8 @@
   }
 
 ?>
-
+<!doctype html>
+<html lang="en">
   <head>
     <title>Single Riders</title>
     <meta charset="utf-8">

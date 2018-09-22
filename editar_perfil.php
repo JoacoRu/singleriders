@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="es">
 <?php
 
   require_once('funciones.php');
@@ -105,6 +103,8 @@
 
 
 ?>
+<!DOCTYPE html>
+<html lang="es">
 <head>
     <title>Perfil</title>
     <meta charset="utf-8">
