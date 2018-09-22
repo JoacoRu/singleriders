@@ -165,7 +165,7 @@ class Usuario
     public function nombreAsocId($nombre){
       $todosLosUsuarios = $this->buscarUsuarios();
       $datosDeUsuario = [];
-      $idDelUsuario;
+      $idDelUsuario='';
       foreach ($todosLosUsuarios as $usuario) {
         if($usuario['nombre'] == $nombre){
           $datosDeUsuario[] = $usuario;
