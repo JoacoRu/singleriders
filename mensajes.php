@@ -4,19 +4,10 @@
   require_once('loader.php');
   $nombres = $usuario->traerNombreDeUsuarios();
   $allUsers = $usuario->buscarUsuarios();
-  $mensaje = new Mensaje();
   $msj = $mensaje->msjAseleccionar();
 
 
-  if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
-    header('location:login.php');
-  }else if (isset($_SESSION['id'])) {
-    $usuariologin = $usuario->obtenerId($_SESSION['id']);
-  }else if (isset($_COOKIE['id'])) {
-    $usuariologin = $usuario->obtenerId($_COOKIE['id']);
-  }else {
-    header('location:login.php');
-  }
+  $usuariologin = $autenticador->loginControl($usuario);
 
   isset($_GET['userchat']) ? $userchat = intval($_GET['userchat']) : $userchat = '';
 

@@ -3,23 +3,15 @@
   require_once('loader.php');
 
   $nombres = $usuario->traerNombreDeUsuarios();
-  $mensaje = new Mensaje();
+  $mensaje = new Message();
   //msjAseleccionar();
+  $usuariologin = $autenticador->loginControl($usuario);
 
-  if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
-    header('location:login.php');
-  }else if (isset($_SESSION['id'])) {
-    $usuariologin = $usuario->obtenerId($_SESSION['id']);
-  }else if (isset($_COOKIE['id'])) {
-    $usuariologin = $usuario->obtenerId($_COOKIE['id']);
-  }else {
-    header('location:login.php');
-  }
   if($_POST){
     $guardarMsj = $mensaje->crearMensaje($usuariologin['nombre'],$usuario,$usuariologin['id']);
   }
 
-  $userViajes = obtenerViajes($usuariologin['id']);
+  $userViajes = $usuario->obtenerViajes($usuariologin['id']);
 
 ?>
 <!doctype html>

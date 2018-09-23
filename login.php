@@ -2,24 +2,17 @@
   require_once('funciones.php');
   require_once('loader.php');
 
-  if (isset($_SESSION['id']) || isset($_COOKIE['id'])) {
-    header('location:home.php');
-  }
+  $autenticador->loggedBackToHome();
 
   $email = '';
   $errores = [];
 
   if ($_POST) {
     $email = trim($_POST['email']);
-    $errores = $validador->validar($_POST,'login',false,$usuario);
+    $errores = $loginvalidator->validar($_POST,'login',false,$usuario);
     if (empty($errores)) {
-      $usuariologin = $usuario->buscarUsuario($email);
-      $_SESSION['id'] = $usuariologin['id'];
-      if(!isset($_COOKIE['id']) && $_POST['recordarme']) {
-        setcookie('id', $usuariologin['id'], time() + 3600);
+      $autenticador->login($email, $usuario);
       }
-      login();
-    }
   }
 
 ?>

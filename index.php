@@ -1,11 +1,11 @@
 <?php
 
   require_once('funciones.php');
-  if (isset($_SESSION['id']) || isset($_COOKIE['id'])) {
-    header('location:home.php');
-  }
+  require_once('loader.php');
 
-  $userViajes = obtenerTodosLosViajes();
+  $autenticador->loggedBackToHome();
+
+  $userViajes = $usuario->obtenerTodosLosViajes();
   //ultimos 3 viajes
   $userviajes2 = array_splice($userViajes['viajes'], count($userViajes['viajes']) - 3, 3);
 ?>

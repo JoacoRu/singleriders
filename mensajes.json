@@ -7,3 +7,14 @@
 {"from":1,"to":1,"nombreRemitente":"Gabriel","idDestinatario":1,"msj":"13-09","fecha":"13-09-2018 22:49:59"}
 {"from":1,"to":28,"nombreRemitente":"Gabriel","idDestinatario":28,"msj":"adadadad","fecha":"13-09-2018 22:51:56"}
 {"from":1,"to":28,"nombreRemitente":"Gabriel","idDestinatario":28,"msj":"","fecha":"14-09-2018 21:30:48"}
+{"from":1,"to":1,"nombreRemitente":"Gabriel","idDestinatario":1,"msj":"prueba","fecha":"23-09-2018 00:22:45"}
+{"from":1,"to":1,"nombreRemitente":"an\u00f3nimo","idDestinatario":1,"msj":"prueba 2","fecha":null}
+{"from":1,"to":1,"nombreRemitente":"an\u00f3nimo","idDestinatario":1,"msj":"prueba 3","fecha":"23-09-2018 01:36:33"}
+{"from":1,"to":1,"nombreRemitente":"an\u00f3nimo","idDestinatario":1,"msj":"prueba 4..","fecha":"23-09-2018 01:40:09"}
+{"from":29,"to":1,"nombreRemitente":"an\u00f3nimo","idDestinatario":1,"msj":"mensaje a gabriel, detalles del viaje por favor...","fecha":"23-09-2018 01:43:09"}
+{"from":29,"to":1,"nombreRemitente":"an\u00f3nimo","idDestinatario":1,"msj":"como puedo unirme a este viaje?","fecha":"23-09-2018 01:43:48"}
+{"from":1,"to":29,"nombreRemitente":"Gabriel","idDestinatario":29,"msj":"mensaje a chango","fecha":"23-09-2018 01:46:31"}
+{"from":29,"to":1,"nombreRemitente":"chango","idDestinatario":1,"msj":"ehhh locoooo","fecha":"23-09-2018 01:47:36"}
+{"from":1,"to":2,"nombreRemitente":"Gabriel","idDestinatario":2,"msj":"\u00b4prueba 3","fecha":"23-09-2018 17:47:50"}
+{"from":1,"to":1,"nombreRemitente":"Gabriel","idDestinatario":1,"msj":"prueba","fecha":"23-09-2018 18:06:06"}
+{"from":1,"to":1,"nombreRemitente":"Gabriel","idDestinatario":1,"msj":"qqqqqqqqq","fecha":"23-09-2018 18:06:45"}

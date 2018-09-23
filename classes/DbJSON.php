@@ -1,12 +1,7 @@
 <?php
-
-class Usuario
-
+require_once('DB.php');
+class DbJSON extends DB
 {
-
-  private $id;
-  private $email;
-  private $password;
 
   //registro de usuario
   public function registrar($datosuser,$imagenperfil){
@@ -178,8 +173,85 @@ class Usuario
       return $idDelUsuario;
     }
 
+    // NOTE: métodos mensajes
+    // crea el mensaje
+    public function crearMensaje($remitente='anónimo',User $usuario,$fecha,$userchat=''){
+      $convertidor = $usuario->nombreAsocId(intval($_POST['to']));
+      $mensaje = [
+        'from' => $_SESSION['id'],
+        'to'  => intval($_POST['to']),
+        'nombreRemitente' => $remitente,
+        'idDestinatario' => intval($_POST['to']),
+        'msj'  => $_POST['mensaje'],
+        'fecha' => $fecha,
+      ];
+      $msjJson = json_encode($mensaje, true);
+      file_put_contents('mensajes.json', $msjJson . PHP_EOL, FILE_APPEND);
+      header('location:mensajes.php?userchat='.$userchat);
+    }
+    //decodea el msj
+    public function recibirMensaje(){
+      $msjJson= file_get_contents('mensajes.json');
+      $msjArray = explode(PHP_EOL, $msjJson);
+      array_pop($msjArray);
+      $arrayPhp = [];
+      foreach ($msjArray as $contenido) {
+        $arrayPhp[] = json_decode($contenido, true);
+      }
+      return $arrayPhp;
+    }
 
+    //selecciona el msj
+
+    public function msjAseleccionar(){
+      $recibe = $this->recibirMensaje();
+      $idEnSesion = $_SESSION['id'];
+      $datosDelMensaje = [];
+      foreach ($recibe as $dato) {
+        if($dato['idDestinatario'] == $idEnSesion || $dato['from'] == $idEnSesion){
+          $datosDelMensaje[] = $dato;
+        }
+      }
+      return $datosDelMensaje;
+    }
+
+    // NOTE: viajes.php
+    function obtenerTodosLosViajes() {
+      $viajes = file_get_contents('viajes.json');
+      $arrViajesJSON = explode(PHP_EOL,$viajes);
+      $arrUsuarioViajes = [];
+      $arrUsuarioViajestmp = [];
+      array_pop($arrViajesJSON);
+      $counter = 0;
+      foreach ($arrViajesJSON as $key => $usuario) {
+            $arrUsuarioViaje[] = json_decode($usuario,true);
+      }
+      $usuarioviaje['counter'] = $counter+1;
+      $usuarioviaje['viajes'] = $arrUsuarioViaje;
+      return $usuarioviaje;
+    }
+    function obtenerViajes($id) {
+      $viajes = file_get_contents('viajes.json');
+      $arrViajesJSON = explode(PHP_EOL,$viajes);
+      $arrUsuarioViajes = [];
+      $arrUsuarioViajestmp = [];
+      $arrUsuarioViaje = [];
+      array_pop($arrViajesJSON);
+      $counter = 0;
+      foreach ($arrViajesJSON as $key => $usuario) {
+          $arrUsuarioViajetmp[] = json_decode($usuario,true);
+          if ($arrUsuarioViajetmp[0]['creadorDeViaje'] == $id) {
+            $counter++;
+            $arrUsuarioViaje[] = json_decode($usuario,true);
+          }
+          $arrUsuarioViajetmp = [];
+      }
+      $usuarioviaje['counter'] = $counter+1;
+      $usuarioviaje['viajes'] = $arrUsuarioViaje;
+      return $usuarioviaje;
+    }
 }
+
 
 
 

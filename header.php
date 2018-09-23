@@ -1,11 +1,9 @@
 <?php
   require_once('funciones.php');
   require_once('loader.php');
-  if (isset($_SESSION['id'])) {
-    $usuariologin = $usuario->obtenerId($_SESSION['id']);
-  }else if (isset($_COOKIE['id'])) {
-    $usuariologin = $usuario->obtenerId($_COOKIE['id']);
-  }
+
+  $usuariologin = $autenticador->usuarioLoginHeader($usuario);
+
 ?>
 
     <header>
@@ -28,7 +26,7 @@
         </button>
         <?php endif; ?>
         <?php if (isset($usuariologin)): ?>
-        <div id="loguerla">
+        <div class="d-none d-sm-inline-block" id="loguerla">
           <h2>Single Riders</h2>
         </div>
         <?php endif; ?>

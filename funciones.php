@@ -1,15 +1,15 @@
 <?php
 
-session_start();
+//session_start();
 
 // NOTE: prueba
 
-require_once("classes/Usuario.php");
+require_once("classes/User.php");
 
 //login de usuario
-function login(){
+/*function login(){
   header('location:home.php');
-}
+}*/
 
 
   //Funcion guardar viaje del formulario crea tu viaje//
@@ -95,7 +95,7 @@ function login(){
     return $arrayCiudadesPhp;
   }
   // NOTE: viajes.php
-  function obtenerTodosLosViajes() {
+  /*function obtenerTodosLosViajes() {
     $viajes = file_get_contents('viajes.json');
     $arrViajesJSON = explode(PHP_EOL,$viajes);
     $arrUsuarioViajes = [];
@@ -144,7 +144,7 @@ function login(){
     }
 
     return $idDelUsuario;
-  }
+  }*/
 
 
  ?>

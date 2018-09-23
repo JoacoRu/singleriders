@@ -1,10 +1,11 @@
 <?php
-require_once("Usuario.php");
-class Validador
+require_once("User.php");
+require_once("Validator.php");
+class LoginValidator extends Validator
 {
 
   //validacion de campos para el registro y el alta de usuario
-  public function validar($datosuser, $formulario, $imagenperfil = false, Usuario $usuario, $mailModificacion = ''){
+  public function validar($datosuser, $formulario, $imagenperfil = false, User $usuario, $mailModificacion = ''){
     $usuariologin = $usuario->buscarUsuario(trim($datosuser['email']));
     $errores = [];
     foreach ($datosuser as $clave => $dato) {
@@ -22,26 +23,12 @@ class Validador
               $errores[$clave] = 'Email inválido';
             }
           }
-          if ($formulario == 'registro') {
-            if ($usuario->buscarUsuario(trim($dato))) {
-              if (!isset($errores[$clave])) {
-                $errores[$clave] = 'El email ya fue registrado';
-              }
-            }
-          }
-          elseif ($formulario == 'login') {
+          if ($formulario == 'login') {
               if (!$usuariologin) {
                 if (!isset($errores[$clave])) {
                   $errores[$clave] = 'Usuario incorrecto';
                 }
               }
-          }
-          else if ($formulario == 'modificacion' && $mailModificacion != '') {
-            if ($usuario->buscarUsuario(trim($dato))) {
-              if (!isset($errores[$clave])) {
-                $errores[$clave] = 'El email ya fue registrado';
-              }
-            }
           }
         }
         if ($clave == 'password') {
@@ -66,29 +53,6 @@ class Validador
             }
           }
         }
-      }
-    }
-    if ($formulario == 'registro') {
-
-      if ($imagenperfil['imgperfil']['error'] === UPLOAD_ERR_OK) {
-          $ext = strtolower(pathinfo($imagenperfil['imgperfil']['name'], PATHINFO_EXTENSION));
-          if ($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg') {
-            $errores['imgperfil'] = 'Extension no válida (debe ser jpg, jpeg o png)';
-          }
-      }else {
-          $errores['imgperfil'] = 'Seleccioná una imagen de perfil';
-      }
-    }
-    if ($formulario == 'modificacion' && $imagenperfil) {
-      if ($imagenperfil['imgperfil']['error'] === UPLOAD_ERR_OK) {
-          $ext = strtolower(pathinfo($imagenperfil['imgperfil']['name'], PATHINFO_EXTENSION));
-          if ($ext != 'jpg' && $ext != 'png' && $ext != 'jpeg') {
-            $errores['imgperfil'] = 'Extension no válida (debe ser jpg, jpeg o png)';
-          }
-      }elseif ($imagenperfil['imgperfil']['error'] === 4) {
-          //var_dump($imagenperfil);
-          //exit;
-          //$errores['imgperfil'] = 'Seleccioná una imagen chango';
       }
     }
     return $errores;

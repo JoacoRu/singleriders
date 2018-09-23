@@ -3,15 +3,7 @@
   require_once('funciones.php');
   require_once('loader.php');
 
-  if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
-    header('location:login.php');
-  }else if (isset($_SESSION['id'])) {
-    $usuariologin = $usuario->obtenerId($_SESSION['id']);
-  }else if (isset($_COOKIE['id'])) {
-    $usuariologin = $usuario->obtenerId($_COOKIE['id']);
-  }else {
-    header('location:login.php');
-  }
+  $usuariologin = $autenticador->loginControl($usuario);
 
   $nombre = $usuariologin['nombre'];
   $apellido = $usuariologin['apellido'];
@@ -28,7 +20,7 @@
     if ($email != $usuariologin['email']) {
       $mailModificacion = $usuariologin['email'];
     }
-    $errores = $validador->validar($_POST,'modificacion',$_FILES,$usuario,$mailModificacion);
+    $errores = $profilevalidator->validar($_POST,'modificacion',$_FILES,$usuario,$mailModificacion);
     if (empty($errores)) {
 
         $usuario->actualizarUsuario($_FILES,$_POST,$usuariologin['id']);

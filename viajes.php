@@ -5,22 +5,14 @@
   $nombres = $usuario->traerNombreDeUsuarios();
   //msjAseleccionar();
 
-  if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
-    header('location:login.php');
-  }else if (isset($_SESSION['id'])) {
-    $usuariologin = $usuario->obtenerId($_SESSION['id']);
-  }else if (isset($_COOKIE['id'])) {
-    $usuariologin = $usuario->obtenerId($_COOKIE['id']);
-  }else {
-    header('location:login.php');
-  }
+  $usuariologin = $autenticador->loginControl($usuario);
+
   if($_POST){
-    $mensaje = new Mensaje();
     $guardarMsj = $mensaje->crearMensaje($usuariologin['nombre'],$usuario,$_POST['to']);
   }
 
 
-  $userViajes = obtenerTodosLosViajes();
+  $userViajes = $usuario->obtenerTodosLosViajes();
 
 ?>
 <!doctype html>

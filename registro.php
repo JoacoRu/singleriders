@@ -2,9 +2,8 @@
 require_once('funciones.php');
 require_once('loader.php');
 
-if (isset($_SESSION['id']) || isset($_COOKIE['id'])) {
-    header('location:home.php');
-}
+$autenticador->loggedBackToHome();
+
 $nombre = '';
 $apellido = '';
 $email = '';
@@ -14,7 +13,7 @@ if ($_POST) {
   $nombre = trim($_POST['nombre']);
   $apellido = trim($_POST['apellido']);
   $email = trim($_POST['email']);
-  $errores = $validador->validar($_POST,'registro',$_FILES,$usuario);
+  $errores = $registervalidator->validar($_POST,'registro',$_FILES,$usuario);
   if (empty($errores)) {
 
       $usuario->registrar($_POST,$_FILES);
