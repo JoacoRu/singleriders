@@ -58,8 +58,8 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="editar_perfil.php">Editar Perfil</a>
-            <a class="dropdown-item" href="#">Mis Viajes</a>
-            <a class="dropdown-item" href="#">Cambiar Cuenta</a>
+            <a class="dropdown-item" href="home.php">Mis Viajes</a>
+            <!--<a class="dropdown-item" href="#">Cambiar Cuenta</a>-->
             <a class="dropdown-item" href="faqs.php">faqs</a>
 
             <a class="dropdown-item" href="logout.php">Cerrar sesión</a>
