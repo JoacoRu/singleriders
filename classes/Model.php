@@ -1,6 +1,6 @@
 <?php
 require_once('DbJSON.php');
-//require_once('DbMySQL.php');
+require_once('DbMySQL.php');
 class Model
 {
   public $table;
@@ -13,7 +13,8 @@ class Model
   {
     //$this->datos = $datos;
     $this->db = new DbJSON();
-    $this->fecha = date('d-m-Y H:i:s');
+    //$this->db = new DbMySQL();
+    $this->fecha = date('Y-m-d H:i:s');
 
   }
 

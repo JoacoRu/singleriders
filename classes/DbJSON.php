@@ -176,12 +176,12 @@ class DbJSON extends DB
     // NOTE: métodos mensajes
     // crea el mensaje
     public function crearMensaje($remitente='anónimo',User $usuario,$fecha,$userchat=''){
-      $convertidor = $usuario->nombreAsocId(intval($_POST['to']));
+      $convertidor = $usuario->nombreAsocId(intval($_POST['to_id']));
       $mensaje = [
-        'from' => $_SESSION['id'],
-        'to'  => intval($_POST['to']),
+        'from_id' => $_SESSION['id'],
+        'to_id'  => intval($_POST['to_id']),
         'nombreRemitente' => $remitente,
-        'idDestinatario' => intval($_POST['to']),
+        'idDestinatario' => intval($_POST['to_id']),
         'msj'  => $_POST['mensaje'],
         'fecha' => $fecha,
       ];
@@ -208,7 +208,7 @@ class DbJSON extends DB
       $idEnSesion = $_SESSION['id'];
       $datosDelMensaje = [];
       foreach ($recibe as $dato) {
-        if($dato['idDestinatario'] == $idEnSesion || $dato['from'] == $idEnSesion){
+        if($dato['idDestinatario'] == $idEnSesion || $dato['from_id'] == $idEnSesion){
           $datosDelMensaje[] = $dato;
         }
       }

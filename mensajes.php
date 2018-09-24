@@ -64,7 +64,7 @@
                         <div>
                           <form method="post" class="mt-4">
                             <div class="form-label-group" id="touser">
-                              <select id="to" name="to" class="form-control" onchange="$('#mensajearea').show();setactivo($('.stepdosmsj'));window.location.assign(window.location.origin+window.location.pathname+'?userchat='+document.getElementById('to').value)">
+                              <select id="to_id" name="to_id" class="form-control" onchange="$('#mensajearea').show();setactivo($('.stepdosmsj'));window.location.assign(window.location.origin+window.location.pathname+'?userchat='+document.getElementById('to_id').value)">
                                 <option value="elige_usuario">Seleccioná un usuario</option>
                                 <?php foreach ($allUsers as $nombre) { ?>
                                 <option <?= $nombre['id'] == $userchat ? 'selected' : '' ?> value="<?php echo $nombre['id']; ?>"><?php echo $nombre['email']; ?></option>
@@ -88,8 +88,8 @@
                           <h2 class="mt-4 mb-4">Mensajes</h2>
 
                           <?php foreach ($msj as $key) :?>
-                          <?php if (($key['to'] == $usuariologin['id'] && $key['from'] == $userchat) || ($key['from'] == $usuariologin['id'] && $key['to'] == $userchat)) :?>
-                            <p><strong><span class="<?= ( $key['from'] == $usuariologin['id'] ) ? 'userchatlogueado' : 'otrouserchat'  ?>"><?= $key['from'] == $usuariologin['id'] ? $usuariologin['nombre'].'</span> (el '.$key['fecha'] : $key['nombreRemitente'].'</span> (el '.$key['fecha']  ?>)</strong>: <?= $key['msj'] ?></p>
+                          <?php if (($key['to_id'] == $usuariologin['id'] && $key['from_id'] == $userchat) || ($key['from_id'] == $usuariologin['id'] && $key['to_id'] == $userchat)) :?>
+                            <p><strong><span class="<?= ( $key['from_id'] == $usuariologin['id'] ) ? 'userchatlogueado' : 'otrouserchat'  ?>"><?= $key['from_id'] == $usuariologin['id'] ? $usuariologin['nombre'].'</span> (el '.date_format(date_create($key['fecha']),'d-m-Y H:i:s') : $key['nombreRemitente'].'</span> (el '.date_format(date_create($key['fecha']),'d-m-Y H:i:s')  ?>)</strong>: <?= $key['msj'] ?></p>
                           <?php endif; ?>
                           <?php endforeach; ?>
 
