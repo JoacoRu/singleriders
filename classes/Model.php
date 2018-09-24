@@ -12,8 +12,8 @@ class Model
   public function __construct()
   {
     //$this->datos = $datos;
-    $this->db = new DbJSON();
-    //$this->db = new DbMySQL();
+    //$this->db = new DbJSON();
+    $this->db = new DbMySQL();
     $this->fecha = date('Y-m-d H:i:s');
 
   }
