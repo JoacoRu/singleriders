@@ -13,18 +13,21 @@
 
 
 -- Volcando estructura de base de datos para singleriders
+DROP DATABASE IF EXISTS `singleriders`;
 CREATE DATABASE IF NOT EXISTS `singleriders` /*!40100 DEFAULT CHARACTER SET ucs2 COLLATE ucs2_spanish_ci */;
 USE `singleriders`;
 
 -- Volcando estructura para tabla singleriders.cities
+DROP TABLE IF EXISTS `cities`;
 CREATE TABLE IF NOT EXISTS `cities` (
   `ciudad` varchar(50) COLLATE ucs2_spanish_ci DEFAULT NULL,
   `ciudad_cod_pais` varchar(20) COLLATE ucs2_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=ucs2 COLLATE=ucs2_spanish_ci;
 
 -- Volcando datos para la tabla singleriders.cities: ~6.857 rows (aproximadamente)
+DELETE FROM `cities`;
 /*!40000 ALTER TABLE `cities` DISABLE KEYS */;
-INSERT IGNORE INTO `cities` (`ciudad`, `ciudad_cod_pais`) VALUES
+INSERT INTO `cities` (`ciudad`, `ciudad_cod_pais`) VALUES
 	('Cape Town', 'ZA'),
 	('Pretoria', 'ZA'),
 	('Pietermaritzburg', 'ZA'),
@@ -7449,14 +7452,16 @@ INSERT IGNORE INTO `cities` (`ciudad`, `ciudad_cod_pais`) VALUES
 /*!40000 ALTER TABLE `cities` ENABLE KEYS */;
 
 -- Volcando estructura para tabla singleriders.countries
+DROP TABLE IF EXISTS `countries`;
 CREATE TABLE IF NOT EXISTS `countries` (
   `pais` varchar(50) COLLATE ucs2_spanish_ci DEFAULT NULL,
   `cod_pais` varchar(20) COLLATE ucs2_spanish_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=ucs2 COLLATE=ucs2_spanish_ci;
 
 -- Volcando datos para la tabla singleriders.countries: ~242 rows (aproximadamente)
+DELETE FROM `countries`;
 /*!40000 ALTER TABLE `countries` DISABLE KEYS */;
-INSERT IGNORE INTO `countries` (`pais`, `cod_pais`) VALUES
+INSERT INTO `countries` (`pais`, `cod_pais`) VALUES
 	('AFGHANISTAN', 'AF'),
 	('ALAND ISLANDS', 'AX'),
 	('ALBANIA', 'AL'),
@@ -7702,18 +7707,21 @@ INSERT IGNORE INTO `countries` (`pais`, `cod_pais`) VALUES
 /*!40000 ALTER TABLE `countries` ENABLE KEYS */;
 
 -- Volcando estructura para tabla singleriders.messages
+DROP TABLE IF EXISTS `messages`;
 CREATE TABLE IF NOT EXISTS `messages` (
   `from_id` int(11) DEFAULT NULL,
   `to_id` int(11) DEFAULT NULL,
   `nombreRemitente` varchar(50) COLLATE ucs2_spanish_ci DEFAULT NULL,
   `idDestinatario` int(11) DEFAULT NULL,
   `msj` varchar(50) COLLATE ucs2_spanish_ci DEFAULT NULL,
-  `fecha` datetime DEFAULT NULL
+  `fecha` datetime DEFAULT NULL,
+  KEY `destinatario` (`idDestinatario`)
 ) ENGINE=InnoDB DEFAULT CHARSET=ucs2 COLLATE=ucs2_spanish_ci;
 
--- Volcando datos para la tabla singleriders.messages: ~7 rows (aproximadamente)
+-- Volcando datos para la tabla singleriders.messages: ~6 rows (aproximadamente)
+DELETE FROM `messages`;
 /*!40000 ALTER TABLE `messages` DISABLE KEYS */;
-INSERT IGNORE INTO `messages` (`from_id`, `to_id`, `nombreRemitente`, `idDestinatario`, `msj`, `fecha`) VALUES
+INSERT INTO `messages` (`from_id`, `to_id`, `nombreRemitente`, `idDestinatario`, `msj`, `fecha`) VALUES
 	(2, 0, 'joaco', 0, 'fesfsfdsf', '2018-09-24 00:24:36'),
 	(2, 1, 'joaco', 1, 'sdafasf', '2018-09-24 00:27:27'),
 	(2, 1, 'joaco', 1, 'sdafasf', '2018-09-24 00:29:50'),
@@ -7721,10 +7729,14 @@ INSERT IGNORE INTO `messages` (`from_id`, `to_id`, `nombreRemitente`, `idDestina
 	(2, 1, 'joaco', 1, 'prueba 2', '2018-09-24 00:46:18'),
 	(2, 1, 'joaco', 1, 'como me uno al viaje', '2018-09-24 01:00:16'),
 	(2, 1, 'joaco', 1, 'como me uno al viaje?', '2018-09-24 01:03:50'),
-	(2, 2, 'joaco', 2, 'prueba 2', '2018-09-24 01:16:51');
+	(2, 2, 'joaco', 2, 'prueba 2', '2018-09-24 01:16:51'),
+	(1, 2, 'Gabriel', 2, 'en breve se podrá muajaja.', '2018-09-24 21:43:51'),
+	(1, 1, 'Gabriel', 1, 'asdsadsad', '2018-09-25 16:59:32'),
+	(3, 2, 'Mayra', 2, 'prueba usuario May', '2018-09-25 17:02:45');
 /*!40000 ALTER TABLE `messages` ENABLE KEYS */;
 
 -- Volcando estructura para tabla singleriders.travels
+DROP TABLE IF EXISTS `travels`;
 CREATE TABLE IF NOT EXISTS `travels` (
   `textmensaje` varchar(50) COLLATE ucs2_spanish_ci DEFAULT NULL,
   `datein` datetime DEFAULT NULL,
@@ -7735,32 +7747,38 @@ CREATE TABLE IF NOT EXISTS `travels` (
   `mensajeiti` varchar(50) COLLATE ucs2_spanish_ci DEFAULT NULL,
   `importe` varchar(50) COLLATE ucs2_spanish_ci DEFAULT NULL,
   `moneda` varchar(50) COLLATE ucs2_spanish_ci DEFAULT NULL,
-  `creadorDeViaje` int(11) DEFAULT NULL
+  `creadorDeViaje` int(11) DEFAULT NULL,
+  KEY `creador` (`creadorDeViaje`)
 ) ENGINE=InnoDB DEFAULT CHARSET=ucs2 COLLATE=ucs2_spanish_ci;
 
--- Volcando datos para la tabla singleriders.travels: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla singleriders.travels: ~3 rows (aproximadamente)
+DELETE FROM `travels`;
 /*!40000 ALTER TABLE `travels` DISABLE KEYS */;
-INSERT IGNORE INTO `travels` (`textmensaje`, `datein`, `dateout`, `pais`, `actividades`, `ciudad`, `mensajeiti`, `importe`, `moneda`, `creadorDeViaje`) VALUES
+INSERT INTO `travels` (`textmensaje`, `datein`, `dateout`, `pais`, `actividades`, `ciudad`, `mensajeiti`, `importe`, `moneda`, `creadorDeViaje`) VALUES
 	('viaje a Aruba', '2018-09-25 00:00:00', '2018-09-29 00:00:00', 'Aruba', '', '', '', '20000', 'pesos', 1),
 	('viaje a Egipto', '2018-09-25 00:00:00', '2018-09-29 00:00:00', 'Egipto', '', '', '', '20000', 'pesos', 2),
 	('Egipto', '2018-09-25 00:00:00', '2018-09-29 00:00:00', 'egipto', '', '', '', '20000', 'pesos', 1);
 /*!40000 ALTER TABLE `travels` ENABLE KEYS */;
 
 -- Volcando estructura para tabla singleriders.users
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `nombre` varchar(50) COLLATE ucs2_spanish_ci DEFAULT NULL,
   `apellido` varchar(50) COLLATE ucs2_spanish_ci DEFAULT NULL,
   `email` varchar(50) COLLATE ucs2_spanish_ci DEFAULT NULL,
   `password` varchar(100) COLLATE ucs2_spanish_ci DEFAULT NULL,
   `id` int(11) DEFAULT NULL,
-  `srcImagenperfil` varchar(50) COLLATE ucs2_spanish_ci DEFAULT NULL
+  `srcImagenperfil` varchar(50) COLLATE ucs2_spanish_ci DEFAULT NULL,
+  KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=ucs2 COLLATE=ucs2_spanish_ci;
 
 -- Volcando datos para la tabla singleriders.users: ~2 rows (aproximadamente)
+DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT IGNORE INTO `users` (`nombre`, `apellido`, `email`, `password`, `id`, `srcImagenperfil`) VALUES
+INSERT INTO `users` (`nombre`, `apellido`, `email`, `password`, `id`, `srcImagenperfil`) VALUES
 	('Gabriel', 'Vallejos', 'gabrielvallejos86@gmail.com', '$2y$10$rv4eJ6gYoXQdiiZkGaCaR.Bskw.ttSauFy2qp1Xbs6Fx7yCrHXy8.', 1, '/images/profileImg/perf1.jpg'),
-	('joaco', 'joaco', 'joaco@joaco.com', '$2y$10$5GMqw6qAQY5LtC4SqElCIu347bTAVkueMZDrnCYUwDwsdc6eH/iWi', 2, '/images/profileImg/perf2.jpg');
+	('Joaquin', 'Rubek', 'joaco@joaco.com', '$2y$10$5GMqw6qAQY5LtC4SqElCIu347bTAVkueMZDrnCYUwDwsdc6eH/iWi', 2, '/images/profileImg/perf2.jpg'),
+	('Mayra', 'Gomez', 'may@may.com', '$2y$10$yryGSZA9xueJJeMy5K.Y2.LL0hsaggTnNFjUJaT4muBhBfns1TNq6', 3, '/images/profileImg/perf3.jpg');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
