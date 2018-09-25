@@ -11,10 +11,17 @@
         public function __construct()
         //Nuestro constructor es basicamente PDO
         {
+
+            // NOTE: db local:
             $dsn = 'mysql:host=localhost;dbname=singleriders;
             charset=utf8mb4;port=3306';
             $username ="root";
             $password = "";
+            // NOTE: db hosting
+            /*$dsn = 'mysql:host=localhost;dbname=id6873172_singleriders;
+            charset=utf8mb4;port=3306';
+            $username ="id6873172_root";
+            $password = "agostoeighteen";*/
 
             try {
                 $this->conexion = new PDO($dsn, $username, $password);

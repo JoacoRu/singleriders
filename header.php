@@ -4,6 +4,8 @@
 
   $usuariologin = $autenticador->usuarioLoginHeader($usuario);
 
+
+
 ?>
 
     <header>
