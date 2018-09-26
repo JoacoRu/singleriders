@@ -5,16 +5,15 @@
 }
 
 /* ARTICLE DEL POST*/
-.post{
+.articulo_post{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 /*POSTEO*/
-.posteos{
-    width: 90% !important;
-    height: 40px;
+.posteos_card{
+    width: 80% !important;
     background-color: #fff;
     border: 1px #e4e9f5 solid;
     padding: 4px 4px 0px 4px;
@@ -22,25 +21,70 @@
     flex-direction: column;
     flex-wrap: wrap;
     text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 /*NOMBRE E IMAGEN */
-.datos{
+.datos_post{
     display: flex;
     flex-direction: row !important;
-    /* border-bottom: 1px #e4e9f5 solid; */
+    border-bottom: 1px #e4e9f5 solid;
+    align-items: center;
 }
 
-.datos img{
+.datos_post img{
     height: 20px;
     margin-right: 5px;
 }
 
-.datos p{
+.datos_post p{
     font-weight: bold;
     text-transform: capitalize;
+    transform: translateY(39%);
 }
 
 /* CONTENIDO*/
-.contenido{
- background-color: #fff;  
+.contenido_post{
+ padding: 6px 0px 0px 0px; 
+}
+
+/* INTERACCION */
+
+.post_interaccion{
+    border-top: 1px #e4e9f5 solid;
+    border-bottom: 1px #e4e9f5 solid;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+
+.post_interaccion img{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.post_interaccion img:last-child{
+    margin-left: 5px;
+}
+
+.post_interaccion img{
+    width: 20px;
+    height: 20px;
+}
+
+.post_interaccion label{
+    transform: translateY(10%);
+    font-size: 13px;
+    color: grey;
+    font-weight: bold;
+}
+
+
+/* MEDIA QUERYS*/
+
+@media(min-width:500px){
+    .lateral{
+        display: flex;
+        flex-direction: row;
+    }
 }
