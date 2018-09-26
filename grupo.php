@@ -22,8 +22,7 @@ if($_POST)
  if(empty($errores))
  {
      $grupo->crearGrupo();
- }   
-    print_r($_SESSION['id']);
+ } 
 }
 
 ?>
