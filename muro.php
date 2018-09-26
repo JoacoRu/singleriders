@@ -1,13 +1,14 @@
 <?php
 
   require_once('funciones.php');
+  require_once('loader.php');
 
   if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
     header('location:login.php');
   }else if (isset($_SESSION['id'])) {
-    $usuariologin = obtenerId($_SESSION['id']);
+    $usuariologin = $usuario->obtenerId($_SESSION['id']);
   }else if (isset($_COOKIE['id'])) {
-    $usuariologin = obtenerId($_COOKIE['id']);
+    $usuariologin = $usuario->obtenerId($_COOKIE['id']);
   }else {
     header('location:login.php');
   }
@@ -371,6 +372,16 @@ $userPosts = obtenerPublicacion($usuariologin['id']);
                 </p>
                 </div>
                 </div>
+                <article>
+                  <div class="cuerpo border p-3 m-5">
+                    <div class="header_post border">
+                      CONTENIDO HEADER POST
+                    </div>
+                    <div class="cuerpo_post border">
+                      CONTENIDO CUERPO POST
+                    </div>
+                  </div>
+                </article>
           </div>
           <div class="paginacion">
             <nav aria-label="Page navigation example">
