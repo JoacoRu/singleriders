@@ -1,5 +1,5 @@
 <?php
-  require_once('funciones.php');
+/*   require_once('funciones.php');
   $nombres = traerNombreDeUsuarios();
   msjAseleccionar();
   if($_POST){
@@ -13,7 +13,7 @@
     $usuariologin = obtenerId($_COOKIE['id']);
   }else {
     header('location:login.php');
-  }
+  } */
 ?>
 <!DOCTYPE html>
 <html lang="en">

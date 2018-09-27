@@ -10,7 +10,13 @@
   if($_POST){
     $guardarMsj = $mensaje->crearMensaje($usuariologin['nombre'],$usuario,$usuariologin['id']);
   }
-
+  
+  if($_GET)
+  {
+    $msj = $_GET['posteo'];
+  }
+  
+  
   $userViajes = $usuario->obtenerViajes($usuariologin['id']);
 
 ?>
@@ -42,19 +48,21 @@
             <?php require_once('lateral_izquierdo.php'); ?>
 
       <!-- CREAR UN POST HTML -->
-
-     <!--  <article class="posteo_crear">
-        <div class="formulario_posteo">
-          <img style="max-width: 30px;" class="border rounded-circle" src=".<?=$usuariologin['srcImagenperfil']?>" alt="" id="foto-perfil">
-          <form method="get">
-            <textarea name="posteo"cols="30" rows="10" placeholder="¿Que estas pensado?"></textarea>
-            <button type="submit">Publicar</button>
+    <div class="col-12 p-10 pt-4 col-md-8">
+      <article class="posteo_crear col-12 p-10 pt-4 col-md-8">
+        <div class="publicacion">
+            <div class="publicacion_imagen">
+              <img style="max-width: 30px;" class="border rounded-circle" src=".<?=$usuariologin['srcImagenperfil']?>" alt="" id="foto-perfil">
+              <form method="get">
+                <textarea name="posteo" cols="30" rows="10" placeholder="¿Que estas pensado?" style="resize: none;"></textarea>
+                <button type="submit" class="" id="boton_end">Publicar</button>
+              </div>
           </form>
         </div>
-      </article> -->
+      </article>
 
       <!-- POSTEO HTML -->
-            <div class="col-12 p-0 pt-4 col-md-8">
+            <div class="col-12 p-10 pt-4 col-md-8">
               <article class="articulo_post">
                 <div class="posteos_card">
                   <div class="datos_post">
@@ -73,6 +81,7 @@
                   </div>
                 </div>
               </article>
+              </div>
             </div>
           </div>
       </div>
