@@ -17,4 +17,6 @@
   abstract public function msjAseleccionar();
   abstract public function obtenerTodosLosViajes();
   abstract public function obtenerViajes($id);
+  abstract public function crearPost();
+  abstract public function recuperarPostDeUsuario();
 }

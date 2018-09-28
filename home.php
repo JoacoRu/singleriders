@@ -5,7 +5,10 @@
   $nombres = $usuario->traerNombreDeUsuarios();
   $mensaje = new Message();
   //msjAseleccionar();
-  $usuariologin = $autenticador->loginControl($usuario);
+  $usuariologin = $autenticador->loginControl($usuario); 
+  $errores = [];
+  $posteos = $post->recuperarPostDeUsuario();
+
 
   if($_POST){
     $guardarMsj = $mensaje->crearMensaje($usuariologin['nombre'],$usuario,$usuariologin['id']);
@@ -13,9 +16,14 @@
   
   if($_GET)
   {
-    $msj = $_GET['posteo'];
+    $errores = $postValidator->validar();
+    if(empty($errores))
+    {
+      $post->crearPost();
+    }
   }
-  
+  $postRealizados = $post->recuperarPostDeUsuario();
+
   
   $userViajes = $usuario->obtenerViajes($usuariologin['id']);
 
@@ -62,26 +70,30 @@
       </article>
 
       <!-- POSTEO HTML -->
-            <div class="col-12 p-10 pt-4 col-md-8">
-              <article class="articulo_post">
-                <div class="posteos_card">
-                  <div class="datos_post">
-                    <img style="max-width: 30px;" class="border rounded-circle" src=".<?=$usuariologin['srcImagenperfil']?>" alt="" id="foto-perfil">
-                    <p><?= $usuariologin['nombre'] ?></p>
-                  </div>
-
-                  <div class="contenido_post">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat esse tempora qui corrupti repellat quam at pariatur sapiente quia culpa, quasi dicta, et iste. Et, omnis veniam? Officia, asperiores culpa.</p>
-                  </div>
-                  <div class="post_interaccion">
-                    <label for="me_gusta">Me gusta</label>
-                    <img src="images/iconos/interaccion_posteo/me-gusta_no_seleccionado.png" alt="" name="me_gusta">
-                    <label for="comentar">Comentar</label>
-                    <img src="images/iconos/interaccion_posteo/comentario.png" alt="" name="comentar">
-                  </div>
-                </div>
-              </article>
-              </div>
+            <?php foreach ($postRealizados as $key => $value) : ?>
+                  <?php if($value['user_id'] == $_SESSION['id']) : ?>
+                  
+                    <div class="col-12 p-10 pt-4 col-md-8">
+                      <article class="articulo_post">
+                        <div class="posteos_card">
+                          <div class="datos_post">
+                            <img style="max-width: 30px;" class="border rounded-circle" src=".<?=$usuariologin['srcImagenperfil']?>" alt="" id="foto-perfil">
+                            <p><?= $usuariologin['nombre'] ?></p>
+                          </div>
+                          <div class="contenido_post">
+                            <p><?php echo $value['post'] ?></p>
+                          </div>
+                          <div class="post_interaccion">
+                            <label for="me_gusta">Me gusta</label>
+                            <img src="images/iconos/interaccion_posteo/me-gusta_no_seleccionado.png" alt="" name="me_gusta">
+                            <label for="comentar">Comentar</label>
+                            <img src="images/iconos/interaccion_posteo/comentario.png" alt="" name="comentar">
+                          </div>
+                        </div>
+                      </article>
+                    </div>
+                  <?php endif;?>
+              <?php endforeach;?>
             </div>
           </div>
       </div>

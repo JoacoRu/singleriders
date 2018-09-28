@@ -324,4 +324,57 @@
             return $usuarioviaje;
           }
 
+          public function crearPost()
+          {
+            $post = $_GET['posteo'];
+
+            $arrayPost = [
+              'post' => $_GET['posteo'],
+              'user_id' => $_SESSION['id'],
+            ];
+            try
+            {
+              $query = $this->conexion->prepare("INSERT INTO posts(post, user_id) VALUES (:post, :user_id)");
+
+              $query->bindValue(":post", trim($arrayPost['post']));
+              $query->bindValue(":user_id", $arrayPost['user_id']);
+              $query->execute();
+            }
+            catch(Exception $e)
+            {
+              echo " Error: ". $e->getMessage();
+            }
+
+            header('location:home.php');
+          }
+
+          public function recuperarPostDeUsuario()
+          {
+            try{
+              $query = $this->conexion->prepare("SELECT * from posts");
+              $query->execute();
+              $posts = $query->fetchAll(PDO::FETCH_ASSOC);
+              return $posts;
+            }
+            catch(Exception $e)
+            {
+              echo "Error: ". $e->getMessage();
+            }
+          }
+
+          public function asociarIdANombre($id)
+          {
+            $todos = $this->buscarUsuarios();
+            $arrayUsuario = [];
+
+            foreach ($todos as $key => $value) {
+              if($value['id'] == $id)
+              {
+                 $arrayUsuario[] = $value['nombre'];
+                 
+              }
+            }
+            return $arrayUsuario;
+          }
+
     }

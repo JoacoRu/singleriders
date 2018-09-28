@@ -250,6 +250,16 @@ class DbJSON extends DB
       $usuarioviaje['viajes'] = $arrUsuarioViaje;
       return $usuarioviaje;
     }
+
+    public function crearPost()
+    {
+      return 1;
+    }
+
+    public function recuperarPostDeUsuario()
+    {
+      return 2;
+    }
 }
 
 

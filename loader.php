@@ -11,6 +11,8 @@
     require_once("classes/User.php");
     require_once("classes/Message.php");
     require_once("classes/Creaviaje.php");
+    require_once("classes/PosteoValidator.php");
+    require_once("classes/Posteo.php");
 
     //instancias de objetos que necesitamos para la logica de login y registro
     //$db = new DbMySQL();
@@ -21,3 +23,5 @@
     $viaje = new Creaviaje();
     $mensaje = new Message();
     $autenticador = new Auth();
+    $postValidator = new PostValidator();
+    $post = new Posteo(); 

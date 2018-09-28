@@ -13,8 +13,8 @@ class Model
   {
     //$this->datos = $datos;
     
-    $this->db = new DbJSON();
-    //$this->db = new DbMySQL();
+    //$this->db = new DbJSON();
+    $this->db = new DbMySQL();
     $this->fecha = date('Y-m-d H:i:s');
 
   }
@@ -66,6 +66,20 @@ public function obtenerTodosLosViajes() {
 public function obtenerViajes($id){
   return $this->db->obtenerViajes($id);
 }
+// NOTE: inicio metodos para publicaciones(posteos)
+public function crearPost()
+{
+  return $this->db->crearPost();
+}
 
+public function recuperarPostDeUsuario()
+{
+  return $this->db->recuperarPostDeUsuario();
+}
+
+public function asociarIdANombre($id)
+{
+  return $this->db->asociarIdANombre($id);
+}
 
 }
