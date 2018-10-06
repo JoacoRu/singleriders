@@ -251,15 +251,6 @@ class DbJSON extends DB
       return $usuarioviaje;
     }
 
-    public function crearPost()
-    {
-      return 1;
-    }
-
-    public function recuperarPostDeUsuario()
-    {
-      return 2;
-    }
     // metodos de crear viajes //
     public function traePaises(){
       $allPaises= file_get_contents('paises.json');
@@ -290,6 +281,71 @@ class DbJSON extends DB
    $viajeJSON= json_encode($viaje);
    file_put_contents('viajes.json', $viajeJSON . PHP_EOL, FILE_APPEND);
  }
+
+    //NOTE: OBTIENE LA ID DE EL JSON DE PUBLICACIONES
+
+    public function obtenerIdPublicaciones()
+    {
+      $publicaciones = file_get_contents('publicaciones.json');
+      $traerPublicaciones = explode(PHP_EOL, $publicaciones);
+      $arrayPublicaciones = [];
+      array_pop($traerPublicaciones);
+
+      foreach ($traerPublicaciones as $indice => $publicacion) {
+          $arrayPublicaciones[] = json_decode($publicacion, true);
+      }
+
+      $ultimoUser = array_pop($arrayPublicaciones);
+      
+      $ultimoId = $ultimoUser['post_id'];
+
+      if(count($ultimoId) == 0){
+        return 1;
+      }
+
+      return $ultimoId + 1;
+    }
+
+    //NOTE: TOMA LOS DATOS DEL FORM DE LA PUBLICACION Y LOS GUARDA Y RETORNA EN UN ARRAY ASSOCIATIVO
+
+    public function guardarPublicacion()
+    {
+      $id_user = $_SESSION['id'];
+      $posteo = $_GET['posteo'];
+      $id = $this->obtenerIdPublicaciones();
+      
+      $publicacion = [
+        'user_id' => $id_user,
+        'post' => $posteo,
+        'post_id' => $id
+      ];
+
+      return $publicacion;
+    }
+
+    //NOTE: CREA EL POST Y LO MANDA EN UN JSON, TOMA EL ARRAY DE guardarPublicacion();
+
+    public function crearPost()
+    {
+      $publicacion = $this->guardarPublicacion();
+
+      $publicacionJson = json_encode($publicacion, true);
+      file_put_contents('publicaciones.json', $publicacionJson . PHP_EOL, FILE_APPEND);
+
+      header('location: home.php');
+    }
+
+    public function recuperarPostDeUsuario()
+    {
+      $publicacion = file_get_contents('publicaciones.json' );
+      $publicacionJson = explode(PHP_EOL, $publicacion);
+      $arrayPhp = [];
+
+      foreach ($publicacionJson as $indice => $publicacion) {
+          $arrayPhp[] = json_decode($publicacion, true);
+      }
+      return $arrayPhp;
+    }
 }
 
 
