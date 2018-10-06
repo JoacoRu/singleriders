@@ -5,7 +5,7 @@
   $nombres = $usuario->traerNombreDeUsuarios();
   $mensaje = new Message();
   //msjAseleccionar();
-  $usuariologin = $autenticador->loginControl($usuario); 
+  $usuariologin = $autenticador->loginControl($usuario);
   $errores = [];
   $posteos = $post->recuperarPostDeUsuario();
 
@@ -13,7 +13,7 @@
   if($_POST){
     $guardarMsj = $mensaje->crearMensaje($usuariologin['nombre'],$usuario,$usuariologin['id']);
   }
-  
+
   if($_GET)
   {
     $errores = $postValidator->validar();
@@ -24,7 +24,7 @@
   }
   $postRealizados = $post->recuperarPostDeUsuario();
 
-  
+
   $userViajes = $usuario->obtenerViajes($usuariologin['id']);
 
 ?>
@@ -58,12 +58,12 @@
       <!-- CREAR UN POST HTML -->
     <div class="col-12 p-10 pt-4 col-md-8">
       <article class="posteo_crear col-12 p-10 pt-4 col-md-8">
-        <div class="publicacion">
+        <div class="publicacion rounded">
             <div class="publicacion_imagen">
               <img style="max-width: 30px;" class="border rounded-circle" src=".<?=$usuariologin['srcImagenperfil']?>" alt="" id="foto-perfil">
-              <form method="get">
-                <textarea name="posteo" cols="30" rows="10" placeholder="¿Que estas pensado?" style="resize: none;"></textarea>
-                <button type="submit" class="" id="boton_end">Publicar</button>
+              <form method="get" class="d-flex flex-column justify-content-center align-items-center pl-2">
+                <textarea name="posteo" rows="10" placeholder="¿Que estas pensado?" style="resize: none;border: 1px solid lightgrey;"></textarea>
+                <button type="submit" class="mt-3" id="boton_end">Publicar</button>
               </div>
           </form>
         </div>
@@ -72,7 +72,7 @@
       <!-- POSTEO HTML -->
             <?php foreach ($postRealizados as $key => $value) : ?>
                   <?php if($value['user_id'] == $_SESSION['id']) : ?>
-                  
+
                     <div class="col-12 p-10 pt-4 col-md-8">
                       <article class="articulo_post">
                         <div class="posteos_card">

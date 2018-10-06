@@ -45,7 +45,7 @@
 
 /* CONTENIDO*/
 .contenido_post{
- padding: 6px 0px 0px 0px; 
+ padding: 6px 0px 0px 0px;
 }
 
 /* INTERACCION */
@@ -55,7 +55,7 @@
     border-bottom: 1px #e4e9f5 solid;
     display: flex;
     justify-content: center;
-    align-items: center; 
+    align-items: center;
 }
 
 .post_interaccion img{
@@ -110,7 +110,7 @@
     width: 100%;
     height: 50px;
     border-radius: 4px;
-    margin-left: 5px;
+    /*margin-left: 5px;*/
 }
 
 .publicacion_imagen textarea:focus{
@@ -171,4 +171,3 @@
         width: 35%;
     }
 }
-

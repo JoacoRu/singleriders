@@ -62,7 +62,7 @@
                   ?>
                   <div class="card p-3 mt-3 text-center text-lg-left">
                     <div class="fondo-card"></div>
-                    <?php if ($value['pais'] == 'india') :?>
+                    <!--<?php if ($value['pais'] == 'india') :?>
                       <img class="card-img-top" src="./images/flags/<?= $value['pais'] ?>.png" alt="Card image cap">
 
                     <?php elseif ($value['pais'] == 'egipto') :?>
@@ -73,7 +73,9 @@
 
                     <?php else :?>
                       <img class="card-img-top" src="./images/flags/india.png" alt="Card image cap">
-                    <?php endif; ?>
+                    <?php endif; ?>-->
+                    
+                      <img class="card-img-top" src="./images/flags/<?= $value['pais'] ?>.png" alt="Card image cap">
 
                     <div class="card-body">
                       <h5 class="card-title text-center">
