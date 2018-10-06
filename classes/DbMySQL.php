@@ -85,13 +85,43 @@
             }
 
 
-
-
             $this->subirImgPerfil($imagenperfil,$this->id);
 
             $_SESSION['id'] = $this->id;
 
             header('location:home.php');
+        }
+
+        //Guardar Viaje//
+
+        public function guardarViaje($data, $id){
+
+          $textmensaje=$data['textmensaje'];
+          $datein=$data['datein'];
+          $dateout=$data['dateout'];
+          $pais=$data['pais'];
+          $mensajeiti=$data['mensajeiti'];
+          $importe=$data['importe'];
+          $moneda=$data['moneda'];
+          $creadorDeViaje=$id;
+
+          try {
+            $query = $this->conexion->prepare("INSERT INTO travels (textmensaje,datein,dateout,pais,mensajeiti,importe,moneda,creadorDeViaje) VALUES(:textmensaje,:datein,:dateout,:pais,:mensajeiti,:importe,:moneda)");
+            $query->bindValue(":textmensaje", $textmensaje);
+            $query->bindValue(":datein", $datein);
+            $query->bindValue(":dateout", $dateout);
+            $query->bindValue(":pais", $pais);
+            $query->bindValue(":mensajeiti", $mensajeiti);
+            $query->bindValue(":importe", $importe);
+            $query->bindValue(":moneda", $moneda);
+            $query->execute();
+          }
+
+          catch(Exception $e)
+          {
+              echo "Error: " . $e->getMessage();
+          }
+
         }
 
         //subir imagen
@@ -371,7 +401,7 @@
               if($value['id'] == $id)
               {
                  $arrayUsuario[] = $value['nombre'];
-                 
+
               }
             }
             return $arrayUsuario;

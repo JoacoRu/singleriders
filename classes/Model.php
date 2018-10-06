@@ -12,7 +12,7 @@ class Model
   public function __construct()
   {
     //$this->datos = $datos;
-    
+
     //$this->db = new DbJSON();
     $this->db = new DbMySQL();
     $this->fecha = date('Y-m-d H:i:s');
@@ -82,4 +82,12 @@ public function asociarIdANombre($id)
   return $this->db->asociarIdANombre($id);
 }
 
+public function traePaises()
+{
+  return $this->db->traePaises();
+}
+public function guardarViaje()
+{
+  return $this->db->guardarViaje();
+}
 }

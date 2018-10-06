@@ -1,5 +1,6 @@
 <?php
-    class CreaViaje
+
+    class Travel extends Model
     {
       private $textmensaje;
       private $datein;
@@ -12,7 +13,7 @@
       private $paises;
 
       //crear un viaje //
-      public function validarviaje($data){
+      /* public function validarviaje($data){
           $mensaje = trim($data['mensaje']);
           $datein = trim($data['datein']);
           $dateout = trim($data['dateout']);
@@ -35,7 +36,7 @@
              }
           /*if ($ciudad == '') {
                     $errores['ciudad']  = 'Por favor indica la ciudad a visitar';
-             }*/
+             }
           if ($importe == '') {
                     $errores['importe']  = 'Por favor indica tu presupuesto';
             }
@@ -43,7 +44,7 @@
                     $errores['moneda']  = 'Por favor indica que moneda presupuestas';
             }
           return $errores;
-      }
+      }*/
       public function guardarViaje($data,$id){
          $viaje=[
            "textmensaje" => $data['mensaje'],
@@ -71,7 +72,7 @@
             return $arrayPHP;
         }
 
-      public function traerPaises(){
+      /*public function traePaises(){
           $allPaises= file_get_contents('paises.json');
           $arrayPaises= explode(';',$allPaises);
           array_pop($arrayPaises);
@@ -81,7 +82,7 @@
             $arrayPaisesPhp[] = json_decode($value, true);
           }
           return $arrayPaisesPhp;
-        }
+        }*/
       public function traerCiudades(){
           $allCiudades= file_get_contents('ciudades.json');
           $arrayCiudades = explode(PHP_EOL,$allCiudades);

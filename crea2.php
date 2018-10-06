@@ -1,6 +1,7 @@
 <?php
-require_once('classes/Creaviaje.php');
-require_once('funciones.php');
+require_once('classes/Travel.php');
+
+//*require_once('funciones.php');//*
 require_once('loader.php');
 if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
   header('location:login.php');
@@ -19,12 +20,12 @@ $ciudad='';
 $importe='';
 $moneda='';
 $errores = [];
-$paises = traerPaises();
+$paises = $viaje->traePaises();
 //$ciudades = traerCiudades();
 if ($_POST) {
   //echo '<pre>';
   //echo var_dump($_POST);
-  $textmensaje = trim($_POST['mensaje']);
+  $textmensaje = trim($_POST['textmensaje']);
   $datein = trim($_POST['datein']);
   $dateout = trim($_POST['dateout']);
   $pais = trim($_POST['pais']);
@@ -32,13 +33,14 @@ if ($_POST) {
   $importe = trim($_POST['importe']);
   $moneda = trim($_POST['moneda']);
   $creadorDeViaje = $_SESSION['id'];
-  $errores = $viaje->validarviaje($_POST);
+  $errores = $travelValidator->validar($_POST, 'viajes', false, $usuario);
   if (empty($errores)) {
-      //var_dump($errores);
-      $viaje->guardarViaje($_POST,$creadorDeViaje);
+      /*var_dump($errores);
+      exit;*/
+      //$viaje->guardarViaje($_POST,$creadorDeViaje);
   }else {
-    //var_dump($errores);
-    //exit;
+    /*var_dump($errores);
+    exit;*/
   }
 }
 
@@ -54,8 +56,11 @@ if ($_POST) {
       <link href="https://fonts.googleapis.com/css?family=Abel|Montserrat:400,400i,700,700i|Pacifico" rel="stylesheet">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-      <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+      <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+      <script type="text/javascript" src="js/jquery.cycle2.min.js"></script>
       <script src="crea.js"></script>
+      <link rel="stylesheet" href="css/owl.carousel.css">
+      <link rel="stylesheet" href="css/owl.theme.default.css">
       <link rel="stylesheet" href="css/styles.css">
       <link rel="stylesheet" href="css/crea.css">
 
@@ -86,9 +91,9 @@ if ($_POST) {
             <article id="tab1">
               <form method="post" enctype="multipart/form-data">
 
-                <input type="text" id="textmensaje" onkeyup="$('#mensaje').text($('#textmensaje').val());" class="form-control" name="mensaje" value="<?=$textmensaje?>" placeholder="Ponele un Titulo a tu viaje..."></textarea>
-                <?php if (isset($errores['mensaje'])):?>
-                  <p><?= $errores['mensaje'] ?></p>
+                <input type="text" id="textmensaje" onkeyup="$('#mensaje').text($('#textmensaje').val());" class="form-control" name="textmensaje" value="<?=$textmensaje?>" placeholder="Ponele un Titulo a tu viaje..."></textarea>
+                <?php if (isset($errores['textmensaje'])):?>
+                  <p><?= $errores['textmensaje'] ?></p>
                 <?php endif; ?>
 
               <div class="d-flex flex-column flex-md-row align-items-md-center mt-2">
@@ -123,7 +128,7 @@ if ($_POST) {
                     <?php endif;?>
                   <option value="">Selecciona el país a visitar</option>
                   <?php foreach ($paises as $key => $value) :?>
-                      <option value="<?= $value['CODIGO'] ?>"><?= $value['NOMBRE'] ?></option>
+                      <option value="<?= $value['pais'] ?>"><?= $value['pais'] ?></option>
                   <?php endforeach ?>
                 </select>
 
@@ -152,7 +157,7 @@ if ($_POST) {
                           <p><?= $errores['importe']?></p>
                         <?php endif;?>
                       </div>
-                      <input type="text" class="form-control" name="importe" aria-label="Amount (to the nearest dollar)">
+                      <input type="text" class="form-control" name="importe" <?=$importe?> aria-label="Amount (to the nearest dollar)">
                       <div class="input-group-append">
                         <span class="input-group-text">.00</span>
                       </div>
@@ -164,7 +169,7 @@ if ($_POST) {
                             <p><?= $errores['moneda']?></p>
                           <?php endif;?>
                         </div>
-                        <input type="text" class="form-control" name="moneda" aria-label="Amount (to the nearest dollar)">
+                        <input type="text" class="form-control" name="moneda"  <?=$moneda?> aria-label="Amount (to the nearest dollar)">
                       </div>
                     </div>
               </article>
@@ -192,39 +197,64 @@ if ($_POST) {
         </div>
       </div>
     </div>
-    <div class="destinos-container-fluid">
-    <div class="destinos-top">
-      <h2> Los Mejores Destinos</h2>
-      <ul>
-        <li>
-          <a href="https://www.tripadvisor.es/TravelersChoice-Destinations-cTop-g13" class="category-name" target="_blank">
-            <img src="images/crea/ico-caribe.png" alt="Top 25 America del Sur">
-          </a>
-        </li>
-        <li>
-          <a href="https://www.tripadvisor.es/TravelersChoice-Destinations-cTop-g4" class="category-name" target="_blank">
-            <img src="images/crea/ico-europa.png" alt="Top 25 Europa">
-          </a>
-        </li>
-        <li>
-          <a href="https://www.tripadvisor.com.ar/TravelersChoice-Destinations-cTop-g191" class="category-name" target="_blank">
-            <img src="images/crea/ico-norteamerica.png" alt="Top 25 Estados Unidos">
-          </a>
-        </li>
-        <li>
-          <a href="https://www.tripadvisor.es/TravelersChoice-Destinations-cTop-g13" class="category-name" target="_blank">
-            <img src="images/crea/ico-sudamerica2.png" alt="Top 25 America del Sur">
-          </a>
-        </li>
-        <li>
-          <a href="https://www.tripadvisor.com.ar/TravelersChoice-Destinations-cTop-g2" class="category-name" target="_blank">
-            <img src="images/crea/ico-restomundo.png" alt="Top 25 Sudeste Asíatico">
-          </a>
-        </li>
-        </ul>
-      </div>
-    </div>
-    </section>
+    <div class="card-deck">
+<div class="card">
+  <img class="card-img-top" src="images/crea/america.jpeg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">America Del Sur</h5>
+    <p class="card-text">Desde los picos nevados de los Andes a los extensos ríos de la región del Amazonas, el sur de América tiene una larga lista de maravillas naturales para todos los gustos</p>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Conoce los mejores destinos</small>
+  </div>
+</div>
+<div class="card">
+  <img class="card-img-top" src="images/crea/beach.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Caribe</h5>
+    <p class="card-text">El Caribe es definitivamente  un lugar que es sinónimo de hermosas imágenes de arenas blancas, aguas turquesa, cocteles, sol brillante y mucho relax. Aunque estas son las palabras que lo describen en su mayoría, las islas caribeñas ofrecen mucho más de lo que puedas imaginar.</p>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Conoce los mejores destinos</small>
+  </div>
+</div>
+<div class="card">
+  <img class="card-img-top" src="images/crea/eeuu.jpeg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">America del Norte</h5>
+    <p class="card-text">Sus ciudades desvelan arquitecturas de una modernidad sin igual que se encuentran a tan solo unas horas de los paisajes más salvajes, en los que puedes vivir aventuras en tu tienda de campaña o con la mochila a la espalda rodeado de una naturaleza muy bien conservada.</p>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Conoce los mejores destinos</small>
+  </div>
+</div>
+<div class="card">
+  <img class="card-img-top" src="images/crea/europa.jpeg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Europa</h5>
+    <p class="card-text">A algunos les atrae su historia, la multiplicidad de culturas en un mismo espacio, las bellezas naturales, la facilidad para el transporte, la amplia y variada oferta de alojamiento, la arquitectura, las playas, las compras.</p>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Conoce los mejores destinos</small>
+  </div>
+</div>
+<div class="card">
+  <img class="card-img-top" src="images/crea/resto.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Resto</h5>
+    <p class="card-text">Viajar a un destino exótico es conocer un nuevo país, una nueva cultura, nuevas costumbres y tradiciones, ajenas a lo ya explorado. Elegir un viaje no es una decisión fácil, pero es preferible distanciarnos de lo cotidiano, abrir nuestras mentes y disfrutar de las riquezas de una novedosa excursión..</p>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Conoce los mejores destinos</small>
+  </div>
+</div>
+</div>
 
+    </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    </script>
   </body>
   </html>

@@ -260,7 +260,37 @@ class DbJSON extends DB
     {
       return 2;
     }
+    // metodos de crear viajes //
+    public function traePaises(){
+      $allPaises= file_get_contents('paises.json');
+      $arrayPaises= explode(';',$allPaises);
+      array_pop($arrayPaises);
+      array_shift($arrayPaises);
+      $arrayPaisesPhp = [];
+      foreach ($arrayPaises as $value) {
+      $arrayPaisesPhp[] = json_decode($value, true);
+    }
+      return $arrayPaisesPhp;
+  }
+  public function guardarViaje($data,$id){
+     $viaje=[
+       "textmensaje" => $data['mensaje'],
+       "datein" =>$data['datein'],
+       "dateout" =>$data['dateout'],
+       "pais" =>$data['pais'],
+       //"actividades" ->$data['actividades'],
+       //"ciudad" ->$data['ciudad'],
+       "mensajeiti" =>$data['mensajeiti'],
+       "importe" =>$data['importe'],
+       "moneda" =>$data['moneda'],
+       "creadorDeViaje" => $id
+     ];
+   $viajeJSON= json_encode($viaje);
+   file_put_contents('viajes.json', $viajeJSON . PHP_EOL, FILE_APPEND);
+ }
 }
+
+
 
 
 
