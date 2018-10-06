@@ -105,8 +105,10 @@
           $moneda=$data['moneda'];
           $creadorDeViaje=$id;
 
+        
+
           try {
-            $query = $this->conexion->prepare("INSERT INTO travels (textmensaje,datein,dateout,pais,mensajeiti,importe,moneda,creadorDeViaje) VALUES(:textmensaje,:datein,:dateout,:pais,:mensajeiti,:importe,:moneda)");
+            $query = $this->conexion->prepare("INSERT INTO travels (textmensaje,datein,dateout,pais,mensajeiti,importe,moneda,creadorDeViaje) VALUES(:textmensaje,:datein,:dateout,:pais,:mensajeiti,:importe,:moneda,:creadorDeViaje)");
             $query->bindValue(":textmensaje", $textmensaje);
             $query->bindValue(":datein", $datein);
             $query->bindValue(":dateout", $dateout);
@@ -114,12 +116,14 @@
             $query->bindValue(":mensajeiti", $mensajeiti);
             $query->bindValue(":importe", $importe);
             $query->bindValue(":moneda", $moneda);
+            $query->bindValue(":creadorDeViaje", $creadorDeViaje);
             $query->execute();
           }
 
           catch(Exception $e)
           {
               echo "Error: " . $e->getMessage();
+
           }
 
         }

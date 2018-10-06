@@ -270,11 +270,13 @@ class DbJSON extends DB
       foreach ($arrayPaises as $value) {
       $arrayPaisesPhp[] = json_decode($value, true);
     }
+      
       return $arrayPaisesPhp;
+
   }
   public function guardarViaje($data,$id){
      $viaje=[
-       "textmensaje" => $data['mensaje'],
+       "textmensaje" => $data['textmensaje'],
        "datein" =>$data['datein'],
        "dateout" =>$data['dateout'],
        "pais" =>$data['pais'],

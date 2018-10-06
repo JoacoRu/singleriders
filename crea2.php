@@ -37,7 +37,7 @@ if ($_POST) {
   if (empty($errores)) {
       /*var_dump($errores);
       exit;*/
-      //$viaje->guardarViaje($_POST,$creadorDeViaje);
+      $viaje->guardarViaje($_POST,$creadorDeViaje);
   }else {
     /*var_dump($errores);
     exit;*/

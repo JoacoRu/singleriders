@@ -13,8 +13,8 @@ class Model
   {
     //$this->datos = $datos;
 
-    //$this->db = new DbJSON();
-    $this->db = new DbMySQL();
+    $this->db = new DbJSON();
+    //$this->db = new DbMySQL();
     $this->fecha = date('Y-m-d H:i:s');
 
   }
@@ -86,8 +86,8 @@ public function traePaises()
 {
   return $this->db->traePaises();
 }
-public function guardarViaje()
+public function guardarViaje($data, $data2)
 {
-  return $this->db->guardarViaje();
+  return $this->db->guardarViaje($data, $data2);
 }
 }
