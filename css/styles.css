@@ -267,6 +267,14 @@ a:hover {
     height: auto !important;
 }
 
+.userchatlogueado {
+  color: tomato;
+}
+
+.otrouserchat {
+  color: #4CAF50;
+}
+
 /* Fallback for Edge
 -------------------------------------------------- */
 @supports (-ms-ime-align: auto) {
@@ -301,6 +309,12 @@ a:hover {
 
 #login-tab:hover:not(.active), #registro-tab:hover:not(.active) {
   border-top: 3px solid #e9ecef;
+}
+
+.fa-home {
+  font-size: 22px;
+  margin-right: 5px;
+  color: #08476b;
 }
 
 
@@ -392,6 +406,19 @@ a:hover {
 }
 
 /* NOTE: fin estilos muro2 */
+
+/* NOTE: estilos lateral izquierdo */
+.navegacion-perfil li:hover {
+    background-color: #F8F8F8;
+    padding: 5px;
+}
+
+/* NOTE: fin estilos lateral izquierdo */
+.shadow-perfil {
+  /*box-shadow: 5px 5px 10px 0px lightgrey;*/
+  box-shadow: 3px 1px 10px 1px lightgrey;
+  border: 10px solid transparent !important;
+}
 
 /* NOTE: estilos nueva home  */
 /*.carousel-item {
@@ -504,5 +531,12 @@ a:hover {
 
   .home-carousel {
     display: block;
+  }
+
+  .navbar-expand-lg {
+    position: absolute;
+  }
+  .titulo-sr-home {
+    position: relative;
   }
 }

@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
 <?php
-  require_once('funciones.php');
+/*   require_once('funciones.php');
   $nombres = traerNombreDeUsuarios();
   msjAseleccionar();
   if($_POST){
@@ -15,8 +13,10 @@
     $usuariologin = obtenerId($_COOKIE['id']);
   }else {
     header('location:login.php');
-  }
+  } */
 ?>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

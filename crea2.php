@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
 <?php
-require_once('funciones.php');
+require_once('classes/Travel.php');
+
+//*require_once('funciones.php');//*
+require_once('loader.php');
 if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
   header('location:login.php');
 }else if (isset($_SESSION['id'])) {
-  $usuariologin = obtenerId($_SESSION['id']);
+  $usuariologin = $usuario->obtenerId($_SESSION['id']);
 }else if (isset($_COOKIE['id'])) {
-  $usuariologin = obtenerId($_COOKIE['id']);
+  $usuariologin = $usuario->obtenerId($_COOKIE['id']);
 }else {
   header('location:login.php');
 }
@@ -19,12 +20,12 @@ $ciudad='';
 $importe='';
 $moneda='';
 $errores = [];
-$paises = traerPaises();
+$paises = $viaje->traePaises();
 //$ciudades = traerCiudades();
 if ($_POST) {
   //echo '<pre>';
   //echo var_dump($_POST);
-  $mensaje = trim($_POST['mensaje']);
+  $textmensaje = trim($_POST['textmensaje']);
   $datein = trim($_POST['datein']);
   $dateout = trim($_POST['dateout']);
   $pais = trim($_POST['pais']);
@@ -32,202 +33,228 @@ if ($_POST) {
   $importe = trim($_POST['importe']);
   $moneda = trim($_POST['moneda']);
   $creadorDeViaje = $_SESSION['id'];
-  $errores = validarviaje($_POST);
+  $errores = $travelValidator->validar($_POST, 'viajes', false, $usuario);
   if (empty($errores)) {
-      guardarViaje($_POST);
+      /*var_dump($errores);
+      exit;*/
+      $viaje->guardarViaje($_POST,$creadorDeViaje);
+  }else {
+    /*var_dump($errores);
+    exit;*/
   }
 }
+
 ?>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device
-    -width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Abel|Montserrat:400,400i,700,700i|Pacifico" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/crea.css">
-    <link rel="stylesheet" href="css/styles.css">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+      <link href="https://fonts.googleapis.com/css?family=Abel|Montserrat:400,400i,700,700i|Pacifico" rel="stylesheet">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+      <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+      <script type="text/javascript" src="js/jquery.cycle2.min.js"></script>
+      <script src="crea.js"></script>
+      <link rel="stylesheet" href="css/owl.carousel.css">
+      <link rel="stylesheet" href="css/owl.theme.default.css">
+      <link rel="stylesheet" href="css/styles.css">
+      <link rel="stylesheet" href="css/crea.css">
+
+
     <title></title>
   </head>
   <body>
     <?php require_once('header.php'); ?>
-    <section class="container-fluid bg-white">
-      <section class="titulos">
-        <div class="container-fluid">
-          <div class="row">
-            <div class= "col-12">
-              <img src="images/crea/torre.png">
-                <div class="titulos2">
-                  <h1> CREA TU VIAJE<h1>
-                  <h2> y compartilo en linea con otros viajeros</h2>
-                  <h3 id="mensaje"></h3>
-                </div>
-              </div>
-            </div>
+    <section class="container-fluid">
+    <div class="titulos">
+      <div class="row">
+        <div class= "col-12">
+          <h1>CREA EL VIAJE DE TUS SUEÑOS</h1>
+          <h3>Compartilo en linea con todos los viajeros</h3>
         </div>
-      </section>
-      <section class="cuerpo-pagina">
-      <div class="formulario-viaje">
-        <div class="container">
-          <div class="row">
-            <div class="col-12 col-8-md">
-              <div class="accordion" id="accordionExample">
-                <form method="post" enctype="multipart/form-data">
-                  <div class="card-infoGeneral">
-                    <div class="card-header" id="card-infoGeneral">
-                      <h5 class="mb-0">
-                        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                          Informacion General
-                        </button>
-                      </h5>
+        </div>
+    </div>
+    <div class="wrap">
+      <div class="row">
+        <div class= "col-12">
+          <ul class="tabs">
+            <li><a href="#tab1"><span class="fa fa-info"></span><span class="tab-text">Info General</span></a></li>
+            <li><a href="#tab2"><span class="fa fa-map-marked-alt"></span><span class="tab-text">Destinos</span></a></li>
+            <li><a href="#tab3"><span class="fa fa-dollar-sign"></span><span class="tab-text">Presupuesto</span></a></li>
+            <li><a href="#tab4"><span class="fa fa-edit"></span><span class="tab-text">Itinerario de tu viaje </span></a></li>
+          </ul>
+            <div class="secciones">
+            <article id="tab1">
+              <form method="post" enctype="multipart/form-data">
+
+                <input type="text" id="textmensaje" onkeyup="$('#mensaje').text($('#textmensaje').val());" class="form-control" name="textmensaje" value="<?=$textmensaje?>" placeholder="Ponele un Titulo a tu viaje..."></textarea>
+                <?php if (isset($errores['textmensaje'])):?>
+                  <p><?= $errores['textmensaje'] ?></p>
+                <?php endif; ?>
+
+              <div class="d-flex flex-column flex-md-row align-items-md-center mt-2">
+                Partida: <input class="ml-2 mr-4" type="date" name="datein" value="<?=$datein?>">
+                Regreso: <input class="ml-2 mr-4" type="date" name="dateout" value="<?=$dateout?>"><br></br>
+                <?php if (isset($errores['datein'])):?>
+                    <p><?= $errores['datein']?></p>
+                  <?php endif;?>
+                  <?php if (isset($errores['dateout'])):?>
+                      <p><?= $errores['dateout']?></p>
+                    <?php endif;?>
+              </div>
+              <label for="inlineRadioOptions"> ¿Tus Fechas son flexibles?</label><br></br>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="infoGeneral" value="option1">
+                <label class="form-check-label" for="inlineRadio1">Si, seguro!</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="infoGeneral" value="option2">
+                <label class="form-check-label" for="inlineRadio2">Lo podemos Charlar!</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="infoGeneral" value="option3">
+                <label class="form-check-label" for="inlineRadio3">No puedo mover las fechas</label>
+              </div>
+            </article>
+              <article id="tab2">
+                <label for="pais">¿Adonde queres ir?</label>
+                <select class="form-control" name="pais"<?=$pais?>>
+                  <?php if (isset($errores['pais'])):?>
+                      <p><?= $errores['pais']?></p>
+                    <?php endif;?>
+                  <option value="">Selecciona el país a visitar</option>
+                  <?php foreach ($paises as $key => $value) :?>
+                      <option value="<?= $value['pais'] ?>"><?= $value['pais'] ?></option>
+                  <?php endforeach ?>
+                </select>
+
+
+                <!--<select class="form-control" name="ciudad">
+                  <option value="">Selecciona la ciudad a visitar</option>
+                  <?php foreach ($ciudades as $key => $value) :?>
+                      <option value="<?= $value['ciudad'] ?>"><?= $value['ciudad'] ?></option>
+                  <?php endforeach ?>
+                </select>-->
+                <label for="actividades">¿Que tipo de viaje queres hacer?</label>
+                <select class="custom-select" size="3">
+                  <option value="1">Aventura</option>
+                  <option value="2">Impacto Social</option>
+                  <option value="3">Relax y playa</option>
+                  <option value="2">Proyectos Ecológcos</option>
+                  <option value="3">Relax y playa</option>
+                </select>
+              </article>
+              <article id="tab3">
+                <div class="card-body">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text">Importe</span>
+                      <?php if (isset($errores['importe'])):?>
+                          <p><?= $errores['importe']?></p>
+                        <?php endif;?>
                       </div>
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                      <div class="card-body">
-                        <div class="form-group">
-                          <input type="text" id="textmensaje" onkeyup="$('#mensaje').text($('#textmensaje').val());" class="form-control" name="mensaje" value="<?=$textmensaje?>" placeholder="Ponele un Titulo a tu viaje..."></textarea>
-                          <?php if (isset($errores['mensaje'])):?>
-                            <p><?=$errores['mensaje'] ?></p>
+                      <input type="text" class="form-control" name="importe" <?=$importe?> aria-label="Amount (to the nearest dollar)">
+                      <div class="input-group-append">
+                        <span class="input-group-text">.00</span>
+                      </div>
+                    </div>
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">Moneda</span>
+                        <?php if (isset($errores['moneda'])):?>
+                            <p><?= $errores['moneda']?></p>
                           <?php endif;?>
-                          <br></br>
-                          Check in: <input type="date" name="datein" value="<?=$datein?>">
-                          Check out: <input type="date" name="dateout" value="<?=$dateout?>">
-                          <br></br>
-                          <br></br>
-                          <label for="inlineRadioOptions"> ¿Tus Fechas son flexibles?</label>
-                          <br></br>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="infoGeneral" value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Si, seguro!</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="infoGeneral" value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Lo podemos Charlar!</label>
-                          </div>
-                          <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="infoGeneral" value="option3">
-                            <label class="form-check-label" for="inlineRadio3">No puedo mover las fechas</label>
-                          </div>
                         </div>
+                        <input type="text" class="form-control" name="moneda"  <?=$moneda?> aria-label="Amount (to the nearest dollar)">
                       </div>
                     </div>
+              </article>
+              <article id="tab4">
+                <div class="card-body">
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="inputGroupSelect01">Dia 1</label>
+                    </div>
+                    <select class="custom-select" name="ciudad" <?=$ciudad?>>
+                    </select>
                   </div>
-              <div class="card-destino">
-                  <div class="card-header" id="card-destino">
-                    <h5 class="mb-0">
-                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Informacion de tu Destino
-                      </button>
-                    </h5>
-                      </div>
-                        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                          <div class="card-body">
-                            <label for="pais">Elegí tu destino</label>
-                            <select class="form-control" name="pais"<?=$pais?>>
-                              <option value="">Selecciona el país a visitar</option>
-                              <?php foreach ($paises as $key => $value) :?>
-                                  <option value="<?= $value['CODIGO'] ?>"><?= $value['NOMBRE'] ?></option>
-                              <?php endforeach ?>
-                            </select>
-
-                            <!--<select class="form-control" name="ciudad">
-                              <option value="">Selecciona la ciudad a visitar</option>
-                              <?php foreach ($ciudades as $key => $value) :?>
-                                  <option value="<?= $value['ciudad'] ?>"><?= $value['ciudad'] ?></option>
-                              <?php endforeach ?>
-                            </select>-->
-                            <label for="actividades">¿Que tipo de viaje queres hacer?</label>
-                            <select class="custom-select" size="3">
-                              <option value="1">Aventura</option>
-                              <option value="2">Impacto Social</option>
-                              <option value="3">Relax y playa</option>
-                              <option value="2">Proyectos Ecológcos</option>
-                              <option value="3">Relax y playa</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                  <div class="card-itinerario">
-                    <div class="card-header" id="headingThree">
-                      <h5 class="mb-0">
-                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                          Itinerario de tu viaje
-                          </button>
-                          </h5>
-                        </div>
-                          <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                            <div class="card-body">
-                              <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                  <label class="input-group-text" for="inputGroupSelect01">Dia 1</label>
-                                </div>
-                                <select class="custom-select" name="ciudad" <?=$ciudad?>>
-                                </select>
-                              </div>
-                              <div class="descripcion">
-                                <textarea id="descripcion" class="form-control" name="mensaje-iti" placeholder="Que vas a hacer en esta ciudad?..."></textarea>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                  <div class="card-itinerario">
-                      <div class="card-header" id="headingFour">
-                        <h5 class="mb-0">
-                          <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                            Presupuesto
-                          </button>
-                        </h5>
-                      </div>
-                    <div class="card-presupuesto">
-                      <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                        <div class="card-body">
-                          <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                              <span class="input-group-text">Importe</span>
-                              </div>
-                              <input type="text" class="form-control" name="importe" aria-label="Amount (to the nearest dollar)">
-                              <div class="input-group-append">
-                                <span class="input-group-text">.00</span>
-                              </div>
-                            </div>
-                              <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                <span class="input-group-text">Moneda</span>
-                                </div>
-                                <input type="text" class="form-control" name="moneda" aria-label="Amount (to the nearest dollar)">
-                                <input type="submit" class="btn btn-primary" value="Guarda Tu Viaje">
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-                </div>
-              </div>
-            </div>
-              <div class="info-destinos">
-                <div class="container-fluid">
-                  <div class="row">
-                    <div class="col-4">
-                      <div class="btn-group-vertical col-12">
-                        <div class="btn-group-vertical">
-                          <a class="btn btn-secondary" href="https://www.tripadvisor.es/TravelersChoice-Destinations-cTop-g13" target="_blank">Top 25 Caribe</a>
-                          <a class="btn btn-secondary" href="https://www.tripadvisor.es/TravelersChoice-Destinations-cTop-g4" target="_blank">Top 25 Europa</a>
-                          <a class="btn btn-secondary" href="https://www.tripadvisor.com.ar/TravelersChoice-Destinations-cTop-g191" target="_blank">Top 25 Estados Unidos</a>
-                          <a class="btn btn-secondary" href="https://www.tripadvisor.com.ar/TravelersChoice-Destinations-cTop-g2"  target="_blank">Top 25 Sudeste Asíatico</a>
-                          <a class="btn btn-secondary" href="https://www.tripadvisor.es/TravelersChoice-Beaches-cTop-g147237" target="_blank">Top 25 Caribe</a>
-                        </div>
-                      </div>
-                    </div>
+                  <div class="descripcion">
+                    <textarea id="descripcion" class="form-control" name="mensajeiti" placeholder="Que vas a hacer en esta ciudad?..."></textarea>
                   </div>
+                  <input type="submit" class="btn btn-primary" value="Guarda Tu Viaje">
                 </div>
-              </div>
-            </section>
-              </section>
-              <?php require_once('footer.php'); ?>
-            </body>
+              </article>
+              <article id"tab3">
 
-</html>
+              </article>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-deck">
+<div class="card">
+  <img class="card-img-top" src="images/crea/america.jpeg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">America Del Sur</h5>
+    <p class="card-text">Desde los picos nevados de los Andes a los extensos ríos de la región del Amazonas, el sur de América tiene una larga lista de maravillas naturales para todos los gustos</p>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Conoce los mejores destinos</small>
+  </div>
+</div>
+<div class="card">
+  <img class="card-img-top" src="images/crea/beach.jpg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Caribe</h5>
+    <p class="card-text">El Caribe es definitivamente  un lugar que es sinónimo de hermosas imágenes de arenas blancas, aguas turquesa, cocteles, sol brillante y mucho relax. Aunque estas son las palabras que lo describen en su mayoría, las islas caribeñas ofrecen mucho más de lo que puedas imaginar.</p>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Conoce los mejores destinos</small>
+  </div>
+</div>
+<div class="card">
+  <img class="card-img-top" src="images/crea/eeuu.jpeg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">America del Norte</h5>
+    <p class="card-text">Sus ciudades desvelan arquitecturas de una modernidad sin igual que se encuentran a tan solo unas horas de los paisajes más salvajes, en los que puedes vivir aventuras en tu tienda de campaña o con la mochila a la espalda rodeado de una naturaleza muy bien conservada.</p>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Conoce los mejores destinos</small>
+  </div>
+</div>
+<div class="card">
+  <img class="card-img-top" src="images/crea/europa.jpeg" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Europa</h5>
+    <p class="card-text">A algunos les atrae su historia, la multiplicidad de culturas en un mismo espacio, las bellezas naturales, la facilidad para el transporte, la amplia y variada oferta de alojamiento, la arquitectura, las playas, las compras.</p>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Conoce los mejores destinos</small>
+  </div>
+</div>
+<div class="card">
+  <img class="card-img-top" src="images/crea/resto.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Resto</h5>
+    <p class="card-text">Viajar a un destino exótico es conocer un nuevo país, una nueva cultura, nuevas costumbres y tradiciones, ajenas a lo ya explorado. Elegir un viaje no es una decisión fácil, pero es preferible distanciarnos de lo cotidiano, abrir nuestras mentes y disfrutar de las riquezas de una novedosa excursión..</p>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Conoce los mejores destinos</small>
+  </div>
+</div>
+</div>
+
+    </section>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    </script>
+  </body>
+  </html>

@@ -1,242 +1,105 @@
 <?php
+  require_once('funciones.php');
+  require_once('loader.php');
 
-require_once('funciones.php');
-$nombres = traerNombreDeUsuarios();
-msjAseleccionar();
+  $nombres = $usuario->traerNombreDeUsuarios();
+  $mensaje = new Message();
+  //msjAseleccionar();
+  $usuariologin = $autenticador->loginControl($usuario);
+  $errores = [];
+  $posteos = $post->recuperarPostDeUsuario();
 
-if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
-  header('location:login.php');
-}else if (isset($_SESSION['id'])) {
-  $usuariologin = obtenerId($_SESSION['id']);
-}else if (isset($_COOKIE['id'])) {
-  $usuariologin = obtenerId($_COOKIE['id']);
-}else {
-  header('location:login.php');
-}
-if($_POST){
-  $guardarMsj = crearMensaje($usuariologin['nombre']);
-}
 
-$userViajes = obtenerViajes($usuariologin['id']);
+  if($_POST){
+    $guardarMsj = $mensaje->crearMensaje($usuariologin['nombre'],$usuario,$usuariologin['id']);
+  }
+
+  if($_GET)
+  {
+    $errores = $postValidator->validar();
+    if(empty($errores))
+    {
+      $post->crearPost();
+    }
+  }
+  $postRealizados = $post->recuperarPostDeUsuario();
+
+
+  $userViajes = $usuario->obtenerViajes($usuariologin['id']);
 
 ?>
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <!-- FUENTES -->
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+
+  <head>
+    <title>Single Riders</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Abel|Montserrat:400,400i,700,700i|Pacifico" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <!-- FUENTE MENU DE NAVEGACION IZQUIERDO-->
-    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
-    <!-- CSS-->
-    <link rel="stylesheet" href="css/home.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <title>Document</title>
-</head>
-<body>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/muro2.css">
+    <link rel="stylesheet" href="./css/posteo.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7-_ujclOOF7-Rj28am_xiblQJUNrTd3c"></script>
+  </head>
+
+  <body>
     <?php require_once('header.php'); ?>
-    <section class="super-container container">
-        <!-- CAJA RELLENO -->
-        <div class="relleno"></div>
-        <!-- CAJA IZQUIERDA -->
-        <article class="izquierda">
-            <div class="datos-perfil">
-                <img src=".<?=$usuariologin['srcImagenperfil']?>" alt="" id="foto-perfil">
-                <button id="editar-foto"><a href="editar_perfil.php"><img src="images/iconos/home/editar.png" alt=""> <p>Editar perfil</p></button></a>
-            </div>
-            <div class="caja-navegacion-perfil">
-                <ul class="navegacion-perfil">
-                    <li style="display:none;">
-                        <img src="images/iconos/home/perfil_chico.png" alt="" width="20px">
-                        <a href="perfil.php">Ver mi Perfil</a>
-                    </li>
-                    <li>
-                        <img src="images/iconos/home/crear_viaje.png" alt="">
-                        <a href="crea2.php">Crear Viaje</a>
-                    </li>
-                    <li>
-                        <img src="images/iconos/home/ver_mis_viajes.png" alt="">
-                        <a href="#">Ver mis Viajes</a>
-                    </li>
-                    <li>
-                        <img src="images/iconos/home/ver_mis_viajes.png" alt="">
-                        <a href="viajes.php">Todos los Viajes</a>
-                    </li>
-                    <li style="display:none;">
-                        <img src="images/iconos/home/crear_grupo.png" alt="">
-                        <a href="#">Crear Grupo</a>
-                    </li>
-                    <li style="display:none;">
-                        <img src="images/iconos/home/unirte_a_viaje.png" alt="">
-                        <a href="#">Unirte a Grupo</a>
-                    </li>
-                    <li>
-                        <img src="images/iconos/home/sobre.png" alt="">
-                        <a href="mensajes.php">Ver mis Mensajes</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="redes" style="display:none">
-                <div class="redes-titulo">
-                    <h5>
-                        Social
-                    </h5>
-                </div>
-                <div class="menu-social">
-                    <ul>
-                        <li>
-                            <a href="#"><img src="images/iconos/home/redes/facebook.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="images/iconos/home/redes/instagram.png" alt=""></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="images/iconos/home/redes/twitter.png" alt="" style="border-radius: 5px;"></a>
-                        </li>
-                        <li>
-                            <a href="#"><img src="images/iconos/home/redes/google-plus.png" alt="" style="border-radius: 5px;"></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="redes" style="display:none;">
-                <div class="redes-titulo">
-                    <h5>
-                        Viajes Aleatorios
-                    </h5>
-                </div>
-                <div class="viajes_aleatorios">
-                    <p>Proximamente</p>
-                </div>
-            </div>
-        </article>
-        <!-- CAJA CENTRO -->
-        <article class="centro">
-            <div class="muro">
-                <div class="header_muro">
-                     <p>Muro</p>
-                </div>
-                <div class="contenido_muro">
-                    <!-- <div class="centro-muro container">
-                        <div class="foto-publicar">
-                            <div class="imagen_foto">
-                                <img src="images/perfil.jpg" alt="" width="50px">
-                                <p><?= $usuariologin['nombre']; ?></p>
-                            </div>
-                            <div class="caja_texto container">
-                                <form action="get">
-                                    <textarea name="publicacion" id="" cols="15" rows="3" placeholder="¿Que estas pensando?"></textarea>
-                                    <br>
-                                    <input type="submit" value="Publicar">
-                                </form>
-                            </div>
-                        </div> -->
-                        <?php $contadormodal=0; ?>
-                        <?php foreach ($userViajes['viajes'] as $key => $value) : ?>
-                            <?php $contadormodal++; ?>
-                            <div class="card p-3 m-3">
-                              <div class="fondo-card"></div>
-                              <?php if ($value['pais'] == 'india') :?>
-                                <img class="card-img-top" src="./images/flags/<?= $value['pais'] ?>.png" alt="Card image cap">
+    <section class="mt-5 section">
+      <div class="container-fluid pt-5">
+        <div class="row p-0 m-0 bg-white rounded home-row-main justify-content-center">
+          <div class="col-12 p-0 top-muro-image d-flex align-items-center justify-content-center">
+            <h1 class="font-weight-bold text-center">Muro</h1>
+          </div>
 
-                            <?php elseif ($value['pais'] == 'egipto') :?>
-                                <img class="card-img-top" src="./images/flags/<?= $value['pais'] ?>.png" alt="Card image cap">
+            <?php require_once('lateral_izquierdo.php'); ?>
 
-                            <?php elseif ($value['pais'] == 'nueva guinea') :?>
-                                <img class="card-img-top" src="./images/flags/<?= $value['pais'] ?>.png" alt="Card image cap">
+      <!-- CREAR UN POST HTML -->
+    <div class="col-12 p-10 pt-4 col-md-8">
+      <article class="posteo_crear col-12 p-10 pt-4 col-md-8">
+        <div class="publicacion rounded">
+            <div class="publicacion_imagen">
+              <img style="max-width: 30px;" class="border rounded-circle" src=".<?=$usuariologin['srcImagenperfil']?>" alt="" id="foto-perfil">
+              <form method="get" class="d-flex flex-column justify-content-center align-items-center pl-2">
+                <textarea name="posteo" rows="10" placeholder="¿Que estas pensado?" style="resize: none;border: 1px solid lightgrey;"></textarea>
+                <button type="submit" class="mt-3" id="boton_end">Publicar</button>
+              </div>
+          </form>
+        </div>
+      </article>
 
-                            <?php else :?>
-                                <img class="card-img-top" src="./images/flags/<?= $value['pais'] ?>.png" alt="Card image cap">
-                              <?php endif; ?>
+      <!-- POSTEO HTML -->
+            <?php foreach ($postRealizados as $key => $value) : ?>
+                  <?php if($value['user_id'] == $_SESSION['id']) : ?>
 
-                              <div class="card-body">
-                                <h5 class="card-title text-center">
-                                    <strong><?= $value['textmensaje'] ?></strong>
-                                </h5>
-                                  <p class="card-text">
-                                    <strong>Salida: </strong><span class="ml-1"><?= $value['datein'] ?></span>
-                                    <br>
-                                    <strong>Publicado por:</strong>
-                                    <span class="ml-1">
-                                      <?= $usuariologin['nombre'] ?>
-                                    </span>
-                                  </p>
-                                  <!-- Button trigger modal -->
-                                  <div class="text-center mt-3">
-                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#Modal<?= $contadormodal ?>">
-                                      Ver detalle
-                                    </button>
-                                  </div>
-                              </div>
-                            </div>
-                            <!-- Modal -->
-                            <div class="modal fade" id="Modal<?= $contadormodal  ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                              <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                  <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Detalle del viaje</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div>
-                                  <div class="modal-body">
-                                    <p class="card-text">
-                                      <strong>Nombre del viaje: </strong><span class="ml-1"><?= $value['textmensaje'] ?></span>
-                                      <br>
-                                      <strong>País: </strong><span class="ml-1"><?= $value['pais'] ?></span>
-                                      <br>
-                                      <strong>Salida: </strong><span class="ml-1"><?= $value['datein'] ?></span>
-                                      <br>
-                                      <strong>Regreso: </strong><span class="ml-1"><?= $value['dateout'] ?></span>
-                                      <br>
-                                      <strong>Presupuesto: </strong><span class="ml-1"><?= $value['importe'] ?></span>
-                                      <br>
-                                      <strong>Moneda: </strong><span class="ml-1"><?= $value['moneda'] ?></span>
-                                      <br>
-                                      <strong>Publicado por:</strong>
-                                      <span class="ml-1">
-                                        <?= $usuariologin['nombre'] ?>
-                                      </span>
-                                      <br>
-                                      <strong>Email:</strong>
-                                      <span class="ml-1">
-                                        <?= $usuariologin['email'] ?>
-                                      </span>
-                                      <br>
-                                      <form method="post" class="mt-4">
-                                        <div class="form-label-group" id="mensajearea">
-                                          <textarea class="form-control" name="mensaje" placeholder="Escribí tu mensaje..."></textarea>
-                                        </div>
-                                        <input type="hidden" name="to" value=<?= intval($value['creadorDeViaje']) ?>>
-                                        <div class="container" id="enviar">
-                                          <div class="row flex-column flex-md-row justify-content-md-between align-items-md-center">
-                                            <button type="submit" class="btn btn-primary iniciar mb-3 mb-md-0">Enviar mensaje</button>
-                                          </div>
-                                          <div class="row mt-3">
-                                          </div>
-                                        </div>
-                                      </form>
-
-                                    </p>
-                                  </div>
-                                  <div class="modal-footer mt-3">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                        <?php endforeach; ?>
+                    <div class="col-12 p-10 pt-4 col-md-8">
+                      <article class="articulo_post">
+                        <div class="posteos_card">
+                          <div class="datos_post">
+                            <img style="max-width: 30px;" class="border rounded-circle" src=".<?=$usuariologin['srcImagenperfil']?>" alt="" id="foto-perfil">
+                            <p><?= $usuariologin['nombre'] ?></p>
+                          </div>
+                          <div class="contenido_post">
+                            <p><?php echo $value['post'] ?></p>
+                          </div>
+                          <div class="post_interaccion">
+                            <label for="me_gusta">Me gusta</label>
+                            <img src="images/iconos/interaccion_posteo/me-gusta_no_seleccionado.png" alt="" name="me_gusta">
+                            <label for="comentar">Comentar</label>
+                            <img src="images/iconos/interaccion_posteo/comentario.png" alt="" name="comentar">
+                          </div>
+                        </div>
+                      </article>
                     </div>
-                </div>
-        </article>
+                  <?php endif;?>
+              <?php endforeach;?>
+            </div>
+          </div>
+      </div>
     </section>
-    <footer>
-        <?php require_once('footer.php'); ?>
-    </footer>
-</body>
+
+    <?php require_once('footer.php'); ?>
+
+    </body>
 </html>

@@ -1,13 +1,9 @@
-
 <?php
-
   require_once('funciones.php');
+  require_once('loader.php');
 
-  if (isset($_SESSION['id'])) {
-    $usuariologin = obtenerId($_SESSION['id']);
-  }else if (isset($_COOKIE['id'])) {
-    $usuariologin = obtenerId($_COOKIE['id']);
-  }
+  $usuariologin = $autenticador->usuarioLoginHeader($usuario);
+
 
 
 ?>
@@ -32,7 +28,7 @@
         </button>
         <?php endif; ?>
         <?php if (isset($usuariologin)): ?>
-        <div id="loguerla">
+        <div class="d-none d-sm-inline-block" id="loguerla">
           <h2>Single Riders</h2>
         </div>
         <?php endif; ?>
@@ -64,8 +60,8 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="editar_perfil.php">Editar Perfil</a>
-            <a class="dropdown-item" href="#">Mis Viajes</a>
-            <a class="dropdown-item" href="#">Cambiar Cuenta</a>
+            <a class="dropdown-item" href="home.php">Mis Viajes</a>
+            <!--<a class="dropdown-item" href="#">Cambiar Cuenta</a>-->
             <a class="dropdown-item" href="faqs.php">faqs</a>
 
             <a class="dropdown-item" href="logout.php">Cerrar sesión</a>

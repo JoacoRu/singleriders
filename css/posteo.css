@@ -1,0 +1,173 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* ARTICLE DEL POST*/
+.articulo_post{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+/*POSTEO*/
+.posteos_card{
+    width: 80% !important;
+    background-color: #fff;
+    border: 1px #e4e9f5 solid;
+    padding: 4px 4px 0px 4px;
+    border-radius: 4px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/*NOMBRE E IMAGEN */
+.datos_post{
+    display: flex;
+    flex-direction: row !important;
+    border-bottom: 1px #e4e9f5 solid;
+    align-items: center;
+}
+
+.datos_post img{
+    height: 20px;
+    margin-right: 5px;
+}
+
+.datos_post p{
+    font-weight: bold;
+    text-transform: capitalize;
+    transform: translateY(39%);
+}
+
+/* CONTENIDO*/
+.contenido_post{
+ padding: 6px 0px 0px 0px;
+}
+
+/* INTERACCION */
+
+.post_interaccion{
+    border-top: 1px #e4e9f5 solid;
+    border-bottom: 1px #e4e9f5 solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post_interaccion img{
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.post_interaccion img:last-child{
+    margin-left: 5px;
+}
+
+.post_interaccion img{
+    width: 20px;
+    height: 20px;
+}
+
+.post_interaccion label{
+    transform: translateY(10%);
+    font-size: 13px;
+    color: grey;
+    font-weight: bold;
+}
+
+/*CREAR UNA PUBLICACION*/
+
+.posteo_crear{
+    display: flex;
+    justify-content: center;
+}
+
+.publicacion{
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid #e4e9f5;
+    padding: 8px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.publicacion_imagen{
+    display: flex;
+    flex-direction: row;
+}
+
+.publicacion_imagen img{
+    height: 25px;
+}
+
+.publicacion_imagen textarea{
+    resize: none;
+    width: 100%;
+    height: 50px;
+    border-radius: 4px;
+    /*margin-left: 5px;*/
+}
+
+.publicacion_imagen textarea:focus{
+    outline:0px;
+    border: 1px solid #028ed6;
+}
+
+.publicacion button[type="submit"]{
+    display: flex;
+    border: none;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: #028ed6;
+    color: white;
+    transition: 2s;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+.publicacion button[type="submit"]:hover{
+    background-color: rgba(255,255,255,0.3);
+    color: black;
+}
+
+@media (min-width: 400px){
+    .publicacion{
+        width: 70%;
+    }
+}
+
+@media (min-width: 600px){
+    .publicacion{
+        width: 50%;
+    }
+}
+
+@media (min-width: 768px){
+    .publicacion{
+        height: 130px;
+    }
+}
+
+@media (min-width: 1250px){
+    .publicacion{
+        width: 45%;
+    }
+}
+
+@media (min-width: 1500px){
+    .publicacion{
+        width: 40%;
+    }
+}
+
+@media (min-width: 1700px){
+    .publicacion{
+        width: 35%;
+    }
+}

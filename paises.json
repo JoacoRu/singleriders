@@ -1,979 +1,979 @@
 ﻿[ ;
 	{
-		"CODIGO": "AF",
-		"NOMBRE": "AFGHANISTAN"
+		"cod_pais": "AF",
+		"pais": "AFGHANISTAN"
 	};
 	{
-		"CODIGO": "AX",
-		"NOMBRE": "ALAND ISLANDS"
+		"cod_pais": "AX",
+		"pais": "ALAND ISLANDS"
 	};
 	{
-		"CODIGO": "AL",
-		"NOMBRE": "ALBANIA"
+		"cod_pais": "AL",
+		"pais": "ALBANIA"
 	};
 	{
-		"CODIGO": "DE",
-		"NOMBRE": "ALEMANIA"
+		"cod_pais": "DE",
+		"pais": "ALEMANIA"
 	};
 	{
-		"CODIGO": "DZ",
-		"NOMBRE": "ALGERIA"
+		"cod_pais": "DZ",
+		"pais": "ALGERIA"
 	};
 	{
-		"CODIGO": "AS",
-		"NOMBRE": "AMERICAN SAMOA"
+		"cod_pais": "AS",
+		"pais": "AMERICAN SAMOA"
 	};
 	{
-		"CODIGO": "AD",
-		"NOMBRE": "ANDORRA"
+		"cod_pais": "AD",
+		"pais": "ANDORRA"
 	};
 	{
-		"CODIGO": "AO",
-		"NOMBRE": "ANGOLA"
+		"cod_pais": "AO",
+		"pais": "ANGOLA"
 	};
 	{
-		"CODIGO": "AI",
-		"NOMBRE": "ANGUILLA"
+		"cod_pais": "AI",
+		"pais": "ANGUILLA"
 	};
 	{
-		"CODIGO": "AQ",
-		"NOMBRE": "ANTARCTICA"
+		"cod_pais": "AQ",
+		"pais": "ANTARCTICA"
 	};
 	{
-		"CODIGO": "AG",
-		"NOMBRE": "ANTIGUA Y BARBUDA"
+		"cod_pais": "AG",
+		"pais": "ANTIGUA Y BARBUDA"
 	};
 	{
-		"CODIGO": "SA",
-		"NOMBRE": "ARABIA SAUDITA"
+		"cod_pais": "SA",
+		"pais": "ARABIA SAUDITA"
 	};
 	{
-		"CODIGO": "AR",
-		"NOMBRE": "ARGENTINA"
+		"cod_pais": "AR",
+		"pais": "ARGENTINA"
 	};
 	{
-		"CODIGO": "AM",
-		"NOMBRE": "ARMENIA"
+		"cod_pais": "AM",
+		"pais": "ARMENIA"
 	};
 	{
-		"CODIGO": "AW",
-		"NOMBRE": "ARUBA"
+		"cod_pais": "AW",
+		"pais": "ARUBA"
 	};
 	{
-		"CODIGO": "AP",
-		"NOMBRE": "ASIA / REGION PACIFICO"
+		"cod_pais": "AP",
+		"pais": "ASIA / REGION PACIFICO"
 	};
 	{
-		"CODIGO": "AU",
-		"NOMBRE": "AUSTRALIA"
+		"cod_pais": "AU",
+		"pais": "AUSTRALIA"
 	};
 	{
-		"CODIGO": "AT",
-		"NOMBRE": "AUSTRIA"
+		"cod_pais": "AT",
+		"pais": "AUSTRIA"
 	};
 	{
-		"CODIGO": "AZ",
-		"NOMBRE": "AZERBAIJAN"
+		"cod_pais": "AZ",
+		"pais": "AZERBAIJAN"
 	};
 	{
-		"CODIGO": "BS",
-		"NOMBRE": "BAHAMAS"
+		"cod_pais": "BS",
+		"pais": "BAHAMAS"
 	};
 	{
-		"CODIGO": "BH",
-		"NOMBRE": "BAHRAIN"
+		"cod_pais": "BH",
+		"pais": "BAHRAIN"
 	};
 	{
-		"CODIGO": "BD",
-		"NOMBRE": "BANGLADESH"
+		"cod_pais": "BD",
+		"pais": "BANGLADESH"
 	};
 	{
-		"CODIGO": "BB",
-		"NOMBRE": "BARBADOS"
+		"cod_pais": "BB",
+		"pais": "BARBADOS"
 	};
 	{
-		"CODIGO": "BY",
-		"NOMBRE": "BELARUS"
+		"cod_pais": "BY",
+		"pais": "BELARUS"
 	};
 	{
-		"CODIGO": "BE",
-		"NOMBRE": "BELGICA"
+		"cod_pais": "BE",
+		"pais": "BELGICA"
 	};
 	{
-		"CODIGO": "BZ",
-		"NOMBRE": "BELICE"
+		"cod_pais": "BZ",
+		"pais": "BELICE"
 	};
 	{
-		"CODIGO": "BJ",
-		"NOMBRE": "BENIN"
+		"cod_pais": "BJ",
+		"pais": "BENIN"
 	};
 	{
-		"CODIGO": "BM",
-		"NOMBRE": "BERMUDA"
+		"cod_pais": "BM",
+		"pais": "BERMUDA"
 	};
 	{
-		"CODIGO": "BT",
-		"NOMBRE": "BHUTAN"
+		"cod_pais": "BT",
+		"pais": "BHUTAN"
 	};
 	{
-		"CODIGO": "BO",
-		"NOMBRE": "BOLIVIA"
+		"cod_pais": "BO",
+		"pais": "BOLIVIA"
 	};
 	{
-		"CODIGO": "BQ",
-		"NOMBRE": "BONAIR"
+		"cod_pais": "BQ",
+		"pais": "BONAIR"
 	};
 	{
-		"CODIGO": "BA",
-		"NOMBRE": "BOSNIA AND HERZEGOVINA"
+		"cod_pais": "BA",
+		"pais": "BOSNIA AND HERZEGOVINA"
 	};
 	{
-		"CODIGO": "BW",
-		"NOMBRE": "BOTSWANA"
+		"cod_pais": "BW",
+		"pais": "BOTSWANA"
 	};
 	{
-		"CODIGO": "BR",
-		"NOMBRE": "BRASIL"
+		"cod_pais": "BR",
+		"pais": "BRASIL"
 	};
 	{
-		"CODIGO": "IO",
-		"NOMBRE": "BRITISH INDIAN OCEAN TERRITORY"
+		"cod_pais": "IO",
+		"pais": "BRITISH INDIAN OCEAN TERRITORY"
 	};
 	{
-		"CODIGO": "BN",
-		"NOMBRE": "BRUNEI DARUSSALAM"
+		"cod_pais": "BN",
+		"pais": "BRUNEI DARUSSALAM"
 	};
 	{
-		"CODIGO": "BG",
-		"NOMBRE": "BULGARIA"
+		"cod_pais": "BG",
+		"pais": "BULGARIA"
 	};
 	{
-		"CODIGO": "BF",
-		"NOMBRE": "BURKINA FASO"
+		"cod_pais": "BF",
+		"pais": "BURKINA FASO"
 	};
 	{
-		"CODIGO": "BI",
-		"NOMBRE": "BURUNDI"
+		"cod_pais": "BI",
+		"pais": "BURUNDI"
 	};
 	{
-		"CODIGO": "CV",
-		"NOMBRE": "CABO VERDE"
+		"cod_pais": "CV",
+		"pais": "CABO VERDE"
 	};
 	{
-		"CODIGO": "KH",
-		"NOMBRE": "CAMBOYA"
+		"cod_pais": "KH",
+		"pais": "CAMBOYA"
 	};
 	{
-		"CODIGO": "CM",
-		"NOMBRE": "CAMERUN"
+		"cod_pais": "CM",
+		"pais": "CAMERUN"
 	};
 	{
-		"CODIGO": "CA",
-		"NOMBRE": "CANADA"
+		"cod_pais": "CA",
+		"pais": "CANADA"
 	};
 	{
-		"CODIGO": "TD",
-		"NOMBRE": "CHAD"
+		"cod_pais": "TD",
+		"pais": "CHAD"
 	};
 	{
-		"CODIGO": "CL",
-		"NOMBRE": "CHILE"
+		"cod_pais": "CL",
+		"pais": "CHILE"
 	};
 	{
-		"CODIGO": "CN",
-		"NOMBRE": "CHINA"
+		"cod_pais": "CN",
+		"pais": "CHINA"
 	};
 	{
-		"CODIGO": "CY",
-		"NOMBRE": "CHIPRE"
+		"cod_pais": "CY",
+		"pais": "CHIPRE"
 	};
 	{
-		"CODIGO": "CC",
-		"NOMBRE": "COCOS (KEELING) ISLANDS"
+		"cod_pais": "CC",
+		"pais": "COCOS (KEELING) ISLANDS"
 	};
 	{
-		"CODIGO": "CO",
-		"NOMBRE": "COLOMBIA"
+		"cod_pais": "CO",
+		"pais": "COLOMBIA"
 	};
 	{
-		"CODIGO": "KM",
-		"NOMBRE": "COMOROS"
+		"cod_pais": "KM",
+		"pais": "COMOROS"
 	};
 	{
-		"CODIGO": "CD",
-		"NOMBRE": "CONG"
+		"cod_pais": "CD",
+		"pais": "CONG"
 	};
 	{
-		"CODIGO": "CG",
-		"NOMBRE": "CONGO"
+		"cod_pais": "CG",
+		"pais": "CONGO"
 	};
 	{
-		"CODIGO": "CK",
-		"NOMBRE": "COOK ISLANDS"
+		"cod_pais": "CK",
+		"pais": "COOK ISLANDS"
 	};
 	{
-		"CODIGO": "CR",
-		"NOMBRE": "COSTA RICA"
+		"cod_pais": "CR",
+		"pais": "COSTA RICA"
 	};
 	{
-		"CODIGO": "CI",
-		"NOMBRE": "COTE D'IVOIRE"
+		"cod_pais": "CI",
+		"pais": "COTE D'IVOIRE"
 	};
 	{
-		"CODIGO": "HR",
-		"NOMBRE": "CROACIA"
+		"cod_pais": "HR",
+		"pais": "CROACIA"
 	};
 	{
-		"CODIGO": "CU",
-		"NOMBRE": "CUBA"
+		"cod_pais": "CU",
+		"pais": "CUBA"
 	};
 	{
-		"CODIGO": "CW",
-		"NOMBRE": "CURACAO"
+		"cod_pais": "CW",
+		"pais": "CURACAO"
 	};
 	{
-		"CODIGO": "DK",
-		"NOMBRE": "DINAMARCA"
+		"cod_pais": "DK",
+		"pais": "DINAMARCA"
 	};
 	{
-		"CODIGO": "DJ",
-		"NOMBRE": "DJIBOUTI"
+		"cod_pais": "DJ",
+		"pais": "DJIBOUTI"
 	};
 	{
-		"CODIGO": "DM",
-		"NOMBRE": "DOMINICA"
+		"cod_pais": "DM",
+		"pais": "DOMINICA"
 	};
 	{
-		"CODIGO": "EC",
-		"NOMBRE": "ECUADOR"
+		"cod_pais": "EC",
+		"pais": "ECUADOR"
 	};
 	{
-		"CODIGO": "EG",
-		"NOMBRE": "EGIPTO"
+		"cod_pais": "EG",
+		"pais": "EGIPTO"
 	};
 	{
-		"CODIGO": "SV",
-		"NOMBRE": "EL SALVADOR"
+		"cod_pais": "SV",
+		"pais": "EL SALVADOR"
 	};
 	{
-		"CODIGO": "AE",
-		"NOMBRE": "EMIRATOS ARABES UNIDOS"
+		"cod_pais": "AE",
+		"pais": "EMIRATOS ARABES UNIDOS"
 	};
 	{
-		"CODIGO": "ER",
-		"NOMBRE": "ERITREA"
+		"cod_pais": "ER",
+		"pais": "ERITREA"
 	};
 	{
-		"CODIGO": "SK",
-		"NOMBRE": "ESLOVAQUIA"
+		"cod_pais": "SK",
+		"pais": "ESLOVAQUIA"
 	};
 	{
-		"CODIGO": "SI",
-		"NOMBRE": "ESLOVENIA"
+		"cod_pais": "SI",
+		"pais": "ESLOVENIA"
 	};
 	{
-		"CODIGO": "ES",
-		"NOMBRE": "ESPAÑA"
+		"cod_pais": "ES",
+		"pais": "ESPAÑA"
 	};
 	{
-		"CODIGO": "US",
-		"NOMBRE": "ESTADOS UNIDOS"
+		"cod_pais": "US",
+		"pais": "ESTADOS UNIDOS"
 	};
 	{
-		"CODIGO": "EE",
-		"NOMBRE": "ESTONIA"
+		"cod_pais": "EE",
+		"pais": "ESTONIA"
 	};
 	{
-		"CODIGO": "ET",
-		"NOMBRE": "ETIOPIA"
+		"cod_pais": "ET",
+		"pais": "ETIOPIA"
 	};
 	{
-		"CODIGO": "FO",
-		"NOMBRE": "FAROE ISLANDS"
+		"cod_pais": "FO",
+		"pais": "FAROE ISLANDS"
 	};
 	{
-		"CODIGO": "FJ",
-		"NOMBRE": "FIJI"
+		"cod_pais": "FJ",
+		"pais": "FIJI"
 	};
 	{
-		"CODIGO": "PH",
-		"NOMBRE": "FILIPINAS"
+		"cod_pais": "PH",
+		"pais": "FILIPINAS"
 	};
 	{
-		"CODIGO": "FI",
-		"NOMBRE": "FINLANDIA"
+		"cod_pais": "FI",
+		"pais": "FINLANDIA"
 	};
 	{
-		"CODIGO": "FR",
-		"NOMBRE": "FRANCIA"
+		"cod_pais": "FR",
+		"pais": "FRANCIA"
 	};
 	{
-		"CODIGO": "PF",
-		"NOMBRE": "FRENCH POLYNESIA"
+		"cod_pais": "PF",
+		"pais": "FRENCH POLYNESIA"
 	};
 	{
-		"CODIGO": "GA",
-		"NOMBRE": "GABON"
+		"cod_pais": "GA",
+		"pais": "GABON"
 	};
 	{
-		"CODIGO": "GM",
-		"NOMBRE": "GAMBIA"
+		"cod_pais": "GM",
+		"pais": "GAMBIA"
 	};
 	{
-		"CODIGO": "GH",
-		"NOMBRE": "GANA"
+		"cod_pais": "GH",
+		"pais": "GANA"
 	};
 	{
-		"CODIGO": "GE",
-		"NOMBRE": "GEORGIA"
+		"cod_pais": "GE",
+		"pais": "GEORGIA"
 	};
 	{
-		"CODIGO": "GI",
-		"NOMBRE": "GIBRALTAR"
+		"cod_pais": "GI",
+		"pais": "GIBRALTAR"
 	};
 	{
-		"CODIGO": "GD",
-		"NOMBRE": "GRANADA"
+		"cod_pais": "GD",
+		"pais": "GRANADA"
 	};
 	{
-		"CODIGO": "GR",
-		"NOMBRE": "GRECIA"
+		"cod_pais": "GR",
+		"pais": "GRECIA"
 	};
 	{
-		"CODIGO": "GL",
-		"NOMBRE": "GROENLANDIA"
+		"cod_pais": "GL",
+		"pais": "GROENLANDIA"
 	};
 	{
-		"CODIGO": "GP",
-		"NOMBRE": "GUADELOUPE"
+		"cod_pais": "GP",
+		"pais": "GUADELOUPE"
 	};
 	{
-		"CODIGO": "GU",
-		"NOMBRE": "GUAM"
+		"cod_pais": "GU",
+		"pais": "GUAM"
 	};
 	{
-		"CODIGO": "GT",
-		"NOMBRE": "GUATEMALA"
+		"cod_pais": "GT",
+		"pais": "GUATEMALA"
 	};
 	{
-		"CODIGO": "GG",
-		"NOMBRE": "GUERNSEY"
+		"cod_pais": "GG",
+		"pais": "GUERNSEY"
 	};
 	{
-		"CODIGO": "GN",
-		"NOMBRE": "GUINEA"
+		"cod_pais": "GN",
+		"pais": "GUINEA"
 	};
 	{
-		"CODIGO": "GQ",
-		"NOMBRE": "GUINEA ECUATORIAL"
+		"cod_pais": "GQ",
+		"pais": "GUINEA ECUATORIAL"
 	};
 	{
-		"CODIGO": "GW",
-		"NOMBRE": "GUINEA-BISSAU"
+		"cod_pais": "GW",
+		"pais": "GUINEA-BISSAU"
 	};
 	{
-		"CODIGO": "GY",
-		"NOMBRE": "GUYANA"
+		"cod_pais": "GY",
+		"pais": "GUYANA"
 	};
 	{
-		"CODIGO": "GF",
-		"NOMBRE": "GUYANA FRANCESA"
+		"cod_pais": "GF",
+		"pais": "GUYANA FRANCESA"
 	};
 	{
-		"CODIGO": "HT",
-		"NOMBRE": "HAITI"
+		"cod_pais": "HT",
+		"pais": "HAITI"
 	};
 	{
-		"CODIGO": "NL",
-		"NOMBRE": "HOLANDA"
+		"cod_pais": "NL",
+		"pais": "HOLANDA"
 	};
 	{
-		"CODIGO": "VA",
-		"NOMBRE": "HOLY SEE (VATICAN CITY STATE)"
+		"cod_pais": "VA",
+		"pais": "HOLY SEE (VATICAN CITY STATE)"
 	};
 	{
-		"CODIGO": "HN",
-		"NOMBRE": "HONDURAS"
+		"cod_pais": "HN",
+		"pais": "HONDURAS"
 	};
 	{
-		"CODIGO": "HU",
-		"NOMBRE": "HUNGRIA"
+		"cod_pais": "HU",
+		"pais": "HUNGRIA"
 	};
 	{
-		"CODIGO": "IN",
-		"NOMBRE": "INDIA"
+		"cod_pais": "IN",
+		"pais": "INDIA"
 	};
 	{
-		"CODIGO": "ID",
-		"NOMBRE": "INDONESIA"
+		"cod_pais": "ID",
+		"pais": "INDONESIA"
 	};
 	{
-		"CODIGO": "IR",
-		"NOMBRE": "IRA"
+		"cod_pais": "IR",
+		"pais": "IRA"
 	};
 	{
-		"CODIGO": "IQ",
-		"NOMBRE": "IRAQ"
+		"cod_pais": "IQ",
+		"pais": "IRAQ"
 	};
 	{
-		"CODIGO": "IE",
-		"NOMBRE": "IRLANDA"
+		"cod_pais": "IE",
+		"pais": "IRLANDA"
 	};
 	{
-		"CODIGO": "IS",
-		"NOMBRE": "ISLANDIA"
+		"cod_pais": "IS",
+		"pais": "ISLANDIA"
 	};
 	{
-		"CODIGO": "FK",
-		"NOMBRE": "ISLAS (MALVINAS)"
+		"cod_pais": "FK",
+		"pais": "ISLAS (MALVINAS)"
 	};
 	{
-		"CODIGO": "KY",
-		"NOMBRE": "ISLAS CAIMAN"
+		"cod_pais": "KY",
+		"pais": "ISLAS CAIMAN"
 	};
 	{
-		"CODIGO": "CX",
-		"NOMBRE": "ISLAS DE PASCUA"
+		"cod_pais": "CX",
+		"pais": "ISLAS DE PASCUA"
 	};
 	{
-		"CODIGO": "SB",
-		"NOMBRE": "ISLAS SALOMON"
+		"cod_pais": "SB",
+		"pais": "ISLAS SALOMON"
 	};
 	{
-		"CODIGO": "IM",
-		"NOMBRE": "ISLE OF MAN"
+		"cod_pais": "IM",
+		"pais": "ISLE OF MAN"
 	};
 	{
-		"CODIGO": "IL",
-		"NOMBRE": "ISRAEL"
+		"cod_pais": "IL",
+		"pais": "ISRAEL"
 	};
 	{
-		"CODIGO": "IT",
-		"NOMBRE": "ITALIA"
+		"cod_pais": "IT",
+		"pais": "ITALIA"
 	};
 	{
-		"CODIGO": "JM",
-		"NOMBRE": "JAMAICA"
+		"cod_pais": "JM",
+		"pais": "JAMAICA"
 	};
 	{
-		"CODIGO": "JP",
-		"NOMBRE": "JAPAN"
+		"cod_pais": "JP",
+		"pais": "JAPAN"
 	};
 	{
-		"CODIGO": "JE",
-		"NOMBRE": "JERSEY"
+		"cod_pais": "JE",
+		"pais": "JERSEY"
 	};
 	{
-		"CODIGO": "JO",
-		"NOMBRE": "JORDAN"
+		"cod_pais": "JO",
+		"pais": "JORDAN"
 	};
 	{
-		"CODIGO": "KZ",
-		"NOMBRE": "KAZAKHSTAN"
+		"cod_pais": "KZ",
+		"pais": "KAZAKHSTAN"
 	};
 	{
-		"CODIGO": "KE",
-		"NOMBRE": "KENYA"
+		"cod_pais": "KE",
+		"pais": "KENYA"
 	};
 	{
-		"CODIGO": "KI",
-		"NOMBRE": "KIRIBATI"
+		"cod_pais": "KI",
+		"pais": "KIRIBATI"
 	};
 	{
-		"CODIGO": "KR",
-		"NOMBRE": "KORE"
+		"cod_pais": "KR",
+		"pais": "KORE"
 	};
 	{
-		"CODIGO": "KW",
-		"NOMBRE": "KUWAIT"
+		"cod_pais": "KW",
+		"pais": "KUWAIT"
 	};
 	{
-		"CODIGO": "KG",
-		"NOMBRE": "KYRGYZSTAN"
+		"cod_pais": "KG",
+		"pais": "KYRGYZSTAN"
 	};
 	{
-		"CODIGO": "LA",
-		"NOMBRE": "LAO PEOPLE'S DEMOCRATIC REPUBLIC"
+		"cod_pais": "LA",
+		"pais": "LAO PEOPLE'S DEMOCRATIC REPUBLIC"
 	};
 	{
-		"CODIGO": "LV",
-		"NOMBRE": "LATVIA"
+		"cod_pais": "LV",
+		"pais": "LATVIA"
 	};
 	{
-		"CODIGO": "LB",
-		"NOMBRE": "LEBANON"
+		"cod_pais": "LB",
+		"pais": "LEBANON"
 	};
 	{
-		"CODIGO": "LS",
-		"NOMBRE": "LESOTHO"
+		"cod_pais": "LS",
+		"pais": "LESOTHO"
 	};
 	{
-		"CODIGO": "LR",
-		"NOMBRE": "LIBERIA"
+		"cod_pais": "LR",
+		"pais": "LIBERIA"
 	};
 	{
-		"CODIGO": "LY",
-		"NOMBRE": "LIBYA"
+		"cod_pais": "LY",
+		"pais": "LIBYA"
 	};
 	{
-		"CODIGO": "LI",
-		"NOMBRE": "LIECHTENSTEIN"
+		"cod_pais": "LI",
+		"pais": "LIECHTENSTEIN"
 	};
 	{
-		"CODIGO": "LT",
-		"NOMBRE": "LITHUANIA"
+		"cod_pais": "LT",
+		"pais": "LITHUANIA"
 	};
 	{
-		"CODIGO": "LU",
-		"NOMBRE": "LUXEMBOURG"
+		"cod_pais": "LU",
+		"pais": "LUXEMBOURG"
 	};
 	{
-		"CODIGO": "MO",
-		"NOMBRE": "MACAU"
+		"cod_pais": "MO",
+		"pais": "MACAU"
 	};
 	{
-		"CODIGO": "MK",
-		"NOMBRE": "MACEDONIA"
+		"cod_pais": "MK",
+		"pais": "MACEDONIA"
 	};
 	{
-		"CODIGO": "MG",
-		"NOMBRE": "MADAGASCAR"
+		"cod_pais": "MG",
+		"pais": "MADAGASCAR"
 	};
 	{
-		"CODIGO": "MY",
-		"NOMBRE": "MALASIA"
+		"cod_pais": "MY",
+		"pais": "MALASIA"
 	};
 	{
-		"CODIGO": "MW",
-		"NOMBRE": "MALAWI"
+		"cod_pais": "MW",
+		"pais": "MALAWI"
 	};
 	{
-		"CODIGO": "MV",
-		"NOMBRE": "MALDIVES"
+		"cod_pais": "MV",
+		"pais": "MALDIVES"
 	};
 	{
-		"CODIGO": "ML",
-		"NOMBRE": "MALI"
+		"cod_pais": "ML",
+		"pais": "MALI"
 	};
 	{
-		"CODIGO": "MT",
-		"NOMBRE": "MALTA"
+		"cod_pais": "MT",
+		"pais": "MALTA"
 	};
 	{
-		"CODIGO": "MA",
-		"NOMBRE": "MARRUECOS"
+		"cod_pais": "MA",
+		"pais": "MARRUECOS"
 	};
 	{
-		"CODIGO": "MH",
-		"NOMBRE": "MARSHALL ISLANDS"
+		"cod_pais": "MH",
+		"pais": "MARSHALL ISLANDS"
 	};
 	{
-		"CODIGO": "MQ",
-		"NOMBRE": "MARTINIQUE"
+		"cod_pais": "MQ",
+		"pais": "MARTINIQUE"
 	};
 	{
-		"CODIGO": "MR",
-		"NOMBRE": "MAURITANIA"
+		"cod_pais": "MR",
+		"pais": "MAURITANIA"
 	};
 	{
-		"CODIGO": "MU",
-		"NOMBRE": "MAURITIUS"
+		"cod_pais": "MU",
+		"pais": "MAURITIUS"
 	};
 	{
-		"CODIGO": "YT",
-		"NOMBRE": "MAYOTTE"
+		"cod_pais": "YT",
+		"pais": "MAYOTTE"
 	};
 	{
-		"CODIGO": "MX",
-		"NOMBRE": "MEXICO"
+		"cod_pais": "MX",
+		"pais": "MEXICO"
 	};
 	{
-		"CODIGO": "FM",
-		"NOMBRE": "MICRONESI"
+		"cod_pais": "FM",
+		"pais": "MICRONESI"
 	};
 	{
-		"CODIGO": "MD",
-		"NOMBRE": "MOLDOV"
+		"cod_pais": "MD",
+		"pais": "MOLDOV"
 	};
 	{
-		"CODIGO": "MC",
-		"NOMBRE": "MONACO"
+		"cod_pais": "MC",
+		"pais": "MONACO"
 	};
 	{
-		"CODIGO": "MN",
-		"NOMBRE": "MONGOLIA"
+		"cod_pais": "MN",
+		"pais": "MONGOLIA"
 	};
 	{
-		"CODIGO": "ME",
-		"NOMBRE": "MONTENEGRO"
+		"cod_pais": "ME",
+		"pais": "MONTENEGRO"
 	};
 	{
-		"CODIGO": "MS",
-		"NOMBRE": "MONTSERRAT"
+		"cod_pais": "MS",
+		"pais": "MONTSERRAT"
 	};
 	{
-		"CODIGO": "MZ",
-		"NOMBRE": "MOZAMBIQUE"
+		"cod_pais": "MZ",
+		"pais": "MOZAMBIQUE"
 	};
 	{
-		"CODIGO": "MM",
-		"NOMBRE": "MYANMAR"
+		"cod_pais": "MM",
+		"pais": "MYANMAR"
 	};
 	{
-		"CODIGO": "NA",
-		"NOMBRE": "NAMIBIA"
+		"cod_pais": "NA",
+		"pais": "NAMIBIA"
 	};
 	{
-		"CODIGO": "NR",
-		"NOMBRE": "NAURU"
+		"cod_pais": "NR",
+		"pais": "NAURU"
 	};
 	{
-		"CODIGO": "NP",
-		"NOMBRE": "NEPAL"
+		"cod_pais": "NP",
+		"pais": "NEPAL"
 	};
 	{
-		"CODIGO": "NI",
-		"NOMBRE": "NICARAGUA"
+		"cod_pais": "NI",
+		"pais": "NICARAGUA"
 	};
 	{
-		"CODIGO": "NE",
-		"NOMBRE": "NIGER"
+		"cod_pais": "NE",
+		"pais": "NIGER"
 	};
 	{
-		"CODIGO": "NG",
-		"NOMBRE": "NIGERIA"
+		"cod_pais": "NG",
+		"pais": "NIGERIA"
 	};
 	{
-		"CODIGO": "NU",
-		"NOMBRE": "NIUE"
+		"cod_pais": "NU",
+		"pais": "NIUE"
 	};
 	{
-		"CODIGO": "NF",
-		"NOMBRE": "NORFOLK ISLAND"
+		"cod_pais": "NF",
+		"pais": "NORFOLK ISLAND"
 	};
 	{
-		"CODIGO": "MP",
-		"NOMBRE": "NORTHERN MARIANA ISLANDS"
+		"cod_pais": "MP",
+		"pais": "NORTHERN MARIANA ISLANDS"
 	};
 	{
-		"CODIGO": "NO",
-		"NOMBRE": "NORUEGA"
+		"cod_pais": "NO",
+		"pais": "NORUEGA"
 	};
 	{
-		"CODIGO": "NC",
-		"NOMBRE": "NUEVA CALEDONIA"
+		"cod_pais": "NC",
+		"pais": "NUEVA CALEDONIA"
 	};
 	{
-		"CODIGO": "NZ",
-		"NOMBRE": "NUEVA ZELANDIA"
+		"cod_pais": "NZ",
+		"pais": "NUEVA ZELANDIA"
 	};
 	{
-		"CODIGO": "OM",
-		"NOMBRE": "OMAN"
+		"cod_pais": "OM",
+		"pais": "OMAN"
 	};
 	{
-		"CODIGO": "PK",
-		"NOMBRE": "PAKISTAN"
+		"cod_pais": "PK",
+		"pais": "PAKISTAN"
 	};
 	{
-		"CODIGO": "PW",
-		"NOMBRE": "PALAU"
+		"cod_pais": "PW",
+		"pais": "PALAU"
 	};
 	{
-		"CODIGO": "PS",
-		"NOMBRE": "PALESTINA"
+		"cod_pais": "PS",
+		"pais": "PALESTINA"
 	};
 	{
-		"CODIGO": "PA",
-		"NOMBRE": "PANAMA"
+		"cod_pais": "PA",
+		"pais": "PANAMA"
 	};
 	{
-		"CODIGO": "PG",
-		"NOMBRE": "PAPUA NEW GUINEA"
+		"cod_pais": "PG",
+		"pais": "PAPUA NEW GUINEA"
 	};
 	{
-		"CODIGO": "PY",
-		"NOMBRE": "PARAGUAY"
+		"cod_pais": "PY",
+		"pais": "PARAGUAY"
 	};
 	{
-		"CODIGO": "PE",
-		"NOMBRE": "PERU"
+		"cod_pais": "PE",
+		"pais": "PERU"
 	};
 	{
-		"CODIGO": "PN",
-		"NOMBRE": "PITCAIRN ISLANDS"
+		"cod_pais": "PN",
+		"pais": "PITCAIRN ISLANDS"
 	};
 	{
-		"CODIGO": "PL",
-		"NOMBRE": "POLONIA"
+		"cod_pais": "PL",
+		"pais": "POLONIA"
 	};
 	{
-		"CODIGO": "PT",
-		"NOMBRE": "PORTUGAL"
+		"cod_pais": "PT",
+		"pais": "PORTUGAL"
 	};
 	{
-		"CODIGO": "PR",
-		"NOMBRE": "PUERTO RICO"
+		"cod_pais": "PR",
+		"pais": "PUERTO RICO"
 	};
 	{
-		"CODIGO": "QA",
-		"NOMBRE": "QATAR"
+		"cod_pais": "QA",
+		"pais": "QATAR"
 	};
 	{
-		"CODIGO": "GB",
-		"NOMBRE": "REINO UNIDO"
+		"cod_pais": "GB",
+		"pais": "REINO UNIDO"
 	};
 	{
-		"CODIGO": "CF",
-		"NOMBRE": "REPUBLICA CENTRAL DE AFRICA"
+		"cod_pais": "CF",
+		"pais": "REPUBLICA CENTRAL DE AFRICA"
 	};
 	{
-		"CODIGO": "CZ",
-		"NOMBRE": "REPUBLICA CHECA"
+		"cod_pais": "CZ",
+		"pais": "REPUBLICA CHECA"
 	};
 	{
-		"CODIGO": "DO",
-		"NOMBRE": "REPUBLICA DOMINICANA"
+		"cod_pais": "DO",
+		"pais": "REPUBLICA DOMINICANA"
 	};
 	{
-		"CODIGO": "RE",
-		"NOMBRE": "REUNION"
+		"cod_pais": "RE",
+		"pais": "REUNION"
 	};
 	{
-		"CODIGO": "RO",
-		"NOMBRE": "ROMANIA"
+		"cod_pais": "RO",
+		"pais": "ROMANIA"
 	};
 	{
-		"CODIGO": "RW",
-		"NOMBRE": "RUANDA"
+		"cod_pais": "RW",
+		"pais": "RUANDA"
 	};
 	{
-		"CODIGO": "RU",
-		"NOMBRE": "RUSIA"
+		"cod_pais": "RU",
+		"pais": "RUSIA"
 	};
 	{
-		"CODIGO": "BL",
-		"NOMBRE": "SAINT BARTHELEMY"
+		"cod_pais": "BL",
+		"pais": "SAINT BARTHELEMY"
 	};
 	{
-		"CODIGO": "SH",
-		"NOMBRE": "SAINT HELENA"
+		"cod_pais": "SH",
+		"pais": "SAINT HELENA"
 	};
 	{
-		"CODIGO": "KN",
-		"NOMBRE": "SAINT KITTS AND NEVIS"
+		"cod_pais": "KN",
+		"pais": "SAINT KITTS AND NEVIS"
 	};
 	{
-		"CODIGO": "PM",
-		"NOMBRE": "SAINT PIERRE AND MIQUELON"
+		"cod_pais": "PM",
+		"pais": "SAINT PIERRE AND MIQUELON"
 	};
 	{
-		"CODIGO": "VC",
-		"NOMBRE": "SAINT VINCENT AND THE GRENADINES"
+		"cod_pais": "VC",
+		"pais": "SAINT VINCENT AND THE GRENADINES"
 	};
 	{
-		"CODIGO": "WS",
-		"NOMBRE": "SAMOA"
+		"cod_pais": "WS",
+		"pais": "SAMOA"
 	};
 	{
-		"CODIGO": "SM",
-		"NOMBRE": "SAN MARINO"
+		"cod_pais": "SM",
+		"pais": "SAN MARINO"
 	};
 	{
-		"CODIGO": "MF",
-		"NOMBRE": "SAN MARTIN"
+		"cod_pais": "MF",
+		"pais": "SAN MARTIN"
 	};
 	{
-		"CODIGO": "LC",
-		"NOMBRE": "SANTA LUCIA"
+		"cod_pais": "LC",
+		"pais": "SANTA LUCIA"
 	};
 	{
-		"CODIGO": "ST",
-		"NOMBRE": "SAO TOME AND PRINCIPE"
+		"cod_pais": "ST",
+		"pais": "SAO TOME AND PRINCIPE"
 	};
 	{
-		"CODIGO": "SN",
-		"NOMBRE": "SENEGAL"
+		"cod_pais": "SN",
+		"pais": "SENEGAL"
 	};
 	{
-		"CODIGO": "RS",
-		"NOMBRE": "SERBIA"
+		"cod_pais": "RS",
+		"pais": "SERBIA"
 	};
 	{
-		"CODIGO": "SC",
-		"NOMBRE": "SEYCHELLES"
+		"cod_pais": "SC",
+		"pais": "SEYCHELLES"
 	};
 	{
-		"CODIGO": "SL",
-		"NOMBRE": "SIERRA LEONE"
+		"cod_pais": "SL",
+		"pais": "SIERRA LEONE"
 	};
 	{
-		"CODIGO": "SG",
-		"NOMBRE": "SINGAPUR"
+		"cod_pais": "SG",
+		"pais": "SINGAPUR"
 	};
 	{
-		"CODIGO": "SX",
-		"NOMBRE": "SINT MAARTEN (DUTCH PART)"
+		"cod_pais": "SX",
+		"pais": "SINT MAARTEN (DUTCH PART)"
 	};
 	{
-		"CODIGO": "SY",
-		"NOMBRE": "SIRIA REPUBLICA ARABE"
+		"cod_pais": "SY",
+		"pais": "SIRIA REPUBLICA ARABE"
 	};
 	{
-		"CODIGO": "SO",
-		"NOMBRE": "SOMALIA"
+		"cod_pais": "SO",
+		"pais": "SOMALIA"
 	};
 	{
-		"CODIGO": "GS",
-		"NOMBRE": "SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS"
+		"cod_pais": "GS",
+		"pais": "SOUTH GEORGIA AND THE SOUTH SANDWICH ISLANDS"
 	};
 	{
-		"CODIGO": "LK",
-		"NOMBRE": "SRI LANKA"
+		"cod_pais": "LK",
+		"pais": "SRI LANKA"
 	};
 	{
-		"CODIGO": "ZA",
-		"NOMBRE": "SUDAFRICA"
+		"cod_pais": "ZA",
+		"pais": "SUDAFRICA"
 	};
 	{
-		"CODIGO": "SD",
-		"NOMBRE": "SUDAN"
+		"cod_pais": "SD",
+		"pais": "SUDAN"
 	};
 	{
-		"CODIGO": "SS",
-		"NOMBRE": "SUDAN DEL SUR"
+		"cod_pais": "SS",
+		"pais": "SUDAN DEL SUR"
 	};
 	{
-		"CODIGO": "SE",
-		"NOMBRE": "SUECIA"
+		"cod_pais": "SE",
+		"pais": "SUECIA"
 	};
 	{
-		"CODIGO": "CH",
-		"NOMBRE": "SUIZA"
+		"cod_pais": "CH",
+		"pais": "SUIZA"
 	};
 	{
-		"CODIGO": "SR",
-		"NOMBRE": "SURINAM"
+		"cod_pais": "SR",
+		"pais": "SURINAM"
 	};
 	{
-		"CODIGO": "SJ",
-		"NOMBRE": "SVALBARD AND JAN MAYEN"
+		"cod_pais": "SJ",
+		"pais": "SVALBARD AND JAN MAYEN"
 	};
 	{
-		"CODIGO": "SZ",
-		"NOMBRE": "SWAZILAND"
+		"cod_pais": "SZ",
+		"pais": "SWAZILAND"
 	};
 	{
-		"CODIGO": "TH",
-		"NOMBRE": "TAILANDIA"
+		"cod_pais": "TH",
+		"pais": "TAILANDIA"
 	};
 	{
-		"CODIGO": "TW",
-		"NOMBRE": "TAIWAN"
+		"cod_pais": "TW",
+		"pais": "TAIWAN"
 	};
 	{
-		"CODIGO": "TJ",
-		"NOMBRE": "TAJIKISTAN"
+		"cod_pais": "TJ",
+		"pais": "TAJIKISTAN"
 	};
 	{
-		"CODIGO": "TZ",
-		"NOMBRE": "TANZANIA"
+		"cod_pais": "TZ",
+		"pais": "TANZANIA"
 	};
 	{
-		"CODIGO": "TL",
-		"NOMBRE": "TIMOR-LESTE"
+		"cod_pais": "TL",
+		"pais": "TIMOR-LESTE"
 	};
 	{
-		"CODIGO": "TG",
-		"NOMBRE": "TOGO"
+		"cod_pais": "TG",
+		"pais": "TOGO"
 	};
 	{
-		"CODIGO": "TK",
-		"NOMBRE": "TOKELAU"
+		"cod_pais": "TK",
+		"pais": "TOKELAU"
 	};
 	{
-		"CODIGO": "TO",
-		"NOMBRE": "TONGA"
+		"cod_pais": "TO",
+		"pais": "TONGA"
 	};
 	{
-		"CODIGO": "TT",
-		"NOMBRE": "TRINIDAD Y TOBAGO"
+		"cod_pais": "TT",
+		"pais": "TRINIDAD Y TOBAGO"
 	};
 	{
-		"CODIGO": "TN",
-		"NOMBRE": "TUNISIA"
+		"cod_pais": "TN",
+		"pais": "TUNISIA"
 	};
 	{
-		"CODIGO": "TM",
-		"NOMBRE": "TURKMENISTAN"
+		"cod_pais": "TM",
+		"pais": "TURKMENISTAN"
 	};
 	{
-		"CODIGO": "TC",
-		"NOMBRE": "TURKS AND CAICOS ISLANDS"
+		"cod_pais": "TC",
+		"pais": "TURKS AND CAICOS ISLANDS"
 	};
 	{
-		"CODIGO": "TR",
-		"NOMBRE": "TURQUIA"
+		"cod_pais": "TR",
+		"pais": "TURQUIA"
 	};
 	{
-		"CODIGO": "TV",
-		"NOMBRE": "TUVALU"
+		"cod_pais": "TV",
+		"pais": "TUVALU"
 	};
 	{
-		"CODIGO": "UA",
-		"NOMBRE": "UCRANIA"
+		"cod_pais": "UA",
+		"pais": "UCRANIA"
 	};
 	{
-		"CODIGO": "UG",
-		"NOMBRE": "UGANDA"
+		"cod_pais": "UG",
+		"pais": "UGANDA"
 	};
 	{
-		"CODIGO": "UM",
-		"NOMBRE": "UNITED STATES MINOR OUTLYING ISLANDS"
+		"cod_pais": "UM",
+		"pais": "UNITED STATES MINOR OUTLYING ISLANDS"
 	};
 	{
-		"CODIGO": "UY",
-		"NOMBRE": "URUGUAY"
+		"cod_pais": "UY",
+		"pais": "URUGUAY"
 	};
 	{
-		"CODIGO": "UZ",
-		"NOMBRE": "UZBEKISTAN"
+		"cod_pais": "UZ",
+		"pais": "UZBEKISTAN"
 	};
 	{
-		"CODIGO": "VU",
-		"NOMBRE": "VANUATU"
+		"cod_pais": "VU",
+		"pais": "VANUATU"
 	};
 	{
-		"CODIGO": "VE",
-		"NOMBRE": "VENEZUELA"
+		"cod_pais": "VE",
+		"pais": "VENEZUELA"
 	};
 	{
-		"CODIGO": "VN",
-		"NOMBRE": "VIETNAM"
+		"cod_pais": "VN",
+		"pais": "VIETNAM"
 	};
 	{
-		"CODIGO": "VG",
-		"NOMBRE": "VIRGIN ISLAND"
+		"cod_pais": "VG",
+		"pais": "VIRGIN ISLAND"
 	};
 	{
-		"CODIGO": "WF",
-		"NOMBRE": "WALLIS AND FUTUNA"
+		"cod_pais": "WF",
+		"pais": "WALLIS AND FUTUNA"
 	};
 	{
-		"CODIGO": "EH",
-		"NOMBRE": "WESTERN SAHARA"
+		"cod_pais": "EH",
+		"pais": "WESTERN SAHARA"
 	};
 	{
-		"CODIGO": "YE",
-		"NOMBRE": "YEMEN"
+		"cod_pais": "YE",
+		"pais": "YEMEN"
 	};
 	{
-		"CODIGO": "ZM",
-		"NOMBRE": "ZAMBIA"
+		"cod_pais": "ZM",
+		"pais": "ZAMBIA"
 	};
 	{
-		"CODIGO": "ZW",
-		"NOMBRE": "ZIMBABWE"
+		"cod_pais": "ZW",
+		"pais": "ZIMBABWE"
 	}
 	;
 ]

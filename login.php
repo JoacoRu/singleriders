@@ -1,32 +1,23 @@
-<!doctype html>
-<html lang="en">
-
 <?php
-
   require_once('funciones.php');
+  require_once('loader.php');
 
-  if (isset($_SESSION['id']) || isset($_COOKIE['id'])) {
-    header('location:home.php');
-  }
+  $autenticador->loggedBackToHome();
 
   $email = '';
   $errores = [];
 
   if ($_POST) {
     $email = trim($_POST['email']);
-    $errores = validar($_POST,'login');
+    $errores = $loginvalidator->validar($_POST,'login',false,$usuario);
     if (empty($errores)) {
-      $usuariologin = buscarUsuario($email);
-      $_SESSION['id'] = $usuariologin['id'];
-      if(!isset($_COOKIE['id']) && $_POST['recordarme']) {
-        setcookie('id', $usuariologin['id'], time() + 3600);
+      $autenticador->login($email, $usuario);
       }
-      login();
-    }
   }
 
 ?>
-
+<!doctype html>
+<html lang="en">
   <head>
     <title>Single Riders</title>
     <meta charset="utf-8">
@@ -62,14 +53,14 @@
                         <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
                           <form method="post" enctype="multipart/form-data">
                             <div class="form-label-group">
-                              <input name="email" id="useremail" aria-describedby="useremailHelp" type="text" placeholder="Correo electrónico" value="<?=$email?>" class="form-control <?= strlen($errores['email']) > 0 ? 'errores-form-sr':'' ?>">
+                              <input name="email" id="useremail" aria-describedby="useremailHelp" type="text" placeholder="Correo electrónico" value="<?=$email?>" class="form-control <?= isset($errores['email']) ? 'errores-form-sr':'' ?>">
                               <label for="useremail">Email</label>
                               <?php if (isset($errores['email'])): ?>
                                 <small id="useremailHelp" class="form-text text-danger"><?= $errores['email'] ?></small>
                               <?php endif; ?>
                             </div>
                             <div class="form-label-group">
-                              <input name="password" id="userpassword" aria-describedby="userpasswordHelp" type="password" placeholder="Contraseña" class="form-control <?= strlen($errores['password']) > 0 ? 'errores-form-sr':'' ?>">
+                              <input name="password" id="userpassword" aria-describedby="userpasswordHelp" type="password" placeholder="Contraseña" class="form-control <?= isset($errores['password']) ? 'errores-form-sr':'' ?>">
                               <label for="userpassword">Contraseña</label>
                               <?php if (isset($errores['password'])): ?>
                                 <small id="userpasswordHelp" class="form-text text-danger"><?= $errores['password'] ?></small>

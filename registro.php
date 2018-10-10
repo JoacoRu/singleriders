@@ -1,11 +1,9 @@
-<!doctype html>
-<html lang="en">
-
 <?php
 require_once('funciones.php');
-if (isset($_SESSION['id']) || isset($_COOKIE['id'])) {
-    header('location:home.php');
-}
+require_once('loader.php');
+
+$autenticador->loggedBackToHome();
+
 $nombre = '';
 $apellido = '';
 $email = '';
@@ -15,10 +13,10 @@ if ($_POST) {
   $nombre = trim($_POST['nombre']);
   $apellido = trim($_POST['apellido']);
   $email = trim($_POST['email']);
-  $errores = validar($_POST,'registro',$_FILES);
+  $errores = $registervalidator->validar($_POST,'registro',$_FILES,$usuario);
   if (empty($errores)) {
 
-      registrar($_POST,$_FILES);
+      $usuario->registrar($_POST,$_FILES);
 
   }
 }
@@ -29,7 +27,8 @@ if ($_POST) {
 
 
 ?>
-
+<!doctype html>
+<html lang="en">
   <head>
     <title>Single Riders</title>
     <meta charset="utf-8">

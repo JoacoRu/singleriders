@@ -1,0 +1,17 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+  width: 100%;
+  height: 100%;
+}
+.foto-general{
+    width: 30%;
+    background-image: url(../images/crea/beach.jpg);
+}
+.row{
+  width: 100%;
+  height: 30%;
+}
