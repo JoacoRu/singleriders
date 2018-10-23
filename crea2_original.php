@@ -10,6 +10,7 @@ if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
 }else {
   header('location:login.php');
 }
+
 $textmensaje = '';
 $datein = '';
 $dateout = '';
