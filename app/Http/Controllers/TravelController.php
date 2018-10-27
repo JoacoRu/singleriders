@@ -27,4 +27,15 @@ class TravelController extends Controller
           'message' => $message]);
 
   }
+
+  public function destroy(Request $request)
+  {
+    $travel = Travel::find($request->id);
+
+    $deltravel = Travel::where('id', $travel->id)
+        ->first();
+    $deltravel->delete();
+
+    return response()->json($deltravel, 201);
+  }
 }
