@@ -1,0 +1,1390 @@
+{
+	"info": {
+		"_postman_id": "d96b0def-b1d8-4d3a-8850-463747b154b0",
+		"name": "SingleridersApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Registro",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost/api/auth/register?name=Gabriel&surname=Vallejos&password=prueba123&password_confirmation=prueba123&email=gabrielvallejos86@gmail.com",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"auth",
+						"register"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Gabriel"
+						},
+						{
+							"key": "surname",
+							"value": "Vallejos"
+						},
+						{
+							"key": "password",
+							"value": "prueba123"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "prueba123"
+						},
+						{
+							"key": "email",
+							"value": "gabrielvallejos86@gmail.com"
+						}
+					]
+				},
+				"description": "Registro"
+			},
+			"response": [
+				{
+					"name": "Registro",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost/api/auth/signup?name=Gabriel&surname=Vallejos&password=prueba123&password_confirmation=prueba123&email=gabrielvallejos86@gmail.com",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"auth",
+								"signup"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Gabriel"
+								},
+								{
+									"key": "surname",
+									"value": "Vallejos"
+								},
+								{
+									"key": "password",
+									"value": "prueba123"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "prueba123"
+								},
+								{
+									"key": "email",
+									"value": "gabrielvallejos86@gmail.com"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Oct 2018 02:19:56 +0000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Oct 2018 02:19:56 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.2.7"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Usuario ok!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost/api/auth/login?email=gabrielvallejos86@gmail.com&password=prueba123",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"auth",
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "gabrielvallejos86@gmail.com"
+						},
+						{
+							"key": "password",
+							"value": "prueba123"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost/api/auth/login?email=gabrielvallejos86@gmail.com&password=prueba123",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "gabrielvallejos86@gmail.com"
+								},
+								{
+									"key": "password",
+									"value": "prueba123"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Oct 2018 02:24:48 +0000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Oct 2018 02:24:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.2.7"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"access_token\": \"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJkNmVkMDg3YjJjYmRlNGE0NmNlOTdhMjFmODRkNGJiOWQ4Y2FlYmZkODVkM2NkYjQyOTZhOGZiYWQwMjA1MzBhNGNlMzBhM2FiYjczMDhhIn0.eyJhdWQiOiIxIiwianRpIjoiMmQ2ZWQwODdiMmNiZGU0YTQ2Y2U5N2EyMWY4NGQ0YmI5ZDhjYWViZmQ4NWQzY2RiNDI5NmE4ZmJhZDAyMDUzMGE0Y2UzMGEzYWJiNzMwOGEiLCJpYXQiOjE1NDAxNzUwODgsIm5iZiI6MTU0MDE3NTA4OCwiZXhwIjoxNTcxNzExMDg3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ktPIhs80fsars_qNAAgNqZiwXKo2DoaIFh8FGknXB-8nE9a_DAUAIg9x8XuiVWXViT6hjil9mhjsNBmItOBl0qUsIO38JXeK5aEhmjchZWXX9ox7i0hmSmyRtXbM0NuL0adkx--xH6jmB7EYv-RccB83Vm_KwOzZt5pKd9spO7wwhkMA2iuSUZuAt3mQPFuIUtsugQgX1VdW0DI7QQY9oCgbGN0NlP7rMyf-mht20e89J6xDNdc_7KEBbJtUEqrP0OzKcRYxYctFFhSkxCuvdRgQz-iXR1GbxWtULJLnasYT2mAp2-IcUsig8NVr11Vnou6zkmI5MKh50cHS8Vq3OCM9v8UNzEDFh09OXMEff-gxBDk_tSc53_PEP1JQJwF8_J_-NK6Ep-hpsUALyx36U0z-nGQ_kI9dNY3Evy6ItigoquqVJdiXZo_MsLwJHc8NIZLs34SyyMK-ETuRQCcCl-UmgzZRAtpjaiGFNQAXFtTox_sqFEQSEGB_fEgZYNBqEKp5m6X3tER8vpeqdaCwG_WMu2c-S3Sqdte2t2sA_ieT4_wO8D7p4EEwnAQu6wq1fW0pOoLR1LGN_fp1L4BwPXQMHcrks0n0VBOwCR941C8dbZy33dHED57oTLncBbE15jE0r-tMwf2O_1QHnnrsct49Q8J8K96s68Kyu6gDlTY\",\n    \"token_type\": \"Bearer\",\n    \"expires_at\": \"2019-10-22 02:24:47\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Verificar usuario",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJkNmVkMDg3YjJjYmRlNGE0NmNlOTdhMjFmODRkNGJiOWQ4Y2FlYmZkODVkM2NkYjQyOTZhOGZiYWQwMjA1MzBhNGNlMzBhM2FiYjczMDhhIn0.eyJhdWQiOiIxIiwianRpIjoiMmQ2ZWQwODdiMmNiZGU0YTQ2Y2U5N2EyMWY4NGQ0YmI5ZDhjYWViZmQ4NWQzY2RiNDI5NmE4ZmJhZDAyMDUzMGE0Y2UzMGEzYWJiNzMwOGEiLCJpYXQiOjE1NDAxNzUwODgsIm5iZiI6MTU0MDE3NTA4OCwiZXhwIjoxNTcxNzExMDg3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ktPIhs80fsars_qNAAgNqZiwXKo2DoaIFh8FGknXB-8nE9a_DAUAIg9x8XuiVWXViT6hjil9mhjsNBmItOBl0qUsIO38JXeK5aEhmjchZWXX9ox7i0hmSmyRtXbM0NuL0adkx--xH6jmB7EYv-RccB83Vm_KwOzZt5pKd9spO7wwhkMA2iuSUZuAt3mQPFuIUtsugQgX1VdW0DI7QQY9oCgbGN0NlP7rMyf-mht20e89J6xDNdc_7KEBbJtUEqrP0OzKcRYxYctFFhSkxCuvdRgQz-iXR1GbxWtULJLnasYT2mAp2-IcUsig8NVr11Vnou6zkmI5MKh50cHS8Vq3OCM9v8UNzEDFh09OXMEff-gxBDk_tSc53_PEP1JQJwF8_J_-NK6Ep-hpsUALyx36U0z-nGQ_kI9dNY3Evy6ItigoquqVJdiXZo_MsLwJHc8NIZLs34SyyMK-ETuRQCcCl-UmgzZRAtpjaiGFNQAXFtTox_sqFEQSEGB_fEgZYNBqEKp5m6X3tER8vpeqdaCwG_WMu2c-S3Sqdte2t2sA_ieT4_wO8D7p4EEwnAQu6wq1fW0pOoLR1LGN_fp1L4BwPXQMHcrks0n0VBOwCR941C8dbZy33dHED57oTLncBbE15jE0r-tMwf2O_1QHnnrsct49Q8J8K96s68Kyu6gDlTY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/auth/user",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"auth",
+						"user"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJkNmVkMDg3YjJjYmRlNGE0NmNlOTdhMjFmODRkNGJiOWQ4Y2FlYmZkODVkM2NkYjQyOTZhOGZiYWQwMjA1MzBhNGNlMzBhM2FiYjczMDhhIn0.eyJhdWQiOiIxIiwianRpIjoiMmQ2ZWQwODdiMmNiZGU0YTQ2Y2U5N2EyMWY4NGQ0YmI5ZDhjYWViZmQ4NWQzY2RiNDI5NmE4ZmJhZDAyMDUzMGE0Y2UzMGEzYWJiNzMwOGEiLCJpYXQiOjE1NDAxNzUwODgsIm5iZiI6MTU0MDE3NTA4OCwiZXhwIjoxNTcxNzExMDg3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ktPIhs80fsars_qNAAgNqZiwXKo2DoaIFh8FGknXB-8nE9a_DAUAIg9x8XuiVWXViT6hjil9mhjsNBmItOBl0qUsIO38JXeK5aEhmjchZWXX9ox7i0hmSmyRtXbM0NuL0adkx--xH6jmB7EYv-RccB83Vm_KwOzZt5pKd9spO7wwhkMA2iuSUZuAt3mQPFuIUtsugQgX1VdW0DI7QQY9oCgbGN0NlP7rMyf-mht20e89J6xDNdc_7KEBbJtUEqrP0OzKcRYxYctFFhSkxCuvdRgQz-iXR1GbxWtULJLnasYT2mAp2-IcUsig8NVr11Vnou6zkmI5MKh50cHS8Vq3OCM9v8UNzEDFh09OXMEff-gxBDk_tSc53_PEP1JQJwF8_J_-NK6Ep-hpsUALyx36U0z-nGQ_kI9dNY3Evy6ItigoquqVJdiXZo_MsLwJHc8NIZLs34SyyMK-ETuRQCcCl-UmgzZRAtpjaiGFNQAXFtTox_sqFEQSEGB_fEgZYNBqEKp5m6X3tER8vpeqdaCwG_WMu2c-S3Sqdte2t2sA_ieT4_wO8D7p4EEwnAQu6wq1fW0pOoLR1LGN_fp1L4BwPXQMHcrks0n0VBOwCR941C8dbZy33dHED57oTLncBbE15jE0r-tMwf2O_1QHnnrsct49Q8J8K96s68Kyu6gDlTY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/auth/logout",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crear posteo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjFlNGZjZmNlNjc0Mjc3MDM3NzQ4YzFhYTIxNzc4OGI0NjFmMWQxNTBlZDA2YmU2NDA3NTIwMjI0Y2I2ZmYzOTdjZjljZWRlN2E2MTU2NTE2In0.eyJhdWQiOiIxIiwianRpIjoiMWU0ZmNmY2U2NzQyNzcwMzc3NDhjMWFhMjE3Nzg4YjQ2MWYxZDE1MGVkMDZiZTY0MDc1MjAyMjRjYjZmZjM5N2NmOWNlZGU3YTYxNTY1MTYiLCJpYXQiOjE1NDAxODExMjUsIm5iZiI6MTU0MDE4MTEyNSwiZXhwIjoxNTcxNzE3MTI0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HDZqJE_IKFk0pIFlT5H92ZUiMoyNTa-pmKtDnTA6yWMzataBJtqaRCPsCCGLFxERhpXop36Gb8b-xV6b0xHChnTB2Gk8SrQGJEIYUq5RrUdqmEOZWfhKfYgOcJecP27FoHL8B_3k3CcP4LVOUaxsAsMYrkFgqsVOx1dkx6f_LUR6qSmGKtvbovyJq_a25ISdZ3N4peC3Zpryrt6GmRkcCvH6_E6lxBgxYVEqO6YwXjGpqjdWRo_NYpFrUutT0dIBTah1vom0UkPBRqZHynwiUKhUENSWFOCJasIAv1FimY2LzXcPH4k6tR9WTOrP4xuCubbueXg5sIcM0ruBZMF6YOXKlZs9sQfw8qzmxjNZXq0oorkGBSOe51VyeWXk3bAIS27-ZPhf2j9cFZ1F-3xoOUmvnnmfNhRzQZ26fkGqiRW_hgH3Ouxc8c3oXRbVh7PwgBTPPVfq53A33lPYHgGUOWGGruMIger8-HQlpIxqd3NFpml9bhS4msrvA5btcGupjWaOhmeWOcP1hwyFHj4P2QvW_tg0Yd2ewF2ROlKOBBMwZV85jRBxHEH4cCb7nNLnS1to1nC_RhHkpGDLJDPE5sYoOyDYWBO3fZZI4D62yWCXGrGMv460rWRuir7xLFm__vboQ9B-9AjQ2klHZ5qju5ethMhj-LVMkxfs3G71clc",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost/api/crearpost?texto_posteo=primer posteo de prueba",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"crearpost"
+					],
+					"query": [
+						{
+							"key": "texto_posteo",
+							"value": "primer posteo de prueba"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "crear posteo",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjFlNGZjZmNlNjc0Mjc3MDM3NzQ4YzFhYTIxNzc4OGI0NjFmMWQxNTBlZDA2YmU2NDA3NTIwMjI0Y2I2ZmYzOTdjZjljZWRlN2E2MTU2NTE2In0.eyJhdWQiOiIxIiwianRpIjoiMWU0ZmNmY2U2NzQyNzcwMzc3NDhjMWFhMjE3Nzg4YjQ2MWYxZDE1MGVkMDZiZTY0MDc1MjAyMjRjYjZmZjM5N2NmOWNlZGU3YTYxNTY1MTYiLCJpYXQiOjE1NDAxODExMjUsIm5iZiI6MTU0MDE4MTEyNSwiZXhwIjoxNTcxNzE3MTI0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HDZqJE_IKFk0pIFlT5H92ZUiMoyNTa-pmKtDnTA6yWMzataBJtqaRCPsCCGLFxERhpXop36Gb8b-xV6b0xHChnTB2Gk8SrQGJEIYUq5RrUdqmEOZWfhKfYgOcJecP27FoHL8B_3k3CcP4LVOUaxsAsMYrkFgqsVOx1dkx6f_LUR6qSmGKtvbovyJq_a25ISdZ3N4peC3Zpryrt6GmRkcCvH6_E6lxBgxYVEqO6YwXjGpqjdWRo_NYpFrUutT0dIBTah1vom0UkPBRqZHynwiUKhUENSWFOCJasIAv1FimY2LzXcPH4k6tR9WTOrP4xuCubbueXg5sIcM0ruBZMF6YOXKlZs9sQfw8qzmxjNZXq0oorkGBSOe51VyeWXk3bAIS27-ZPhf2j9cFZ1F-3xoOUmvnnmfNhRzQZ26fkGqiRW_hgH3Ouxc8c3oXRbVh7PwgBTPPVfq53A33lPYHgGUOWGGruMIger8-HQlpIxqd3NFpml9bhS4msrvA5btcGupjWaOhmeWOcP1hwyFHj4P2QvW_tg0Yd2ewF2ROlKOBBMwZV85jRBxHEH4cCb7nNLnS1to1nC_RhHkpGDLJDPE5sYoOyDYWBO3fZZI4D62yWCXGrGMv460rWRuir7xLFm__vboQ9B-9AjQ2klHZ5qju5ethMhj-LVMkxfs3G71clc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost/api/crearpost?texto_posteo=primer posteo de prueba",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"crearpost"
+							],
+							"query": [
+								{
+									"key": "texto_posteo",
+									"value": "primer posteo de prueba"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Oct 2018 04:13:06 +0000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Oct 2018 04:13:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.2.7"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"post ok\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Get posteos usuario logueado",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjFlNGZjZmNlNjc0Mjc3MDM3NzQ4YzFhYTIxNzc4OGI0NjFmMWQxNTBlZDA2YmU2NDA3NTIwMjI0Y2I2ZmYzOTdjZjljZWRlN2E2MTU2NTE2In0.eyJhdWQiOiIxIiwianRpIjoiMWU0ZmNmY2U2NzQyNzcwMzc3NDhjMWFhMjE3Nzg4YjQ2MWYxZDE1MGVkMDZiZTY0MDc1MjAyMjRjYjZmZjM5N2NmOWNlZGU3YTYxNTY1MTYiLCJpYXQiOjE1NDAxODExMjUsIm5iZiI6MTU0MDE4MTEyNSwiZXhwIjoxNTcxNzE3MTI0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HDZqJE_IKFk0pIFlT5H92ZUiMoyNTa-pmKtDnTA6yWMzataBJtqaRCPsCCGLFxERhpXop36Gb8b-xV6b0xHChnTB2Gk8SrQGJEIYUq5RrUdqmEOZWfhKfYgOcJecP27FoHL8B_3k3CcP4LVOUaxsAsMYrkFgqsVOx1dkx6f_LUR6qSmGKtvbovyJq_a25ISdZ3N4peC3Zpryrt6GmRkcCvH6_E6lxBgxYVEqO6YwXjGpqjdWRo_NYpFrUutT0dIBTah1vom0UkPBRqZHynwiUKhUENSWFOCJasIAv1FimY2LzXcPH4k6tR9WTOrP4xuCubbueXg5sIcM0ruBZMF6YOXKlZs9sQfw8qzmxjNZXq0oorkGBSOe51VyeWXk3bAIS27-ZPhf2j9cFZ1F-3xoOUmvnnmfNhRzQZ26fkGqiRW_hgH3Ouxc8c3oXRbVh7PwgBTPPVfq53A33lPYHgGUOWGGruMIger8-HQlpIxqd3NFpml9bhS4msrvA5btcGupjWaOhmeWOcP1hwyFHj4P2QvW_tg0Yd2ewF2ROlKOBBMwZV85jRBxHEH4cCb7nNLnS1to1nC_RhHkpGDLJDPE5sYoOyDYWBO3fZZI4D62yWCXGrGMv460rWRuir7xLFm__vboQ9B-9AjQ2klHZ5qju5ethMhj-LVMkxfs3G71clc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/postusuario",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"postusuario"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get posteos usuario logueado",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjFlNGZjZmNlNjc0Mjc3MDM3NzQ4YzFhYTIxNzc4OGI0NjFmMWQxNTBlZDA2YmU2NDA3NTIwMjI0Y2I2ZmYzOTdjZjljZWRlN2E2MTU2NTE2In0.eyJhdWQiOiIxIiwianRpIjoiMWU0ZmNmY2U2NzQyNzcwMzc3NDhjMWFhMjE3Nzg4YjQ2MWYxZDE1MGVkMDZiZTY0MDc1MjAyMjRjYjZmZjM5N2NmOWNlZGU3YTYxNTY1MTYiLCJpYXQiOjE1NDAxODExMjUsIm5iZiI6MTU0MDE4MTEyNSwiZXhwIjoxNTcxNzE3MTI0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HDZqJE_IKFk0pIFlT5H92ZUiMoyNTa-pmKtDnTA6yWMzataBJtqaRCPsCCGLFxERhpXop36Gb8b-xV6b0xHChnTB2Gk8SrQGJEIYUq5RrUdqmEOZWfhKfYgOcJecP27FoHL8B_3k3CcP4LVOUaxsAsMYrkFgqsVOx1dkx6f_LUR6qSmGKtvbovyJq_a25ISdZ3N4peC3Zpryrt6GmRkcCvH6_E6lxBgxYVEqO6YwXjGpqjdWRo_NYpFrUutT0dIBTah1vom0UkPBRqZHynwiUKhUENSWFOCJasIAv1FimY2LzXcPH4k6tR9WTOrP4xuCubbueXg5sIcM0ruBZMF6YOXKlZs9sQfw8qzmxjNZXq0oorkGBSOe51VyeWXk3bAIS27-ZPhf2j9cFZ1F-3xoOUmvnnmfNhRzQZ26fkGqiRW_hgH3Ouxc8c3oXRbVh7PwgBTPPVfq53A33lPYHgGUOWGGruMIger8-HQlpIxqd3NFpml9bhS4msrvA5btcGupjWaOhmeWOcP1hwyFHj4P2QvW_tg0Yd2ewF2ROlKOBBMwZV85jRBxHEH4cCb7nNLnS1to1nC_RhHkpGDLJDPE5sYoOyDYWBO3fZZI4D62yWCXGrGMv460rWRuir7xLFm__vboQ9B-9AjQ2klHZ5qju5ethMhj-LVMkxfs3G71clc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost/api/postusuario",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"postusuario"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Oct 2018 04:36:10 +0000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Oct 2018 04:36:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.2.7"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 3,\n        \"created_at\": \"2018-10-22 04:13:06\",\n        \"updated_at\": \"2018-10-22 04:13:06\",\n        \"texto_posteo\": \"primer posteo de prueba\",\n        \"user_id\": 1\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Posteos todos los usuarios",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjFlNGZjZmNlNjc0Mjc3MDM3NzQ4YzFhYTIxNzc4OGI0NjFmMWQxNTBlZDA2YmU2NDA3NTIwMjI0Y2I2ZmYzOTdjZjljZWRlN2E2MTU2NTE2In0.eyJhdWQiOiIxIiwianRpIjoiMWU0ZmNmY2U2NzQyNzcwMzc3NDhjMWFhMjE3Nzg4YjQ2MWYxZDE1MGVkMDZiZTY0MDc1MjAyMjRjYjZmZjM5N2NmOWNlZGU3YTYxNTY1MTYiLCJpYXQiOjE1NDAxODExMjUsIm5iZiI6MTU0MDE4MTEyNSwiZXhwIjoxNTcxNzE3MTI0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HDZqJE_IKFk0pIFlT5H92ZUiMoyNTa-pmKtDnTA6yWMzataBJtqaRCPsCCGLFxERhpXop36Gb8b-xV6b0xHChnTB2Gk8SrQGJEIYUq5RrUdqmEOZWfhKfYgOcJecP27FoHL8B_3k3CcP4LVOUaxsAsMYrkFgqsVOx1dkx6f_LUR6qSmGKtvbovyJq_a25ISdZ3N4peC3Zpryrt6GmRkcCvH6_E6lxBgxYVEqO6YwXjGpqjdWRo_NYpFrUutT0dIBTah1vom0UkPBRqZHynwiUKhUENSWFOCJasIAv1FimY2LzXcPH4k6tR9WTOrP4xuCubbueXg5sIcM0ruBZMF6YOXKlZs9sQfw8qzmxjNZXq0oorkGBSOe51VyeWXk3bAIS27-ZPhf2j9cFZ1F-3xoOUmvnnmfNhRzQZ26fkGqiRW_hgH3Ouxc8c3oXRbVh7PwgBTPPVfq53A33lPYHgGUOWGGruMIger8-HQlpIxqd3NFpml9bhS4msrvA5btcGupjWaOhmeWOcP1hwyFHj4P2QvW_tg0Yd2ewF2ROlKOBBMwZV85jRBxHEH4cCb7nNLnS1to1nC_RhHkpGDLJDPE5sYoOyDYWBO3fZZI4D62yWCXGrGMv460rWRuir7xLFm__vboQ9B-9AjQ2klHZ5qju5ethMhj-LVMkxfs3G71clc",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/api/posteosusuarios",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"posteosusuarios"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "posteos todos los usuarios",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjFlNGZjZmNlNjc0Mjc3MDM3NzQ4YzFhYTIxNzc4OGI0NjFmMWQxNTBlZDA2YmU2NDA3NTIwMjI0Y2I2ZmYzOTdjZjljZWRlN2E2MTU2NTE2In0.eyJhdWQiOiIxIiwianRpIjoiMWU0ZmNmY2U2NzQyNzcwMzc3NDhjMWFhMjE3Nzg4YjQ2MWYxZDE1MGVkMDZiZTY0MDc1MjAyMjRjYjZmZjM5N2NmOWNlZGU3YTYxNTY1MTYiLCJpYXQiOjE1NDAxODExMjUsIm5iZiI6MTU0MDE4MTEyNSwiZXhwIjoxNTcxNzE3MTI0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HDZqJE_IKFk0pIFlT5H92ZUiMoyNTa-pmKtDnTA6yWMzataBJtqaRCPsCCGLFxERhpXop36Gb8b-xV6b0xHChnTB2Gk8SrQGJEIYUq5RrUdqmEOZWfhKfYgOcJecP27FoHL8B_3k3CcP4LVOUaxsAsMYrkFgqsVOx1dkx6f_LUR6qSmGKtvbovyJq_a25ISdZ3N4peC3Zpryrt6GmRkcCvH6_E6lxBgxYVEqO6YwXjGpqjdWRo_NYpFrUutT0dIBTah1vom0UkPBRqZHynwiUKhUENSWFOCJasIAv1FimY2LzXcPH4k6tR9WTOrP4xuCubbueXg5sIcM0ruBZMF6YOXKlZs9sQfw8qzmxjNZXq0oorkGBSOe51VyeWXk3bAIS27-ZPhf2j9cFZ1F-3xoOUmvnnmfNhRzQZ26fkGqiRW_hgH3Ouxc8c3oXRbVh7PwgBTPPVfq53A33lPYHgGUOWGGruMIger8-HQlpIxqd3NFpml9bhS4msrvA5btcGupjWaOhmeWOcP1hwyFHj4P2QvW_tg0Yd2ewF2ROlKOBBMwZV85jRBxHEH4cCb7nNLnS1to1nC_RhHkpGDLJDPE5sYoOyDYWBO3fZZI4D62yWCXGrGMv460rWRuir7xLFm__vboQ9B-9AjQ2klHZ5qju5ethMhj-LVMkxfs3G71clc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost/api/posteosusuarios",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"posteosusuarios"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Oct 2018 04:40:10 +0000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Oct 2018 04:40:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.2.7"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 3,\n        \"created_at\": \"2018-10-22 04:13:06\",\n        \"updated_at\": \"2018-10-22 04:13:06\",\n        \"texto_posteo\": \"primer posteo de prueba\",\n        \"user_id\": 1\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Eliminar post",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjFlNGZjZmNlNjc0Mjc3MDM3NzQ4YzFhYTIxNzc4OGI0NjFmMWQxNTBlZDA2YmU2NDA3NTIwMjI0Y2I2ZmYzOTdjZjljZWRlN2E2MTU2NTE2In0.eyJhdWQiOiIxIiwianRpIjoiMWU0ZmNmY2U2NzQyNzcwMzc3NDhjMWFhMjE3Nzg4YjQ2MWYxZDE1MGVkMDZiZTY0MDc1MjAyMjRjYjZmZjM5N2NmOWNlZGU3YTYxNTY1MTYiLCJpYXQiOjE1NDAxODExMjUsIm5iZiI6MTU0MDE4MTEyNSwiZXhwIjoxNTcxNzE3MTI0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HDZqJE_IKFk0pIFlT5H92ZUiMoyNTa-pmKtDnTA6yWMzataBJtqaRCPsCCGLFxERhpXop36Gb8b-xV6b0xHChnTB2Gk8SrQGJEIYUq5RrUdqmEOZWfhKfYgOcJecP27FoHL8B_3k3CcP4LVOUaxsAsMYrkFgqsVOx1dkx6f_LUR6qSmGKtvbovyJq_a25ISdZ3N4peC3Zpryrt6GmRkcCvH6_E6lxBgxYVEqO6YwXjGpqjdWRo_NYpFrUutT0dIBTah1vom0UkPBRqZHynwiUKhUENSWFOCJasIAv1FimY2LzXcPH4k6tR9WTOrP4xuCubbueXg5sIcM0ruBZMF6YOXKlZs9sQfw8qzmxjNZXq0oorkGBSOe51VyeWXk3bAIS27-ZPhf2j9cFZ1F-3xoOUmvnnmfNhRzQZ26fkGqiRW_hgH3Ouxc8c3oXRbVh7PwgBTPPVfq53A33lPYHgGUOWGGruMIger8-HQlpIxqd3NFpml9bhS4msrvA5btcGupjWaOhmeWOcP1hwyFHj4P2QvW_tg0Yd2ewF2ROlKOBBMwZV85jRBxHEH4cCb7nNLnS1to1nC_RhHkpGDLJDPE5sYoOyDYWBO3fZZI4D62yWCXGrGMv460rWRuir7xLFm__vboQ9B-9AjQ2klHZ5qju5ethMhj-LVMkxfs3G71clc",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost/api/eliminarpost?id=3",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"eliminarpost"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "eliminar post",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjFlNGZjZmNlNjc0Mjc3MDM3NzQ4YzFhYTIxNzc4OGI0NjFmMWQxNTBlZDA2YmU2NDA3NTIwMjI0Y2I2ZmYzOTdjZjljZWRlN2E2MTU2NTE2In0.eyJhdWQiOiIxIiwianRpIjoiMWU0ZmNmY2U2NzQyNzcwMzc3NDhjMWFhMjE3Nzg4YjQ2MWYxZDE1MGVkMDZiZTY0MDc1MjAyMjRjYjZmZjM5N2NmOWNlZGU3YTYxNTY1MTYiLCJpYXQiOjE1NDAxODExMjUsIm5iZiI6MTU0MDE4MTEyNSwiZXhwIjoxNTcxNzE3MTI0LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.HDZqJE_IKFk0pIFlT5H92ZUiMoyNTa-pmKtDnTA6yWMzataBJtqaRCPsCCGLFxERhpXop36Gb8b-xV6b0xHChnTB2Gk8SrQGJEIYUq5RrUdqmEOZWfhKfYgOcJecP27FoHL8B_3k3CcP4LVOUaxsAsMYrkFgqsVOx1dkx6f_LUR6qSmGKtvbovyJq_a25ISdZ3N4peC3Zpryrt6GmRkcCvH6_E6lxBgxYVEqO6YwXjGpqjdWRo_NYpFrUutT0dIBTah1vom0UkPBRqZHynwiUKhUENSWFOCJasIAv1FimY2LzXcPH4k6tR9WTOrP4xuCubbueXg5sIcM0ruBZMF6YOXKlZs9sQfw8qzmxjNZXq0oorkGBSOe51VyeWXk3bAIS27-ZPhf2j9cFZ1F-3xoOUmvnnmfNhRzQZ26fkGqiRW_hgH3Ouxc8c3oXRbVh7PwgBTPPVfq53A33lPYHgGUOWGGruMIger8-HQlpIxqd3NFpml9bhS4msrvA5btcGupjWaOhmeWOcP1hwyFHj4P2QvW_tg0Yd2ewF2ROlKOBBMwZV85jRBxHEH4cCb7nNLnS1to1nC_RhHkpGDLJDPE5sYoOyDYWBO3fZZI4D62yWCXGrGMv460rWRuir7xLFm__vboQ9B-9AjQ2klHZ5qju5ethMhj-LVMkxfs3G71clc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost/api/eliminarpost?id=3",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"eliminarpost"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Oct 2018 04:49:39 +0000"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 22 Oct 2018 04:49:39 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.2.7"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"created_at\": \"2018-10-22 04:13:06\",\n    \"updated_at\": \"2018-10-22 04:13:06\",\n    \"texto_posteo\": \"primer posteo de prueba\",\n    \"user_id\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "Cambiar imagen de perfil",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjZiNDQ3MjI1YTc2MDM0M2ZjNTBkMGY4ZTk5ODRhYzJmOGJmY2JlNThiZjNkMjgyMmUyNGEwMjgxZWE2ZjFjODFhYTM0ZTc3NWFlNzU0ZmNjIn0.eyJhdWQiOiIxIiwianRpIjoiNmI0NDcyMjVhNzYwMzQzZmM1MGQwZjhlOTk4NGFjMmY4YmZjYmU1OGJmM2QyODIyZTI0YTAyODFlYTZmMWM4MWFhMzRlNzc1YWU3NTRmY2MiLCJpYXQiOjE1NDAyNjc4MDgsIm5iZiI6MTU0MDI2NzgwOCwiZXhwIjoxNTcxODAzODA4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ftdTgFcEl2KH-oLMKGnjx2my9CVlkZ2EflYzPf8aP6PhM-xgqZS7Z42h9aSXxGnoQIb4EvR1Sl1hSe8G-HifhjN49qhanvcU8RUiTJhj1h1FfvekM9socqYrnZjliBmgdL0vXTx3cxdkPsPYjSKMng9p5mCzM1tIHyu_KOLXtOFze2ovmW71srFWrt0jjQA39gpOXwHi8or6PtfH27ymzy-3uwSELJ5OMBr6lTqXzt2KPzROxeqvzb5GH-efp93KBSjNAKLu4_BGIvzhgTO6OiwGhGnvt17eoGGwhFsuM2tD2sqOxaW2rScXMTef_5ouBNfR3C5AL0_kRbDrOVfGvoIdgS2v9NOxOC8JEx_OY1P-wCnO3frqCQbLuBE6sgrl5Dwujb43D7OIEwBDQAtGvTejDD3GQPpIi2kSxHvgebRsk_gB94lN8rNi7jAEq-B2I8AVcPlnQ2NRz20MibxQ54bUBB1ZGTCDqSesKJwytEdpuVgeqmnCoaUxQxm1tSuL-YbemUjeO-NCIVJKh662jQh29iNayxHoYKgzpwT9XLD4pejvNR-tg46NO4SCrhaSgD3dqNrd0nPF8hNVJ5wg1KHYl_RnbIQiAul6ueNtmEPU944QhNeIv5j9U_UjMECSFjyg5U9zPtg5OakY4VIkW9iE8tmtAHdNN9L3RCdrc-w",
+						"type": "text"
+					},
+					{
+						"key": "X-Requested-With",
+						"value": "XMLHttpRequest",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "image",
+							"type": "file",
+							"src": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/api/auth/changeprofileavatar",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"auth",
+						"changeprofileavatar"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "changeprofileavatar",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjZiNDQ3MjI1YTc2MDM0M2ZjNTBkMGY4ZTk5ODRhYzJmOGJmY2JlNThiZjNkMjgyMmUyNGEwMjgxZWE2ZjFjODFhYTM0ZTc3NWFlNzU0ZmNjIn0.eyJhdWQiOiIxIiwianRpIjoiNmI0NDcyMjVhNzYwMzQzZmM1MGQwZjhlOTk4NGFjMmY4YmZjYmU1OGJmM2QyODIyZTI0YTAyODFlYTZmMWM4MWFhMzRlNzc1YWU3NTRmY2MiLCJpYXQiOjE1NDAyNjc4MDgsIm5iZiI6MTU0MDI2NzgwOCwiZXhwIjoxNTcxODAzODA4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ftdTgFcEl2KH-oLMKGnjx2my9CVlkZ2EflYzPf8aP6PhM-xgqZS7Z42h9aSXxGnoQIb4EvR1Sl1hSe8G-HifhjN49qhanvcU8RUiTJhj1h1FfvekM9socqYrnZjliBmgdL0vXTx3cxdkPsPYjSKMng9p5mCzM1tIHyu_KOLXtOFze2ovmW71srFWrt0jjQA39gpOXwHi8or6PtfH27ymzy-3uwSELJ5OMBr6lTqXzt2KPzROxeqvzb5GH-efp93KBSjNAKLu4_BGIvzhgTO6OiwGhGnvt17eoGGwhFsuM2tD2sqOxaW2rScXMTef_5ouBNfR3C5AL0_kRbDrOVfGvoIdgS2v9NOxOC8JEx_OY1P-wCnO3frqCQbLuBE6sgrl5Dwujb43D7OIEwBDQAtGvTejDD3GQPpIi2kSxHvgebRsk_gB94lN8rNi7jAEq-B2I8AVcPlnQ2NRz20MibxQ54bUBB1ZGTCDqSesKJwytEdpuVgeqmnCoaUxQxm1tSuL-YbemUjeO-NCIVJKh662jQh29iNayxHoYKgzpwT9XLD4pejvNR-tg46NO4SCrhaSgD3dqNrd0nPF8hNVJ5wg1KHYl_RnbIQiAul6ueNtmEPU944QhNeIv5j9U_UjMECSFjyg5U9zPtg5OakY4VIkW9iE8tmtAHdNN9L3RCdrc-w",
+								"type": "text"
+							},
+							{
+								"key": "X-Requested-With",
+								"value": "XMLHttpRequest",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost/api/auth/changeprofileavatar",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"auth",
+								"changeprofileavatar"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Oct 2018 04:24:19 +0000"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Oct 2018 04:24:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.2.7"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"path\": \"Avatar1.jpg\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Actualizar perfil de usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjZiNDQ3MjI1YTc2MDM0M2ZjNTBkMGY4ZTk5ODRhYzJmOGJmY2JlNThiZjNkMjgyMmUyNGEwMjgxZWE2ZjFjODFhYTM0ZTc3NWFlNzU0ZmNjIn0.eyJhdWQiOiIxIiwianRpIjoiNmI0NDcyMjVhNzYwMzQzZmM1MGQwZjhlOTk4NGFjMmY4YmZjYmU1OGJmM2QyODIyZTI0YTAyODFlYTZmMWM4MWFhMzRlNzc1YWU3NTRmY2MiLCJpYXQiOjE1NDAyNjc4MDgsIm5iZiI6MTU0MDI2NzgwOCwiZXhwIjoxNTcxODAzODA4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ftdTgFcEl2KH-oLMKGnjx2my9CVlkZ2EflYzPf8aP6PhM-xgqZS7Z42h9aSXxGnoQIb4EvR1Sl1hSe8G-HifhjN49qhanvcU8RUiTJhj1h1FfvekM9socqYrnZjliBmgdL0vXTx3cxdkPsPYjSKMng9p5mCzM1tIHyu_KOLXtOFze2ovmW71srFWrt0jjQA39gpOXwHi8or6PtfH27ymzy-3uwSELJ5OMBr6lTqXzt2KPzROxeqvzb5GH-efp93KBSjNAKLu4_BGIvzhgTO6OiwGhGnvt17eoGGwhFsuM2tD2sqOxaW2rScXMTef_5ouBNfR3C5AL0_kRbDrOVfGvoIdgS2v9NOxOC8JEx_OY1P-wCnO3frqCQbLuBE6sgrl5Dwujb43D7OIEwBDQAtGvTejDD3GQPpIi2kSxHvgebRsk_gB94lN8rNi7jAEq-B2I8AVcPlnQ2NRz20MibxQ54bUBB1ZGTCDqSesKJwytEdpuVgeqmnCoaUxQxm1tSuL-YbemUjeO-NCIVJKh662jQh29iNayxHoYKgzpwT9XLD4pejvNR-tg46NO4SCrhaSgD3dqNrd0nPF8hNVJ5wg1KHYl_RnbIQiAul6ueNtmEPU944QhNeIv5j9U_UjMECSFjyg5U9zPtg5OakY4VIkW9iE8tmtAHdNN9L3RCdrc-w",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost/api/auth/userupdate?name=Gabriel&surname=Vallejos&password=prueba123&password_confirmation=prueba123",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"auth",
+						"userupdate"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Gabriel"
+						},
+						{
+							"key": "surname",
+							"value": "Vallejos"
+						},
+						{
+							"key": "password",
+							"value": "prueba123"
+						},
+						{
+							"key": "password_confirmation",
+							"value": "prueba123"
+						},
+						{
+							"key": "email",
+							"value": "gabrielvallejos86@gmail.com",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "User update",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjZiNDQ3MjI1YTc2MDM0M2ZjNTBkMGY4ZTk5ODRhYzJmOGJmY2JlNThiZjNkMjgyMmUyNGEwMjgxZWE2ZjFjODFhYTM0ZTc3NWFlNzU0ZmNjIn0.eyJhdWQiOiIxIiwianRpIjoiNmI0NDcyMjVhNzYwMzQzZmM1MGQwZjhlOTk4NGFjMmY4YmZjYmU1OGJmM2QyODIyZTI0YTAyODFlYTZmMWM4MWFhMzRlNzc1YWU3NTRmY2MiLCJpYXQiOjE1NDAyNjc4MDgsIm5iZiI6MTU0MDI2NzgwOCwiZXhwIjoxNTcxODAzODA4LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.ftdTgFcEl2KH-oLMKGnjx2my9CVlkZ2EflYzPf8aP6PhM-xgqZS7Z42h9aSXxGnoQIb4EvR1Sl1hSe8G-HifhjN49qhanvcU8RUiTJhj1h1FfvekM9socqYrnZjliBmgdL0vXTx3cxdkPsPYjSKMng9p5mCzM1tIHyu_KOLXtOFze2ovmW71srFWrt0jjQA39gpOXwHi8or6PtfH27ymzy-3uwSELJ5OMBr6lTqXzt2KPzROxeqvzb5GH-efp93KBSjNAKLu4_BGIvzhgTO6OiwGhGnvt17eoGGwhFsuM2tD2sqOxaW2rScXMTef_5ouBNfR3C5AL0_kRbDrOVfGvoIdgS2v9NOxOC8JEx_OY1P-wCnO3frqCQbLuBE6sgrl5Dwujb43D7OIEwBDQAtGvTejDD3GQPpIi2kSxHvgebRsk_gB94lN8rNi7jAEq-B2I8AVcPlnQ2NRz20MibxQ54bUBB1ZGTCDqSesKJwytEdpuVgeqmnCoaUxQxm1tSuL-YbemUjeO-NCIVJKh662jQh29iNayxHoYKgzpwT9XLD4pejvNR-tg46NO4SCrhaSgD3dqNrd0nPF8hNVJ5wg1KHYl_RnbIQiAul6ueNtmEPU944QhNeIv5j9U_UjMECSFjyg5U9zPtg5OakY4VIkW9iE8tmtAHdNN9L3RCdrc-w",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost/api/auth/userupdate?name=Gabriel&surname=Vallejos&password=prueba123&password_confirmation=prueba123",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"auth",
+								"userupdate"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Gabriel"
+								},
+								{
+									"key": "surname",
+									"value": "Vallejos"
+								},
+								{
+									"key": "password",
+									"value": "prueba123"
+								},
+								{
+									"key": "password_confirmation",
+									"value": "prueba123"
+								},
+								{
+									"key": "email",
+									"value": "gabrielvallejos86@gmail.com",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Oct 2018 04:43:19 +0000"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 23 Oct 2018 04:43:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.2.7"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": {\n        \"id\": 1,\n        \"name\": \"Gabriel\",\n        \"surname\": \"Vallejos\",\n        \"email\": \"gabrielvallejos86@gmail.com\",\n        \"email_verified_at\": null,\n        \"profile_picture\": \"Avatar1.jpg\",\n        \"created_at\": \"2018-10-22 04:02:28\",\n        \"updated_at\": \"2018-10-23 04:43:18\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Crear viaje",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJmNWFjZjVlYzhjNTAzYmFlNjg3MDZlMTExYTg5NWVjZWFkMzI2Njg3NjE2ZGYyYjg1YTJhZTc1YThiZmM2ZDAzMmVjNGY4NmFkYzA4NGRlIn0.eyJhdWQiOiIxIiwianRpIjoiMmY1YWNmNWVjOGM1MDNiYWU2ODcwNmUxMTFhODk1ZWNlYWQzMjY2ODc2MTZkZjJiODVhMmFlNzVhOGJmYzZkMDMyZWM0Zjg2YWRjMDg0ZGUiLCJpYXQiOjE1NDAzNTI4ODUsIm5iZiI6MTU0MDM1Mjg4NSwiZXhwIjoxNTcxODg4ODg1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.xUqu9oltK7cKg7gd8cc3EzxC_JuztU6JfhinvkrqemJLgw0c4xOa0sqzau2ZWLBDdywPKgNoJjmunnhZ5KGe-26Ykjdv22TGgrIt4QxyRKIdPnmVbSbVvS_OU3BzzQQdyvCxB_UqqlSE0W3G1bd95DtPEhebkgIctml5G0M68JA6KGH-SiEt7M21RF299yk_6wskdmPxUIzIJ7qK27LPZ75wxcZnuUeXKGmExPtvMR8CRbBrh8i1u_v3o04pP_grvgkOoef5sdn5s5e6Q_27cAwMhpyCAjcf-IJDyyoxeUsVoJbn2Ixj6hsVkA4VR-f1XilNqY4q3PHukQTmoIXveAxRqk2CLMcSyAyLdB07Y0cYBxQLwBvA6wiT9NNV3z0zZ2d3FAuNQu9p1GlDpANMPh8fE1KrLDZqh1wZRFXOEAW-1cAdM-3L0aWzw9C8AFAGSLsyvLMFD_qJVFQkF6sOPEj0W00dtmlBIBwXdxzNNgRscsF0GTV0yA1w9QO90Ah7TzUeh9qD7SFqE6rG0hUJye-ohnl1Hdjask42Vm2dW1e1xL5QU7VzaEarUuG-vibdelXkuMoxM2JWJ0tA-KH8tKQzpM72lVNA5hcPT2kgMw0nUNeh05HErweSQYwzeNUr63KqmRuR59cTbGH3UqU6DiexE_PNuZFysQXGlv9Rop4"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost/api/crearviaje?dateIn=2018-10-25&dateOut=2018-11-25&activities=comer&country=Italia&city=Roma&msgIti=--&amount=4&coin=pesos",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"api",
+						"crearviaje"
+					],
+					"query": [
+						{
+							"key": "dateIn",
+							"value": "2018-10-25"
+						},
+						{
+							"key": "dateOut",
+							"value": "2018-11-25"
+						},
+						{
+							"key": "activities",
+							"value": "comer"
+						},
+						{
+							"key": "country",
+							"value": "Italia"
+						},
+						{
+							"key": "city",
+							"value": "Roma"
+						},
+						{
+							"key": "msgIti",
+							"value": "--"
+						},
+						{
+							"key": "amount",
+							"value": "4"
+						},
+						{
+							"key": "coin",
+							"value": "pesos"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crear viaje",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjJmNWFjZjVlYzhjNTAzYmFlNjg3MDZlMTExYTg5NWVjZWFkMzI2Njg3NjE2ZGYyYjg1YTJhZTc1YThiZmM2ZDAzMmVjNGY4NmFkYzA4NGRlIn0.eyJhdWQiOiIxIiwianRpIjoiMmY1YWNmNWVjOGM1MDNiYWU2ODcwNmUxMTFhODk1ZWNlYWQzMjY2ODc2MTZkZjJiODVhMmFlNzVhOGJmYzZkMDMyZWM0Zjg2YWRjMDg0ZGUiLCJpYXQiOjE1NDAzNTI4ODUsIm5iZiI6MTU0MDM1Mjg4NSwiZXhwIjoxNTcxODg4ODg1LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.xUqu9oltK7cKg7gd8cc3EzxC_JuztU6JfhinvkrqemJLgw0c4xOa0sqzau2ZWLBDdywPKgNoJjmunnhZ5KGe-26Ykjdv22TGgrIt4QxyRKIdPnmVbSbVvS_OU3BzzQQdyvCxB_UqqlSE0W3G1bd95DtPEhebkgIctml5G0M68JA6KGH-SiEt7M21RF299yk_6wskdmPxUIzIJ7qK27LPZ75wxcZnuUeXKGmExPtvMR8CRbBrh8i1u_v3o04pP_grvgkOoef5sdn5s5e6Q_27cAwMhpyCAjcf-IJDyyoxeUsVoJbn2Ixj6hsVkA4VR-f1XilNqY4q3PHukQTmoIXveAxRqk2CLMcSyAyLdB07Y0cYBxQLwBvA6wiT9NNV3z0zZ2d3FAuNQu9p1GlDpANMPh8fE1KrLDZqh1wZRFXOEAW-1cAdM-3L0aWzw9C8AFAGSLsyvLMFD_qJVFQkF6sOPEj0W00dtmlBIBwXdxzNNgRscsF0GTV0yA1w9QO90Ah7TzUeh9qD7SFqE6rG0hUJye-ohnl1Hdjask42Vm2dW1e1xL5QU7VzaEarUuG-vibdelXkuMoxM2JWJ0tA-KH8tKQzpM72lVNA5hcPT2kgMw0nUNeh05HErweSQYwzeNUr63KqmRuR59cTbGH3UqU6DiexE_PNuZFysQXGlv9Rop4"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "localhost/api/crearviaje?dateIn=2018-10-25&dateOut=2018-11-25&activities=comer&country=Italia&city=Roma&msgIti=--&amount=4&coin=pesos",
+							"host": [
+								"localhost"
+							],
+							"path": [
+								"api",
+								"crearviaje"
+							],
+							"query": [
+								{
+									"key": "dateIn",
+									"value": "2018-10-25"
+								},
+								{
+									"key": "dateOut",
+									"value": "2018-11-25"
+								},
+								{
+									"key": "activities",
+									"value": "comer"
+								},
+								{
+									"key": "country",
+									"value": "Italia"
+								},
+								{
+									"key": "city",
+									"value": "Roma"
+								},
+								{
+									"key": "msgIti",
+									"value": "--"
+								},
+								{
+									"key": "amount",
+									"value": "4"
+								},
+								{
+									"key": "coin",
+									"value": "pesos"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Oct 2018 03:52:55 +0000"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 24 Oct 2018 03:52:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.2.7"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"viaje ok\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Eliminar viaje",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"type": "text",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjA5MTI0MDNjMWQ5MGU3MGJmZmVkYzUwYTBiYjViZmJmZTRlYzA5Yjc4NTk3N2RjM2E3NDVlOTFjOGI5OTQzMzliZTM5YmI4NjE0NGJmMjkyIn0.eyJhdWQiOiIxIiwianRpIjoiMDkxMjQwM2MxZDkwZTcwYmZmZWRjNTBhMGJiNWJmYmZlNGVjMDliNzg1OTc3ZGMzYTc0NWU5MWM4Yjk5NDMzOWJlMzliYjg2MTQ0YmYyOTIiLCJpYXQiOjE1NDA1MDA0NDcsIm5iZiI6MTU0MDUwMDQ0NywiZXhwIjoxNTcyMDM2NDQ3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.jJJoqPlhqlzXZXpwrfBwTmoLiLQqYYTzIqHLymwPwHZGdyD99pq-NiYxaccj-fthM9LHP4XqbameWdJjfYhat4HvXvvDUgczU_NntxvGk8PykIFo-HX-lR2rijuIkr4Vf0Pch7C946qDGYMaRf41ihNJ767KK6T7XpVRIYhQMS-syXwZGs_BQvgp5ltHa-OFm4iD3PWDxrjpH1tbTBD_L4QC3omsTBW_Ey_xw9u2NG6lwy75kwJYkiiuw0oarnBOtMBgsEK8vsLbOXXq8R9wH8kCvIiawxwYNHivPjSzq2m906PMUtjG40RqXkHUUEDBMbZwKUo0jJt3Sh1RtVaEV6oqKsjhlUc65evrpnwUFqqN0Rlq3XuVPKQVGR-eDoBuL2QGqnw4bivUX1eKOAp5r6qj0c9JUGoP-bzQTru9n20A-gzAW70pLDNuYeyN0j1f5aHW-QvM8S6nY1ANTdB0kypcrEz5b0A6hQIB54A_LRa91AMG-6YVFOoMn7IbnIGbsjJowFX4UHt3NYGqLkJHSlCuP2jJGP3y1Yea5IbLnkHRdZWtNzIspHoFRlu296eSHX5L47oOoXZ1eHhqTjYBCMLSuM7jBni0UkRstJen-MHW8o-M1jtV699obbkVWM1faQE7Tb4A54EVdOWAimlsqUkTJxH3FHLNkyAB6oFGvZY"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8000/api/eliminarviaje?id=3",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"eliminarviaje"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Eliminar viaje",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjA5MTI0MDNjMWQ5MGU3MGJmZmVkYzUwYTBiYjViZmJmZTRlYzA5Yjc4NTk3N2RjM2E3NDVlOTFjOGI5OTQzMzliZTM5YmI4NjE0NGJmMjkyIn0.eyJhdWQiOiIxIiwianRpIjoiMDkxMjQwM2MxZDkwZTcwYmZmZWRjNTBhMGJiNWJmYmZlNGVjMDliNzg1OTc3ZGMzYTc0NWU5MWM4Yjk5NDMzOWJlMzliYjg2MTQ0YmYyOTIiLCJpYXQiOjE1NDA1MDA0NDcsIm5iZiI6MTU0MDUwMDQ0NywiZXhwIjoxNTcyMDM2NDQ3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.jJJoqPlhqlzXZXpwrfBwTmoLiLQqYYTzIqHLymwPwHZGdyD99pq-NiYxaccj-fthM9LHP4XqbameWdJjfYhat4HvXvvDUgczU_NntxvGk8PykIFo-HX-lR2rijuIkr4Vf0Pch7C946qDGYMaRf41ihNJ767KK6T7XpVRIYhQMS-syXwZGs_BQvgp5ltHa-OFm4iD3PWDxrjpH1tbTBD_L4QC3omsTBW_Ey_xw9u2NG6lwy75kwJYkiiuw0oarnBOtMBgsEK8vsLbOXXq8R9wH8kCvIiawxwYNHivPjSzq2m906PMUtjG40RqXkHUUEDBMbZwKUo0jJt3Sh1RtVaEV6oqKsjhlUc65evrpnwUFqqN0Rlq3XuVPKQVGR-eDoBuL2QGqnw4bivUX1eKOAp5r6qj0c9JUGoP-bzQTru9n20A-gzAW70pLDNuYeyN0j1f5aHW-QvM8S6nY1ANTdB0kypcrEz5b0A6hQIB54A_LRa91AMG-6YVFOoMn7IbnIGbsjJowFX4UHt3NYGqLkJHSlCuP2jJGP3y1Yea5IbLnkHRdZWtNzIspHoFRlu296eSHX5L47oOoXZ1eHhqTjYBCMLSuM7jBni0UkRstJen-MHW8o-M1jtV699obbkVWM1faQE7Tb4A54EVdOWAimlsqUkTJxH3FHLNkyAB6oFGvZY"
+							}
+						],
+						"body": {},
+						"url": {
+							"raw": "localhost:8000/api/eliminarviaje?id=3",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"eliminarviaje"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 Oct 2018 20:56:09 +0000"
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 25 Oct 2018 20:56:09 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/7.1.14"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "57"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": 3,\n    \"created_at\": \"2018-10-25 20:55:36\",\n    \"updated_at\": \"2018-10-25 20:55:36\",\n    \"dateIn\": \"2018-10-25\",\n    \"dateOut\": \"2018-11-25\",\n    \"country\": \"Italia\",\n    \"activities\": \"comer\",\n    \"city\": \"Roma\",\n    \"msgIti\": \"--\",\n    \"amount\": 4,\n    \"coin\": \"pesos\",\n    \"travel_creator\": 1\n}"
+				}
+			]
+		}
+	]
+}
