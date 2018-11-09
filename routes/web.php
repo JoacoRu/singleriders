@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+//Rutas paginas Estaticas//
+Route::get('/faqs', function(){
+    return view('faqs');
+});
