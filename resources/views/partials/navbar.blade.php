@@ -1,12 +1,4 @@
-<?php
-  require_once('funciones.php');
-  require_once('loader.php');
 
-  $usuariologin = $autenticador->usuarioLoginHeader($usuario);
-
-
-
-?>
 
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top <?= isset($usuariologin) ? 'd-flex justify-content-between' : '' ?>">

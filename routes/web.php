@@ -17,5 +17,5 @@ Route::get('/', function () {
 
 //Rutas paginas Estaticas//
 Route::get('/faqs', function(){
-    return view('faqs');
+    return view('statics/faqs');
 });
