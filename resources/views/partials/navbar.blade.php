@@ -14,18 +14,18 @@
             </div>
           </div>
         </a>
-        <?php if (!isset($usuariologin)): ?>
+        @if (!isset($usuariologin))
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <?php endif; ?>
-        <?php if (isset($usuariologin)): ?>
+        @endif
+        @if (isset($usuariologin))
         <div class="d-none d-sm-inline-block" id="loguerla">
           <h2>Single Riders</h2>
         </div>
-        <?php endif; ?>
+        @endif
         <?php // NOTE: Navbar no logueado ?>
-        <?php if (!isset($usuariologin)): ?>
+        @if (!isset($usuariologin))
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'index.php') > -1  ? 'active' : ''  ?>">
@@ -42,10 +42,10 @@
               </li>
             </ul>
           </div>
-        <?php endif; ?>
+        @endif
 
         <?php // NOTE: navbar logueado ?>
-        <?php if (isset($usuariologin)): ?>
+        @if (isset($usuariologin))
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <?=$usuariologin['nombre']; ?>
@@ -59,6 +59,6 @@
             <a class="dropdown-item" href="logout.php">Cerrar sesión</a>
             </div>
           </div>
-        <?php endif; ?>
+       @endif
       </nav>
     </header>
