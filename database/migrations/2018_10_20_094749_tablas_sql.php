@@ -54,8 +54,8 @@ class TablasSql extends Migration
         });
 
         Schema::create('cities', function (Blueprint $table){
-            $table->string('city');
-            $table->string('city_code_country');
+            $table->string('city', 100);
+            $table->string('city_code_country', 100);
         });
     }
     

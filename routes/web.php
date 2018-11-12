@@ -20,3 +20,5 @@ Route::get('/faqs', function(){
     return view('statics/faqs'); //lo hice asi porque no tiene logica y no necesita un controller)//
 });
 Route::get('/home', 'staticController@index'); //este si necesita controller, porque tiene logica de todos lados! //
+
+Route::get('/profile', 'HomeController@profile');
