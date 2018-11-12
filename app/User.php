@@ -32,4 +32,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App/Post');
     }
+
+    public function travels(){
+        return $this->belongsToMany('app/travel');
+    }
 }
+
