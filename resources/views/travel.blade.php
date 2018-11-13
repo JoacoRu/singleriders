@@ -1,41 +1,4 @@
-<?php
-require_once('classes/Travel.php');
 
-//*require_once('funciones.php');//*
-require_once('loader.php');
-if (!isset($_SESSION['id']) && !isset($_COOKIE['id'])) {
-  header('location:login.php');
-}else if (isset($_SESSION['id'])) {
-  $usuariologin = $usuario->obtenerId($_SESSION['id']);
-}else if (isset($_COOKIE['id'])) {
-  $usuariologin = $usuario->obtenerId($_COOKIE['id']);
-}else {
-  header('location:login.php');
-}
-
-if ($_POST) {
-  //echo '<pre>';
-  //echo var_dump($_POST);
-  $textmensaje = trim($_POST['textmensaje']);
-  $datein = trim($_POST['datein']);
-  $dateout = trim($_POST['dateout']);
-  $pais = trim($_POST['pais']);
-  //$ciudad = trim($_POST['ciudad']);
-  $importe = trim($_POST['importe']);
-  $moneda = trim($_POST['moneda']);
-  $creadorDeViaje = $_SESSION['id'];
-  $errores = $travelValidator->validar($_POST, 'viajes', false, $usuario);
-  if (empty($errores)) {
-      /*var_dump($errores);
-      exit;*/
-      $viaje->guardarViaje($_POST,$creadorDeViaje);
-  }else {
-    /*var_dump($errores);
-    exit;*/
-  }
-}
-
-?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
     <head>
@@ -47,19 +10,20 @@ if ($_POST) {
       <link href="https://fonts.googleapis.com/css?family=Abel|Montserrat:400,400i,700,700i|Pacifico" rel="stylesheet">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
-      <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-      <script type="text/javascript" src="js/jquery.cycle2.min.js"></script>
-      <script src="crea.js"></script>
+      <script type="text/javascript" src="{{asset ('js/jquery-3.3.1.min.js')}}"></script>
+      <script type="text/javascript" src="{{('js/jquery.cycle2.min.j')}}"></script>
+      <script src="js/crea.js"></script>
       <link rel="stylesheet" href="css/owl.carousel.css">
       <link rel="stylesheet" href="css/owl.theme.default.css">
-      <link rel="stylesheet" href="css/styles.css">
-      <link rel="stylesheet" href="css/crea.css">
+      
+      <link rel ="stylesheet" href="{{asset ('css/styles.css')}}">
+      <link rel="stylesheet" href="{{asset ('css/crea.css')}}">
 
 
     <title></title>
   </head>
   <body>
-    <?php require_once('header.php'); ?>
+  @include('partials.navbar')
     <section class="container-fluid">
     <div class="titulos">
       <div class="row">
@@ -82,55 +46,42 @@ if ($_POST) {
             <article id="tab1">
               <form method="post" enctype="multipart/form-data">
 
-                <input type="text" id="textmensaje" onkeyup="$('#mensaje').text($('#textmensaje').val());" class="form-control" name="textmensaje" value="<?=$textmensaje?>" placeholder="Ponele un Titulo a tu viaje..."></textarea>
-                <?php if (isset($errores['textmensaje'])):?>
-                  <p><?= $errores['textmensaje'] ?></p>
-                <?php endif; ?>
+               <input type="text" id="msgInti" onkeyup="$('#mensaje').text($('#msgInti').val());" class="form-control" name="msgInti" value="{{old('msgInti')}}" placeholder="Ponele un Titulo a tu viaje..."></textarea>
+               
 
               <div class="d-flex flex-column flex-md-row align-items-md-center mt-2">
-                Partida: <input class="ml-2 mr-4" type="date" name="datein" value="{{old('datein')}}"> // esto lo tengo que cambiar en cada input)//
-                Regreso: <input class="ml-2 mr-4" type="date" name="dateout" value="<?=$dateout?>"><br></br>
-                <?php if (isset($errores['datein'])):?>
-                    <p><?= $errores['datein']?></p>
-                  <?php endif;?>
-                  <?php if (isset($errores['dateout'])):?>
-                      <p><?= $errores['dateout']?></p>
-                    <?php endif;?>
+                Partida: <input class="ml-2 mr-4" type="date" name="dateIn" value="{{old('dateIn')}}"> 
+                Regreso: <input class="ml-2 mr-4" type="date" name="dateOut" value="{{old('dateOut')}}"><br></br>
+               
               </div>
-              <label for="inlineRadioOptions"> ¿Tus Fechas son flexibles?</label><br></br>
+              <label for="flexibility" > ¿Tus Fechas son flexibles?</label><br></br>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="infoGeneral" value="option1">
+                <input class="form-check-input" type="radio" name="flexibility" value="{{old('flexibility')}}" id="infoGeneral" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Si, seguro!</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="infoGeneral" value="option2">
+                <input class="form-check-input" type="radio" name="flexibility" value="{{old('flexibility')}}" id="infoGeneral" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Lo podemos Charlar!</label>
               </div>
               <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="infoGeneral" value="option3">
+                <input class="form-check-input" type="radio" name="flexibility"value="{{old('flexibility')}}"  id="infoGeneral" value="option3">
                 <label class="form-check-label" for="inlineRadio3">No puedo mover las fechas</label>
               </div>
             </article>
               <article id="tab2">
-                <label for="pais">¿Adonde queres ir?</label>
-                <select class="form-control" name="pais"<?=$pais?>>
-                  <?php if (isset($errores['pais'])):?>
-                      <p><?= $errores['pais']?></p>
-                    <?php endif;?>
+                <label for="country">¿Adonde queres ir?</label>
+                <select class="form-control" name="country" value="{{old('country')}}">
+                
                   <option value="">Selecciona el país a visitar</option>
-                  <?php foreach ($paises as $key => $value) :?>
-                      <option value="<?= $value['pais'] ?>"><?= $value['pais'] ?></option>
-                  <?php endforeach ?>
+                 
                 </select>
 
 
                 <!--<select class="form-control" name="ciudad">
                   <option value="">Selecciona la ciudad a visitar</option>
-                  <?php foreach ($ciudades as $key => $value) :?>
-                      <option value="<?= $value['ciudad'] ?>"><?= $value['ciudad'] ?></option>
-                  <?php endforeach ?>
+                 
                 </select>-->
-                <label for="actividades">¿Que tipo de viaje queres hacer?</label>
+                <label for="activities">¿Que tipo de viaje queres hacer?</label>
                 <select class="custom-select" size="3">
                   <option value="1">Aventura</option>
                   <option value="2">Impacto Social</option>
@@ -144,11 +95,9 @@ if ($_POST) {
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text">Importe</span>
-                      <?php if (isset($errores['importe'])):?>
-                          <p><?= $errores['importe']?></p>
-                        <?php endif;?>
+                      
                       </div>
-                      <input type="text" class="form-control" name="importe" <?=$importe?> aria-label="Amount (to the nearest dollar)">
+                      <input type="text" class="form-control" name="amount" value="{{old('amount')}}" aria-label="Amount (to the nearest dollar)">
                       <div class="input-group-append">
                         <span class="input-group-text">.00</span>
                       </div>
@@ -156,11 +105,9 @@ if ($_POST) {
                       <div class="input-group mb-3">
                         <div class="input-group-prepend">
                         <span class="input-group-text">Moneda</span>
-                        <?php if (isset($errores['moneda'])):?>
-                            <p><?= $errores['moneda']?></p>
-                          <?php endif;?>
+                       
                         </div>
-                        <input type="text" class="form-control" name="moneda"  <?=$moneda?> aria-label="Amount (to the nearest dollar)">
+                        <input type="text" class="form-control" name="coin"  value="{{old('coin')}}" aria-label="Amount (to the nearest dollar)">
                       </div>
                     </div>
               </article>
@@ -170,7 +117,7 @@ if ($_POST) {
                     <div class="input-group-prepend">
                       <label class="input-group-text" for="inputGroupSelect01">Dia 1</label>
                     </div>
-                    <select class="custom-select" name="ciudad" <?=$ciudad?>>
+                    <select class="custom-select" name="city" value="{{old('city')}}">
                     </select>
                   </div>
                   <div class="descripcion">
