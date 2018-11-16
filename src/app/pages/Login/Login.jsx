@@ -1,17 +1,122 @@
-import React from 'react'
+import React from 'react';
+import { Redirect } from 'react-router-dom';
+
+
 export default class Login extends React.Component {
     constructor (props){
         super(props);
-        this.state={ email:"", pwd:""};
-        this.userLogin = this.userLogin.bind(this);
+        this.state = {  email:"",
+                        pwd:"",
+                        redirect: false,
+                        errorPwd:false,
+                        errorEmail:false,
+                        pwValidationText:"",
+                        emailValidationText:""
+                      };
+        //this.userLogin = this.userLogin.bind(this);
 
     }
 
+    componentWillMount(){
+      this.validateUser();
+      this.renderRedirect();
+    }
 
-    userLogin(){
+    handleLoginChange = (logged) => {
+      this.props.onChangeLogin(logged);
+    }
+
+    setRedirect = () => {
+     this.setState({
+       redirect: true
+     })
+    }
+
+    renderRedirect = () => {
+
+    if (this.state.redirect) {
+      //return <Redirect to='/about' />
+      return <Redirect to='/home' />
+    }
+   }
+
+   validateUser = () => {
+         let token = localStorage.getItem('sr_token');
+         console.log('verificando user');
+         if (token) {
+           fetch('http://localhost:8000/api/auth/user', {
+             method: "GET",
+             headers: {
+               "Accept": "application/json",
+               "Authorization": `Bearer ${token}`
+             },
+             //credentials: "same-origin"
+           }).then(response => { return response.json()})
+             .then(responseData => {
+               console.log(responseData);
+
+               if (responseData.email) {
+                 this.setRedirect();
+               }else {
+                 this.setState({
+                   redirect: false
+                 })
+               }
+               //return responseData;
+             })
+             .catch(err => {
+                 console.log("fetch error" + err);
+             });
+         }
+   }
+
+   validarForm = () => {
+     this.setState({
+       errorPwd: false,
+       errorEmail: false
+     })
+     let validOk = true;
+     let regexemail = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+     if (this.state.email.trim() == '') {
+       this.setState({
+         emailValidationText: 'Ingresá el email'
+       });
+       validOk = false;
+     }else if (!regexemail.test(this.state.email.trim())) {
+       this.setState({
+         emailValidationText: 'Ingresá un email válido'
+       });
+       validOk = false;
+     }else {
+       this.setState({
+         emailValidationText: ''
+       })
+     }
+
+     if (this.state.pwd.trim() == '') {
+       this.setState({
+         pwValidationText:'Ingresá la contraseña'
+       });
+       validOk = false;
+     }else {
+       this.setState({
+         pwValidationText:''
+       });
+     }
+     console.log(validOk);
+     if (validOk) {
+       this.userLogin();
+     }
+   }
+
+
+
+    userLogin = () => {
+
+        console.log('pw validation text', this.state.pwValidationText );
+
           //event.preventDefault();
           console.log('logueando');
-          console.log(this.state.email);
           let databody = {
             "email": this.state.email,
             "password": this.state.pwd
@@ -25,25 +130,34 @@ export default class Login extends React.Component {
             },
             //credentials: "same-origin"
           }).then(response => { return response.json();})
-            .then(responseData => {console.log(responseData); return responseData;})
-            /*.then(data => {
+            .then(responseData => {
+              console.log(responseData);
 
-              console.log(data);
-
-            })*/
-
+              if (responseData.access_token) {
+                localStorage.setItem('sr_token',responseData.access_token);
+                this.handleLoginChange(true);
+                this.setRedirect();
+              }else{
+                if (responseData.message == 'Unauthorized') {
+                  this.setState({
+                    errorPwd: true,
+                    errorEmail: true,
+                    redirect: false
+                  })
+                }
+              }
+              return responseData;
+            })
             .catch(err => {
                 console.log("fetch error" + err);
             });
     }
 
 
-
-// {...this.props} quiere decir que puede recibir html
-
     render(){
         return (
             <div>
+              {this.renderRedirect()}
               <section className="ingresar mt-5">
                 <div className="container-fluid">
                   <div className="row justify-content-center">
@@ -68,30 +182,45 @@ export default class Login extends React.Component {
                                     <form method="post" encType="multipart/form-data">
                                       <div className="form-label-group">
                                         <input name="email" id="useremail" aria-describedby="useremailHelp" type="text" placeholder="Correo electrónico" value={this.state.email} onChange={(ev)=>this.setState({email:ev.target.value})} className="form-control"/>
-                                        <label for="useremail">Email</label>
-
-                                          <small id="useremailHelp" className="form-text text-danger"></small>
-
+                                        <label htmlFor="useremail">Email</label>
+                                        {(()=>{
+                                            if(this.state.emailValidationText != '') {
+                                              return <small id="userpasswordHelp" className="form-text text-danger">{this.state.emailValidationText}</small>
+                                            }
+                                          })()
+                                        }
+                                      </div>
                                       <div className="form-label-group">
                                         <input name="password" id="userpassword" aria-describedby="userpasswordHelp" type="password" value={this.state.pwd} onChange={(ev)=>this.setState({pwd:ev.target.value})} placeholder="Contraseña" className="form-control"/>
-                                        <label for="userpassword">Contraseña</label>
+                                        <label htmlFor="userpassword">Contraseña</label>
                                         {/*<?php if (isset($errores['password'])): ?>
                                           <small id="userpasswordHelp" className="form-text text-danger"><?= $errores['password'] ?></small>
                                         <?php endif; ?>*/}
+                                        {(()=>{
+                                            if(this.state.errorPwd) {
+                                              return <small id="userpasswordHelp" className="form-text text-danger">Usuario o Contraseña incorrecta</small>
+                                            }
+                                          })()
+                                        }
+                                        {(()=>{
+                                            if(this.state.pwValidationText != '') {
+                                              return <small id="userpasswordHelp" className="form-text text-danger">{this.state.pwValidationText}</small>
+                                            }
+                                          })()
+                                        }
                                       </div>
-                                      <div className="container">
+                                      <div className="container mb-3">
                                         <div className="row flex-column flex-md-row justify-content-md-between align-items-md-center">
-                                          <div onClick={this.userLogin} className="btn btn-primary iniciar mb-3 mb-md-0">Iniciar sesión</div>
+                                          <div onClick={this.validarForm} className="btn btn-primary iniciar mb-3 mb-md-0">Iniciar sesión</div>
                                           <a className="text-center text-md-left" href="#">¿Olvidaste tu contraseña?</a>
                                         </div>
-                                        <div className="row mt-3">
+                                        {/*<div className="row mt-3">
                                           <label>
                                             <input type="checkbox" value="1" name="recordarme" checked="checked"/>
                                               Recordarme
                                           </label>
-                                        </div>
+                                        </div>*/}
                                       </div>
-                                    </div>
                                     </form>
                                   </div>
                                   <div className="tab-pane fade" id="registro" role="tabpanel" aria-labelledby="profile-tab">
@@ -127,7 +256,7 @@ export default class Login extends React.Component {
                           </div>
                         </div>
                       </div>
-                      <article className="mt-4 objetive">
+                      {/*<article className="mt-4 objetive">
                         <div className="card">
                           <div className="card-body">
                             <div className="container">
@@ -196,7 +325,7 @@ export default class Login extends React.Component {
                             </div>
                           </div>
                         </div>
-                      </article>
+                      </article>*/}
                     </div>
                   </div>
                 </div>

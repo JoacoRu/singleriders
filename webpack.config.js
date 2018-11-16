@@ -11,7 +11,13 @@ module.exports = {
             query: {
                 presets: ['es2015','react','stage-1']
             }
-        }]
+        },
+        {
+        test: /\.css$/,
+        include: /app/,
+        use: ['style-loader','css-loader']
+      }
+      ]
     },
     resolve: {
         extensions: ['.js', '.jsx']

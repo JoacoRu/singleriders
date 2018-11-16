@@ -1,26 +1,33 @@
 import React from 'react';
 import Main from './layout/Main';
 import Sidebar from './layout/Sidebar';
-import Header from './layout/Header';
+import Header from './pages/Header/Header';
 import Principal from './layout/Principal';
 import Root from './layout/Root';
 import About from './pages/About/About';
 import Contact from './pages/Contact/Contact';
 import Login from './pages/Login/Login';
-import Userinfo from './components/Userinfo/Userinfo'
+import Userinfo from './components/Userinfo/Userinfo';
+import Home from './pages/Home/Home';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 export default class App extends React.Component {
     constructor (props){
         super(props);
         this.state = {
-        	users:null
+        	users:null,
+          loggedIn:false
         }
 
     }
 
-    componentWillMount(){
+    handleLogin = (loginValue) => {
+        this.setState({loggedIn: loginValue});
+    }
 
+    componentWillMount(){
+      let token = localStorage.getItem('sr_token');
+      //console.log('Token',token);
     	fetch('https://jsonplaceholder.typicode.com/users')
     	.then(users => users.json())
     	.then(users => {
@@ -41,7 +48,7 @@ export default class App extends React.Component {
         	<div>
         		<Router history={true}>
 	        		<Root>
-	        			<Header className="mt-5">
+	        			<Header className="mb-5" userLogged={this.state.loggedIn} onChangeLogin={this.handleLogin}>
 
 	        			 </Header>
 
@@ -61,7 +68,19 @@ export default class App extends React.Component {
 
 	        			 	/>
 
-                  <Route path="/login" exact={true} component={Login}
+                  <Route path="/login" exact={true} render={
+                      ()=> {
+                        return (<Login onChangeLogin={this.handleLogin}/>)
+                      }
+                   }
+
+	        			 	/>
+
+                  <Route path="/home" exact={true} render={
+                      ()=> {
+                        return (<Home userLogged={this.state.loggedIn}/>)
+                      }
+                   }
 
 	        			 	/>
 
