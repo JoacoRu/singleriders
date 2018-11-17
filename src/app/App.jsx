@@ -83,6 +83,13 @@ export default class App extends React.Component {
                    }
 
 	        			 	/>
+                   <Route path="/travel" exact={true} render={
+                      ()=> {
+                        return (<Travel userLogged={this.state.loggedIn}/>)
+                      }
+                   }
+
+	        			 	/>
 
 	        			 </Main>
 	        		</Root>
