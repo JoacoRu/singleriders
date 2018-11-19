@@ -11,10 +11,20 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+
+
+
+/*Route::get('/home', 'HomeController@index')->name('home');*/
+
+/*Route::get('/{path?}', function(){
+    return view( 'welcome' );
+} )->where('path', '.*');*/
+
+Route::get('{reactRoutes}', function () {
+    return view('welcome'); // your start view
+})->where('reactRoutes', '^((?!api).)*$'); // except 'api' word
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
