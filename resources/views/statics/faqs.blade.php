@@ -7,12 +7,12 @@
       <link href="https://fonts.googleapis.com/css?family=Abel|Montserrat:400,400i,700,700i|Pacifico" rel="stylesheet">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
       <link rel ="stylesheet" href="{{asset ('css/styles.css')}}">
-      
+
       <title>Single Riders</title>
     </head>
     <body class="faqs">
      @include('partials.navbar')
-  <div class="container mt-5 pt-5">
+  <div class="container mt-5 pt-5" style="min-height: 90vh;">
   <div class="row-container">
   <div class=" preguntas col-4">
     <div class="list-group" id="list-tab" role="tablist">

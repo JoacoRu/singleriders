@@ -24,3 +24,6 @@ Route::get('/faqs', function(){
 Route::get('/home', 'staticController@index'); //este si necesita controller, porque tiene logica de todos lados! //
 
 Route::get('/profile', 'HomeController@profile');
+Auth::routes();
+
+//Route::get('/home', 'HomeController@index')->name('home');

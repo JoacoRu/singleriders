@@ -1,7 +1,7 @@
 
 
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark fixed-top <?= isset($usuariologin) ? 'd-flex justify-content-between' : '' ?>">
+      <nav class="navbar navbar-expand-lg navbar-dark fixed-top <?= isset(Auth::user()->name) ? 'd-flex justify-content-between' : '' ?>">
         <a class="navbar-brand" href="index.php">
           <div>
             <div class="logo-container">
@@ -14,18 +14,20 @@
             </div>
           </div>
         </a>
-        @if (!isset($usuariologin))
+        @guest
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        @endif
-        @if (isset($usuariologin))
+        @endguest
+        @guest
+        <div></div>
+        @else
         <div class="d-none d-sm-inline-block" id="loguerla">
           <h2>Single Riders</h2>
         </div>
-        @endif
+        @endguest
         <?php // NOTE: Navbar no logueado ?>
-        @if (!isset($usuariologin))
+        @guest
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'index.php') > -1  ? 'active' : ''  ?>">
@@ -42,13 +44,16 @@
               </li>
             </ul>
           </div>
-        @endif
+        @endguest
 
         <?php // NOTE: navbar logueado ?>
-        @if (isset($usuariologin))
+        @guest
+          <div>
+          </div>
+        @else
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?=$usuariologin['nombre']; ?>
+            {{ Auth::user()->name }}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="editar_perfil.php">Editar Perfil</a>
@@ -56,9 +61,18 @@
             <!--<a class="dropdown-item" href="#">Cambiar Cuenta</a>-->
             <a class="dropdown-item" href="faqs.php">faqs</a>
 
-            <a class="dropdown-item" href="logout.php">Cerrar sesión</a>
+
+            <a class="dropdown-item" href="{{ route('logout') }}"
+               onclick="event.preventDefault();
+                             document.getElementById('logout-form').submit();">
+                {{ __('Cerrar sesión') }}
+            </a>
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
             </div>
           </div>
-       @endif
+       @endguest
       </nav>
     </header>

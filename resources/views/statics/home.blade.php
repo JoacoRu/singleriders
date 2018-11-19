@@ -101,24 +101,24 @@
           <div class="col-12 second-section mt-2">
             <h3 class="mb-5 mt-5 pt-3 pb-3 text-center">Últimos viajes publicados</h3>
             <div class="card-columns">
-              @foreach ($userviajes2 as $key => $value)
+              @foreach ($top3Travel as $key => $value)
               <div class="card">
                 <div class="fondo-card"></div>
-                @if ($value['pais'] == 'india')
-                  <img class="card-img-top" src="./images/flags/<?= $value['pais'] ?>.png" alt="Card image cap">
+                @if ($value['country'] == 'india')
+                  <img class="card-img-top" src="./images/flags/<?= $value['country'] ?>.png" alt="Card image cap">
 
-                @elseif ($value['pais'] == 'egipto')
-                  <img class="card-img-top" src="./images/flags/<?= $value['pais'] ?>.png" alt="Card image cap">
+                @elseif ($value['country'] == 'egipto')
+                  <img class="card-img-top" src="./images/flags/<?= $value['country'] ?>.png" alt="Card image cap">
 
-                @elseif ($value['pais'] == 'nueva guinea')
+                @elseif ($value['country'] == 'nueva guinea')
                   <img class="card-img-top" src="./images/flags/nuevaguinea.png" alt="Card image cap">
 
                 @else
-                  <img class="card-img-top" src="./images/flags/india.png" alt="Card image cap">
+                  <img class="card-img-top" src="./images/flags/<?= $value['country'] ?>.png" alt="Card image cap">
                 @endif
                 <div class="card-body">
                   <h5 class="card-title text-center"><strong><?= $value['textmensaje'] ?></strong></h5>
-                  <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-text">{{$value['country']}}. This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 </div>
               </div>
               @endforeach
