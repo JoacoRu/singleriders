@@ -23,8 +23,13 @@
     return view( 'welcome' );
 } )->where('path', '.*');*/
 
-Route::get('{reactRoutes}', function () {
+/*Route::get('{reactRoutes}', function () {
     return view('welcome'); // your start view
-})->where('reactRoutes', '^((?!api).)*$'); // except 'api' word
+})->where('reactRoutes', '^((?!api).)*$'); // except 'api' word*/
+
 
 Auth::routes();
+
+Route::get('/react/{path}', function(){
+    return view( 'welcome' );
+} )->where('path', '.*$');

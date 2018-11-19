@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
 export default class Principal extends React.Component {
     constructor (props){
         super(props);
@@ -14,8 +15,8 @@ export default class Principal extends React.Component {
           // NOTE: si esta logueado
           <div>
           <div className="home-mod-login pt-5 mt-3 pt-md-5 mt-md-0">
-            <a className="mr-1 btn btn-outline-primary">Ingresá</a>
-            <a className="ml-1 btn btn-outline-secondary">Registrate</a>
+            <Link className="mr-1 btn btn-outline-primary" to="/login">Ingresá</Link>
+            <Link className="ml-1 btn btn-outline-secondary" to="/registro">Registrate</Link>
           </div>
           <div className="container-fluid titulo-sr-home pt-2 bg-white">
             <div className="row justify-content-center">
@@ -36,7 +37,7 @@ export default class Principal extends React.Component {
                   <div className="carousel-caption carousel-caption-top d-none d-md-block">
                     <h2>Red social para viajeros</h2>
                   </div>
-                  <img className="d-block w-100" src="./images/home01.png" alt="First slide"/>
+                  <img className="d-block w-100" src="../images/home01.png" alt="First slide"/>
                   <div className="carousel-caption d-none d-md-block">
                     <h5><a href="registro.php" className="text-white">Registrate</a></h5>
                     <p>Es gratis!</p>
@@ -46,7 +47,7 @@ export default class Principal extends React.Component {
                   <div className="carousel-caption carousel-caption-top d-none d-md-block" style={{top:'45%'}}>
                     <h2>Red social para viajeros</h2>
                   </div>
-                  <img className="d-block w-100" src="./images/home05.png" alt="Second slide"/>
+                  <img className="d-block w-100" src="../images/home05.png" alt="Second slide"/>
                   <div className="carousel-caption d-none d-md-block">
                     <h5><a href="registro.php" className="text-white">Registrate</a></h5>
                     <p>Es gratis!</p>
@@ -56,7 +57,7 @@ export default class Principal extends React.Component {
                   <div className="carousel-caption carousel-caption-top d-none d-md-block" style={{top:'45%'}}>
                     <h2>Red social para viajeros</h2>
                   </div>
-                  <img className="d-block w-100" src="./images/home06.png" alt="Third slide"/>
+                  <img className="d-block w-100" src="../images/home06.png" alt="Third slide"/>
                   <div className="carousel-caption d-none d-md-block">
                     <h5><a href="registro.php" className="text-white">Registrate</a></h5>
                     <p>Es gratis!</p>
@@ -66,7 +67,7 @@ export default class Principal extends React.Component {
                   <div className="carousel-caption carousel-caption-top d-none d-md-block" style={{top:'45%'}}>
                     <h2>Red social para viajeros</h2>
                   </div>
-                  <img className="d-block w-100" src="./images/home07.png" alt="Fourth slide"/>
+                  <img className="d-block w-100" src="../images/home07.png" alt="Fourth slide"/>
                   <div className="carousel-caption d-none d-md-block">
                     <h5><a href="registro.php" className="text-white">Registrate</a></h5>
                     <p>Es gratis!</p>
@@ -100,7 +101,7 @@ export default class Principal extends React.Component {
               <div className="card">
                 <div className="fondo-card"></div>
 
-                  <img className="card-img-top" src="./images/flags/india.png" alt="Card image cap"/>
+                  <img className="card-img-top" src="../images/flags/india.png" alt="Card image cap"/>
 
                 <div className="card-body">
                   <h5 className="card-title text-center"><strong>aca va el texto del viaje</strong></h5>

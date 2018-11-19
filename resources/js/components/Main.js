@@ -9,7 +9,7 @@ import Contact from './pages/Contact/Contact';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
 import { Switch } from 'react-router';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 export default class Main extends React.Component {
     constructor (props){
@@ -46,19 +46,18 @@ export default class Main extends React.Component {
     	let users= this.state.users;
         return (
         	<div>
+            <BrowserRouter basename={'/react'}>
 
+              <Root>
 
 	        			<Header className="mb-5" userLogged={this.state.loggedIn} onChangeLogin={this.handleLogin}>
 
 	        			</Header>
 
-	        			 	<Root>
-
-                  <BrowserRouter>
 
                   <Switch>
 
-  	        			 	<Route path="/" exact component={Principal}
+  	        			 	<Route path="/welcome" exact component={Principal}
   	        			 	/>
   	        			 	<Route path="/u/:userId" render={
   	        			 				({ match }) => {
@@ -91,11 +90,13 @@ export default class Main extends React.Component {
 
                   </Switch>
 
-                  </BrowserRouter>
+
 
 	        		</Root>
 
-            </div>
+            </BrowserRouter>
+
+          </div>
 
         );
     }

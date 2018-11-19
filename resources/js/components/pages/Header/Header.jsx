@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 export default class Header extends React.Component {
@@ -94,7 +94,7 @@ export default class Header extends React.Component {
             <div>
               <header>
                 <nav className="navbar navbar-expand-lg navbar-dark fixed-top d-flex justify-content-between">
-                  <a className="navbar-brand" href="index.php">
+                  <Link className="navbar-brand" to="/">
                     <div>
                       <div className="logo-container">
                         <div className="single">
@@ -105,7 +105,7 @@ export default class Header extends React.Component {
                         </div>
                       </div>
                     </div>
-                  </a>
+                    </Link>
                   {/*<!--<?php if (!isset($usuariologin)): ?>*/}
                   {this.state.email == ''?
 
@@ -133,16 +133,20 @@ export default class Header extends React.Component {
                     <div className="collapse navbar-collapse" id="navbarNav">
                       <ul className="navbar-nav">
                         <li className="nav-item">
-                          <a className="nav-link" href="index.php">Home<span className="sr-only">(current)</span></a>
+                          <Link className="nav-link" to="/">Home<span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item">
-                          <a className="nav-link" href="faqs.php">Faqs</a>
+                          <Link className="nav-link" to="/login">Faqs</Link>
                         </li>
                         <li className="nav-item">
-                          <a className="nav-link" href="login.php">Login</a>
+                          {/*<a className="nav-link" href="login.php">Login</a>*/}
+
+                            <Link className="nav-link" to="/login">Login</Link>
+
                         </li>
                         <li className="nav-item">
-                          <a className="nav-link" href="registro.php">Registro</a>
+                          {/*<a className="nav-link" href="registro.php">Registro</a>*/}
+                          <Link className="nav-link" to="/Registro">Registro</Link>
                         </li>
                       </ul>
                     </div>

@@ -551,39 +551,12 @@ module.exports = warning;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createBrowserHistory__ = __webpack_require__(76);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__createBrowserHistory__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createHashHistory__ = __webpack_require__(79);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__createHashHistory__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(80);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(9);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["a"]; });
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["b"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PathUtils__ = __webpack_require__(7);
-/* unused harmony reexport parsePath */
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_4__PathUtils__["b"]; });
-
-
-
-
-
-
-
-
-
-
-/***/ }),
-/* 6 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__ = __webpack_require__(74);
 /* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__BrowserRouter__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__HashRouter__ = __webpack_require__(81);
 /* unused harmony reexport HashRouter */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Link__ = __webpack_require__(29);
-/* unused harmony reexport Link */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_2__Link__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__MemoryRouter__ = __webpack_require__(82);
 /* unused harmony reexport MemoryRouter */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__NavLink__ = __webpack_require__(83);
@@ -591,9 +564,9 @@ module.exports = warning;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Prompt__ = __webpack_require__(85);
 /* unused harmony reexport Prompt */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__Redirect__ = __webpack_require__(86);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_6__Redirect__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_6__Redirect__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__Route__ = __webpack_require__(31);
-/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_7__Route__["a"]; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__Router__ = __webpack_require__(16);
 /* unused harmony reexport Router */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__StaticRouter__ = __webpack_require__(87);
@@ -625,6 +598,33 @@ module.exports = warning;
 
 
 
+
+
+
+
+
+
+
+
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__createBrowserHistory__ = __webpack_require__(76);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__createBrowserHistory__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__createHashHistory__ = __webpack_require__(79);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return __WEBPACK_IMPORTED_MODULE_1__createHashHistory__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__ = __webpack_require__(80);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return __WEBPACK_IMPORTED_MODULE_2__createMemoryHistory__["a"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__LocationUtils__ = __webpack_require__(9);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return __WEBPACK_IMPORTED_MODULE_3__LocationUtils__["b"]; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__PathUtils__ = __webpack_require__(7);
+/* unused harmony reexport parsePath */
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return __WEBPACK_IMPORTED_MODULE_4__PathUtils__["b"]; });
 
 
 
@@ -14947,7 +14947,7 @@ var isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history__ = __webpack_require__(6);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
@@ -15064,7 +15064,7 @@ Link.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(10);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -15666,7 +15666,7 @@ Prompt.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_warning__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_invariant__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__generatePath__ = __webpack_require__(18);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -15795,7 +15795,7 @@ Redirect.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__Router__ = __webpack_require__(10);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -38369,7 +38369,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_Login_Login__ = __webpack_require__(97);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_Home_Home__ = __webpack_require__(98);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10_react_router__ = __webpack_require__(100);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_react_router_dom__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11_react_router_dom__ = __webpack_require__(5);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -38436,19 +38436,19 @@ var Main = function (_React$Component) {
             return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__pages_Header_Header__["a" /* default */], { className: 'mb-5', userLogged: this.state.loggedIn, onChangeLogin: this.handleLogin }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    __WEBPACK_IMPORTED_MODULE_5__layout_Root__["a" /* default */],
-                    null,
+                    __WEBPACK_IMPORTED_MODULE_11_react_router_dom__["a" /* BrowserRouter */],
+                    { basename: '/react' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        __WEBPACK_IMPORTED_MODULE_11_react_router_dom__["a" /* BrowserRouter */],
+                        __WEBPACK_IMPORTED_MODULE_5__layout_Root__["a" /* default */],
                         null,
+                        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3__pages_Header_Header__["a" /* default */], { className: 'mb-5', userLogged: this.state.loggedIn, onChangeLogin: this.handleLogin }),
                         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                             __WEBPACK_IMPORTED_MODULE_10_react_router__["a" /* Switch */],
                             null,
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11_react_router_dom__["c" /* Route */], { path: '/', exact: true, component: __WEBPACK_IMPORTED_MODULE_4__layout_Principal__["a" /* default */]
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11_react_router_dom__["d" /* Route */], { path: '/welcome', exact: true, component: __WEBPACK_IMPORTED_MODULE_4__layout_Principal__["a" /* default */]
                             }),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11_react_router_dom__["c" /* Route */], { path: '/u/:userId', render: function render(_ref) {
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11_react_router_dom__["d" /* Route */], { path: '/u/:userId', render: function render(_ref) {
                                     var match = _ref.match;
 
                                     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(Userinfo, { user: users.find(function (u) {
@@ -38456,18 +38456,18 @@ var Main = function (_React$Component) {
                                         }) });
                                 }
                             }),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11_react_router_dom__["c" /* Route */], { path: '/about', exact: true, component: __WEBPACK_IMPORTED_MODULE_6__pages_About_About__["a" /* default */]
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11_react_router_dom__["d" /* Route */], { path: '/about', exact: true, component: __WEBPACK_IMPORTED_MODULE_6__pages_About_About__["a" /* default */]
 
                             }),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11_react_router_dom__["c" /* Route */], { path: '/contact', exact: true, component: __WEBPACK_IMPORTED_MODULE_7__pages_Contact_Contact__["a" /* default */]
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11_react_router_dom__["d" /* Route */], { path: '/contact', exact: true, component: __WEBPACK_IMPORTED_MODULE_7__pages_Contact_Contact__["a" /* default */]
 
                             }),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11_react_router_dom__["c" /* Route */], { path: '/login', exact: true, render: function render() {
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11_react_router_dom__["d" /* Route */], { path: '/login', exact: true, render: function render() {
                                     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_8__pages_Login_Login__["a" /* default */], { onChangeLogin: _this3.handleLogin });
                                 }
 
                             }),
-                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11_react_router_dom__["c" /* Route */], { path: '/home', exact: true, render: function render() {
+                            __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_11_react_router_dom__["d" /* Route */], { path: '/home', exact: true, render: function render() {
                                     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__pages_Home_Home__["a" /* default */], { userLogged: _this3.state.loggedIn });
                                 }
 
@@ -61279,7 +61279,7 @@ var styles = {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(5);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -61394,8 +61394,8 @@ var Header = function (_React$Component) {
             'nav',
             { className: 'navbar navbar-expand-lg navbar-dark fixed-top d-flex justify-content-between' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              'a',
-              { className: 'navbar-brand', href: 'index.php' },
+              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+              { className: 'navbar-brand', to: '/' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                 'div',
                 null,
@@ -61438,8 +61438,8 @@ var Header = function (_React$Component) {
                   'li',
                   { className: 'nav-item' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'a',
-                    { className: 'nav-link', href: 'index.php' },
+                    __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+                    { className: 'nav-link', to: '/' },
                     'Home',
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
                       'span',
@@ -61452,8 +61452,8 @@ var Header = function (_React$Component) {
                   'li',
                   { className: 'nav-item' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'a',
-                    { className: 'nav-link', href: 'faqs.php' },
+                    __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+                    { className: 'nav-link', to: '/login' },
                     'Faqs'
                   )
                 ),
@@ -61461,8 +61461,8 @@ var Header = function (_React$Component) {
                   'li',
                   { className: 'nav-item' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'a',
-                    { className: 'nav-link', href: 'login.php' },
+                    __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+                    { className: 'nav-link', to: '/login' },
                     'Login'
                   )
                 ),
@@ -61470,8 +61470,8 @@ var Header = function (_React$Component) {
                   'li',
                   { className: 'nav-item' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    'a',
-                    { className: 'nav-link', href: 'registro.php' },
+                    __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+                    { className: 'nav-link', to: '/Registro' },
                     'Registro'
                   )
                 )
@@ -61531,7 +61531,7 @@ var Header = function (_React$Component) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(16);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -63072,7 +63072,7 @@ var createMemoryHistory = function createMemoryHistory() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_history__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__Router__ = __webpack_require__(16);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -63391,6 +63391,7 @@ module.exports = hoistNonReactStatics;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(5);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -63398,6 +63399,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 
 
 
@@ -63413,302 +63415,302 @@ var Principal = function (_React$Component) {
   // {...this.props} quiere decir que puede recibir html
 
   _createClass(Principal, [{
-    key: "render",
+    key: 'render',
     value: function render() {
       return (
         // NOTE: si esta logueado
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          "div",
+          'div',
           null,
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            { className: "home-mod-login pt-5 mt-3 pt-md-5 mt-md-0" },
+            'div',
+            { className: 'home-mod-login pt-5 mt-3 pt-md-5 mt-md-0' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "a",
-              { className: "mr-1 btn btn-outline-primary" },
-              "Ingres\xE1"
+              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+              { className: 'mr-1 btn btn-outline-primary', to: '/login' },
+              'Ingres\xE1'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "a",
-              { className: "ml-1 btn btn-outline-secondary" },
-              "Registrate"
+              __WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Link */],
+              { className: 'ml-1 btn btn-outline-secondary', to: '/registro' },
+              'Registrate'
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            { className: "container-fluid titulo-sr-home pt-2 bg-white" },
+            'div',
+            { className: 'container-fluid titulo-sr-home pt-2 bg-white' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "row justify-content-center" },
+              'div',
+              { className: 'row justify-content-center' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "text-center mb-4" },
+                'div',
+                { className: 'text-center mb-4' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "span",
-                  { className: "single-f mr-2" },
-                  "Single"
+                  'span',
+                  { className: 'single-f mr-2' },
+                  'Single'
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "span",
-                  { className: "single-f" },
-                  "Riders"
+                  'span',
+                  { className: 'single-f' },
+                  'Riders'
                 )
               )
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            { className: "col-12 p-0 home-carousel" },
+            'div',
+            { className: 'col-12 p-0 home-carousel' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { id: "carouselExampleIndicators", className: "carousel slide", "data-ride": "carousel" },
+              'div',
+              { id: 'carouselExampleIndicators', className: 'carousel slide', 'data-ride': 'carousel' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "ol",
-                { className: "carousel-indicators" },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", { "data-target": "#carouselExampleIndicators", "data-slide-to": "0", className: "active" }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", { "data-target": "#carouselExampleIndicators", "data-slide-to": "1" }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", { "data-target": "#carouselExampleIndicators", "data-slide-to": "2" }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("li", { "data-target": "#carouselExampleIndicators", "data-slide-to": "3" })
+                'ol',
+                { className: 'carousel-indicators' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#carouselExampleIndicators', 'data-slide-to': '0', className: 'active' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#carouselExampleIndicators', 'data-slide-to': '1' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#carouselExampleIndicators', 'data-slide-to': '2' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('li', { 'data-target': '#carouselExampleIndicators', 'data-slide-to': '3' })
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "carousel-inner" },
+                'div',
+                { className: 'carousel-inner' },
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "carousel-item active" },
+                  'div',
+                  { className: 'carousel-item active' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "carousel-caption carousel-caption-top d-none d-md-block" },
+                    'div',
+                    { className: 'carousel-caption carousel-caption-top d-none d-md-block' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "h2",
+                      'h2',
                       null,
-                      "Red social para viajeros"
+                      'Red social para viajeros'
                     )
                   ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { className: "d-block w-100", src: "./images/home01.png", alt: "First slide" }),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'd-block w-100', src: '../images/home01.png', alt: 'First slide' }),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "carousel-caption d-none d-md-block" },
+                    'div',
+                    { className: 'carousel-caption d-none d-md-block' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "h5",
+                      'h5',
                       null,
                       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "a",
-                        { href: "registro.php", className: "text-white" },
-                        "Registrate"
+                        'a',
+                        { href: 'registro.php', className: 'text-white' },
+                        'Registrate'
                       )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "p",
+                      'p',
                       null,
-                      "Es gratis!"
+                      'Es gratis!'
                     )
                   )
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "carousel-item" },
+                  'div',
+                  { className: 'carousel-item' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "carousel-caption carousel-caption-top d-none d-md-block", style: { top: '45%' } },
+                    'div',
+                    { className: 'carousel-caption carousel-caption-top d-none d-md-block', style: { top: '45%' } },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "h2",
+                      'h2',
                       null,
-                      "Red social para viajeros"
+                      'Red social para viajeros'
                     )
                   ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { className: "d-block w-100", src: "./images/home05.png", alt: "Second slide" }),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'd-block w-100', src: '../images/home05.png', alt: 'Second slide' }),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "carousel-caption d-none d-md-block" },
+                    'div',
+                    { className: 'carousel-caption d-none d-md-block' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "h5",
+                      'h5',
                       null,
                       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "a",
-                        { href: "registro.php", className: "text-white" },
-                        "Registrate"
+                        'a',
+                        { href: 'registro.php', className: 'text-white' },
+                        'Registrate'
                       )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "p",
+                      'p',
                       null,
-                      "Es gratis!"
+                      'Es gratis!'
                     )
                   )
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "carousel-item" },
+                  'div',
+                  { className: 'carousel-item' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "carousel-caption carousel-caption-top d-none d-md-block", style: { top: '45%' } },
+                    'div',
+                    { className: 'carousel-caption carousel-caption-top d-none d-md-block', style: { top: '45%' } },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "h2",
+                      'h2',
                       null,
-                      "Red social para viajeros"
+                      'Red social para viajeros'
                     )
                   ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { className: "d-block w-100", src: "./images/home06.png", alt: "Third slide" }),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'd-block w-100', src: '../images/home06.png', alt: 'Third slide' }),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "carousel-caption d-none d-md-block" },
+                    'div',
+                    { className: 'carousel-caption d-none d-md-block' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "h5",
+                      'h5',
                       null,
                       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "a",
-                        { href: "registro.php", className: "text-white" },
-                        "Registrate"
+                        'a',
+                        { href: 'registro.php', className: 'text-white' },
+                        'Registrate'
                       )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "p",
+                      'p',
                       null,
-                      "Es gratis!"
+                      'Es gratis!'
                     )
                   )
                 ),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "carousel-item" },
+                  'div',
+                  { className: 'carousel-item' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "carousel-caption carousel-caption-top d-none d-md-block", style: { top: '45%' } },
+                    'div',
+                    { className: 'carousel-caption carousel-caption-top d-none d-md-block', style: { top: '45%' } },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "h2",
+                      'h2',
                       null,
-                      "Red social para viajeros"
+                      'Red social para viajeros'
                     )
                   ),
-                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { className: "d-block w-100", src: "./images/home07.png", alt: "Fourth slide" }),
+                  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'd-block w-100', src: '../images/home07.png', alt: 'Fourth slide' }),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "div",
-                    { className: "carousel-caption d-none d-md-block" },
+                    'div',
+                    { className: 'carousel-caption d-none d-md-block' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "h5",
+                      'h5',
                       null,
                       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                        "a",
-                        { href: "registro.php", className: "text-white" },
-                        "Registrate"
+                        'a',
+                        { href: 'registro.php', className: 'text-white' },
+                        'Registrate'
                       )
                     ),
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "p",
+                      'p',
                       null,
-                      "Es gratis!"
+                      'Es gratis!'
                     )
                   )
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "a",
-                { className: "carousel-control-prev", href: "#carouselExampleIndicators", role: "button", "data-slide": "prev" },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", { className: "carousel-control-prev-icon", "aria-hidden": "true" }),
+                'a',
+                { className: 'carousel-control-prev', href: '#carouselExampleIndicators', role: 'button', 'data-slide': 'prev' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'carousel-control-prev-icon', 'aria-hidden': 'true' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "span",
-                  { className: "sr-only" },
-                  "Previous"
+                  'span',
+                  { className: 'sr-only' },
+                  'Previous'
                 )
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "a",
-                { className: "carousel-control-next", href: "#carouselExampleIndicators", role: "button", "data-slide": "next" },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("span", { className: "carousel-control-next-icon", "aria-hidden": "true" }),
+                'a',
+                { className: 'carousel-control-next', href: '#carouselExampleIndicators', role: 'button', 'data-slide': 'next' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('span', { className: 'carousel-control-next-icon', 'aria-hidden': 'true' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "span",
-                  { className: "sr-only" },
-                  "Next"
+                  'span',
+                  { className: 'sr-only' },
+                  'Next'
                 )
               )
             )
           ),
-          "// NOTE: finsi esta logueado",
+          '// NOTE: finsi esta logueado',
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            { className: "col-12" },
+            'div',
+            { className: 'col-12' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "h3",
-              { className: "mb-5 mt-5 pt-3 pb-3 text-center" },
-              "Encontr\xE1 compa\xF1eros de viaje"
+              'h3',
+              { className: 'mb-5 mt-5 pt-3 pb-3 text-center' },
+              'Encontr\xE1 compa\xF1eros de viaje'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "ul",
-              { className: "items-home-slider" },
+              'ul',
+              { className: 'items-home-slider' },
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
-                "Arm\xE1 tu viaje"
+                'Arm\xE1 tu viaje'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
-                "Compart\xED tu itinerario"
+                'Compart\xED tu itinerario'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
-                "Contactate con otros viajeros"
+                'Contactate con otros viajeros'
               ),
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "li",
+                'li',
                 null,
-                "Unite a viajes de otros usuarios"
+                'Unite a viajes de otros usuarios'
               )
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            { className: "col-12 second-section mt-2" },
+            'div',
+            { className: 'col-12 second-section mt-2' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "h3",
-              { className: "mb-5 mt-5 pt-3 pb-3 text-center" },
-              "\xDAltimos viajes publicados"
+              'h3',
+              { className: 'mb-5 mt-5 pt-3 pb-3 text-center' },
+              '\xDAltimos viajes publicados'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "card-columns" },
-              "// NOTE: php foreach cards",
+              'div',
+              { className: 'card-columns' },
+              '// NOTE: php foreach cards',
               __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                "div",
-                { className: "card" },
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { className: "fondo-card" }),
-                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("img", { className: "card-img-top", src: "./images/flags/india.png", alt: "Card image cap" }),
+                'div',
+                { className: 'card' },
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { className: 'fondo-card' }),
+                __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('img', { className: 'card-img-top', src: '../images/flags/india.png', alt: 'Card image cap' }),
                 __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                  "div",
-                  { className: "card-body" },
+                  'div',
+                  { className: 'card-body' },
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "h5",
-                    { className: "card-title text-center" },
+                    'h5',
+                    { className: 'card-title text-center' },
                     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                      "strong",
+                      'strong',
                       null,
-                      "aca va el texto del viaje"
+                      'aca va el texto del viaje'
                     )
                   ),
                   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-                    "p",
-                    { className: "card-text" },
-                    "This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+                    'p',
+                    { className: 'card-text' },
+                    'This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.'
                   )
                 )
               ),
-              "// NOTE: fin php foreach"
+              '// NOTE: fin php foreach'
             )
           ),
           __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-            "div",
-            { className: "col-12 mt-2 mb-5" },
+            'div',
+            { className: 'col-12 mt-2 mb-5' },
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "h3",
-              { className: "mb-5 mt-5 pt-3 pb-3 text-center" },
-              "Riders en el mundo"
+              'h3',
+              { className: 'mb-5 mt-5 pt-3 pb-3 text-center' },
+              'Riders en el mundo'
             ),
             __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-              "div",
-              { className: "container-fluid" },
-              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement("div", { id: "map" })
+              'div',
+              { className: 'container-fluid' },
+              __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('div', { id: 'map' })
             )
           )
         )
@@ -63858,7 +63860,7 @@ var Contact = function (_React$Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(5);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -63892,7 +63894,7 @@ var Login = function (_React$Component) {
 
       if (_this.state.redirect) {
         //return <Redirect to='/about' />
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Redirect */], { to: '/home' });
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: '/home' });
       }
     };
 
@@ -64206,7 +64208,7 @@ var Login = function (_React$Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Sidebar_Sidebar__ = __webpack_require__(99);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -64239,7 +64241,7 @@ var Home = function (_React$Component) {
 
       if (_this.state.redirect) {
         //return <Redirect to='/about' />
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Redirect */], { to: '/login' });
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: '/login' });
       }
     };
 
@@ -64417,7 +64419,7 @@ var Home = function (_React$Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(5);
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -64447,7 +64449,7 @@ var Siderbar = function (_React$Component) {
     _this.renderRedirect = function () {
       if (_this.state.redirect) {
         //return <Redirect to='/about' />
-        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["b" /* Redirect */], { to: '/home' });
+        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["c" /* Redirect */], { to: '/home' });
       }
     };
 
