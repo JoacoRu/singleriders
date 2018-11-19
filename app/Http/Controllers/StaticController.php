@@ -8,10 +8,7 @@ use App\User;
 
 class StaticController extends Controller
 {
-  public function __construct()
-  {
-      $this->middleware('auth');
-  }
+  
     //
     public function index() {
       $top3Travel = Travel::take(10)->get();

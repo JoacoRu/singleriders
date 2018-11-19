@@ -31,16 +31,16 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'index.php') > -1  ? 'active' : ''  ?>">
-                <a class="nav-link" href="index.php">Home<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'faqs.php') > -1  ? 'active' : ''  ?>">
-                <a class="nav-link" href="faqs.php">Faqs</a>
+                <a class="nav-link" href="/faqs">Faqs</a>
               </li>
               <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'login.php') > -1  ? 'active' : ''  ?>">
-                <a class="nav-link" href="login.php">Login</a>
+                <a class="nav-link" href="{{ route('login') }}">Login</a>
               </li>
               <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'registro.php') > -1  ? 'active' : ''  ?>">
-                <a class="nav-link" href="registro.php">Registro</a>
+                <a class="nav-link" href="{{ route('register') }}">Registro</a>
               </li>
             </ul>
           </div>
@@ -56,10 +56,10 @@
             {{ Auth::user()->name }}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="editar_perfil.php">Editar Perfil</a>
-            <a class="dropdown-item" href="home.php">Mis Viajes</a>
+            <a class="dropdown-item" href="/editProfile">Editar Perfil</a>
+            <a class="dropdown-item" href="/muro">Mis Viajes</a>
             <!--<a class="dropdown-item" href="#">Cambiar Cuenta</a>-->
-            <a class="dropdown-item" href="faqs.php">faqs</a>
+            <a class="dropdown-item" href="/faqs">faqs</a>
 
 
             <a class="dropdown-item" href="{{ route('logout') }}"

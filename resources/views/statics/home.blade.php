@@ -17,11 +17,12 @@
     <section class="mt-5">
       <div class="container pt-5">
         <div class="row pt-3 pb-0 pl-0 pr-0 bg-white rounded home-row-main">
-          @if (!isset($usuariologin))
+          @guest
           <div class="home-mod-login pt-5 mt-3 pt-md-0 mt-md-0">
-            <a href="login.php" class="mr-1 btn btn-outline-primary">Ingresá</a>
-            <a class="ml-1 btn btn-outline-secondary" href="registro.php">Registrate</a>
+            <a href="{{ route('login') }}" class="mr-1 btn btn-outline-primary">Ingresá</a>
+            <a class="ml-1 btn btn-outline-secondary" href="{{ route('register') }}">Registrate</a>
           </div>
+          @endguest
           <div class="container titulo-sr-home">
             <div class="row justify-content-center">
               <h1 class="text-center mb-4"><span class="single-f mr-2">Single</span><span class="single-f">Riders</span></h1>
@@ -88,7 +89,6 @@
               </a>
             </div>
           </div>
-         @endif
           <div class="col-12">
             <h3 class="mb-5 mt-5 pt-3 pb-3 text-center">Encontrá compañeros de viaje</h3>
             <ul class="items-home-slider">
