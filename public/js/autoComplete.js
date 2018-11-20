@@ -14,7 +14,7 @@ window.onload = function(){
             flexibility[i].addEventListener('focus', function(event){
             event.preventDefault;
             article_dos.style.display = 'inherit'; 
-            article_uno.style.display = "hidden";
+            article_uno.style.visibility = "hidden";
             amount.focus();
         });
        }
