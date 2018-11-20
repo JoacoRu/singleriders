@@ -45,27 +45,27 @@
               <form method="post" name="travelForm" enctype="multipart/form-data">
 
                <input type="text" tabindex="1" id="msgInti" tabindex="0" class="form-control" name="msgInti" class="form-control{{ $errors->has('msgInti') ? ' is-invalid' : '' }}" value="{{old('msgInti')}}" placeholder="Ponele un Titulo a tu viaje..."></textarea>
-               @if ($errors->has('msgInti'))
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('msgInti') }}</strong>
-                  </span>
-               @endif
+                @if ($errors->has('msgInti'))
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $errors->first('msgInti') }}</strong>
+                    </span>
+                @endif
 
 
               <div class="d-flex flex-column flex-md-row align-items-md-center mt-2">
                 
                 Partida: <input class="ml-2 mr-4" tabindex="2" type="date" name="dateIn" class="form-control{{ $errors->has('dateIn') ? ' is-invalid' : '' }}" value="{{old('dateIn')}}" > 
-                @if ($errors->has('dateIn'))
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('dateIn') }}</strong>
-                  </span>
-               @endif
+                  @if ($errors->has('dateIn'))
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $errors->first('dateIn') }}</strong>
+                    </span>
+                  @endif
                 Regreso: <input class="ml-2 mr-4" tabindex="3" type="date" name="dateOut" class="form-control{{ $errors->has('dateOut') ? ' is-invalid' : '' }}"value="{{old('dateOut')}}" ><br></br>
-                @if ($errors->has('dateOut'))
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('dateOut') }}</strong>
-                  </span>
-               @endif
+                  @if ($errors->has('dateOut'))
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $errors->first('dateOut') }}</strong>
+                    </span>
+                  @endif
               </div>
               <label for="flexibility" > ¿Tus Fechas son flexibles?</label><br></br>
               <div class="form-check form-check-inline">
@@ -82,14 +82,15 @@
               </div>
               <input type="submit" tabindex="10" class="btn btn-primary" value="Siguiente">
             </article>
+
               <article id="tab2">
                 <label for="country">¿Adonde queres ir?</label>
-                <select class="form-control" tabindex="7" name="country" id="country" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" value="{{old('country')}}">
-                @if ($errors->has('country'))
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('country') }}</strong>
-                  </span>
-               @endif
+                <select class="form-control" tabindex="7" name="country" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" value="{{old('country')}}">
+                  @if ($errors->has('country'))
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $errors->first('country') }}</strong>
+                    </span>
+                  @endif
                   <option value="">Selecciona el país a visitar</option>
                  
                 </select>
@@ -100,12 +101,12 @@
                  
                 </select>-->
                 <label for="activities">¿Que tipo de viaje queres hacer?</label>
-                <select class="custom-select" size="3" class="form-control{{ $errors->has('activities') ? ' is-invalid' : '' }}"value="{{old('activities')}}">
-                @if ($errors->has('activities'))
-                  <span class="invalid-feedback" role="alert">
-                    <strong>{{ $errors->first('activities') }}</strong>
-                  </span>
-               @endif
+                <select class="custom-select" size="3" id="country" class="form-control{{ $errors->has('activities') ? ' is-invalid' : '' }}"value="{{old('activities')}}">
+                  @if ($errors->has('activities'))
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $errors->first('activities') }}</strong>
+                    </span>
+                  @endif
                   <option value="1">Aventura</option>
                   <option value="2">Impacto Social</option>
                   <option value="3">Relax y playa</option>
@@ -114,6 +115,7 @@
                 </select>
                 <input type="submit" tabindex="10" class="btn btn-primary" value="Siguiente">
               </article>
+
               <article id="tab3">
                 <div class="card-body">
                   <div class="input-group mb-3">
