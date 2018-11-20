@@ -1,4 +1,5 @@
 @extends('layouts.register')
+@include('partials.navbar')
 @section('register')
 @section('article')
 @section('modal')
