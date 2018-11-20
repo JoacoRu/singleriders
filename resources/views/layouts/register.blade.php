@@ -69,7 +69,7 @@
                               <label for="nombre">Nombre</label>
                               
                               @if ($errors->has('nombre'))
-                                <small id="nombreHelp" class="form-text text-danger">{{ $errors->first('name') }}</small>
+                                <small id="nombreHelp" class="form-text text-danger">{{ $errors->first('nombre') }}</small>
                               @endif
                             </div>
                             <div class="form-label-group">
@@ -77,27 +77,22 @@
                               <label for="apellido">Apellido</label>
                               
                               @if ($errors->has('apellido'))
-                                <small id="apellidoHelp" class="form-text text-danger">{{ $errors->first('lastname') }}</small>
+                                <small id="apellidoHelp" class="form-text text-danger">{{ $errors->first('apellido') }}</small>
                               @endif
 
                             </div>
                             <div class="form-label-group">
                               <input name="email" id="email" type="text" aria-describedby="emailHelp" placeholder="Correo electrónico" value="{{ old('email') }}" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}">
                               <label for="email">Correo electrónico</label>
-                              @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
+                              @if ($errors->has('email'))                                    
                                         <small id="emailHelp" class="form-text text-danger">{{ $errors->first('email') }}</small>
-s
-                                    </span>
                                 @endif
                             </div>
                             <div class="form-label-group">
                               <input name="password" id="password" type="password" aria-describedby="passwordHelp" placeholder="Contraseña" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}">
                               <label for="password">Contraseña</label>
                               @if($errors->has('password'))
-                                <span class="invalid-feedback" role="alert">
                                     <small id="passwordHelp" class="form-text text-danger">{{ $errors->first('password') }}</small>
-                                </span>
                               @endif
                             </div>
 
@@ -105,9 +100,7 @@ s
                               <input name="imgperfil" id="imgperfil" type="file" aria-describedby="imgperfilHelp" placeholder="Imagen de perfil" class="form-control{{ $errors->has('imgperfil') ? ' is-invalid' : '' }}">
                               <label for="password">Imagen de perfil</label>
                               @if($errors->has('imgperfil'))
-                                <span class="invalid-feedback" role="alert">
                                     <small id="imgperfilHelp" class="form-text text-danger">{{ $errors->first('imgperfil') }}</small>
-                                </span>
                               @endif
                             </div>
                             <div class="container">
@@ -125,5 +118,114 @@ s
                 </div>
               </div>
             </div>
+            @yield('article')
+            <article class="mt-4 objetive">
+              <div class="card">
+                <div class="card-body">
+                  <div class="container">
+                    <div class="row">
+                      <!--<div class="features-sr">
+                       <h5 class="mb-3"><span class="sr-textdecoration">Single Riders</span> te facilita</h5>
+                       <ul class="mb-0 pl-2">
+                         <li><i class="fa fa-search"></i> Buscar y contactar a otros viajeros:
+                            <ul>
+                              <li>Para unirte a un viaje</li>
+                              <li>Durante un viaje</li>
+                            </ul>
+
+                         </li>
+                         <li><i class="fa fa-map-marker-alt"></i>Explorar viajes de otras personas para ver consejos y opiniones</li>
+                         <li><i class="fa fa-share-alt"></i> Compartir tus experiencias para ayudar a otros viajeros</li>
+                       </ul>
+                     </div>-->
+                      <div class="col-12 col-sm-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsebuscar').collapse('toggle')">
+                        <div>
+                          Buscá
+                          <i class="fa fa-search"></i>
+                        </div>
+                        <i class="fa fa-angle-down"></i>
+                      </div>
+                      <div class="col-12 col-sm-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsecrear').collapse('toggle')">
+                        <div>
+                          Creá
+                          <i class="fa fa-plus"></i>
+                        </div>
+                        <i class="fa fa-angle-down"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-12 obj-viajes text-uppercase text-center p-1 font-weight-bold">
+                        viajes
+                        <i class="fa fa-suitcase"></i>
+                        <div class="collapse card-viajes" id="collapsebuscar">
+                          <div class="card card-body border-0">
+                            Buscá: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                          </div>
+                        </div>
+                        <div class="collapse card-viajes" id="collapsecrear">
+                          <div class="card card-body border-0">
+                            Creá: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                          </div>
+                        </div>
+                        <div class="collapse card-viajes" id="collapseunirse">
+                          <div class="card card-body border-0">
+                            Unite: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                          </div>
+                        </div>
+                        <div class="collapse card-viajes" id="collapsecompartir">
+                          <div class="card card-body border-0">
+                            Compartí: Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-12 col-sm-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapseunirse').collapse('toggle')">
+                        <i class="fa fa-angle-up"></i>
+                        <div>
+                          Unite
+                          <i class="far fa-hand-pointer"></i>
+                        </div>
+                      </div>
+                      <div class="col-12 col-sm-6 text-center features-sr overbuttons" onclick="$('.card-viajes').collapse('hide');$('#collapsecompartir').collapse('toggle')">
+                        <i class="fa fa-angle-up"></i>
+                        <div>
+                          Compartí
+                          <i class="fa fa-share-alt"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+      </section>
+      @yield('modal')
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Bienvenido!</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Ya formás parte de la comunidad Single Riders, a continuación accederás a la página principal desde la que podrás compartir, publicar, buscar viajes.
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </body>
 </html>

@@ -49,10 +49,23 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'nombre' => 'required|string|max:255',
-            'apellido' => 'required|string|max:255',
+            'nombre' => 'required|string|max:100',
+            'apellido' => 'required|string|max:100',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6',
+        ], [
+            'nombre.required' => 'El campo nombre es obligatorio!',
+            'nombre.string' => 'El campo nombre debe ser una cadena de texto',
+            'nombre.max' => 'El campo nombre no puede contener mas de 100 caracteres',
+            'apellido.required' => 'El campo apellido es obligatorio!',
+            'apellido.string' => 'El campo apellido debe ser una cadena de texto',
+            'apellido.max' => 'El campo nombre no puede contener mas de 100 caracteres',
+            'email.required' => 'El campo email es obligatorio!',
+            'email.string' => 'El campo email debe ser una cadena de texto',
+            'email.email' => 'El mail debe contener un formato valido',
+            'password.required' => 'El campo password es obligatorio!',
+            'password.string' => 'El campo password debe ser una cadena de texto',
+            'password.min' => 'La contraseña debe tener un minimo de 6 caracteres',
         ]);
     }
 
