@@ -10,6 +10,7 @@
       <link href="https://fonts.googleapis.com/css?family=Abel|Montserrat:400,400i,700,700i|Pacifico" rel="stylesheet">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
+      <script src="{{ asset('js/autoComplete.js') }}"></script>
       <script type="text/javascript" src="{{asset ('js/jquery-3.3.1.min.js')}}"></script>
       <script type="text/javascript" src="{{('js/jquery.cycle2.min.js')}}"></script>
       <script src="js/crea.js"></script> 
@@ -83,7 +84,7 @@
             </article>
               <article id="tab2">
                 <label for="country">¿Adonde queres ir?</label>
-                <select class="form-control" tabindex="7" name="country" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" value="{{old('country')}}">
+                <select class="form-control" tabindex="7" name="country" id="country" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" value="{{old('country')}}">
                 @if ($errors->has('country'))
                   <span class="invalid-feedback" role="alert">
                     <strong>{{ $errors->first('country') }}</strong>
