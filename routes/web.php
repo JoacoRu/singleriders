@@ -31,3 +31,7 @@ Route::post('/mensajes', 'MessageController@storeMensaje');
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/sharedTravel', function () {
+    return view('sharedTravel');
+});
