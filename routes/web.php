@@ -14,8 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/travel','travelController@index');
-Route::post('/travel', 'travelController@storeTravel');
+Route::get('/travel','travelController@create');
+Route::post('/travel', 'travelController@store');
 
 //Rutas paginas Estaticas//
 Route::get('/faqs', function(){
