@@ -5,9 +5,13 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
       <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+
       <link href="https://fonts.googleapis.com/css?family=Abel|Montserrat:400,400i,700,700i|Pacifico" rel="stylesheet">
+
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
 
       <script src="{{ asset('js/autoComplete.js') }}"></script>
@@ -16,8 +20,6 @@
       <script src="js/crea.js"></script> 
       <link rel ="stylesheet" href="{{asset ('css/styles.css')}}">
       <link rel="stylesheet" href="{{asset ('css/crea.css')}}">
-
-
     <title></title>
   </head>
   <body>
@@ -82,7 +84,7 @@
               </div>
               <input type="submit" tabindex="10" class="btn btn-primary" value="Siguiente">
             </article>
-
+            
               <article id="tab2">
                 <label for="country">¿Adonde queres ir?</label>
                 <select class="form-control" tabindex="7" name="country" class="form-control{{ $errors->has('country') ? ' is-invalid' : '' }}" value="{{old('country')}}">

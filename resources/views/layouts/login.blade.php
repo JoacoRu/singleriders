@@ -49,7 +49,7 @@
                                 @endif
                             </div>
                             <div class="form-label-group">
-                              <input name="password" id="userpassword" aria-describedby="userpasswordHelp" type="password" placeholder="Contraseña" class="form-control">
+                              <input name="password" id="userpassword" aria-describedby="userpasswordHelp" type="password" placeholder="Contraseña" class="form-control {{ $errors->has('email') ? ' is-invalid' : '' }}">
 
                               <label for="userpassword">Contraseña</label>
 

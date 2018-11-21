@@ -54,15 +54,14 @@ window.onload = function(){
             article_dos.style.display  = 'none';
             article_tres.style.display = 'inherit';
             cambiarSubrayado(1);
+            amount.focus();
         });
 
     }
 
 
-    function autoComplete(){
-       
-    }
     
     tabUnoADos();
     tabDosATres();
+    deploy('content');
 }
