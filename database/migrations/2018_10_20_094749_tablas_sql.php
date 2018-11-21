@@ -57,6 +57,7 @@ class TablasSql extends Migration
             $table->string('city', 100);
             $table->string('city_code_country', 100);
         });
+
     }
     
     /**
@@ -72,6 +73,7 @@ class TablasSql extends Migration
         Schema::dropIfExists('travels');
         Schema::dropIfExists('countries');
         Schema::dropIfExists('cities');
+
     }
     
 }

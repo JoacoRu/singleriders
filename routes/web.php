@@ -35,3 +35,5 @@ Auth::routes();
 Route::get('/sharedTravel', function () {
     return view('sharedTravel');
 });
+
+

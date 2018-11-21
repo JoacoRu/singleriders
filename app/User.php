@@ -36,5 +36,18 @@ class User extends Authenticatable
     public function travels(){
         return $this->belongsToMany('app/travel');
     }
+
+    function followers()
+    {
+        return $this->belongsToMany('App/User', 'followers', 'user_id', 'follower_id');
+    }
+
+    function follow(User $user) {
+        $this->followers()->attach($user->id);
+    }
+
+    function unfollow(User $user) {
+        $this->followers()->detach($user->id);
+    }
 }
 
