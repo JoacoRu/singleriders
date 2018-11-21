@@ -4,10 +4,10 @@
         <div class="row">
           <div class="col-md-4">
             <ul>
-              <li><a href="index.php" class="text-white">Home</a></li>
-              <li><a href="faqs.php" class="text-white">Faqs</a></li>
-              <li><a href="login.php" class="text-white">Login</a></li>
-              <li><a href="registro.php" class="text-white">Registro</a></li>
+              <li><a href="/index" class="text-white">Home</a></li>
+              <li><a href="/faqs" class="text-white">Faqs</a></li>
+              <li><a href="/login" class="text-white">Login</a></li>
+              <li><a href="/registro" class="text-white">Registro</a></li>
             </ul>
           </div>
           <div class="col-md-4">

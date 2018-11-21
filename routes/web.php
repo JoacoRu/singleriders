@@ -28,6 +28,11 @@ Route::get('/profile', 'HomeController@profile');
 Route::get('/mensajes', 'MessageController@obtenerMensaje');
 Route::post('/mensajes', 'MessageController@storeMensaje');
 
+Route::get('/edit_profile', 'EditProfileController@show');
+Route::post('/edit_profile', 'EditProfileController@validator');
+
+
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');
@@ -35,5 +40,3 @@ Auth::routes();
 Route::get('/sharedTravel', function () {
     return view('sharedTravel');
 });
-
-
