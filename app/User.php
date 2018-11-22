@@ -10,6 +10,7 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+
     /**
      * The attributes that are mass assignable.
      *
@@ -37,17 +38,6 @@ class User extends Authenticatable
         return $this->belongsToMany('app/travel');
     }
 
-    function followers()
-    {
-        return $this->belongsToMany('App/User', 'followers', 'user_id', 'follower_id');
-    }
-
-    function follow(User $user) {
-        $this->followers()->attach($user->id);
-    }
-
-    function unfollow(User $user) {
-        $this->followers()->detach($user->id);
-    }
 }
+
 

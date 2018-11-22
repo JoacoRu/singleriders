@@ -14,9 +14,9 @@ class CreateFollowTable extends Migration
     public function up()
     {
         Schema::create('follows', function(Blueprint $table){
-            $table->increments('id');
-            $table->integer('follower_id');
-            $table->increments('followed_id');
+            $table->increments('travel_id')->index();
+            $table->integer('followed_id'); /** seria el dueño del viaje */
+            $table->increments('follower_id'); /**seria quien sigue el viaje */
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateFollowTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('follow');
+        Schema::dropIfExists('follows');
     }
 }

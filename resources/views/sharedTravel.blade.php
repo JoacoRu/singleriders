@@ -38,7 +38,7 @@
     </div>
   </div>
   <button type="submit" class="btn btn-primary">Follow  </button>
- 
+
 </body>
 
 </html>

@@ -12,5 +12,9 @@ class Travel extends Model
     public function travels (){
         return $this->belongsToMany(User::class);
     }
+        /** Usuarios que siguen a este usuario (esto para traer los que siguen a mi viaje) followers= quienes me siguen a mi */
+    public function followers(){
+        return $this->belongsToMany(User::class, 'follows', 'travel_id', 'followed_id', 'follower_id');
+    }
 }
 

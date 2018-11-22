@@ -14,6 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('allTravel', function () {
+    return view('allTravel');
+});
+Route::get('/allTravel', 'allTravelController@getAllTravels');
 Route::get('/travel','travelController@create');
 Route::post('/travel', 'travelController@store');
 

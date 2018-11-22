@@ -62,4 +62,7 @@ class TravelController extends Controller
         ];
 
         }
+    public function allFollowers(){
+        
+    }
 }
