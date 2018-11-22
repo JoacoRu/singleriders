@@ -14,7 +14,7 @@
         <li class="d-flex align-items-center mb-2"><img class="mr-1" src="./images/iconos/home/ver_mis_viajes.png" alt=""><a class="mt-1" href="{{'myTravel'}}">Ver mis Viajes</a></li>
         <li class="d-flex align-items-center mb-2"><img class="mr-1" src="./images/iconos/home/ver_mis_viajes.png" alt=""><a href="{{'allTravel'}}">Todos los Viajes</a></li>
         <li class="d-flex align-items-center mb-2"><img class="mr-1" style="width:24px;height:24px;" src="./images/iconos/home/sobre.png" alt=""><a href="{{'messages'}}">Ver mis Mensajes</a></li>
-        <li class="d-flex align-items-center mb-2"><img class="mr-1" style="width:24px;height:24px;" src="./images/iconos/home/ver_mis_viajes.png" alt=""><a href="#">Viajes Compartidos</a></li>
+        <li class="d-flex align-items-center mb-2"><img class="mr-1" style="width:24px;height:24px;" src="./images/iconos/home/ver_mis_viajes.png" alt=""><a href="{{'sharedTravel'}}">Viajes Compartidos</a></li>
       </ul>
     </div>
   </div>

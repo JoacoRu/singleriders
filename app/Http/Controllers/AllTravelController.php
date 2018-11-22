@@ -22,10 +22,10 @@ class AllTravelController extends Controller
         return view('allTravel',['alltravels'=>$alltravels]);
     }
 
-    public function travelOwner(){
-        $travelOwner=Travell::where('travel_creator', Auth::id)
+    public function publisher(){
+        $publisher=Travel::where('travel_creator')
                 ->get();
-        return view ('allTravel', ['travelOwner'=>$travelOwner]);
+        return view ('allTravel', ['publisher'=>$publisher]);
     }
 
 }
