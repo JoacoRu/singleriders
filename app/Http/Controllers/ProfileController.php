@@ -16,7 +16,7 @@ class ProfileController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {   
         $request->validate([
             'posteo' => 'required',
         ]);
@@ -25,14 +25,18 @@ class ProfileController extends Controller
             'post' => $request->posteo,
             'created_at' => Carbon::now()
         ]);
+
+        /* return response()->json($request); */
     }
 
     public function post()
     {
+
         return[
             'posteo.required' => 'La publicacion no puede estar vacia',
             'posteo.string'   => 'La publicacion tiene que ser una cadena de texto',
         ];
+
     }
 
     public function getAllPost()
