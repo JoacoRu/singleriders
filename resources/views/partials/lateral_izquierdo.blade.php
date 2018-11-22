@@ -10,10 +10,11 @@
       <ul class="d-block list-unstyled mt-4 text-center p-3 border navegacion-perfil">
         <!--<li><a href="perfil.php">Ver mi Perfil</a></li>-->
         <li class="d-flex align-items-center mb-2"><span class="fa fa-home"></span> <a class="mt-1" href="home">Home</a></li>
-        <li class="d-flex align-items-center mb-2"><img class="mr-1" src="./images/iconos/home/crear_viaje.png" alt=""><a href="#">Crear Viaje</a></li>
-        <li class="d-flex align-items-center mb-2"><img class="mr-1" src="./images/iconos/home/ver_mis_viajes.png" alt=""><a class="mt-1" href="mis_viajes.php">Ver mis Viajes</a></li>
-        <li class="d-flex align-items-center mb-2"><img class="mr-1" src="./images/iconos/home/ver_mis_viajes.png" alt=""><a href="#">Todos los Viajes</a></li>
-        <li class="d-flex align-items-center mb-2"><img class="mr-1" style="width:24px;height:24px;" src="./images/iconos/home/sobre.png" alt=""><a href="#">Ver mis Mensajes</a></li>
+        <li class="d-flex align-items-center mb-2"><img class="mr-1" src="./images/iconos/home/crear_viaje.png" alt=""><a href="{{'travel'}}">Crear Viaje</a></li>
+        <li class="d-flex align-items-center mb-2"><img class="mr-1" src="./images/iconos/home/ver_mis_viajes.png" alt=""><a class="mt-1" href="{{'myTravel'}}">Ver mis Viajes</a></li>
+        <li class="d-flex align-items-center mb-2"><img class="mr-1" src="./images/iconos/home/ver_mis_viajes.png" alt=""><a href="{{'allTravel'}}">Todos los Viajes</a></li>
+        <li class="d-flex align-items-center mb-2"><img class="mr-1" style="width:24px;height:24px;" src="./images/iconos/home/sobre.png" alt=""><a href="{{'messages'}}">Ver mis Mensajes</a></li>
+        <li class="d-flex align-items-center mb-2"><img class="mr-1" style="width:24px;height:24px;" src="./images/iconos/home/ver_mis_viajes.png" alt=""><a href="#">Viajes Compartidos</a></li>
       </ul>
     </div>
   </div>
