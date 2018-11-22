@@ -27,7 +27,6 @@ Route::get('/faqs', function(){
 });
 Route::get('/home', 'staticController@index'); //este si necesita controller, porque tiene logica de todos lados! //
 
-Route::get('/profile', 'HomeController@profile');
 
 Route::get('/mensajes', 'MessageController@obtenerMensaje');
 Route::post('/mensajes', 'MessageController@storeMensaje');
@@ -35,8 +34,9 @@ Route::post('/mensajes', 'MessageController@storeMensaje');
 Route::get('/edit_profile', 'EditProfileController@show');
 Route::post('/edit_profile', 'EditProfileController@validator');
 
-
-
+Route::get('/profile', 'ProfileController@showView');
+Route::post('/profile', 'ProfileController@store');
+Route::get('/profile', 'ProfileController@getAllPost');
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

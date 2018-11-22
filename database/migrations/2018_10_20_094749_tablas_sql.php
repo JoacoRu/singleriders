@@ -32,7 +32,7 @@ class TablasSql extends Migration
             $table->increments('post_id')->index();
             $table->smallInteger('user_id');
             $table->text('post');
-            $table->dateTimeTz('post_created');
+            $table->timestamps();
         });
 
         Schema::create('travels', function (Blueprint $table){
