@@ -22,43 +22,24 @@
           </div>
           @include('partials.lateral_izquierdo')
           <div class="col-12 p-0 col-md-8">
-            <!--<div class="w-100 d-flex mt-4 pl-3 pr-3">
-              <div class="d-flex justify-content-center align-items-center border rounded-circle stepper-muro">
-                1
-              </div>
-              <div class="d-flex linea-steps" style="width:auto;height:1px;background:#cccccc">
-              </div>
-              <div class="d-flex justify-content-center align-items-center border rounded-circle stepper-muro">
-                2
-              </div>
-              <div class="d-flex linea-steps" style="width:auto;height:1px;background:#cccccc">
-              </div>
-              <div class="d-flex justify-content-center align-items-center border rounded-circle stepper-muro">
-                3
-              </div>
-            </div>-->
             <div class="card-columns">
               <?php $contadormodal=0; ?>
               @foreach ($alltravels as $key => $value)
-                  <?php
-                  $contadormodal++;
-                  $publisher = Auth::id();
-                  ?>
                   <div class="card p-3 mt-3 text-center text-lg-left">
                     <div class="fondo-card"></div>
                                       
-                      <img class="card-img-top" src="./images/flags/<?= $value['country'] ?>.png" alt="Card image cap">
+                      <img class="card-img-top" src="./images/flags/{{$value['country']}}.png" alt="Card image cap">
 
                     <div class="card-body">
                       <h5 class="card-title text-center">
-                          <strong><?= $value['textmensaje'] ?></strong>
+                          <strong>{{$value['msgInti']}}</strong>
                       </h5>
                         <p class="card-text">
-                          <strong>Salida: </strong><span class="ml-1"><?= $value['dateIn'] ?></span>
+                          <strong>Salida: </strong><span class="ml-1">{{$value['dateIn']}}</span>
                           <br>
                           <strong>Publicado por:</strong>
                           <span class="ml-1">
-                            <?= $publisher['nombre'] ?>
+                          {{$publisher = Auth::user()->name}} 
                           </span>
                         </p>
                         <!-- Button trigger modal -->
@@ -81,26 +62,26 @@
                         </div>
                         <div class="modal-body">
                           <p class="card-text">
-                            <strong>Nombre del viaje: </strong><span class="ml-1">{{$value['msgInti']}}></span>
+                            <strong>Nombre del viaje: </strong><span class="ml-1">{{$value['msgInti']}}</span>
                             <br>
                             <strong>País: </strong><span class="ml-1">{{$value['country']}}</span>
                             <br>
                             <strong>Salida: </strong><span class="ml-1">{{$value['dateIn']}}</span>
                             <br>
-                            <strong>Regreso: </strong><span class="ml-1">{{$value['dateOut']}}></span>
+                            <strong>Regreso: </strong><span class="ml-1">{{$value['dateOut']}}</span>
                             <br>
-                            <strong>Presupuesto: </strong><span class="ml-1">{{$value['amount']}}></span>
+                            <strong>Presupuesto: </strong><span class="ml-1">{{$value['amount']}}</span>
                             <br>
-                            <strong>Moneda: </strong><span class="ml-1">{{$value['coin']}}></span>
+                            <strong>Moneda: </strong><span class="ml-1">{{$value['coin']}}</span>
                             <br>
                             <strong>Publicado por:</strong>
                             <span class="ml-1">
-                              <?= $publisher['nombre'] ?>
+                           {{$publisher = Auth::user()->name}} 
                             </span>
                             <br>
                             <strong>Email:</strong>
                             <span class="ml-1">
-                              <?= $publisher['email'] ?>
+                            {{$publisher = Auth::user()->email }}
                             </span>
                             <br>
                             <form method="post" class="mt-4">
@@ -110,7 +91,7 @@
                               <input type="hidden" name="to_id" value=<?= intval($value['creadorDeViaje']) ?>>
                               <div class="container" id="enviar">
                                 <div class="row flex-column flex-md-row justify-content-md-between align-items-md-center">
-                                  <button type="submit" class="btn btn-primary iniciar mb-3 mb-md-0">Enviar mensaje</button>
+                                  <button type="submit" class="btn btn-primary iniciar mb-3 mb-md-0">Seguir este Viaje</button>
                                 </div>
                                 <div class="row mt-3">
                                 </div>
