@@ -60,7 +60,7 @@ class ProfileController extends Controller
 
     public function insertLike(Request $request)
     {
-        $exist = existLike($request->user_id, $request->post_id);
+        $exist = $this->existLike($request->user_id, $request->post_id);
         $respuesta;
         if($exist != 0){
             $respuesta = 'Ya hay un like';

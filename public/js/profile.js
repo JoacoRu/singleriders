@@ -1,15 +1,18 @@
 window.onload = function(){
 
-    let token              = document.querySelector ('meta [name = "csrftoken"]');
+    let token              = document.querySelector('meta[name="csrf-token"]').content;
     var form               = document.querySelector('form');
     var post               = document.querySelector('textarea[name="posteo"]').value;
     var url                = 'http://127.0.0.1:8000/profile';
-    var redirect           = 'http://127.0.0.1:8000/home';
+    var redirect           = 'http://127.0.0.1:8000/profile';
     var postView           = document.querySelector('#publicaciones');
-    var datosDelFormulario = new FormData();
-        datosDelFormulario.append('datos', JSON.stringify(form));
-
-   function sendData(){ 
+    var urlLike            = 'http://127.0.0.1:8000/profileLike';
+    var input = document.querySelector('input[name="user_id"]');
+    console.log(input);
+    /* var datosDelFormulario = new FormData();
+        datosDelFormulario.append('datos', JSON.stringify(form)); */
+    console.log(form)
+        function sendData(){ 
     fetch(url, {
         headers: {
           "Content-Type": "application/json",
@@ -63,11 +66,11 @@ window.onload = function(){
                                     <div class='post_interaccion'>
                                 
                                         <div class='form_interaccion'>
-                                            <form method='post'>
-                                                <input type="hidden" name="_token" id="csrf-token" value="{{ @csrf }}" />
+                                            <form method='post' action='/profileLike' name="interaccion">
+                                            
                                                 <label for='me_gusta'>Me gusta</label>
-                                                <input type='text' value='${data[indice].user_id}' name='user_id' hidden> 
-                                                <input type='text' value='${data[indice].post_id}' name='post_id' hidden>
+                                                <input type='hidden' value='${data[indice].user_id}' name='user_id'> 
+                                                <input type='hidden' value='${data[indice].post_id}' name='post_id'>
                                                 <button type='submit' id='me_gusta' hidden> 
                                             </form>
                                         </div>
@@ -78,6 +81,7 @@ window.onload = function(){
                                 </div>
                             </div>`;
                 postView.innerHTML += post;
+                
             };
         })
 
@@ -86,7 +90,33 @@ window.onload = function(){
         })
     }
 
-    showPost()
 
+    function sendLikes(){
+
+        fetch(urlLike, {
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json, text-plain, */*",
+              "X-Requested-With": "XMLHttpRequest",
+              'X-CSRF-TOKEN': token
+             },
+            method: 'post',
+            credentials: "same-origin",
+            body: JSON.stringify({
+              post: asd,
+            })
+    
+           })
+            .then((data) => {
+                
+                window.location.href = redirect;
+            })
+    
+           .catch(function(error) {
+               console.log(error);
+             }); 
+    }
+
+    showPost()
    
 }

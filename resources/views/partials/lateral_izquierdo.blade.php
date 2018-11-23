@@ -4,7 +4,7 @@
       <ul class="d-block list-unstyled w-100 py-4 border rounded shadow-perfil">
         <li class="text-center" style="font-weight: bold">{{Auth::user()->name. ' '. Auth::user()->lastname}}</li>
         <li class="text-center"><img style="max-width: 150px;" class="border rounded-circle" src="." alt="" id="foto-perfil"></li>
-        <li class="text-center mt-3"><a class="btn btn-outline-secondary" href="#"><img src="images/iconos/home/editar.png" alt=""> <span class="mb-1">Editar perfil</span></a></li>
+        <li class="text-center mt-3"><a class="btn btn-outline-secondary" href="{{ 'edit_profile' }}"><img src="images/iconos/home/editar.png" alt=""> <span class="mb-1">Editar perfil</span></a></li>
       </ul>
     </div>
     <div class="row justify-content-center">

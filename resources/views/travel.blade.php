@@ -45,7 +45,7 @@
             <div class="secciones">
             <article id="tab1">
               <form method="post" name="travelForm" enctype="multipart/form-data">
-
+                @csrf
                <input type="text" tabindex="1" id="msgInti" tabindex="0" class="form-control" name="msgInti" class="form-control{{ $errors->has('msgInti') ? ' is-invalid' : '' }}" value="{{old('msgInti')}}" placeholder="Ponele un Titulo a tu viaje..."></textarea>
                 @if ($errors->has('msgInti'))
                     <span class="invalid-feedback" role="alert">
