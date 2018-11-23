@@ -43,32 +43,10 @@
         </form>
       </div>
     </article>
+    <section style="display: hidden" id="publicaciones">
+      <!-- POSTEO HTML -->
 
-    <!-- POSTEO HTML -->
-          
-               <!-- @foreach ($posts as $index => $post)
-                  <div class="col-12 p-10 pt-4 col-md-8">
-                    <article class="articulo_post">
-                      <div class="posteos_card">
-                        <div class="datos_post">
-                          <img style="max-width: 30px;" class="border rounded-circle" src="imagen" alt="" id="foto-perfil">
-                          <p> {{ Auth::user()->name. ' '. Auth::user()->lastname}}</p>
-                        </div>
-                        <div class="contenido_post">
-                          <p>{{ $post['post'] }}</p>
-                          <input type="text" value="{{$post['post_id']}}" hidden>
-                        </div>
-                        <div class="post_interaccion">
-                          <label for="me_gusta">Me gusta</label>
-                          <img src="images/iconos/interaccion_posteo/me-gusta_no_seleccionado.png" alt="" name="me_gusta">
-                          <label for="comentar">Comentar</label>
-                          <img src="images/iconos/interaccion_posteo/comentario.png" alt="" name="comentar">
-                        </div>
-                      </div>
-                    </article>
-                  </div>
-              @endforeach -->
-
+    </section>          
           </div>
         </div>
     </div>
