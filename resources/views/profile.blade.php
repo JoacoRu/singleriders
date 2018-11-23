@@ -46,7 +46,7 @@
 
     <!-- POSTEO HTML -->
           
-                @foreach ($posts as $index => $post)
+               <!-- @foreach ($posts as $index => $post)
                   <div class="col-12 p-10 pt-4 col-md-8">
                     <article class="articulo_post">
                       <div class="posteos_card">
@@ -67,7 +67,7 @@
                       </div>
                     </article>
                   </div>
-              @endforeach
+              @endforeach -->
 
           </div>
         </div>
