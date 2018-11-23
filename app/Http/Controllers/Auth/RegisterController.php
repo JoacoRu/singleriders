@@ -53,6 +53,7 @@ class RegisterController extends Controller
             'apellido' => 'required|string|max:100',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6',
+            'imgperfil' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ], [
             'nombre.required' => 'El campo nombre es obligatorio!',
             'nombre.string' => 'El campo nombre debe ser una cadena de texto',
@@ -66,6 +67,7 @@ class RegisterController extends Controller
             'password.required' => 'El campo password es obligatorio!',
             'password.string' => 'El campo password debe ser una cadena de texto',
             'password.min' => 'La contraseña debe tener un minimo de 6 caracteres',
+            'imgperfil.required' => 'La imagen es requerida',
         ]);
     }
 
@@ -78,11 +80,25 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
+      if ($data['imgperfil']) {
+            //dd($data);
+            $imageName = 'Avatar'.$data['email'].$data['imgperfil']->getClientOriginalExtension();
+
+            $data['imgperfil']->move(public_path('images'), $imageName);
+            // guardar archivo
+            //Image::make($avatar)->resize(300, 300)->save($save_path.$filename);
+            // guardar en db
+            //$usuario->src = $imageName;
+
+      }
+
         return User::create([
             'name' => $data['nombre'],
             'lastname' => $data['apellido'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'src' => $imageName,
         ]);
+
     }
 }
