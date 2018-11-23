@@ -45,3 +45,6 @@ Auth::routes();
 Route::get('/sharedTravel', function () {
     return view('sharedTravel');
 });
+
+Route::get('/search', 'SearchController@viewSearch');
+Route::get('/search{algo}', 'SearchController@search');
