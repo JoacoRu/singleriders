@@ -136,6 +136,10 @@
     color: black;
 }
 
+#publicaciones{
+    flex-direction: column-reverse;
+}
+
 @media (min-width: 400px){
     .publicacion{
         width: 70%;

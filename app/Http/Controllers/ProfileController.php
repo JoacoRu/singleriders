@@ -41,8 +41,13 @@ class ProfileController extends Controller
 
     public function getAllPost()
     {
-        $post = Post::where('user_id', Auth::id())->get();
-        return view('profile', ['posts' => $post]);
+        $post = Post::where('user_id', Auth::id())
+                ->join( 'users', 'id', '=', 'user_id')
+                ->orderBy('post_id','DESC')
+                ->get();
+        // return view('profile', ['posts' => $post]);
+        return response()->json($post);
         
     }
+
 }
