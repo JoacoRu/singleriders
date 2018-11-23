@@ -13,10 +13,11 @@ class SearchController extends Controller
     }
 
 
-    public function search($algo)
+    public function search(Request $request)
     {
-        $search = User::where('name', 'LIKE', $algo)
-        ->orWhere('lastname', 'LIKE', $algo)
+        dd($request->search);
+        $search = User::where('name', 'LIKE', $request->search)
+        ->orWhere('lastname', 'LIKE', $request->search)
         ->get();
         return view('search', ['search' => $user]);
     }

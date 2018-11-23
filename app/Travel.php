@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Travel extends Model
 {
-    protected $table = 'Travels';
+    protected $table = 'travels';
     protected $fillable = ['msgInti', 'dateIn', 'dateOut', 'country', 'amount','coin','activities','city','flexibility']; 
 
     /**Aca estoy marcando trayendo al dueño del viaje? */

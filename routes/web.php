@@ -28,7 +28,7 @@ Route::get('/myTravel', 'allTravelController@getAllTravels');
 Route::get('/faqs', function(){
     return view('statics/faqs'); //lo hice asi porque no tiene logica y no necesita un controller)//
 });
-Route::get('/home', 'staticController@index'); //este si necesita controller, porque tiene logica de todos lados! //
+Route::get('/home', 'StaticController@index'); //este si necesita controller, porque tiene logica de todos lados! //
 
 
 Route::get('/mensajes', 'MessageController@obtenerMensaje');
@@ -50,4 +50,4 @@ Route::get('/sharedTravel', function () {
 });
 
 Route::get('/search', 'SearchController@viewSearch');
-Route::get('/search{algo}', 'SearchController@search');
+Route::get('/searchH', 'SearchController@search');

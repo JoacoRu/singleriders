@@ -25,7 +25,8 @@
 
           <div class="col-12 p-10 pt-4 col-md-8">
               <div class="buscador">
-                <form method="get">
+                <form method="get" action="/searchH">
+                    @csrf
                     <input type="search" name="search" >
                     <button type="submit">Enviar</button>
                 </form>
@@ -33,9 +34,6 @@
               <article class="resultadosBusqueda">
                   
 
-                    @foreach($search as $key => $user)
-                        <div>$user</div>
-                    @endforeach
 
                   
               </article>

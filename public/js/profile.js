@@ -42,16 +42,17 @@ window.onload = function(){
     }
 
     function showPost(){
-        fetch("http://127.0.0.1:8000/profileAjaxGet")
+        fetch("http://localhost:8000/profileAjaxGet")
 
         .then(function (response) {
+          console.log(response);
             return response.json();
             
-        })
-
-        .then(function (data) {
+          })
+          
+          .then(function (data) {
+            console.log(data);
             for(let indice in data){
-                console.log(data);
                 let post = 
                            `<div class='col-12 p-10 pt-4 col-md-8'><div class='articulo_post'>
                                 <div class='posteos_card'>
@@ -81,7 +82,6 @@ window.onload = function(){
                                 </div>
                             </div>`;
                 postView.innerHTML += post;
-                
             };
         })
 
