@@ -17,8 +17,8 @@
       <div class="col-12 col-sm-8 bg-white rounded text-center">
         <article class="perfil">
           <div class="imagen_perfil pt-5 mb-2">
-            @if(Auth::user()->imgperfil)
-              <img class="rounded-circle" src=".<?=Auth::user()->imgperfil?>" alt="" width="100px">
+            @if(Auth::user()->src)
+              <img class="rounded-circle" src="images/<?=Auth::user()->src?>" alt="" width="100px">
             @else
               <img class="rounded-circle" src="images/perfil.jpg" alt="" width="100px">
             @endif
@@ -67,7 +67,7 @@
                 @endif
               </div>
               <div class="form-label-group">
-                <input type="text" name="apellido" id="apellido" aria-describedby="apellidoHelp" placeholder="Apellido" value="<?=old('apellido') ? old('apellido') : Auth::user()->surname?>" class="form-control <?= $errors->has('apellido') ? strlen($errors->has('apellido')) > 0 ? 'errores-form-sr':'' : '' ?>">
+                <input type="text" name="apellido" id="apellido" aria-describedby="apellidoHelp" placeholder="Apellido" value="<?=old('apellido') ? old('apellido') : Auth::user()->lastname?>" class="form-control <?= $errors->has('apellido') ? strlen($errors->has('apellido')) > 0 ? 'errores-form-sr':'' : '' ?>">
                 <label for="apellido">Apellido</label>
                 @if ($errors->has('apellido'))
                   <small id="apellidoHelp" class="form-text text-danger">{{ $errors->first('apellido') }}</small>

@@ -32,6 +32,7 @@ class EditProfileController extends Controller
 
       $usuario = User::find(Auth::id());
       $usuario->name = $data['nombre'];
+      $usuario->lastname = $data['apellido'];
       // agregar surname a la tabla $usuario->surname = $data['apellido'];
       if ($data['email'] != Auth::user()->email) {
         $data->validate([
@@ -54,6 +55,22 @@ class EditProfileController extends Controller
         $usuario->password = Hash::make($data['password']);
       }
       //agregar imagen de perfil
+      if ($data->hasFile('imgperfil')) {
+
+
+        $data->validate([
+
+            'imgperfil' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        ]);
+
+            $imageName = 'Avatar'.Auth::id().'.'.$data->imgperfil->getClientOriginalExtension();
+
+            $data->imgperfil->move(public_path('images'), $imageName);
+            $usuario->src = $imageName;
+
+
+      }
       $usuario->save();
 
       //return view('edit_profile');
