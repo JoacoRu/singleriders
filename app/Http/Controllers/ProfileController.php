@@ -26,7 +26,7 @@ class ProfileController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        /* return response()->json($request); */
+        return redirect('/profile');
     }
 
     public function post()
