@@ -39,7 +39,7 @@
                           <br>
                           <strong>Publicado por:</strong>
                           <span class="ml-1">
-                          {{$publisher = Auth::user()->name}} 
+                          {{$publisher = Auth::user()->name}}
                           </span>
                         </p>
                         <!-- Button trigger modal -->
@@ -76,12 +76,12 @@
                             <br>
                             <strong>Publicado por:</strong>
                             <span class="ml-1">
-                           {{$publisher = Auth::user()->name}} 
+                            {{$publisher = Auth::user()->name}}
                             </span>
                             <br>
                             <strong>Email:</strong>
                             <span class="ml-1">
-                            {{$publisher = Auth::user()->email }}
+                            {{$publisher = Auth::user()->email}}
                             </span>
                             <br>
                             <form method="post" class="mt-4">

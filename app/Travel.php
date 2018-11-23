@@ -9,12 +9,11 @@ class Travel extends Model
     protected $table = 'Travels';
     protected $fillable = ['msgInti', 'dateIn', 'dateOut', 'country', 'amount','coin','activities','city','flexibility']; 
 
-    public function travels (){
-        return $this->belongsToMany(User::class);
+    /**Aca estoy marcando trayendo al dueño del viaje? */
+    public function myOwnTravels(){
+        return $this->belongsTo('App\User','travel_creator','travel_id');
     }
-        /** Usuarios que siguen a este usuario (esto para traer los que siguen a mi viaje) followers= quienes me siguen a mi */
-    public function followers(){
-        return $this->belongsToMany(User::class, 'follows', 'travel_id', 'followed_id', 'follower_id');
-    }
+    
+
 }
 

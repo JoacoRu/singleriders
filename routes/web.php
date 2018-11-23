@@ -14,12 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('allTravel', function () {
-    return view('allTravel');
-});
-Route::get('/allTravel', 'allTravelController@getAllTravels');
+
+/** Rutas para  crear los viajes */
 Route::get('/travel','travelController@create');
 Route::post('/travel', 'travelController@store');
+/**Ruta para ver todos los viajes */
+Route::get('/allTravel', 'allTravelController@getAllTravels');
+/**Ruta para ver mis viajes */
+Route::get('/myTravel', 'allTravelController@getAllTravels');
+/* Route::get('/myTravel', 'MyTravelController@myTravel'); */
 
 //Rutas paginas Estaticas//
 Route::get('/faqs', function(){

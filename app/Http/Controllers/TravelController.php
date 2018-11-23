@@ -32,7 +32,7 @@ class TravelController extends Controller
  */  
     public function store (Request $request){
     
-        $travelValidator = $request->validate([
+       $this->validate($request,[
             'msgInti' => 'requiered',
             'dateIn' => 'requiered',
             'dateOut' => 'requiered',
@@ -43,6 +43,8 @@ class TravelController extends Controller
             'flexibility'=>'requiered',
     
             ]);
+            Travel::create($request->all());
+            return redirect('/travel');
         }
     /**
  * Get the error messages for the defined validation rules.
@@ -62,7 +64,5 @@ class TravelController extends Controller
         ];
 
         }
-    public function allFollowers(){
-        
-    }
+    
 }

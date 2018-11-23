@@ -1,17 +1,6 @@
 
-  $nombres = $usuario->traerNombreDeUsuarios();
-  $mensaje = new Message();
-  //msjAseleccionar();
-  $usuariologin = $autenticador->loginControl($usuario);
-
-  if($_POST){
-    $guardarMsj = $mensaje->crearMensaje($usuariologin['nombre'],$usuario,$usuariologin['id']);
-  }
-
-  $userViajes = $usuario->obtenerViajes($usuariologin['id']);
-<!doctype html>
+  <!doctype html>
 <html lang="en">
-
   <head>
     <title>Single Riders</title>
     <meta charset="utf-8">
@@ -29,44 +18,28 @@
       <div class="container-fluid pt-5">
         <div class="row p-0 m-0 bg-white rounded home-row-main justify-content-center">
           <div class="col-12 p-0 top-muro-image d-flex align-items-center justify-content-center">
-            <h1 class="font-weight-bold text-center">Mis viajes</h1>
+            <h1 class="font-weight-bold text-center">Todos los viajes</h1>
           </div>
           @include('partials.lateral_izquierdo')
           <div class="col-12 p-0 col-md-8">
-           
-            <div class="card-columns">
+          <div class="card-columns">
               <?php $contadormodal=0; ?>
-              <?php foreach ($userViajes['viajes'] as $key => $value) : ?>
-                  <?php
-                  $contadormodal++;
-                  $publisher = $usuario->obtenerId($value['creadorDeViaje']);
-                  ?>
+              @foreach ($alltravels as $key => $value)
                   <div class="card p-3 mt-3 text-center text-lg-left">
                     <div class="fondo-card"></div>
-                    <!--<?php if ($value['pais'] == 'india') :?>
-                      <img class="card-img-top" src="./images/flags/<?= $value['pais'] ?>.png" alt="Card image cap">
-
-                    <?php elseif ($value['pais'] == 'egipto') :?>
-                      <img class="card-img-top" src="./images/flags/<?= $value['pais'] ?>.png" alt="Card image cap">
-
-                    <?php elseif ($value['pais'] == 'nueva guinea') :?>
-                      <img class="card-img-top" src="./images/flags/nuevaguinea.png" alt="Card image cap">
-
-                    <?php else :?>
-                      <img class="card-img-top" src="./images/flags/india.png" alt="Card image cap">
-                    <?php endif; ?>-->
-                    <img class="card-img-top" src="./images/flags/<?= $value['pais'] ?>.png" alt="Card image cap">
+                                      
+                      <img class="card-img-top" src="./images/flags/{{$value['country']}}.png" alt="Card image cap">
 
                     <div class="card-body">
                       <h5 class="card-title text-center">
-                          <strong><?= $value['textmensaje'] ?></strong>
+                          <strong>{{$value['msgInti']}}</strong>
                       </h5>
                         <p class="card-text">
-                          <strong>Salida: </strong><span class="ml-1"><?= $value['datein'] ?></span>
+                          <strong>Salida: </strong><span class="ml-1">{{$value['dateIn']}}</span>
                           <br>
                           <strong>Publicado por:</strong>
                           <span class="ml-1">
-                            <?= $publisher['nombre'] ?>
+                          {{$publisher = Auth::user()->name}}
                           </span>
                         </p>
                         <!-- Button trigger modal -->
@@ -89,26 +62,26 @@
                         </div>
                         <div class="modal-body">
                           <p class="card-text">
-                            <strong>Nombre del viaje: </strong><span class="ml-1"><?= $value['textmensaje'] ?></span>
+                            <strong>Nombre del viaje: </strong><span class="ml-1">{{$value['msgInti']}}</span>
                             <br>
-                            <strong>País: </strong><span class="ml-1"><?= $value['pais'] ?></span>
+                            <strong>País: </strong><span class="ml-1">{{$value['country']}}</span>
                             <br>
-                            <strong>Salida: </strong><span class="ml-1"><?= $value['datein'] ?></span>
+                            <strong>Salida: </strong><span class="ml-1">{{$value['dateIn']}}</span>
                             <br>
-                            <strong>Regreso: </strong><span class="ml-1"><?= $value['dateout'] ?></span>
+                            <strong>Regreso: </strong><span class="ml-1">{{$value['dateOut']}}</span>
                             <br>
-                            <strong>Presupuesto: </strong><span class="ml-1"><?= $value['importe'] ?></span>
+                            <strong>Presupuesto: </strong><span class="ml-1">{{$value['amount']}}</span>
                             <br>
-                            <strong>Moneda: </strong><span class="ml-1"><?= $value['moneda'] ?></span>
+                            <strong>Moneda: </strong><span class="ml-1">{{$value['coin']}}</span>
                             <br>
                             <strong>Publicado por:</strong>
                             <span class="ml-1">
-                              <?= $publisher['nombre'] ?>
+                            {{$publisher = Auth::user()->name}}
                             </span>
                             <br>
                             <strong>Email:</strong>
                             <span class="ml-1">
-                              <?= $publisher['email'] ?>
+                            {{$publisher = Auth::user()->email}}
                             </span>
                             <br>
                             <form method="post" class="mt-4">
@@ -118,7 +91,7 @@
                               <input type="hidden" name="to_id" value=<?= intval($value['creadorDeViaje']) ?>>
                               <div class="container" id="enviar">
                                 <div class="row flex-column flex-md-row justify-content-md-between align-items-md-center">
-                                  <button type="submit" class="btn btn-primary iniciar mb-3 mb-md-0">Enviar mensaje</button>
+                                  <button type="submit" class="btn btn-primary iniciar mb-3 mb-md-0">Seguir este Viaje</button>
                                 </div>
                                 <div class="row mt-3">
                                 </div>
@@ -133,14 +106,14 @@
                       </div>
                     </div>
                   </div>
-              <?php endforeach; ?>
+              @endforeach
             </div>
           </div>
-        </div>
+            
       </div>
     </section>
 
-    <?php require_once('footer.php'); ?>
+     @include('partials.footer')
 
     </body>
 </html>
