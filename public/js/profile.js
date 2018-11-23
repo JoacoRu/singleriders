@@ -49,7 +49,34 @@ window.onload = function(){
         .then(function (data) {
             for(let indice in data){
                 console.log(data);
-                let post = `<div class='col-12 p-10 pt-4 col-md-8'><div class='articulo_post'><div class='posteos_card'><div class='datos_post'><img style='max-width: 30px;' class='border rounded-circle' src='imagen' alt=' id='foto-perfil'><p>${data[indice].name + ' ' + data[indice].lastname}</p></div><div class='contenido_post'><p>${data[indice].post}</p><input type='text' id='id_user' value='${data[indice].post_id}' hidden></div><div class='post_interaccion'><label for='me_gusta'>Me gusta</label><img src='images/iconos/interaccion_posteo/me-gusta_no_seleccionado.png' alt=' name='me_gusta'><label for='comentar'>Comentar</label><img src='images/iconos/interaccion_posteo/comentario.png' alt=' name='comentar'></div></div></div></div>`;
+                let post = 
+                           `<div class='col-12 p-10 pt-4 col-md-8'><div class='articulo_post'>
+                                <div class='posteos_card'>
+                                    <div class='datos_post'>
+                                        <img style='max-width: 30px;' class='border rounded-circle' src='imagen' alt=' id='foto-perfil'>
+                                        <p>${data[indice].name + ' ' + data[indice].lastname}</p>
+                                    </div>
+                                    <div class='contenido_post'>
+                                        <p>${data[indice].post}</p>
+                                    </div>
+
+                                    <div class='post_interaccion'>
+                                
+                                        <div class='form_interaccion'>
+                                            <form method='post'>
+                                                <input type="hidden" name="_token" id="csrf-token" value="{{ @csrf }}" />
+                                                <label for='me_gusta'>Me gusta</label>
+                                                <input type='text' value='${data[indice].user_id}' name='user_id' hidden> 
+                                                <input type='text' value='${data[indice].post_id}' name='post_id' hidden>
+                                                <button type='submit' id='me_gusta' hidden> 
+                                            </form>
+                                        </div>
+                                        <div class='form_interaccion'> 
+                                            <label for='comentar'>Comentar</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>`;
                 postView.innerHTML += post;
             };
         })

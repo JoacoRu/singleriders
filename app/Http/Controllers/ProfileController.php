@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Post;
 use App\User;
+use App\Like;
 use Carbon\Carbon;
 
 class ProfileController extends Controller
@@ -48,6 +49,31 @@ class ProfileController extends Controller
         // return view('profile', ['posts' => $post]);
         return response()->json($post);
         
+    }
+
+    public function existLike($user_id, $post_id)
+    {
+        $like = Like::whereIn('like_id', [$user_id, $post_id])
+                ->count();
+        return $like;
+    }
+
+    public function insertLike(Request $request)
+    {
+        $exist = existLike($request->user_id, $request->post_id);
+        $respuesta;
+        if($exist != 0){
+            $respuesta = 'Ya hay un like';
+        }else{
+            $respuesta = 
+                $like = Like::create([
+                    'user_id' => Auth::id(),
+                    'post_id' => $request->post_id,
+                ]);
+        }
+
+        /* return $respuesta; */
+        return dd($respuesta);
     }
 
 }

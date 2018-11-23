@@ -52,19 +52,19 @@
 
 .post_interaccion{
     border-top: 1px #e4e9f5 solid;
-    border-bottom: 1px #e4e9f5 solid;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 3px;
 }
 
 .post_interaccion img{
-    margin-right: 5px;
-    margin-left: 5px;
+    margin-right: 3px;
+    margin-left: 3px;
 }
 
 .post_interaccion img:last-child{
-    margin-left: 5px;
+    margin-left: 3px;
 }
 
 .post_interaccion img{
@@ -77,6 +77,25 @@
     font-size: 13px;
     color: grey;
     font-weight: bold;
+    margin-right: 10px; 
+}
+
+.post_interaccion label:last-child{
+    margin-right: 0; 
+}
+
+.form_interaccion{
+    margin-right: 3px;
+}
+
+.form_interaccion:hover label img{
+    background-color: grey;
+    margin: 0px 6px 0px 6px;
+    color: black;
+}
+
+.post_interaccion label:hover{
+    color:black;
 }
 
 /*CREAR UNA PUBLICACION*/

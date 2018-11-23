@@ -58,6 +58,12 @@ class TablasSql extends Migration
             $table->string('city_code_country', 100);
         });
 
+        Schema::create('likes', function (Blueprint $table){
+            $table->increments('like_id')->index();
+            $table->string('post_id');
+            $table->string('user_id');
+        });
+
     }
     
     /**
@@ -73,6 +79,7 @@ class TablasSql extends Migration
         Schema::dropIfExists('travels');
         Schema::dropIfExists('countries');
         Schema::dropIfExists('cities');
+        Schema::dropIfExists('likes');
 
     }
     
