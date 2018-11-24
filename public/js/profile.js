@@ -7,11 +7,10 @@ window.onload = function(){
     var redirect           = 'http://127.0.0.1:8000/profile';
     var postView           = document.querySelector('#publicaciones');
     var urlLike            = 'http://127.0.0.1:8000/profileLike';
-    var input = document.querySelector('input[name="user_id"]');
-    console.log(input);
+    var input="hola";
+    var contar;
     /* var datosDelFormulario = new FormData();
         datosDelFormulario.append('datos', JSON.stringify(form)); */
-    console.log(form)
         function sendData(){ 
     fetch(url, {
         headers: {
@@ -40,9 +39,29 @@ window.onload = function(){
     form.onsubmit = function(){
         sendData();
     }
-
+    
+    function prueba (){
+      var promesa = new Promise((resolve)=>{
+        fetch("https://jsonplaceholder.typicode.com/todos")
+        .then(function (response) {
+            return response.json();
+          })
+          .then((data)=>{
+            contar= data
+            console.log("algo",contar)
+            resolve(data)})
+      })
+      return promesa
+    }
+   
+    prueba().then(function(result) {
+      input= result
+    });
+    
+    
     function showPost(){
-        fetch("http://localhost:8000/profileAjaxGet")
+        
+      fetch("http://127.0.0.1:8000/profileAjaxGet")
 
         .then(function (response) {
           console.log(response);
@@ -51,6 +70,7 @@ window.onload = function(){
           })
           
           .then(function (data) {
+            let token = document.querySelector('meta[name="csrf-token"]').content;
             console.log(data);
             for(let indice in data){
                 let post = 
@@ -69,6 +89,7 @@ window.onload = function(){
                                         <div class='form_interaccion'>
                                             <form method='post' action='/profileLike' name="interaccion">
                                             
+                                                <input type='hidden' value='${token}' name='_token'>
                                                 <label for='me_gusta'>Me gusta</label>
                                                 <input type='hidden' value='${data[indice].user_id}' name='user_id'> 
                                                 <input type='hidden' value='${data[indice].post_id}' name='post_id'>
@@ -82,15 +103,15 @@ window.onload = function(){
                                 </div>
                             </div>`;
                 postView.innerHTML += post;
-            };
+            }
+           
         })
 
         .catch(function (error) {
             console.log("The error was: " + error);
         })
     }
-
-
+    
     function sendLikes(){
 
         fetch(urlLike, {
@@ -118,5 +139,6 @@ window.onload = function(){
     }
 
     showPost()
+    
    
 }
