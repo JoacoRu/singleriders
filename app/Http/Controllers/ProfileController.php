@@ -21,14 +21,14 @@ class ProfileController extends Controller
 /*         $request->validate([
             'post' => 'required',
         ]); */
-        if($request->ajax()){
+        if(trim($request->posteo) != ''){
             $post = Post::create([
                 'user_id' => Auth::id(),
                 'post' => $request->posteo,
                 'created_at' => Carbon::now()
             ]);
 
-            return response()->json('Mensaje creado');
+            return $this->getAllPost();
         }
     }
 /* 

@@ -43,7 +43,7 @@ Route::get('/edit_profile', 'EditProfileController@show');
 Route::post('/edit_profile', 'EditProfileController@validator');
 
 Route::get('/profile', 'ProfileController@showView');
-Route::post('/profile', 'ProfileController@store');
+Route::post('/profilePost', 'ProfileController@store');
 Route::get('/profile', 'ProfileController@getAllPost');
 Route::post('/profileLike', 'ProfileController@insertLike');
 Auth::routes();
