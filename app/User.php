@@ -40,7 +40,7 @@ class User extends Authenticatable
 
     public function Following()
     {
-    return $this->belongsToMany('App\User', 'followers', 'follower_user_id');
+    return $this->belongsToMany('App\Travel', 'followers', 'follower_user_id');
     }
     
 }

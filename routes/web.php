@@ -25,9 +25,9 @@ Route::get('/myTravel', 'TravelController@getMyTravels');
 /** Ruta para viajes compartidos */
 Route::get('/sharedTravel','TravelController@allTravels');
 /**ruta para las acciones de seguidos */
-Route::group(['middleware' => 'auth'], function () {
-    Route::post('/allTravel', 'FollowersController@follows');
-});
+
+Route::post('/allTravel', 'FollowersController@follows');
+
 
 //Rutas paginas Estaticas//
 Route::get('/faqs', function(){
