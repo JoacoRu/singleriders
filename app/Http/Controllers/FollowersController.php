@@ -20,7 +20,7 @@ class FollowersController extends Controller
     $me = Auth::id();
     $otherUser = User::find($id);
     $otherUser->following()->attach($user->id);
-    return redirect('/' . $username);   
+    return redirect('/sharedTravel' . $username);   
     }
 
     

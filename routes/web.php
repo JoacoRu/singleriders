@@ -26,7 +26,7 @@ Route::get('/myTravel', 'TravelController@getMyTravels');
 Route::get('/sharedTravel','TravelController@allTravels');
 /**ruta para las acciones de seguidos */
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/sharedTravel', 'FollowersController@follows');
+    Route::post('/allTravel', 'FollowersController@follows');
 });
 
 //Rutas paginas Estaticas//
