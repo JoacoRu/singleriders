@@ -17,11 +17,46 @@
       <div class="container-fluid pt-5">
         <div class="row p-0 m-0 bg-white rounded home-row-main justify-content-center">
           <div class="col-12 p-0 top-muro-image d-flex align-items-center justify-content-center">
-            <h1 class="font-weight-bold text-center">Todos los viajes</h1>
+            <h1 class="font-weight-bold text-center" ></h1>
           </div>
-          @include('partials.lateral_izquierdo')
+           <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          Fechas del viaje
+          </button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          Flexibilidad de fechas
+          </button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          País al que viajamos
+          </button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          Tipo de Viaje
+          </button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          Presupuesto
+          </button>
+
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                        </button>
+          </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+            </div>
+            </div>
+            </div>
+            </div>
           <div class="col-12 p-0 col-md-8">
-            
+           <h2 class=itiTitle>Itinerario del Viaje</h2> 
       </div>
     </section>
 

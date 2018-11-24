@@ -18,7 +18,7 @@
       <div class="container-fluid pt-5">
         <div class="row p-0 m-0 bg-white rounded home-row-main justify-content-center">
           <div class="col-12 p-0 top-muro-image d-flex align-items-center justify-content-center">
-            <h1 class="font-weight-bold text-center">Todos los viajes</h1>
+            <h1 class="font-weight-bold text-center">Mis Viajes</h1>
           </div>
           @include('partials.lateral_izquierdo')
           <div class="col-12 p-0 col-md-8">
@@ -76,12 +76,12 @@
                             <br>
                             <strong>Publicado por:</strong>
                             <span class="ml-1">
-                            {{$publisher = Auth::user()->name}}
+                            {{Auth::user()->name}}
                             </span>
                             <br>
                             <strong>Email:</strong>
                             <span class="ml-1">
-                            {{$publisher = Auth::user()->email}}
+                            {{Auth::user()->email}}
                             </span>
                             <br>
                             <form method="post" class="mt-4">

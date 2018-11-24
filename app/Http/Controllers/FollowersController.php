@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Travel;
+use App\User;
 
 class FollowersController extends Controller
 {
@@ -12,17 +14,14 @@ class FollowersController extends Controller
     *@return Response
 
     */
-    public function store(){
-        
+
+    public function follows($travel_id){
+    
+    $me = Auth::id();
+    $otherUser = User::find($id);
+    $otherUser->following()->attach($user->id);
+    return redirect('/' . $username);   
     }
 
-    /**
-     * Unfollow a user
-     * @param int $id
-     * @return Response
-     */
-
-     public function destroy($id){
-
-     }
+    
 }

@@ -16,12 +16,18 @@ Route::get('/', function () {
 });
 
 /** Rutas para  crear los viajes */
-Route::get('/travel','travelController@show');
-Route::post('/travel', 'travelController@store');
-/**Ruta para ver todos los viajes */
-Route::get('/allTravel', 'travelController@getAllTravels');
+Route::get('/travel','TravelController@show');
+Route::post('/travel', 'TravelController@store');
+/**Ruta para ver todos lost viajes */
+Route::get('/allTravel', 'TravelController@getAllTravels');
 /**Ruta para ver mis viajes */
-Route::get('/myTravel', 'travelController@getMyTravels');
+Route::get('/myTravel', 'TravelController@getMyTravels');
+/** Ruta para viajes compartidos */
+Route::get('/sharedTravel','TravelController@allTravels');
+/**ruta para las acciones de seguidos */
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/sharedTravel', 'FollowersController@follows');
+});
 
 //Rutas paginas Estaticas//
 Route::get('/faqs', function(){

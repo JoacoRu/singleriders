@@ -27,6 +27,9 @@ class TravelController extends Controller
         return view('myTravel');
     }
 
+    public function show3(){
+        return view('sharedTravel');
+    }
 /**
     * Store a new travel post.
     *
@@ -74,6 +77,7 @@ class TravelController extends Controller
     
             return view ('allTravel', ['alltravels'=>$alltravels,'users'=>$users]);
         }
+      
     
         public function getMyTravels()
         {
@@ -84,13 +88,7 @@ class TravelController extends Controller
            
         }
     
-
-
-
-
-
-
-
+       
 
     
 }

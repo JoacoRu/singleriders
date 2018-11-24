@@ -549,4 +549,13 @@ a:hover {
   .titulo-sr-home {
     position: relative;
   }
+
+  .btn btn-primary{
+    padding: 10px;
+  }
+
+  .itiTitle{
+    font-family: 'Abel';
+    text-align: center;
+  }
 }
