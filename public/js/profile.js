@@ -1,46 +1,22 @@
-window.onload = function(){
 
-    let token              = document.querySelector('meta[name="csrf-token"]').content;
-    var form               = document.querySelector('form');
-    var post               = document.querySelector('textarea[name="posteo"]').value;
+
+    var token              = document.querySelector('meta[name="csrf-token"]').content;
+    var form               = document.querySelector('form[name="form"]');
+    // var post               = document.querySelector('textarea[name="posteo"]').value;
     var url                = 'http://127.0.0.1:8000/profile';
     var redirect           = 'http://127.0.0.1:8000/profile';
     var postView           = document.querySelector('#publicaciones');
     var urlLike            = 'http://127.0.0.1:8000/profileLike';
-    var input="hola";
-    var contar;
+    console.log(token)
     /* var datosDelFormulario = new FormData();
         datosDelFormulario.append('datos', JSON.stringify(form)); */
-        function sendData(){ 
-    fetch(url, {
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json, text-plain, */*",
-          "X-Requested-With": "XMLHttpRequest",
-          "X-CSRF-TOKEN": token
-         },
-        method: 'post',
-        credentials: "same-origin",
-        body: JSON.stringify({
-          post: post,
-        })
 
-       })
-        .then((data) => {
-            form.reset();
-            window.location.href = redirect;
-        })
 
-       .catch(function(error) {
-           console.log(error);
-         });
-       } 
-
-    form.onsubmit = function(){
-        sendData();
-    }
+    // form.onsubmit = function(){
+    //     sendData();
+    // }
     
-    function prueba (){
+/*     function prueba (){
       var promesa = new Promise((resolve)=>{
         fetch("https://jsonplaceholder.typicode.com/todos")
         .then(function (response) {
@@ -48,7 +24,6 @@ window.onload = function(){
           })
           .then((data)=>{
             contar= data
-            console.log("algo",contar)
             resolve(data)})
       })
       return promesa
@@ -56,9 +31,9 @@ window.onload = function(){
    
     prueba().then(function(result) {
       input= result
-    });
+    }); */
     
-    
+    /* 
     function showPost(){
         
       fetch("http://127.0.0.1:8000/profileAjaxGet")
@@ -110,7 +85,7 @@ window.onload = function(){
         .catch(function (error) {
             console.log("The error was: " + error);
         })
-    }
+    } */
     
     function sendLikes(){
 
@@ -138,7 +113,22 @@ window.onload = function(){
              }); 
     }
 
-    showPost()
+    
+        $('#boton_end').click(function(){
+            var dato = $("#posteo").val();
+            var route = "http://127.0.0.1:8000/profile";
+            var token = $("#token").val();
+
+            $ajax({
+                url: route,
+                header: {'X-CSRF-TOKEN': token},
+                type: 'POST',
+                dataType: 'json',
+                data: {post: dato}
+            });
+        })
+    
+
     
    
-}
+

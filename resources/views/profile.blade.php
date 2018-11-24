@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
   <link rel="stylesheet" href="{{ asset('css/muro2.css') }}">
   <link rel="stylesheet" href="{{ asset('css/posteo.css') }}">
+  <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
   <script src="{{ asset('js/profile.js') }}"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7-_ujclOOF7-Rj28am_xiblQJUNrTd3c"></script>
 </head>
@@ -34,25 +35,60 @@
           <div class="publicacion_imagen">
             <img style="max-width: 30px;" class="border rounded-circle" src="#" alt="" id="foto-perfil">
 
-            <form method="post" class="d-flex flex-column justify-content-center align-items-center pl-2" name="form">
-              @csrf
-              <textarea name="posteo" rows="10" placeholder="¿Que estas pensado?" style="resize: none;border: 1px solid lightgrey;"></textarea>
+            <form method="post" class="d-flex flex-column justify-content-center align-items-center pl-2" name="form" >
+              <input type='hidden' value='{{ csrf_token() }}' name='_token'  id="token">
+              <textarea name="posteo" id="posteo" rows="10" placeholder="¿Que estas pensado?" style="resize: none;border: 1px solid lightgrey;"></textarea>
               <button type="submit" class="mt-3" id="boton_end">Publicar</button>
 
             </div>
         </form>
       </div>
+      @if ($errors->has('email'))
+          <span class="invalid-feedback" role="alert">
+              <strong>{{ $errors->first('post') }}</strong>
+          </span>
+      @endif
     </article>
     <section style="display: hidden;" id="publicaciones">
       <!-- POSTEO HTML -->
-      
+      @foreach($posts as $key)
+        <div class="col-12 p-10 pt-4 col-md-8">
+            <div class="articulo_post">
+              <div class="posteos_card">
+                  <div class="datos_post">
+                      <img style="max-width: 30px;" class="border rounded-circle" src="imagen" alt="" id="foto-perfil">
+                      <p> {{$key['name']}} {{$key['lastname']}}</p>
+                  </div>
+                  <div class="contenido_post">
+                      <p>{{$key['post']}}</p>
+                  </div>
+
+                  <div class="post_interaccion">
+              
+                      <div class="form_interaccion">
+                          <form method="post" action="/profileLike" name="interaccion">
+                                @csrf
+                              <label for="me_gusta">Me gusta</label>
+                              <input type="hidden" value="{{$key['user_id']}}" name="user_id"> 
+                              <input type="hidden" value="{{$key['post_id']}}" name="post_id">
+                              <button type="submit" id="me_gusta" hidden> 
+                          </form>
+                      </div>
+                      <div class="form_interaccion"> 
+                          <label for="comentar">Comentar</label>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        @endforeach
     </section>          
           </div>
         </div>
     </div>
   </section>
     
-    
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
   </body>
 </html>

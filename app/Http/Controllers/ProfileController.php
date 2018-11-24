@@ -18,42 +18,44 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {   
-        $request->validate([
-            'posteo' => 'required',
-        ]);
-        Post::create([
-            'user_id' => Auth::id(),
-            'post' => $request->posteo,
-            'created_at' => Carbon::now()
-        ]);
+/*         $request->validate([
+            'post' => 'required',
+        ]); */
+        if($request->ajax()){
+            $post = Post::create([
+                'user_id' => Auth::id(),
+                'post' => $request->posteo,
+                'created_at' => Carbon::now()
+            ]);
 
-        return redirect('/profile');
+            return response()->json('Mensaje creado');
+        }
     }
-
+/* 
     public function post()
     {
 
         return[
-            'posteo.required' => 'La publicacion no puede estar vacia',
-            'posteo.string'   => 'La publicacion tiene que ser una cadena de texto',
+            'post.required' => 'La publicacion no puede estar vacia',
+            'post.string'   => 'La publicacion tiene que ser una cadena de texto',
         ];
 
     }
-
+ */
     public function getAllPost()
     {
         $post = Post::where('user_id', Auth::id())
                 ->join( 'users', 'id', '=', 'user_id')
                 ->orderBy('post_id','DESC')
                 ->get();
-        // return view('profile', ['posts' => $post]);
-        return response()->json($post);
-        
+
+        return view('profile', ['posts' => $post]);
     }
 
     public function existLike($user_id, $post_id)
     {
-        $like = Like::whereIn('like_id', [$user_id, $post_id])
+        $like = Like::where('user_id', $user_id)
+                ->where('post_id', $post_id)
                 ->count();
         return $like;
     }
@@ -67,13 +69,11 @@ class ProfileController extends Controller
         }else{
             $respuesta = 
                 $like = Like::create([
-                    'user_id' => Auth::id(),
+                    'user_id' => $request->user_id,
                     'post_id' => $request->post_id,
                 ]);
         }
 
-        /* return $respuesta; */
-        return dd($respuesta);
     }
 
 }

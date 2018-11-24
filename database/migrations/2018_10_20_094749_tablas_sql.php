@@ -62,6 +62,7 @@ class TablasSql extends Migration
             $table->increments('like_id')->index();
             $table->string('post_id');
             $table->string('user_id');
+            $table->timestamps();
         });
 
     }

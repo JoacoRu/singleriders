@@ -44,7 +44,7 @@ Route::post('/edit_profile', 'EditProfileController@validator');
 
 Route::get('/profile', 'ProfileController@showView');
 Route::post('/profile', 'ProfileController@store');
-Route::get('/profileAjaxGet', 'ProfileController@getAllPost');
+Route::get('/profile', 'ProfileController@getAllPost');
 Route::post('/profileLike', 'ProfileController@insertLike');
 Auth::routes();
 
