@@ -16,13 +16,12 @@ Route::get('/', function () {
 });
 
 /** Rutas para  crear los viajes */
-Route::get('/travel','travelController@create');
+Route::get('/travel','travelController@show');
 Route::post('/travel', 'travelController@store');
 /**Ruta para ver todos los viajes */
-Route::get('/allTravel', 'allTravelController@getAllTravels');
+Route::get('/allTravel', 'travelController@getAllTravels');
 /**Ruta para ver mis viajes */
-Route::get('/myTravel', 'allTravelController@getAllTravels');
-/* Route::get('/myTravel', 'MyTravelController@myTravel'); */
+Route::get('/myTravel', 'travelController@getMyTravels');
 
 //Rutas paginas Estaticas//
 Route::get('/faqs', function(){

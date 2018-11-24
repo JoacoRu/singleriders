@@ -24,7 +24,7 @@
           <div class="col-12 p-0 col-md-8">
           <div class="card-columns">
               <?php $contadormodal=0; ?>
-              @foreach ($alltravels as $key => $value)
+              @foreach ($myTravel as $key => $value)
                   <div class="card p-3 mt-3 text-center text-lg-left">
                     <div class="fondo-card"></div>
                                       
@@ -88,7 +88,7 @@
                               <div class="form-label-group" id="mensajearea">
                                 <textarea class="form-control" name="mensaje" placeholder="Escribí tu mensaje..."></textarea>
                               </div>
-                              <input type="hidden" name="to_id" value=<?= intval($value['creadorDeViaje']) ?>>
+                              <input type="hidden" name="to_id" value="{{$value['travel_creator']}}">
                               <div class="container" id="enviar">
                                 <div class="row flex-column flex-md-row justify-content-md-between align-items-md-center">
                                   <button type="submit" class="btn btn-primary iniciar mb-3 mb-md-0">Seguir este Viaje</button>
@@ -97,7 +97,6 @@
                                 </div>
                               </div>
                             </form>
-
                           </p>
                         </div>
                         <div class="modal-footer mt-3">

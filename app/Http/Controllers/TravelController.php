@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Travel;
@@ -20,8 +20,11 @@ class TravelController extends Controller
      *
      * @return Response
      */
-    public function create(){
+    public function show(){
         return view('travel');
+    }
+    public function show2(){
+        return view('myTravel');
     }
 
 /**
@@ -64,5 +67,30 @@ class TravelController extends Controller
         ];
 
         }
+
+        public function getAllTravels (){
+            $alltravels=Travel::All();
+            $users=User::All();
+    
+            return view ('allTravel', ['alltravels'=>$alltravels,'users'=>$users]);
+        }
+    
+        public function getMyTravels()
+        {
+            $myTravel = Travel::where('user_id', Auth::id())
+                    ->join( 'users', 'id', '=', 'user_id')
+                    ->get();
+            return view('myTravel', ['myTravel' => $myTravel]);
+           
+        }
+    
+
+
+
+
+
+
+
+
     
 }

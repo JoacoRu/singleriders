@@ -14,6 +14,11 @@ class Travel extends Model
         return $this->belongsTo('App\User','travel_creator','travel_id');
     }
     
-
+     /**Aca estoy marcando trayendo al dueño del viaje? */
+    
+     public function user()
+     {
+         return $this->belongsTo(User::class, 'user_id', 'id');
+     }
 }
 
