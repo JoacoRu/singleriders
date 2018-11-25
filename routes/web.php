@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 /** Rutas para  crear los viajes */
 Route::get('/travel','TravelController@show');
-Route::post('/travel', 'TravelController@store');
+Route::post('/travel', 'TravelController@validator');
 /**Ruta para ver todos lost viajes */
 Route::get('/allTravel', 'TravelController@getAllTravels');
 /**Ruta para ver mis viajes */

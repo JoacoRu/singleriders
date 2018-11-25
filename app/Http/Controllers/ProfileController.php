@@ -28,7 +28,7 @@ class ProfileController extends Controller
                 'created_at' => Carbon::now()
             ]);
 
-            return $this->getAllPost();
+            return response()->json($post);
         }
     }
 /* 

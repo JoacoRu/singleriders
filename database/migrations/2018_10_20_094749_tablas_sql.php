@@ -43,9 +43,10 @@ class TablasSql extends Migration
             $table->text('activities')->nullable();
             $table->string('city', 100);
             $table->text('msgInti')->nullable();
-            $table->smallInteger('amount');
+            $table->Integer('amount');
             $table->string('coin', 50);
-            $table->smallInteger('user_id');
+            $table->Integer('user_id');
+            $table->timestamps();
         });
 
         Schema::create('countries', function (Blueprint $table){

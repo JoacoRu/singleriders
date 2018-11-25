@@ -35,7 +35,7 @@
           <div class="publicacion_imagen">
             <img style="max-width: 30px;" class="border rounded-circle" src="#" alt="" id="foto-perfil">
 
-            <form method="post" class="d-flex flex-column justify-content-center align-items-center pl-2" name="form">
+            <form method="post" class="d-flex flex-column justify-content-center align-items-center pl-2" name="form" >
               <input type='hidden' value='{{ csrf_token() }}' name='_token'>
               <textarea name="posteo" id="posteo" rows="10" placeholder="¿Que estas pensado?" style="resize: none;border: 1px solid lightgrey;"></textarea>
               <button type="submit" class="mt-3" id="boton_end">Publicar</button>
