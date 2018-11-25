@@ -27,7 +27,7 @@
               @foreach ($alltravels as $key => $value)
                   <div class="card p-3 mt-3 text-center text-lg-left">
                     <div class="fondo-card"></div>
-                                      
+
                       <img class="card-img-top" src="./images/flags/{{$value['country']}}.png" alt="Card image cap">
 
                     <div class="card-body">
@@ -85,16 +85,20 @@
                             </span>
                             <br>
                             <form method="post" class="mt-4">
+                              @csrf
                               <div class="form-label-group" id="mensajearea">
                                 <textarea class="form-control" name="mensaje" placeholder="Escribí tu mensaje..."></textarea>
                               </div>
-                              <input type="hidden" name="to_id" value=<?= intval($value['creadorDeViaje']) ?>>
+                              <input type="hidden" name="creador_viaje" value="<?= $value->user->id ?>">
                               <div class="container" id="enviar">
-                                <div class="row flex-column flex-md-row justify-content-md-between align-items-md-center">
+
+                              <input type="hidden" name="travel_id" value="{{$value['travel_id']}}">
+                              <div class="row flex-column flex-md-row justify-content-md-between align-items-md-center">
                                   <button type="submit" class="btn btn-primary iniciar mb-3 mb-md-0">Seguir este Viaje</button>
-                                </div>
-                                <div class="row mt-3">
-                                </div>
+                              </div>
+
+                              <div class="row mt-3">
+                              </div>
                               </div>
                             </form>
 
