@@ -58,7 +58,6 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="/profile">Mi Perfil</a>
             <a class="dropdown-item" href="/muro">Mis Viajes</a>
-            <!--<a class="dropdown-item" href="#">Cambiar Cuenta</a>-->
             <a class="dropdown-item" href="/faqs">faqs</a>
             <a class="dropdown-item" href="/edit_profile">Editar Perfil</a>
 

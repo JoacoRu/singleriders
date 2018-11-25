@@ -33,7 +33,7 @@
     <article class="posteo_crear col-12 p-10 pt-4 col-md-8">
       <div class="publicacion rounded">
           <div class="publicacion_imagen">
-            <img style="max-width: 30px;" class="border rounded-circle" src="{{Auth::src()}}" alt="" id="foto-perfil">
+            <img style="max-width: 30px;" class="border rounded-circle" src="#" alt="" id="foto-perfil">
             <form method="post" class="d-flex flex-column justify-content-center align-items-center pl-2" name="form" >
               @csrf
             @if(count($errors) != 0)
@@ -55,7 +55,7 @@
             <div class="articulo_post">
               <div class="posteos_card">
                   <div class="datos_post">
-                      <img style="max-width: 30px;" class="border rounded-circle" src="imagen" alt="" id="foto-perfil">
+                      <img style="max-width: 30px;" class="border rounded-circle" src="{{ Auth::src() }}" alt="" id="foto-perfil">
                       <p> {{$key['name']}} {{$key['lastname']}}</p>
                   </div>
                   <div class="contenido_post">
