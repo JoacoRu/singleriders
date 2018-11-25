@@ -44,17 +44,7 @@ class ProfileController extends Controller
             return $respuesta;
         // return view('profile', ['respuesta' => $respuesta]);
     }
-/* 
-    public function post()
-    {
 
-        return[
-            'post.required' => 'La publicacion no puede estar vacia',
-            'post.string'   => 'La publicacion tiene que ser una cadena de texto',
-        ];
-
-    }
- */
     public function getAllPost()
     {
         $post = Post::where('user_id', Auth::id())
@@ -73,6 +63,13 @@ class ProfileController extends Controller
         return $like;
     }
 
+    public function getAllPostJson()
+    {
+        $post = Like::where('user_id', Auth::id())->get();
+
+        return response()->json($post);
+    }
+
     public function insertLike(Request $request)
     {
         $exist = $this->existLike($request->user_id, $request->post_id);
@@ -88,7 +85,6 @@ class ProfileController extends Controller
         }
 
             return redirect('/profile');
-
     }
 
 }

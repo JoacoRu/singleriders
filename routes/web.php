@@ -44,7 +44,9 @@ Route::get('/profile', 'ProfileController@showView');
 Route::post('/profile', 'ProfileController@store');
 Route::get('/profile', 'ProfileController@getAllPost');
 Route::post('/profileLike', 'ProfileController@insertLike');
-Route::post('/profile', 'ProfileController@likeCount');
+Route::get('/profileBringLike', 'ProfileController@bringLike');
+Route::get('/profileDislike', 'ProfileController@getAllPostJson');
+
 Auth::routes();
 
 //Route::get('/home', 'HomeController@index')->name('home');

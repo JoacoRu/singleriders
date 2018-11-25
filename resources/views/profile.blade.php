@@ -68,10 +68,15 @@
                       <div class="form_interaccion">
                           <form method="post" action="/profileLike" name="interaccion">
                                 @csrf
-                              <label for="me_gusta">Me gusta</label>
+                              <label name="cantidad_mg">{{App\Like::bringLike($key['post_id'])}}</label>
+                              @if(App\Like::existLike($key['user_id'], $key['post_id']) == 1)
+                                <label for="no_gusta{{ $key['post_id'] }}" class="no_gusta" onclick="color = black" style="color: red;">No me gusta</label>
+                              @else
+                                <label for="me_gusta{{ $key['post_id'] }}">Me gusta</label>
+                              @endif
                               <input type="hidden" value="{{$key['user_id']}}" name="user_id">
                               <input type="hidden" value="{{$key['post_id']}}" name="post_id">
-                              <button type="submit" id="me_gusta" hidden>
+                              <button type="submit" id="me_gusta{{ $key['post_id'] }}" hidden>
                           </form>
                       </div>
                       <div class="form_interaccion">
@@ -82,6 +87,7 @@
           </div>
         </div>
         @endforeach
+        
     </article>
     <article class="pagination">
         <nav class="links">
