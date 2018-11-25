@@ -20,12 +20,14 @@ window.onload = function(){
             labelDislike = document.querySelectorAll('.no_gusta');
             labelDislike.forEach(element => {
               console.log(element)
-                element.addEventListener('mouseover', function(event){
+                element.addEventListener('mouseenter', function(event){
                   event.prevenDefault;
                   element.style.color = 'black';
                 })
-                
-                element.style.color = 'red';
+                element.addEventListener('mouseleave', function(event){
+                  event.prevenDefault;
+                  element.style.color="red";
+                })
             });
           })
   
