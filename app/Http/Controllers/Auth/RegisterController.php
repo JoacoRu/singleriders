@@ -82,7 +82,7 @@ class RegisterController extends Controller
 
       if ($data['imgperfil']) {
             //dd($data);
-            $imageName = 'Avatar'.$data['email'].$data['imgperfil']->getClientOriginalExtension();
+            $imageName = 'Avatar'.$data['email'].'.'.$data['imgperfil']->getClientOriginalExtension();
 
             $data['imgperfil']->move(public_path('images'), $imageName);
             // guardar archivo
