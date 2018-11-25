@@ -487,12 +487,15 @@ a:hover {
   max-width: 100%;
   margin: 0 auto;
 }
+
 .buscador{
   display: flex;
   justify-content: center;
   margin-left: 7%;
 
 }
+
+
 
 /* NOTE: fin estilos nueva home */
 

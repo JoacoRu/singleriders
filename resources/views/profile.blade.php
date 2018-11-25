@@ -29,26 +29,27 @@
           @include('partials.lateral_izquierdo')
 
     <!-- CREAR UN POST HTML -->
-  <div class="col-12 p-10 pt-4 col-md-8">
+  <div class="padre col-12 p-10 pt-4 col-md-8">
     <article class="posteo_crear col-12 p-10 pt-4 col-md-8">
       <div class="publicacion rounded">
-          <div class="publicacion_imagen">
+        <div class="publicacion_imagen">
             <img style="max-width: 30px;" class="border rounded-circle" src="images/<?=Auth::user()->src?>" alt="" id="foto-perfil">
             <form method="post" class="d-flex flex-column justify-content-center align-items-center pl-2" name="form" >
               @csrf
-            @if(count($errors) != 0)
-              <textarea name="posteo" id="posteo" rows="10" placeholder="{{ $errors->first()}}" style="resize: none; color: red; border: 1px solid red; "></textarea>
-            @else
-              <textarea name="posteo" id="posteo" rows="10" placeholder="¿Que estas pensado?" style="resize: none; border: 1px solid lightgrey;"></textarea>
-            @endif
+              @if(count($errors) != 0)
+                <textarea name="posteo" id="posteo" rows="10" placeholder="{{ $errors->first()}}" style="resize: none; color: red; border: 1px solid red; "></textarea>
+              @else
+                <textarea name="posteo" id="posteo" rows="10" placeholder="¿Que estas pensado?" style="resize: none; border: 1px solid lightgrey;"></textarea>
+              @endif
               <button type="submit" class="mt-3" id="boton_end">Publicar</button>
 
-            </div>
-        </form>
-      </div>
+            </form>
+          </div>
+        </div>
       <div>
     </article>
-    <section style="display: hidden;" id="publicaciones">
+
+    <article id="publicaciones">
       <!-- POSTEO HTML -->
       @foreach($posts as $key)
         <div class="col-12 p-10 pt-4 col-md-8">
@@ -81,7 +82,12 @@
           </div>
         </div>
         @endforeach
-    </section>
+    </article>
+    <article class="pagination">
+        <nav class="links">
+          {{ $posts->links() }}
+        </nav>
+    </article>
           </div>
         </div>
     </div>

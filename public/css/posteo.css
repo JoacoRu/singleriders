@@ -159,6 +159,16 @@
     flex-direction: column-reverse;
 }
 
+.pagination{
+    width: 100%;
+    justify-content: center;
+}
+
+.links{
+    margin-top: 2%;
+}
+
+
 @media (min-width: 400px){
     .publicacion{
         width: 70%;
@@ -174,6 +184,10 @@
 @media (min-width: 768px){
     .publicacion{
         height: 130px;
+    }
+
+    .links{
+        margin-right: 35%;
     }
 }
 

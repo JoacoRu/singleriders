@@ -60,7 +60,7 @@ class ProfileController extends Controller
         $post = Post::where('user_id', Auth::id())
                 ->join( 'users', 'id', '=', 'user_id')
                 ->orderBy('post_id','DESC')
-                ->get();
+                ->paginate(8);
 
         return view('profile', ['posts' => $post]);
     }
@@ -78,7 +78,7 @@ class ProfileController extends Controller
         $exist = $this->existLike($request->user_id, $request->post_id);
         $respuesta;
         if($exist != 0){
-            $respuesta = 'Ya hay un like';
+            $respuesta = 1;
         }else{
             $respuesta = 
                 $like = Like::create([
@@ -86,6 +86,8 @@ class ProfileController extends Controller
                     'post_id' => $request->post_id,
                 ]);
         }
+
+            return redirect('/profile');
 
     }
 
