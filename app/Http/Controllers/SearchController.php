@@ -15,8 +15,8 @@ class SearchController extends Controller
     public function search(Request $request)
     {
         $searchs = User::where('name', 'like','%' . $request->search .'%' )
-        ->orWhere('lastname', 'like', '%' . $request->search .'%')
-        ->get();
+                    ->orWhere('lastname', 'like', '%' . $request->search .'%')
+                    ->get();
         return view('/search', ['searchs' => $searchs]);
 
     }

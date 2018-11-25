@@ -39,7 +39,7 @@
               @if(count($errors) != 0)
                 <textarea name="posteo" id="posteo" rows="10" placeholder="{{ $errors->first()}}" style="resize: none; color: red; border: 1px solid red; "></textarea>
               @else
-                <textarea name="posteo" id="posteo" rows="10" placeholder="¿Que estas pensado?" style="resize: none; border: 1px solid lightgrey;"></textarea>
+                <textarea name="posteo" id="posteo" rows="10" placeholder="¿Que estas pensado?" style="resize: none; border: 1px solid lightgrey;">{{old('dateIn')}}</textarea>
               @endif
               <button type="submit" class="mt-3" id="boton_end">Publicar</button>
 

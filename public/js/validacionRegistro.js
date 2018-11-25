@@ -14,26 +14,31 @@ window.onload = function (){
 
     function validacionRegistro(){
         form.addEventListener('submit', function(event){
-            event.preventDefault;
+
             if(inputNombre.value === ''){
+                event.preventDefault();
                 alert('El nombre esta vacio');
             }else if(!numeroRegex.test(inputNombre.value)){
                 alert('El nombre no debe contener numeros');
             }
 
             if(inputApellido.value === ''){
+                event.preventDefault();
                 alert('El campo apellido esta vacio');
             }else if(!numeroRegex.test(inputNombre.value)){
                 alert('El campo apellido no puede contener numero');
             }
 
             if(inputEmail.value === ''){
+                event.preventDefault();
                 alert('El campo email no puede estar vacio');
             }else if(!emailRegex.test(inputEmail.value)){
+                event.preventDefault();
                 alert('El mail debe tener formato valido');
             }
 
             if(inputPass.value === ''){
+                event.preventDefault();
                 alert('El input password esta vacio');
             }
 

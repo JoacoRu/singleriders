@@ -11,13 +11,15 @@ window.onload = function(){
 
     function validacionLogin(){
         form.addEventListener('submit', function(event){
-            event.preventDefault;
             if(inputEmail.value === ''){
+                event.preventDefault();
               var respuestaMail = alert('El mail esta vacio');
             }else if(!emailRegex.test(inputEmail.value)){
+                event.preventDefault();
                 alert('El mail debe tener formato valido');
             }
             if(inputPass.value == ''){
+                event.preventDefault();
               var respuestaPass = alert('El pass esta vacio');
             }
         });

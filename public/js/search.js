@@ -1,23 +1,22 @@
 window.onload = function () {
         
         var search = document.querySelector('.search');
+        var input  = document.querySelector('input[name="search"]');
         
         
-        function bringsProfiles(){
-        
-        fetch('http://127.0.0.1:8000/searchH')
-        .then(function(data) {
-            return data.json();
-            console.log(data)
-        })
-        .then(function(myJson) {
-            console.log(myJson);
-        });
-    }
+        function validarBusqueda(){
+            search.onsubmit = function(event) {
+                    
+                    console.log(input.value == 0) ;
+                    if(input.value == 0){
+                        event.preventDefault(); 
+                         input.style.border = '1px solid red';
+                         input.setAttribute('placeholder', "Escribí algo :'(");
+                     }
+            };
+        }
 
-    /* search.addEventListener('submit', function() {
-        bringsProfiles();
-    }) */
+        validarBusqueda()
 }
 
 

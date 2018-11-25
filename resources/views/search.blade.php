@@ -29,7 +29,7 @@
               <div class="buscador">
                 <form method="get" class="search">
                     @csrf
-                    <input type="search" name="search" >
+                    <input type="search" name="search" value="{{old('dateIn')}}" >
                     <button type="submit"><img src="images/busqueda.png" alt=""></button>
                 </form>
               </div>
