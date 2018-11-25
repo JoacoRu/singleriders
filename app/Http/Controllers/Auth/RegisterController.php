@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/profile';
 
     /**
      * Create a new controller instance.
@@ -82,8 +82,8 @@ class RegisterController extends Controller
     {
 
       if ($data['imgperfil']) {
-            dd($data);
-            $imageName = 'avatar'.$data['email'].$data['imgperfil']->getClientOriginalExtension();
+            //dd($data);
+            $imageName = 'Avatar'.$data['email'].'.'.$data['imgperfil']->getClientOriginalExtension();
 
             $data['imgperfil']->move(public_path('images'), $imageName);
             // guardar archivo

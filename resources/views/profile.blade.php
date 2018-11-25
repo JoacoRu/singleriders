@@ -33,7 +33,7 @@
     <article class="posteo_crear col-12 p-10 pt-4 col-md-8">
       <div class="publicacion rounded">
           <div class="publicacion_imagen">
-            <img style="max-width: 30px;" class="border rounded-circle" src="#" alt="" id="foto-perfil">
+            <img style="max-width: 30px;" class="border rounded-circle" src="images/<?=Auth::user()->src?>" alt="" id="foto-perfil">
             <form method="post" class="d-flex flex-column justify-content-center align-items-center pl-2" name="form" >
               @csrf
             @if(count($errors) != 0)
@@ -55,7 +55,7 @@
             <div class="articulo_post">
               <div class="posteos_card">
                   <div class="datos_post">
-                      <img style="max-width: 30px;" class="border rounded-circle" src="{{ Auth::src() }}" alt="" id="foto-perfil">
+                      <img style="max-width: 30px;" class="border rounded-circle" src="images/<?=Auth::user()->src?>" alt="" id="foto-perfil">
                       <p> {{$key['name']}} {{$key['lastname']}}</p>
                   </div>
                   <div class="contenido_post">
@@ -63,17 +63,17 @@
                   </div>
 
                   <div class="post_interaccion">
-              
+
                       <div class="form_interaccion">
                           <form method="post" action="/profileLike" name="interaccion">
                                 @csrf
                               <label for="me_gusta">Me gusta</label>
-                              <input type="hidden" value="{{$key['user_id']}}" name="user_id"> 
+                              <input type="hidden" value="{{$key['user_id']}}" name="user_id">
                               <input type="hidden" value="{{$key['post_id']}}" name="post_id">
-                              <button type="submit" id="me_gusta" hidden> 
+                              <button type="submit" id="me_gusta" hidden>
                           </form>
                       </div>
-                      <div class="form_interaccion"> 
+                      <div class="form_interaccion">
                           <label for="comentar">Comentar</label>
                       </div>
                   </div>
@@ -81,12 +81,13 @@
           </div>
         </div>
         @endforeach
-    </section>          
+    </section>
           </div>
         </div>
     </div>
   </section>
-    
+
+  @include('partials.footer')
 
   </body>
 </html>
