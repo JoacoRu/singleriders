@@ -38,7 +38,7 @@
         @if(Request::path() == 'messages')
 
         @else
-          <li class="d-flex align-items-center mb-2"><img class="mr-1" style="width:24px;height:24px;" src="./images/iconos/home/sobre.png" alt=""><a href="{{'messages'}}">Ver mis Mensajes</a></li>
+          <li class="d-flex align-items-center mb-2"><img class="mr-1" style="width:24px;height:24px;" src="./images/iconos/home/sobre.png" alt=""><a href="{{'mensajes'}}">Ver mis Mensajes</a></li>
         @endif
 
         @if(Request::path() == 'sharedTravel')

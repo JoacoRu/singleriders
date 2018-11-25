@@ -2,7 +2,7 @@
 
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark fixed-top <?= isset(Auth::user()->name) ? 'd-flex justify-content-between' : '' ?>">
-        <a class="navbar-brand" href="index.php">
+        <a class="navbar-brand" href="/home">
           <div>
             <div class="logo-container">
               <div class="single">
@@ -57,7 +57,7 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" href="/profile">Mi Perfil</a>
-            <a class="dropdown-item" href="/muro">Mis Viajes</a>
+            <a class="dropdown-item" href="/myTravel">Mis Viajes</a>
             <!--<a class="dropdown-item" href="#">Cambiar Cuenta</a>-->
             <a class="dropdown-item" href="/faqs">faqs</a>
             <a class="dropdown-item" href="/edit_profile">Editar Perfil</a>

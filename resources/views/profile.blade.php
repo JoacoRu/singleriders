@@ -64,17 +64,17 @@
                   </div>
 
                   <div class="post_interaccion">
-              
+
                       <div class="form_interaccion">
                           <form method="post" action="/profileLike" name="interaccion">
                                 @csrf
                               <label for="me_gusta">Me gusta</label>
-                              <input type="hidden" value="{{$key['user_id']}}" name="user_id"> 
+                              <input type="hidden" value="{{$key['user_id']}}" name="user_id">
                               <input type="hidden" value="{{$key['post_id']}}" name="post_id">
-                              <button type="submit" id="me_gusta" hidden> 
+                              <button type="submit" id="me_gusta" hidden>
                           </form>
                       </div>
-                      <div class="form_interaccion"> 
+                      <div class="form_interaccion">
                           <label for="comentar">Comentar</label>
                       </div>
                   </div>
@@ -82,12 +82,13 @@
           </div>
         </div>
         @endforeach
-    </section>          
+    </section>
           </div>
         </div>
     </div>
   </section>
-    
+
+  @include('partials.footer')
 
   </body>
 </html>

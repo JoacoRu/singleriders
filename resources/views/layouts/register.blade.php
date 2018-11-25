@@ -40,7 +40,7 @@
                       <div class="tab-content">
                         <div class="tab-pane" id="login" role="tabpanel" aria-labelledby="login-tab">
                           <form method="post" enctype="multipart/form-data">
-                        
+
                             <div class="form-group">
                               <input name="useremail" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Correo electrónico">
                             </div>
@@ -67,7 +67,7 @@
                             <div class="form-label-group">
                               <input type="text" name="nombre" id="nombre" aria-describedby="nombreHelp" placeholder="Nombre" value="{{ old('nombre') }}" class="form-control{{ $errors->has('nombre') ? ' is-invalid' : '' }}">
                               <label for="nombre">Nombre</label>
-                              
+
                               @if ($errors->has('nombre'))
                                 <small id="nombreHelp" class="form-text text-danger">{{ $errors->first('nombre') }}</small>
                               @endif
@@ -75,7 +75,7 @@
                             <div class="form-label-group">
                               <input type="text" name="apellido" id="apellido" aria-describedby="apellidoHelp" placeholder="Apellido" value="{{ old('apellido') }}" class="form-control{{ $errors->has('apellido') ? ' is-invalid' : '' }}">
                               <label for="apellido">Apellido</label>
-                              
+
                               @if ($errors->has('apellido'))
                                 <small id="apellidoHelp" class="form-text text-danger">{{ $errors->first('apellido') }}</small>
                               @endif
@@ -84,7 +84,7 @@
                             <div class="form-label-group">
                               <input name="email" id="email" type="text" aria-describedby="emailHelp" placeholder="Correo electrónico" value="{{ old('email') }}" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}">
                               <label for="email">Correo electrónico</label>
-                              @if ($errors->has('email'))                                    
+                              @if ($errors->has('email'))
                                         <small id="emailHelp" class="form-text text-danger">{{ $errors->first('email') }}</small>
                                 @endif
                             </div>
@@ -227,5 +227,6 @@
         </div>
       </div>
     </div>
+    @include('partials.footer')
 </body>
 </html>
