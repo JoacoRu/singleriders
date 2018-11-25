@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 /** Rutas para  crear los viajes */
 Route::get('/travel','TravelController@show');
-Route::post('/travel', 'TravelController@validator');
+Route::post('/travel', 'TravelController@store');
 /**Ruta para ver todos lost viajes */
 Route::get('/allTravel', 'TravelController@getAllTravels');
 /**Ruta para ver mis viajes */
@@ -43,7 +43,7 @@ Route::get('/edit_profile', 'EditProfileController@show');
 Route::post('/edit_profile', 'EditProfileController@validator');
 
 Route::get('/profile', 'ProfileController@showView');
-Route::post('/profilePost', 'ProfileController@store');
+Route::post('/profile', 'ProfileController@store');
 Route::get('/profile', 'ProfileController@getAllPost');
 Route::post('/profileLike', 'ProfileController@insertLike');
 Auth::routes();

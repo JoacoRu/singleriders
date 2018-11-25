@@ -103,7 +103,7 @@
                  
                 </select>-->
                 <label for="activities">¿Que tipo de viaje queres hacer?</label>
-                <select class="custom-select" size="3" id="country" class="form-control{{ $errors->has('activities') ? ' is-invalid' : '' }}"value="{{old('activities')}}">
+                <select class="custom-select" size="3" id="country" name="activities "class="form-control{{ $errors->has('activities') ? ' is-invalid' : '' }}"value="{{old('activities')}}">
                   @if ($errors->has('activities'))
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $errors->first('activities') }}</strong>

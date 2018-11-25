@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Post;
 use App\User;
 use App\Like;
@@ -18,18 +19,30 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {   
-/*         $request->validate([
-            'post' => 'required',
-        ]); */
-        if(trim($request->posteo) != ''){
+        $validar = Validator::make([
+            'posteo' => $request->posteo,
+        ],[
+            'posteo' => 'required',
+        ],[
+            'posteo.required' => "Escribí algo :'( ",
+        ]);
+        if($validar->fails()){
+
+            $respuesta = redirect()
+                         ->back()
+                         ->withErrors($validar->errors());
+
+        }else{
             $post = Post::create([
                 'user_id' => Auth::id(),
                 'post' => $request->posteo,
                 'created_at' => Carbon::now()
             ]);
-
-            return response()->json($post);
+            
+            $respuesta =  redirect('/profile');
         }
+            return $respuesta;
+        // return view('profile', ['respuesta' => $respuesta]);
     }
 /* 
     public function post()

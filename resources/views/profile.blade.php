@@ -33,21 +33,20 @@
     <article class="posteo_crear col-12 p-10 pt-4 col-md-8">
       <div class="publicacion rounded">
           <div class="publicacion_imagen">
-            <img style="max-width: 30px;" class="border rounded-circle" src="#" alt="" id="foto-perfil">
-
+            <img style="max-width: 30px;" class="border rounded-circle" src="{{Auth::src()}}" alt="" id="foto-perfil">
             <form method="post" class="d-flex flex-column justify-content-center align-items-center pl-2" name="form" >
-              <input type='hidden' value='{{ csrf_token() }}' name='_token'>
-              <textarea name="posteo" id="posteo" rows="10" placeholder="¿Que estas pensado?" style="resize: none;border: 1px solid lightgrey;"></textarea>
+              @csrf
+            @if(count($errors) != 0)
+              <textarea name="posteo" id="posteo" rows="10" placeholder="{{ $errors->first()}}" style="resize: none; color: red; border: 1px solid red; "></textarea>
+            @else
+              <textarea name="posteo" id="posteo" rows="10" placeholder="¿Que estas pensado?" style="resize: none; border: 1px solid lightgrey;"></textarea>
+            @endif
               <button type="submit" class="mt-3" id="boton_end">Publicar</button>
 
             </div>
         </form>
       </div>
-      @if ($errors->has('email'))
-          <span class="invalid-feedback" role="alert">
-              <strong>{{ $errors->first('post') }}</strong>
-          </span>
-      @endif
+      <div>
     </article>
     <section style="display: hidden;" id="publicaciones">
       <!-- POSTEO HTML -->

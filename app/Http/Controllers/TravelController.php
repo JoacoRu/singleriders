@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+// use App\Http\Requests\TravelCreateRequest;
 use App\Travel;
 use App\User;
 
@@ -36,92 +38,87 @@ class TravelController extends Controller
     * @param  Request  $request
     * @return Response
  */  
-    // public function store (Request $request){
+    public function store(Request $request)
+    {
     
-    //    $request->validate([
-    //         'msgInti' => 'required',
-    //         'dateIn' => 'required',
-    //         'dateOut' => 'required',
-    //         /* 'country' => 'required', */
-    //         'amount' => 'required',
-    //         'coin'=>'required',
-    //         'activities'=> 'required',
-    //         'flexibility'=>'required',
+       $validar = Validator::make([
+            'msgInti'     => $request->msgInti,
+            'dateIn'      => $request->dateIn,
+            'dateOut'     => $request->dateOut,
+            'amount'      => $request->amount,
+            'coin'        => $request->coin,
+            'activities'  => $request->activities,
+            'flexibility' => $request->flexibility
+
+       ],[
+            'msgInti' => 'required| string',
+            'dateIn' => 'required',
+            'dateOut' => 'required',
+            /* 'country' => 'required', */
+            'amount' => 'required',
+            'coin'=>'required| string',
+            'activities'=> 'required',
+            'flexibility'=>'required',
     
-    //     ],[
-    //         'msgInti.required' => 'Ingresa un titulo a tu viaje',
-    //         'dateIn.required'=> 'Informanos cuando inicia tu viaje',
-    //         'dateOut.required'=>'Informanos cuando finaliza tu viaje',
-    //         /* 'country.required'=>'Que país vas a visitar?', */
-    //         'amount.required'=>'Decinos cual es tu presupuesto',
-    //         'coin.required' => 'No te olvides de indicar la moneda!',
-    //         'activities.required'=> 'Completa que tipo de viaje estas pensando',
-    //         'flexibility.required'=> 'No te olvides de indicar tu flebilidad de fechas!',
-    //     ]);
-    //         $travel = Travel::create([
-    //             'dateIn'  => $reques->msgInti,
-    //             'dateOut' => $reques->dateOut,
-    //             'country' => $request->country,
-    //             'actitivities' => $reques->activities,
-    //             'city' => $reques->city,
-    //             'msgInty' => $reques->msgInti,
-    //             'amount' => $reques->amount,
-    //             'coin' => $reques->coin,
-    //             'userId' => Auth::id()
-    //         ]);
-    //         return response()->json($travel);
-    //     }
+        ],[
+            'msgInti.required' => 'Ingresa un titulo a tu viaje',
+            'dateIn.required'=> 'Informanos cuando inicia tu viaje',
+            'dateOut.required'=>'Informanos cuando finaliza tu viaje',
+            /* 'country.required'=>'Que país vas a visitar?', */
+            'amount.required'=>'Decinos cual es tu presupuesto',
+            'coin.required' => 'No te olvides de indicar la moneda!',
+            'activities.required'=> 'Completa que tipo de viaje estas pensando',
+            'flexibility.required'=> 'No te olvides de indicar tu flebilidad de fechas!',
+        ]);
+            if($validar->fails()){
+
+                $respuesta = redirect()
+                             ->back()
+                             ->withErrors($validar->errors());
+
+            }else{
+
+                $travel = Travel::create([
+                    'dateIn'  => $request->dateIn,
+                    'dateOut' => $request->dateOut,
+                    'country' => 'EEUU',
+                    'actitivities' => $request->activities,
+                    'city' => 'Chicago',
+                    'msgInti' => $request->msgInti,
+                    'amount' => $request->amount,
+                    'user_id' => auth()->id(),
+                    'coin' => $request->coin
+                ]);
+
+                $respuesta = redirect('/travel');
+            }
+            
+
+            return $respuesta;
+        }
     /**
  * Get the error messages for the defined validation rules.
  *
  * @return array
  */
-   public function validator(Request $request)
-   {
+  
 
-        // $tavel = $request->validate([
-        //     'msgInti' => 'required',
-        //     'dateIn' => 'required',
-        //     'dateOut' => 'required',
-        //     /* 'country' => 'required', */
-        //     'amount' => 'required',
-        //     'coin'=>'required',
-        //     'activities'=> 'required',
-        //     /* 'flexibility'=>'required', */
-    
-        // ]); 
-        
-        $travel = Travel::create([
-            'dateIn'  => $request->dateIn,
-            'dateOut' => $request->dateOut,
-            'country' => 'EEUU',
-            'actitivities' => $request->activities,
-            'city' => 'Chicago',
-            'msgInti' => $request->msgInti,
-            'amount' => $request->amount,
-            'coin' => $request->coin,
-            'user_id' => Auth::id(),
-        ]);
+        // public function rules()
+        // {
+        //     $rules =
+        //     [
+        //         'msgInti.required' => 'Ingresa un titulo a tu viaje',
+        //         'dateIn.required'=> 'Informanos cuando inicia tu viaje',
+        //         'dateOut.required'=>'Informanos cuando finaliza tu viaje',
+        //         /* 'country.required'=>'Que país vas a visitar?', */
+        //         'amount.required'=>'Decinos cual es tu presupuesto',
+        //         'coin.required' => 'No te olvides de indicar la moneda!',
+        //         'activities.required'=> 'Completa que tipo de viaje estas pensando',
+        //         /* 'flexibility.required'=> 'No te olvides de indicar tu flebilidad de fechas!', */
+        //     ];
 
-        dd($travel);
-   }
-
-        public function rules()
-        {
-            $rules =
-            [
-                'msgInti.required' => 'Ingresa un titulo a tu viaje',
-                'dateIn.required'=> 'Informanos cuando inicia tu viaje',
-                'dateOut.required'=>'Informanos cuando finaliza tu viaje',
-                /* 'country.required'=>'Que país vas a visitar?', */
-                'amount.required'=>'Decinos cual es tu presupuesto',
-                'coin.required' => 'No te olvides de indicar la moneda!',
-                'activities.required'=> 'Completa que tipo de viaje estas pensando',
-                /* 'flexibility.required'=> 'No te olvides de indicar tu flebilidad de fechas!', */
-            ];
-
-            return $rules;
-        }
+        //     return $rules;
+        // }
 
         public function getAllTravels (){
             $alltravels=Travel::All();
@@ -139,7 +136,13 @@ class TravelController extends Controller
             return view('myTravel', ['myTravel' => $myTravel]);
            
         }
-    
+        
+        public function thisId()
+        {
+            $id = Auth::id();
+
+            return $id;
+        }
        
 
     
