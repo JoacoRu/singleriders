@@ -56,4 +56,4 @@ Route::get('/sharedTravel', function () {
 });
 
 Route::get('/search', 'SearchController@viewSearch');
-Route::get('/searchH', 'SearchController@search');
+Route::get('/search', 'SearchController@search');

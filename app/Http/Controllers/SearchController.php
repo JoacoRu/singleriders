@@ -11,14 +11,14 @@ class SearchController extends Controller
     {
         return view('search');
     }
-
-
+    
     public function search(Request $request)
     {
-        dd($request->search);
-        $search = User::where('name', 'LIKE', $request->search)
-        ->orWhere('lastname', 'LIKE', $request->search)
+        $searchs = User::where('name', 'like','%' . $request->search .'%' )
+        ->orWhere('lastname', 'like', '%' . $request->search .'%')
         ->get();
-        return view('search', ['search' => $user]);
+        return view('/search', ['searchs' => $searchs]);
+
     }
+
 }

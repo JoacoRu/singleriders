@@ -491,11 +491,45 @@ a:hover {
 .buscador{
   display: flex;
   justify-content: center;
-  margin-left: 7%;
-
+  margin-left: 20%;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 16%;
 }
 
+.buscador input{
+  width: 75%;
+  border: 5px 0px 0px 5px;
+  border: 1px solid grey;
+  border-radius: 4px 0px 0px 4px;
+  margin-right: -5%;
+  height: 24px;
+  margin-bottom: 6%;
+}
 
+.buscador button{
+  border: none;
+  background-color: #eeeeee;
+  border-radius: 0px 4px 4px 0px;
+  height: 26px;
+  margin-bottom: 1px;
+}
+
+.buscador input:focus{
+  border: 2px solid #028ed6;
+  outline:0px;
+}
+
+.buscador button img{
+  height: 21px;
+}
+
+.resultadosBusqueda{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
 
 /* NOTE: fin estilos nueva home */
 
@@ -506,7 +540,7 @@ a:hover {
   }
 
   .buscador{
-    margin-right: 0;
+    margin-right: 6%;
   }
 }
 
@@ -523,6 +557,16 @@ a:hover {
   #navbarNav ul li {
     text-align: right;
     margin-right: 2px;
+  }
+
+  .buscador{
+    margin-right: 12%;
+  }
+}
+
+@media(min-width: 700px){
+  .buscador{
+    margin-right: 13%;
   }
 }
 
@@ -560,5 +604,11 @@ a:hover {
   .itiTitle{
     font-family: 'Abel';
     text-align: center;
+  }
+}
+
+@media (min-width: 1458px){
+  .buscador{
+    margin-right: 15%;
   }
 }

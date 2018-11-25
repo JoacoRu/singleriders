@@ -168,9 +168,30 @@
     margin-top: 2%;
 }
 
+.tarjeta{
+    width: 78%;
+}
+
+.tarjeta img{
+    width: 94%;
+    margin-top: 3%;
+    border-radius: 4px;
+}
+
 
 @media (min-width: 400px){
     .publicacion{
+        width: 70%;
+    }
+
+    .tarjeta{
+        width: 70%;
+    }
+}
+
+@media (min-width: 500px){
+
+    .tarjeta{
         width: 70%;
     }
 }
@@ -189,22 +210,48 @@
     .links{
         margin-right: 35%;
     }
+
+    .tarjeta{
+        width: 65%;
+    }
+}
+
+
+@media (min-width: 800px){
+    .tarjeta{
+        width: 57%;
+    }
+}
+
+@media (min-width: 900px){
+
+    .tarjeta{
+        width: 48%;
+    }
 }
 
 @media (min-width: 1250px){
     .publicacion{
         width: 45%;
     }
+
+    .tarjeta{
+        width: 39%;
+    }
 }
 
 @media (min-width: 1500px){
     .publicacion{
-        width: 40%;
+        width: 32%;
     }
 }
 
 @media (min-width: 1700px){
     .publicacion{
         width: 35%;
+    }
+
+    .tarjeta{
+        width: 28%;
     }
 }

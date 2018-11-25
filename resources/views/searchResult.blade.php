@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
     <link rel="stylesheet" href="{{ asset('css/muro2.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/posteo.css') }}">
     <script src="{{asset('js/search.js')}}"></script>
     <title>Buscador</title>
 </head>
@@ -37,24 +36,25 @@
               
                 
 
-              <article class="resultadosBusqueda container">
-                @foreach($searchs as $search)
-                    <div class="card mb-3 tarjeta">
-                        <img class="card-img-top" src="images/{{$search['src']}}" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title" style="text-align: center;">{{ $search['name'] }} {{ $search['lastname'] }}</h5>
-                            <p class="card-text" style="text-align: center;"><small class="text-muted"><a href="#">Ver Perfil</a></small></p>
-                        </div>
-                    </div>
-                @endforeach
+              <article class="resultadosBusqueda">
+                {{dd($searchs)}}
+              <div class="card mb-3 tarjeta">
+                <img class="card-img-top" src="images/" alt="Card image cap" style="width: 100%;">
+                <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+
             
                  
               </article>
           </div>
 
+            </div>
         </div>
-    </div>
-</section>
+    </section>
     @include('partials.footer')
 </body>
 </html>

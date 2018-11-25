@@ -9,31 +9,18 @@ window.onload = function(){
 
     function disLike(){
 
-      fetch("http://127.0.0.1:8000/profileDislike")
-  
-          .then(function (response) {
-              return response.json();
-              
+      labelDislike = document.querySelectorAll('.no_gusta');
+      labelDislike.forEach(element => {
+        console.log(element)
+          element.addEventListener('mouseenter', function(event){
+            event.prevenDefault;
+            element.style.color = 'black';
           })
-  
-          .then(function (data) {
-            labelDislike = document.querySelectorAll('.no_gusta');
-            labelDislike.forEach(element => {
-              console.log(element)
-                element.addEventListener('mouseenter', function(event){
-                  event.prevenDefault;
-                  element.style.color = 'black';
-                })
-                element.addEventListener('mouseleave', function(event){
-                  event.prevenDefault;
-                  element.style.color="red";
-                })
-            });
+          element.addEventListener('mouseleave', function(event){
+            event.prevenDefault;
+            element.style.color="red";
           })
-  
-          .catch(function (error) {
-              console.log("The error was: " + error);
-          })
+      });
   
     }
 
