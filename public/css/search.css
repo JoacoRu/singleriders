@@ -1,0 +1,62 @@
+.paginadorSearch{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+
+@media (min-width: 800px){
+
+    #publicaciones{
+        width: 91%;
+    }
+}
+
+@media (min-width: 900px){
+
+    #publicaciones{
+        width: 80%;
+    }
+}
+
+@media(min-width: 1000px){
+    #publicaciones{
+        width: 75%;
+    }
+}
+
+@media (min-width: 1250px){
+
+    .tarjeta{
+        width: 39%;
+    }
+
+    #publicaciones{
+        width: 60%;
+    }
+}
+
+@media (min-width: 1400px){
+    #publicaciones{
+        width: 55%;
+    }
+}
+
+@media (min-width: 1500px){
+
+    #publicaciones{
+        width: 50%;
+        margin-right: 20%;
+    }
+
+    .paginadorSearch{
+        margin-left: 10%;
+    }
+
+}
+
+@media (min-width: 1600px){
+    #publicaciones{
+        width: 46%;
+    }
+}

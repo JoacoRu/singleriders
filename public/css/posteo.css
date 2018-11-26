@@ -228,10 +228,6 @@
     .tarjeta{
         width: 57%;
     }
-
-    #publicaciones{
-        width: 91%;
-    }
 }
 
 @media (min-width: 900px){
@@ -245,12 +241,6 @@
     }
 }
 
-@media(min-width: 1000px){
-    #publicaciones{
-        width: 75%;
-    }
-}
-
 @media (min-width: 1250px){
     .publicacion{
         width: 45%;
@@ -258,10 +248,6 @@
 
     .tarjeta{
         width: 39%;
-    }
-
-    #publicaciones{
-        width: 60%;
     }
 }
 
@@ -276,21 +262,6 @@
         width: 32%;
     }
 
-    #publicaciones{
-        width: 50%;
-        margin-right: 20%;
-    }
-
-    .paginadorSearch{
-        margin-left: 10%;
-    }
-
-}
-
-@media (min-width: 1600px){
-    #publicaciones{
-        width: 46%;
-    }
 }
 
 @media (min-width: 1700px){

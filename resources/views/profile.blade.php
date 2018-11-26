@@ -49,7 +49,7 @@
       <div>
     </article>
 
-    <article id="publicaciones">
+    <article id="publicaciones" style="width: 100%;">
       <!-- POSTEO HTML -->
       @foreach($posts as $key)
         <div class="col-12 p-10 pt-4 col-md-8">
@@ -65,19 +65,28 @@
 
                   <div class="post_interaccion">
 
-                      <div class="form_interaccion">
-                          <form method="post" action="/profileLike" name="interaccion">
-                                @csrf
+                      <div class="form_interaccion d-flex flex-row">
                               <label name="cantidad_mg">{{App\Like::bringLike($key['post_id'])}}</label>
                               @if(App\Like::existLike($key['user_id'], $key['post_id']) == 1)
-                                <label for="no_gusta{{ $key['post_id'] }}" class="no_gusta" onclick="color = black" style="color: red;">No me gusta</label>
+                                <form method="post" action="/profileLike" name="interaccion">
+                                  @csrf
+                                  <input type="hidden" value="delete" name="accion">
+                                  <input type="hidden" value="{{$key['user_id']}}" name="user_id">
+                                  <input type="hidden" value="{{$key['post_id']}}" name="post_id">
+                                  <label for="no_gusta{{ $key['post_id'] }}" class="no_gusta" onclick="color = black" style="color: red;">No me gusta</label>
+                                  <button type="submit" id="no_gusta{{ $key['post_id'] }}"></button>
+                                </form>
                               @else
-                                <label for="me_gusta{{ $key['post_id'] }}">Me gusta</label>
+                                <form method="post" action="/profileLike" name="interaccion">
+                                  @csrf
+                                  <label for="me_gusta{{ $key['post_id'] }}">Me gusta</label>
+                                  <input type="hidden" value="insert" name="accion">
+                                  <input type="hidden" value="{{$key['user_id']}}" name="user_id">
+                                  <input type="hidden" value="{{$key['post_id']}}" name="post_id">
+                                  <button type="submit" id="me_gusta{{ $key['post_id'] }}" hidden>
+                                </form>
                               @endif
-                              <input type="hidden" value="{{$key['user_id']}}" name="user_id">
-                              <input type="hidden" value="{{$key['post_id']}}" name="post_id">
-                              <button type="submit" id="me_gusta{{ $key['post_id'] }}" hidden>
-                          </form>
+                              
                       </div>
                       <div class="form_interaccion">
                           <label for="comentar">Comentar</label>

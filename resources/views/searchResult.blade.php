@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{{ asset('css/posteo.css') }}">
   <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
   <link rel="stylesheet" href="{{ asset('css/muro2.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/search.css') }}">
   <script src="{{ asset('js/profile.js') }}"></script>
     <title>Buscador</title>
 </head>

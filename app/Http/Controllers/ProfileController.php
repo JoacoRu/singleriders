@@ -76,24 +76,25 @@ class ProfileController extends Controller
 
     public function insertLike(Request $request)
     {
-        $exist = $this->existLike($request->user_id, $request->post_id);
-        $respuesta;
-        if($exist != 0){
-            $respuesta = 1;
+        if($request->accion == 'insert'){
+            $exist = $this->existLike($request->user_id, $request->post_id);
+            $respuesta;
+            if($exist != 0){
+                $respuesta = 1;
+            }else{
+                $respuesta = 
+                    $like = Like::create([
+                        'user_id' => $request->user_id,
+                        'post_id' => $request->post_id,
+                    ]);
+            }
         }else{
-            $respuesta = 
-                $like = Like::create([
-                    'user_id' => $request->user_id,
-                    'post_id' => $request->post_id,
-                ]);
+            $like = Like::where('user_id', $request->user_id)
+                    ->where('post_id', $request->post_id)
+                    ->delete();
         }
 
             return back();
-    }
-
-    public function removeLike(Request $request)
-    {
-        $respuesta;
     }
 
 }
