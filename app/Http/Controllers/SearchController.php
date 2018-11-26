@@ -23,7 +23,9 @@ class SearchController extends Controller
 
     public function bringUser($id)
     {
-        $user = User::where('id', $id)->join('posts', 'users.id', 'posts.user_id')->join('likes', 'posts.post_id', 'likes.post_id')->get();
+        $user = User::where('id', $id)
+                    ->join('posts', 'users.id', 'posts.user_id')
+                    ->join('likes', 'posts.post_id', 'likes.post_id')->get();
 
         dd($user);
     }
