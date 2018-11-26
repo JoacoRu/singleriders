@@ -47,6 +47,11 @@
           <li class="d-flex align-items-center mb-2"><img class="mr-1" style="width:24px;height:24px;" src="{{ asset('images/iconos/home/ver_mis_viajes.png') }}" alt=""><a href="{{'sharedTravel'}}">Viajes Compartidos</a></li>
         @endif
 
+        @if(Request::path() == 'search')
+
+        @else
+          <li class="d-flex align-items-center mb-2"><img class="mr-1" src="{{ asset('images/iconos/home/busqueda.png') }}" alt=""><a class="mt-1" href="{{'search'}}">Buscador</a></li>
+        @endif
 
       </ul>
     </div>

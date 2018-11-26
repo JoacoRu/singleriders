@@ -43,8 +43,10 @@
             <!-- POSTEO HTML -->
             <article id="publicaciones" style="width: 100%;">
             @if($respuesta === 'No hay post papa')
-                <div class="alert alert-danger mt-5 col-12" role="alert">
-                    <h1 style="font-weight: bold;">El usuario no posteo nada )':</h1>
+                <div class="col-12 d-flex justify-content-center">
+                    <div class="alert alert-danger mt-5 col-5" role="alert">
+                        <h1 style="font-weight: bold; text-align: center;">El usuario no posteo nada )':</h1>
+                    </div>
                 </div>
             @else
                 @foreach($respuesta as $key)
