@@ -49,3 +49,4 @@ Route::get('/search', 'SearchController@viewSearch');
 Route::get('/search', 'SearchController@search');
 Route::get('/searchResult/{id}', 'SearchController@bringAll');
 Route::post('/searchResult/{id}', 'ProfileController@insertLike');
+Route::post('searchResult/{id}', 'ProfileController@store');

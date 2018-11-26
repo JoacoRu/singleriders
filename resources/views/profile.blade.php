@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
   <link rel="stylesheet" href="{{ asset('css/muro2.css') }}">
   <link rel="stylesheet" href="{{ asset('css/posteo.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/comments.css') }}">
+
   <!-- <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script> -->
   <script src="{{ asset('js/profile.js') }}"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7-_ujclOOF7-Rj28am_xiblQJUNrTd3c"></script>
@@ -42,6 +44,7 @@
               @else
                 <textarea name="posteo" id="posteo" rows="10" placeholder="¿Que estas pensado?" style="resize: none; border: 1px solid lightgrey;">{{old('dateIn')}}</textarea>
               @endif
+              <input type="hidden" name="accionar" value="postear">
               <button type="submit" class="mt-3" id="boton_end">Publicar</button>
 
             </form>
@@ -91,8 +94,42 @@
                       </div>
                       <div class="form_interaccion">
                           <label for="comentar">Comentar</label>
+                          <button data-toggle="collapse" data-target="#comentario{{ $key['post_id'] }}" id="comentar" hidden></button>
                       </div>
-                  </div>
+                      <div class="comentario">
+                        @if(App\Comment::bringComments($key['post_id']) != 0)
+                          <label for="showComment" style="color: rgb(2, 142, 214);"> Hay {{App\Comment::bringComments($key['post_id'])}} Comentarios</label>
+                          <button data-toggle="collapse" data-target="#show{{ $key['post_id'] }}" id="showComment" hidden></button>
+                        @endif
+                      </div>
+                    </div>
+                        <div id="comentario{{ $key['post_id'] }}" class="collapse">
+                              <form method="post" name="comentario" class="d-flex flex-row justify-content-center align-item-center">
+                                @csrf
+                                <textarea name="comment" cols="30" rows="10" style="resize: none; width: 70%; height: 30px;"></textarea>
+                                <input type="hidden" name="user_id" value="{{$key['user_id']}}">
+                                <input type="hidden" name="post_id" value="{{$key['post_id']}}">
+                                <input type="hidden" name="accionar" value="comentar">
+                                <button type="submit" class="ml-1">Comentar!</button>
+                              </form>
+                            </div>
+                        <div id="show{{ $key['post_id'] }}" class="collapse">
+                          
+                          @foreach(App\Comment::existComment($key['post_id']) as $k)
+                            <div class="d-flex justify-content-center">
+                            <div class="card mb-2">
+                                <div class="card-header text-capitalize font-weight-bold">
+                                  <p>{{ $k['name']}} {{ $k['lastname'] }}</p>
+                                </div>
+                                <div class="card-body">
+                                  <blockquote class="blockquote mb-0">
+                                    <p>{{ $k['comment'] }}</p>
+                                  </blockquote>
+                                </div>
+                              </div>
+                            </div>
+                          @endforeach
+                        </div>
               </div>
           </div>
         </div>

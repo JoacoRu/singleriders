@@ -74,7 +74,15 @@ class TablasSql extends Migration
                 $table->string('cod');
     			$table->string('name');
     			$table->timestamps();
-		});
+        });
+        
+        Schema::create('comments', function(Blueprint $table){
+                $table->increments('id');
+                $table->smallInteger('user_id');
+                $table->smallInteger('post_id');
+                $table->text('comment');
+                $table->timestamps();
+        });
 
     }
 
@@ -92,6 +100,8 @@ class TablasSql extends Migration
         Schema::dropIfExists('countries');
         Schema::dropIfExists('cities');
         Schema::dropIfExists('likes');
+        Schema::dropIfExists('comments');
+
 
     }
 

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Validator;
 use App\Post;
 use App\User;
 use App\Like;
+use App\Comment;
 use Carbon\Carbon;
 
 class ProfileController extends Controller
@@ -24,28 +25,22 @@ class ProfileController extends Controller
 
     public function store(Request $request)
     {   
-        $validar = Validator::make([
-            'posteo' => $request->posteo,
-        ],[
-            'posteo' => 'required',
-        ],[
-            'posteo.required' => "Escribí algo :'( ",
-        ]);
-        if($validar->fails()){
-
-            $respuesta = redirect()
-                         ->back()
-                         ->withErrors($validar->errors());
-
-        }else{
-            $post = Post::create([
-                'user_id' => Auth::id(),
-                'post' => $request->posteo,
-                'created_at' => Carbon::now()
-            ]);
+            if($request->accionar === 'postear'){
+                $post = Post::create([
+                    'user_id' => Auth::id(),
+                    'post' => $request->posteo,
+                    'created_at' => Carbon::now()
+                ]);
+            }elseif($request->accionar === 'comentar'){
+                $comment = Comment::create([
+                    'user_id' => $request->user_id,
+                    'post_id' => $request->post_id,
+                    'comment' => $request->comment,
+                ]);
+            }
             
             $respuesta =  redirect('/profile');
-        }
+        
             return $respuesta;
     }
 
@@ -55,7 +50,7 @@ class ProfileController extends Controller
                 ->join( 'users', 'id', '=', 'user_id')
                 ->orderBy('post_id','DESC')
                 ->paginate(8);
-
+        
         return view('profile', ['posts' => $post]);
     }
 
