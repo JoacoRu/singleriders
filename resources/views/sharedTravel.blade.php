@@ -35,9 +35,9 @@
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
           Presupuesto
           </button>
-          
+
           <!-- Modal -->
-          
+
           <div class="modal fade" id="modalfechas" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
@@ -49,11 +49,15 @@
           </div>
             <div class="modal-body">
             @foreach($sharedTravel as $key =>$value)
-             @if(Auth::id()==$value->follower_user_id)
-               {{$value->dateIn}}
+             @if(Auth::id()==$value->follower_user_id && $travel_id == $value->travel_id)
+               fecha de inicio: {{$value->dateIn}}
+               fecha de finalización: {{$value->dateOut}}
+              
+
+
              @endif
-            
-                        
+
+
             @endforeach
             </div>
             <div class="modal-footer">
@@ -63,7 +67,7 @@
             </div>
             </div>
           <div class="col-12 p-0 col-md-8">
-           <h2 class=itiTitle>Itinerario del Viaje</h2> 
+           <h2 class=itiTitle>Itinerario del Viaje</h2>
       </div>
     </section>
 

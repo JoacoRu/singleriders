@@ -18,19 +18,20 @@ class FollowersController extends Controller
 
     */
 
-    public function existLike($user_id)
+    public function existLike($user_id,$travel_id)
     {
         $follow = Follower::where('follower_user_id', $user_id)
+                -> where('travel_id',$travel_id)
                 ->count();
         return $follow;
     }
 
     public function follows(Request $request){
         $me = Auth::id();
-        $unfollow = $this->existLike($me);
+        $unfollow = $this->existLike($me,$request->travel_id);
 
-        if(false){
-           $respuesta = 'Ya estas siguiendo a este viaje'; 
+        if($unfollow != 0){
+           $respuesta = 'Ya estas siguiendo a este viaje';
         }else{
             Follower::create([
                 'travel_id'        => $request->travel_id,
@@ -48,9 +49,8 @@ class FollowersController extends Controller
         $sharedTravel= Follower::where('follower_user_id', $me)
                                 ->join('travels', 'followers.travel_id', 'travels.travel_id')
                                 ->get();
-    
-            
-        return view('/sharedTravel', ['sharedTravel' => $sharedTravel]); 
+
+        return view('/sharedTravel', ['sharedTravel' => $sharedTravel,'travel_id' => $travel_id]);
 
     }
 
