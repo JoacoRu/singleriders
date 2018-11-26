@@ -1,9 +1,11 @@
 window.onload = function () {
         
-        var search = document.querySelector('.search');
-        var input  = document.querySelector('input[name="search"]');
-        var body   = document.querySelector('body');
-        var boton  = document.querySelector("#prender");
+        var search     = document.querySelector('.search');
+        var input      = document.querySelector('input[name="search"]');
+        var body       = document.querySelector('body');
+        var boton      = document.querySelector("#prender");
+        var comentario = document.querySelector('label[for="commentEvent"]');
+        console.log(comentario);
         
         function validarBusqueda(){
             search.onsubmit = function(event) {

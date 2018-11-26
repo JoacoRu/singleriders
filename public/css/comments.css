@@ -6,3 +6,11 @@
 .card-header{
     height: 40px;
 }
+
+#commentEvent{
+    color: rgb(2, 142, 214);
+}
+
+#commentEvent:hover{
+    color: black;
+}

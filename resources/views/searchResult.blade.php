@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="{{ asset('css/muro2.css') }}">
   <link rel="stylesheet" href="{{ asset('css/search.css') }}">
   <link rel="stylesheet" href="{{ asset('css/comments.css') }}">
+  <script src="{{ asset('js/search.js') }}"></script>
 
   <script src="{{ asset('js/profile.js') }}"></script>
     <title>Buscador</title>
@@ -93,7 +94,7 @@
                       </div>
                       <div class="comentario">
                         @if(App\Comment::bringComments($key['post_id']) != 0)
-                          <label for="showComment" style="color: rgb(2, 142, 214);"> Hay {{App\Comment::bringComments($key['post_id'])}} Comentarios</label>
+                          <label for="showComment" id="commentEvent"> Hay {{App\Comment::bringComments($key['post_id'])}} Comentarios</label>
                           <button data-toggle="collapse" data-target="#show{{ $key['post_id'] }}" id="showComment" hidden></button>
                         @endif
                       </div>
