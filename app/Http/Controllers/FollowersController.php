@@ -54,6 +54,14 @@ class FollowersController extends Controller
 
     }
 
+    public function showItinerary($travel_id){
+        $date1=Follower::find('dateIn');
+        $date2=Follower::find('dateOut');
+        $diff=$date2->diffInDays($date1);
+        dd($diff);
+        /* return view ('sharedTravel'['sharedTRavel' => $diff]) */
+    }
+
 
     /**<p><?=$date1->format('d-m-y') ?></p>
 <p><?=$date2->format('d-m-y') ?></p>
