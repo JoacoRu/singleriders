@@ -26,7 +26,7 @@ class TablasSql extends Migration
             $table->increments('message_id')->index();
             $table->dateTime('message_created_at');
         });
-    
+
 
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('post_id')->index();
@@ -49,10 +49,6 @@ class TablasSql extends Migration
             $table->timestamps();
         });
 
-        Schema::create('countries', function (Blueprint $table){
-            $table->string('cities', 100);
-            $table->string('country_code', 100);
-        });
 
         Schema::create('cities', function (Blueprint $table){
             $table->string('city', 100);
@@ -66,8 +62,22 @@ class TablasSql extends Migration
             $table->timestamps();
         });
 
+        Schema::create('countries', function (Blueprint $table) {
+           $table->increments('id');
+           $table->string('code', 2)
+               ->index();
+           $table->string('name', 75);
+       });
+
+       Schema::create('provinces', function(Blueprint $table) {
+    			$table->increments('id');
+                $table->string('cod');
+    			$table->string('name');
+    			$table->timestamps();
+		});
+
     }
-    
+
     /**
      * Reverse the migrations.
      *
@@ -84,5 +94,5 @@ class TablasSql extends Migration
         Schema::dropIfExists('likes');
 
     }
-    
+
 }

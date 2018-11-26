@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'lastname', 'email', 'password','src',
+        'name', 'lastname', 'email', 'password','src','pais','provincia'
     ];
 
     /**
@@ -42,7 +42,5 @@ class User extends Authenticatable
     {
     return $this->belongsToMany('App\Travel', 'followers', 'follower_user_id');
     }
-    
+
 }
-
-

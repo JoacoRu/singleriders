@@ -42,10 +42,10 @@ class TravelController extends Controller
     *
     * @param  Request  $request
     * @return Response
- */  
+ */
     public function store(Request $request)
     {
-    
+
     //    $validar = Validator::make([
     //         'msgInti'     => $request->msgInti,
     //         'dateIn'      => $request->dateIn,
@@ -63,7 +63,7 @@ class TravelController extends Controller
     //         'coin'=>'required| string',
     //         'activities'=> 'required',
     //         'flexibility'=>'required',
-    
+
     //     ],[
     //         'msgInti.required' => 'Ingresa un titulo a tu viaje',
     //         'dateIn.required'=> 'Informanos cuando inicia tu viaje',
@@ -85,7 +85,7 @@ class TravelController extends Controller
                 $travel = Travel::create([
                     'dateIn'  => $request->dateIn,
                     'dateOut' => $request->dateOut,
-                    'country' => 'EEUU',
+                    'country' => $request->country,
                     'actitivities' => $request->activities,
                     'city' => 'Chicago',
                     'msgInti' => $request->msgInti,
@@ -96,7 +96,7 @@ class TravelController extends Controller
 
                 $respuesta = redirect('/travel');
             // }
-            
+
 
             return $respuesta;
         }
@@ -105,7 +105,7 @@ class TravelController extends Controller
  *
  * @return array
  */
-  
+
 
         // public function rules()
         // {
@@ -127,11 +127,11 @@ class TravelController extends Controller
         public function getAllTravels (){
             $alltravels=Travel::All();
             $users=User::All();
-    
+
             return view ('allTravel', ['alltravels'=>$alltravels,'users'=>$users]);
         }
-      
-    
+
+
         public function getMyTravels()
         {
             $myTravel = Travel::where('user_id', Auth::id())
@@ -139,16 +139,16 @@ class TravelController extends Controller
                     ->get();
 
             return view('myTravel', ['myTravel' => $myTravel]);
-           
+
         }
-        
+
         public function thisId()
         {
             $id = Auth::id();
 
             return $id;
         }
-       
 
-    
+
+
 }

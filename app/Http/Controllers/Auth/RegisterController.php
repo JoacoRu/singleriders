@@ -51,6 +51,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'nombre'    => 'required|string|max:100',
             'apellido'  => 'required|string|max:100',
+            'pais'  => 'required|not_in:0',
             'email'     => 'required|string|email|max:255|unique:users',
             'password'  => 'required|string|min:6',
             'imgperfil' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -69,6 +70,8 @@ class RegisterController extends Controller
             'password.string'    => 'El campo password debe ser una cadena de texto',
             'password.min'       => 'La contraseña debe tener un minimo de 6 caracteres',
             'imgperfil.required' => 'La imagen es requerida',
+            'pais.required'      => 'Ingresá tu país de residencia',
+            'pais.not_in'        => 'Ingresá tu país de residencia',
         ]);
     }
 
@@ -82,15 +85,16 @@ class RegisterController extends Controller
     {
 
       if ($data['imgperfil']) {
-            //dd($data);
             $imageName = 'Avatar'.$data['email'].'.'.$data['imgperfil']->getClientOriginalExtension();
-
             $data['imgperfil']->move(public_path('images'), $imageName);
-            // guardar archivo
-            //Image::make($avatar)->resize(300, 300)->save($save_path.$filename);
-            // guardar en db
-            //$usuario->src = $imageName;
+      }
 
+
+      if ($data['pais']=='Argentina') {
+        $provincia = $data['provincia'];
+      }else
+      {
+        $provincia = '';
       }
 
         return User::create([
@@ -99,6 +103,8 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'src' => $imageName,
+            'pais' => $data['pais'],
+            'provincia' => $provincia
         ]);
 
     }
