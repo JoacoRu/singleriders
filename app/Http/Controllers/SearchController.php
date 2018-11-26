@@ -39,7 +39,9 @@ class SearchController extends Controller
 
     public function bringPosts($id)
     {
-        $posts = Post::where('user_id', $id)->get();
+        $posts = Post::where('user_id', $id)
+                ->orderBy('post_id','DESC')
+                ->paginate(8);
 
         return $posts;
     }

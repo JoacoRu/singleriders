@@ -6,9 +6,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Abel|Montserrat:400,400i,700,700i|Pacifico" rel="stylesheet">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ asset('css/posteo.css') }}">
   <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
   <link rel="stylesheet" href="{{ asset('css/muro2.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/posteo.css') }}">
   <script src="{{ asset('js/profile.js') }}"></script>
     <title>Buscador</title>
 </head>
@@ -41,7 +41,7 @@
             @endforeach
 
             <!-- POSTEO HTML -->
-            <article id="publicaciones" style="width: 100%;">
+            <article class="postSearch" id="publicaciones">
             @if($respuesta === 'No hay post papa')
                 <div class="col-12 d-flex justify-content-center">
                     <div class="alert alert-danger mt-5 col-5" role="alert">
@@ -85,6 +85,11 @@
             @endforeach
         </article>
         @endif
+        <article class="paginadorSearch">
+            <nav class="linksSearch">
+                {{ $respuesta->links() }}
+            </nav>
+        </article>
         </div>
     </div>
 </div>

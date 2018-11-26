@@ -56,12 +56,29 @@
             {{ Auth::user()->name }}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/profile">Mi Perfil</a>
-            <a class="dropdown-item" href="/myTravel">Mis Viajes</a>
-            <!--<a class="dropdown-item" href="#">Cambiar Cuenta</a>-->
-            <a class="dropdown-item" href="/faqs">faqs</a>
-            <a class="dropdown-item" href="/edit_profile">Editar Perfil</a>
+            @if(Request::path() == 'profile')
 
+            @else
+            <a class="dropdown-item" href="/profile">Mi Perfil</a>
+            @endif
+
+            @if(Request::path() == 'myTravel')
+            
+            @else
+            <a class="dropdown-item" href="/myTravel">Mis Viajes</a>
+            @endif
+            <!--<a class="dropdown-item" href="#">Cambiar Cuenta</a>-->
+            @if(Request::path() == 'faqs')
+
+            @else
+            <a class="dropdown-item" href="/faqs">faqs</a>
+            @endif
+
+            @if(Request::path() == 'edit_profile')
+
+            @else
+            <a class="dropdown-item" href="/edit_profile">Editar Perfil</a>
+            @endif
 
             <a class="dropdown-item" href="{{ route('logout') }}"
                onclick="event.preventDefault();

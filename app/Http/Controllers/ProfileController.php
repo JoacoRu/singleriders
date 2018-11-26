@@ -88,7 +88,7 @@ class ProfileController extends Controller
                 ]);
         }
 
-            return redirect('/profile');
+            return back();
     }
 
 }

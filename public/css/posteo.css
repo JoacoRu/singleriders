@@ -157,6 +157,7 @@
 
 #publicaciones{
     flex-direction: column-reverse;
+    width: 100%;
 }
 
 .pagination{
@@ -177,6 +178,12 @@
     margin-top: 3%;
     border-radius: 4px;
 }
+
+.paginadorSearch{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 
 
 @media (min-width: 400px){
@@ -221,12 +228,26 @@
     .tarjeta{
         width: 57%;
     }
+
+    #publicaciones{
+        width: 91%;
+    }
 }
 
 @media (min-width: 900px){
 
     .tarjeta{
         width: 48%;
+    }
+
+    #publicaciones{
+        width: 80%;
+    }
+}
+
+@media(min-width: 1000px){
+    #publicaciones{
+        width: 75%;
     }
 }
 
@@ -238,11 +259,37 @@
     .tarjeta{
         width: 39%;
     }
+
+    #publicaciones{
+        width: 60%;
+    }
+}
+
+@media (min-width: 1400px){
+    #publicaciones{
+        width: 55%;
+    }
 }
 
 @media (min-width: 1500px){
     .publicacion{
         width: 32%;
+    }
+
+    #publicaciones{
+        width: 50%;
+        margin-right: 20%;
+    }
+
+    .paginadorSearch{
+        margin-left: 10%;
+    }
+
+}
+
+@media (min-width: 1600px){
+    #publicaciones{
+        width: 46%;
     }
 }
 
