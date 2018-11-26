@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="{{ asset('css/posteo.css') }}">
   <!-- <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script> -->
   <script src="{{ asset('js/profile.js') }}"></script>
+  <script src="{{ asset('js/turnOff.js') }}"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7-_ujclOOF7-Rj28am_xiblQJUNrTd3c"></script>
 </head>
 

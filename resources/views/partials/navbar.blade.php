@@ -28,21 +28,24 @@
         @endguest
         <?php // NOTE: Navbar no logueado ?>
         @guest
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'index.php') > -1  ? 'active' : ''  ?>">
-                <a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'faqs.php') > -1  ? 'active' : ''  ?>">
-                <a class="nav-link" href="/faqs">Faqs</a>
-              </li>
-              <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'login.php') > -1  ? 'active' : ''  ?>">
-                <a class="nav-link" href="{{ route('login') }}">Login</a>
-              </li>
-              <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'registro.php') > -1  ? 'active' : ''  ?>">
-                <a class="nav-link" href="{{ route('register') }}">Registro</a>
-              </li>
-            </ul>
+        <div class="d-flex flex-row">
+            <button type="button" class="btn btn-light mr-2" id="prender">Luz</button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'index.php') > -1  ? 'active' : ''  ?>">
+                  <a class="nav-link" href="/home">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'faqs.php') > -1  ? 'active' : ''  ?>">
+                  <a class="nav-link" href="/faqs">Faqs</a>
+                </li>
+                <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'login.php') > -1  ? 'active' : ''  ?>">
+                  <a class="nav-link" href="{{ route('login') }}">Login</a>
+                </li>
+                <li class="nav-item <?= strpos($_SERVER['REQUEST_URI'], 'registro.php') > -1  ? 'active' : ''  ?>">
+                  <a class="nav-link" href="{{ route('register') }}">Registro</a>
+                </li>
+              </ul>
+            </div>
           </div>
         @endguest
 
@@ -51,6 +54,8 @@
           <div>
           </div>
         @else
+        <div class="d-flex flex-row">
+        <button type="button" id="prender" class="btn btn-light mr-2">Luz</button>
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle text-capitalize" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{ Auth::user()->name }}

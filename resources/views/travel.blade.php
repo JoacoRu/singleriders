@@ -20,7 +20,7 @@
       <script src="js/crea.js"></script> 
       <link rel ="stylesheet" href="{{asset ('css/styles.css')}}">
       <link rel="stylesheet" href="{{asset ('css/crea.css')}}">
-    <title></title>
+    <title>Crea tu viaje</title>
   </head>
   <body>
   @include('partials.navbar')

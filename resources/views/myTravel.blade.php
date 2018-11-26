@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="./css/muro2.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7-_ujclOOF7-Rj28am_xiblQJUNrTd3c"></script>
+    <script src="{{ asset('js/turnOff.js') }}"></script>
   </head>
   <body>
   @include('partials.navbar')
