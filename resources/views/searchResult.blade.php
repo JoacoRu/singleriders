@@ -19,28 +19,16 @@
         <div class="container-fluid pt-5">
             <div class="row p-0 m-0 bg-white rounded home-row-main justify-content-center">
                 <div class="col-12 p-0 top-muro-image d-flex align-items-center justify-content-center">
-                    <h1 class="font-weight-bold text-center">Buscador</h1>
+                    <h1 class="font-weight-bold text-center">Perfil</h1>
                 </div>
 
-          @include('partials.lateral_izquierdo')
+                @include('partials.lateral_izquierdo')
 
-          <div class="col-12 p-10 pt-4 col-md-8">
-              <div class="buscador">
-                <form method="get" class="search">
-                    @csrf
-                    <input type="search" name="search" >
-                    <button type="submit"><img src="images/busqueda.png" alt=""></button>
-                </form>
-              </div>
-               
-              
-                
+                <div class="col-12 p-10 pt-4 col-md-8">
+                    <article id="publicaciones">
 
-              <article class="resultadosBusqueda">
-
-              </article>
-          </div>
-
+                    </article>
+                </div>
             </div>
         </div>
     </section>
