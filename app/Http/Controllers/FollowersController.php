@@ -65,7 +65,7 @@ class FollowersController extends Controller
         $date1= Carbon::parse($request->input('dateIn'));
         $date2= Carbon::parse($request->input('dateOut'));
         $diff = $date2->diffInDays($dateIn);
-        dd($diff);
+        
         return view ('/sharedTravel', ['sharedTravel' => $diff]);
         }
     }
