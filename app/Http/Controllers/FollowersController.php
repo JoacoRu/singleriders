@@ -29,7 +29,7 @@ class FollowersController extends Controller
         $me = Auth::id();
         $unfollow = $this->existLike($me);
 
-        if($unfollow != 0){
+        if(false){
            $respuesta = 'Ya estas siguiendo a este viaje'; 
         }else{
             Follower::create([
@@ -37,7 +37,7 @@ class FollowersController extends Controller
                 'user_id'          => $request->creador_viaje,
                 'follower_user_id' => $me,
             ]);
-            $respuesta = redirect('/sharedTravel');
+            $respuesta = redirect('/sharedTravel/'. $request->travel_id);
         }
 
         return $respuesta;
@@ -48,7 +48,16 @@ class FollowersController extends Controller
         $sharedTravel= Follower::where('follower_user_id', $me)
                                 ->join('travels', 'followers.travel_id', 'travels.travel_id')
                                 ->get();
+    
+            
+        return view('/sharedTravel', ['sharedTravel' => $sharedTravel]); 
 
-        return view('/sharedTravel', ['sharedTravel' => $sharedTravel]);                        
     }
+
+    /* public function showItinerary(){
+        $travel=Follower::
+        $date1=Find::(dateIn)
+        $date2=
+        $diff=$date2-$date1;
+    } */
 }

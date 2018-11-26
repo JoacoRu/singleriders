@@ -20,7 +20,7 @@
             <h1 class="font-weight-bold text-center" ></h1>
           </div>
            <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+          <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#modalfechas">
           Fechas del viaje
           </button>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
@@ -35,9 +35,10 @@
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
           Presupuesto
           </button>
-
+          
           <!-- Modal -->
-          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          
+          <div class="modal fade" id="modalfechas" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -47,7 +48,13 @@
                         </button>
           </div>
             <div class="modal-body">
-              ...
+            @foreach($sharedTravel as $key =>$value)
+             @if(Auth::id()==$value->follower_user_id)
+               {{$value->dateIn}}
+             @endif
+            
+                        
+            @endforeach
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
