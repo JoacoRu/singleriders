@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
     <link rel="stylesheet" href="{{asset('css/styles.css')}}">
-    <script src="{{ asset('js/turnOff.js') }}"></script>
+    <script src="{{ asset('js/turnOffLogin.js') }}"></script>
     <title>Registro</title>
 </head>
 <body>

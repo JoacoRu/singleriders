@@ -22,10 +22,15 @@ window.onload = function(){
             prender.addEventListener('click', function(){
                 prender.setAttribute('class', 'btn btn-light mr-2');
                 prender.setAttribute('id', 'apagar');
-                body.style.opacity = 1;
                 body.style.position = "absolute";
                 body.style.width = "100%";
                 body.style.zIndex = "10";
+                body.style.opacity = 1;
+                body.style.backgroundImage= "url(../images/bg-body02.jpg)";
+                body.style.backgroundAttachment= "fixed";
+                body.style.backgroundRepeat= "no-repeat";
+                body.style.backgroundSize= "cover";
+                body.style.backgroundPosition= "center";
                 turnOffBody();
             });
         }

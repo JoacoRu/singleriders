@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="{{ asset('css/posteo.css') }}">
   <!-- <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script> -->
   <script src="{{ asset('js/profile.js') }}"></script>
-  <script src="{{ asset('js/turnOff.js') }}"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7-_ujclOOF7-Rj28am_xiblQJUNrTd3c"></script>
 </head>
 
@@ -31,6 +30,7 @@
 
     <!-- CREAR UN POST HTML -->
   <div class="padre col-12 p-10 pt-4 col-md-8">
+    <audio id="audio" src="{{ asset('images/mama.mp3')}}">Play</audio>
     <article class="posteo_crear col-12 p-10 pt-4 col-md-8">
       <div class="publicacion rounded">
         <div class="publicacion_imagen">

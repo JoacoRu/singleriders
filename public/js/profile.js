@@ -1,6 +1,10 @@
 window.onload = function(){
   var label = document.querySelectorAll('label[name="cantidad_mg"]');
-  
+  var body  = document.querySelector('body');
+  var boton = document.querySelector("#prender");
+  var audio = document.querySelector('#audio');
+  var newAudio = new Audio();
+  newAudio.src = "../images/mama.mp3";
   function changeColorLike(){
     label.forEach(element => {
         element.style.color = '#028ed6';
@@ -23,10 +27,7 @@ window.onload = function(){
       });
   
     }
-    var body = document.querySelector('body');
 
-    var boton = document.querySelector("#prender");
-    console.log(boton);
     function turnOffBody(){
         boton.addEventListener('click', apagarBody);
         function apagarBody(){
@@ -37,6 +38,7 @@ window.onload = function(){
             body.style.position = "absolute";
             body.style.width = "100%";
             body.style.zIndex = "10";
+            newAudio.play();
             prenderBody();
             }
     }
@@ -47,6 +49,7 @@ window.onload = function(){
                 prender.setAttribute('class', 'btn btn-light mr-2');
                 prender.setAttribute('id', 'apagar');
                 body.style.background = "rgba(0, 0, 0, 0)";
+                body.style.opacity = 1;
                 body.style.position = "absolute";
                 body.style.width = "100%";
                 body.style.zIndex = "10";

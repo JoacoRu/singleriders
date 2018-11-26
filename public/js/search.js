@@ -40,6 +40,7 @@ window.onload = function () {
                     body.style.background = "rgba(0, 0, 0, 0)";
                     body.style.position = "absolute";
                     body.style.width = "100%";
+                    body.style.opacity = 1;
                     body.style.zIndex = "10";
                     turnOffBody();
                 });

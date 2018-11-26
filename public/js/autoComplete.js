@@ -83,6 +83,7 @@ window.onload = function(){
                 body.style.position = "absolute";
                 body.style.width = "100%";
                 body.style.zIndex = "10";
+                body.style.opacity = 1;
                 body.style.backgroundImage =" url(../images/crea/beach.jpg)";
                 body.style.backgroundAttachment = "fixed";
                 body.style.backgroundRepeat = "no-repeat";
