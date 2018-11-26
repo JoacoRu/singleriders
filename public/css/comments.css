@@ -14,3 +14,28 @@
 #commentEvent:hover{
     color: black;
 }
+
+textarea[name="comment"]{
+    border-radius: 4px;
+    border: 1px solid rgb(211, 211, 211);
+    outline: none;
+}
+
+button[name="comment"]:hover {
+
+    background-color: rgba(255,255,255,0.3);
+    color: black;
+
+}
+button[name="comment"] {
+
+    display: flex;
+    border: none;
+    padding: 4px;
+    border-radius: 4px;
+    background-color: #028ed6;
+    color: white;
+    transition: 2s;
+    text-align: center;
+    font-weight: bold;
+}

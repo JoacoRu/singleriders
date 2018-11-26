@@ -5,8 +5,21 @@ window.onload = function () {
         var body       = document.querySelector('body');
         var boton      = document.querySelector("#prender");
         var comentario = document.querySelector('label[for="commentEvent"]');
-        console.log(comentario);
+        var formComentario = document.querySelector('#comentario');
+        var textareaComentario = document.querySelector('textarea[name="comment"]');
+    
         
+
+        function validarComentario(){
+            formComentario.addEventListener('submit', function(event){
+              if(textareaComentario.value.length == 0){
+                  event.preventDefault();
+                  textareaComentario.style.border = "1px solid red";
+                  textareaComentario.setAttribute('placeholder', 'Escribi algo' + ' '+ carita);
+              }
+            });
+          }
+
         function validarBusqueda(){
             search.onsubmit = function(event) {
                     
@@ -49,7 +62,8 @@ window.onload = function () {
             }
             turnOffBody();
 
-        validarBusqueda()
+        validarBusqueda();
+            validarComentario();
 }
 
 

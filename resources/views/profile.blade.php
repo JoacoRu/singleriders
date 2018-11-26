@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
   <link rel="stylesheet" href="{{ asset('css/muro2.css') }}">
   <link rel="stylesheet" href="{{ asset('css/posteo.css') }}">
-  <link rel="stylesheet" href="{{ asset('css/comments.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/comments.css') }}"> 
 
   <!-- <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script> -->
   <script src="{{ asset('js/profile.js') }}"></script>
@@ -37,7 +37,7 @@
       <div class="publicacion rounded">
         <div class="publicacion_imagen">
             <img style="max-width: 30px;" class="border rounded-circle" src="images/<?=Auth::user()->src?>" alt="" id="foto-perfil">
-            <form method="post" class="d-flex flex-column justify-content-center align-items-center pl-2" name="form" >
+            <form method="post" class="d-flex flex-column justify-content-center align-items-center pl-2" id="reloco" name="form" >
               @csrf
               @if(count($errors) != 0)
                 <textarea name="posteo" id="posteo" rows="10" placeholder="{{ $errors->first()}}" style="resize: none; color: red; border: 1px solid red; "></textarea>
@@ -98,7 +98,7 @@
                       </div>
                       <div class="comentario">
                         @if(App\Comment::bringComments($key['post_id']) != 0)
-                          <label for="showComment" style="color: rgb(2, 142, 214);"> Hay {{App\Comment::bringComments($key['post_id'])}} Comentarios</label>
+                          <label for="showComment"  id="commentEvent"> Hay {{App\Comment::bringComments($key['post_id'])}} Comentario</label>
                           <button data-toggle="collapse" data-target="#show{{ $key['post_id'] }}" id="showComment" hidden></button>
                         @endif
                       </div>
@@ -110,7 +110,7 @@
                                 <input type="hidden" name="user_id" value="{{$key['user_id']}}">
                                 <input type="hidden" name="post_id" value="{{$key['post_id']}}">
                                 <input type="hidden" name="accionar" value="comentar">
-                                <button type="submit" class="ml-1">Comentar!</button>
+                                <button type="submit" name="comment" class="ml-1">Comentar!</button>
                               </form>
                             </div>
                         <div id="show{{ $key['post_id'] }}" class="collapse">

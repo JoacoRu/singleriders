@@ -94,19 +94,19 @@
                       </div>
                       <div class="comentario">
                         @if(App\Comment::bringComments($key['post_id']) != 0)
-                          <label for="showComment" id="commentEvent"> Hay {{App\Comment::bringComments($key['post_id'])}} Comentarios</label>
+                          <label for="showComment" id="commentEvent"> Hay {{App\Comment::bringComments($key['post_id'])}} Comentario</label>
                           <button data-toggle="collapse" data-target="#show{{ $key['post_id'] }}" id="showComment" hidden></button>
                         @endif
                       </div>
                     </div>
                         <div id="comentario{{ $key['post_id'] }}" class="collapse">
-                              <form method="post" name="comentario" class="d-flex flex-row justify-content-center align-item-center">
+                              <form method="post" name="comentario" id="comentario" class="d-flex flex-row justify-content-center align-item-center">
                                 @csrf
                                 <textarea name="comment" cols="30" rows="10" style="resize: none; width: 70%; height: 30px;"></textarea>
                                 <input type="hidden" name="user_id" value="{{$key['user_id']}}">
                                 <input type="hidden" name="post_id" value="{{$key['post_id']}}">
                                 <input type="hidden" name="accionar" value="comentar">
-                                <button type="submit" class="ml-1">Comentar!</button>
+                                <button type="submit" name="comment" class="ml-1">Comentar!</button>
                               </form>
                             </div>
                         <div id="show{{ $key['post_id'] }}" class="collapse">
