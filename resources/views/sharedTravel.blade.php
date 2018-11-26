@@ -139,12 +139,14 @@
             @endforeach
           <div class="col-12 p-0 col-md-8">
            <h2 class=itiTitle>Itinerario del Viaje</h2>
-          
-          <p>Faltan {{ $diff }} Días</p>
+          @for($i=1;$i<$diff;$i++)
+          <p>Día {{$i}} <p>
           <p><div class="input-group">
           <span class="input-group-addon"></span>
           <input type="text" class="form-control" placeholder="Itinerario">
           </div></p>
+          @endfor
+         
           
       </div>
     </section>
