@@ -54,6 +54,18 @@ class FollowersController extends Controller
 
     }
 
+
+    /**<p><?=$date1->format('d-m-y') ?></p>
+<p><?=$date2->format('d-m-y') ?></p>
+<p><?=$diff->format('La resta da %d días') ?></p>
+
+<?php for ($i=0; $i < $diff->format('%d') ; $i++) :?>
+  <p>Día <?= $i ?></p>
+  <p><div class="input-group">
+    <span class="input-group-addon"></span>
+    <input type="text" class="form-control" placeholder="Itinerario">
+  </div></p>
+<?php endfor;?> */
     /* public function showItinerary(){
         $travel=Follower::
         $date1=Find::(dateIn)
