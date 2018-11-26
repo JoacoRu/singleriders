@@ -91,4 +91,9 @@ class ProfileController extends Controller
             return back();
     }
 
+    public function removeLike(Request $request)
+    {
+        $respuesta;
+    }
+
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use App\Travel;
 use App\User;
 use App\Follower;
@@ -49,13 +50,30 @@ class FollowersController extends Controller
         return $respuesta;
     }
 
+    public function showItinerary($travel_id){
+        $travel = Travel::where('travel_id', $travel_id)
+                    ->get();
+        foreach ($travel as $t ) {
+            $dateIn = $t['dateIn'];
+            $dateOut = $t['dateOut'];
+            break;
+        }
+        $date1= Carbon::parse($dateIn);
+        $date2= Carbon::parse($dateOut);
+        $diff = $date2->diffInDays($date1);
+
+        
+        return $diff;
+        }
+
     public function allSharedTravel($travel_id){
+        $diff = $this->showItinerary($travel_id);
         $me = Auth::id();
         $sharedTravel= Follower::where('follower_user_id', $me)
                                 ->join('travels', 'followers.travel_id', 'travels.travel_id')
                                 ->get();
 
-        return view('/sharedTravel', ['sharedTravel' => $sharedTravel,'travel_id' => $travel_id]);
+        return view('/sharedTravel', ['sharedTravel' => $sharedTravel,'travel_id' => $travel_id, 'diff' => $diff]);
 
     }
 
@@ -66,13 +84,7 @@ class FollowersController extends Controller
         dd($diff);
         /* return view ('sharedTravel'['sharedTRavel' => $diff]) */ 
 
-        public function showItinerary($travel_id){
-        $date1= Carbon::parse($request->input('dateIn'));
-        $date2= Carbon::parse($request->input('dateOut'));
-        $diff = $date2->diffInDays($dateIn);
-        
-        return view ('/sharedTravel', ['sharedTravel' => $diff]);
-        }
+
     }
     
 

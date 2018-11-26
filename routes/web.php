@@ -20,7 +20,6 @@ Route::get('/myTravel', 'TravelController@getMyTravels');
 /** Ruta para viajes compartidos */
 Route::get('/sharedTravel','TravelController@allTravels');
 Route::get('/sharedTravel/{travel_id}', 'FollowersController@allSharedTravel');
-Route::get('/sharedTravel/{travel_id}', 'FollowersController@showItinerary');
 /**ruta para las acciones de seguidos */
 Route::post('/allTravel', 'FollowersController@follows');
 //Rutas paginas Estaticas//
@@ -46,7 +45,6 @@ Auth::routes();
 Route::get('/sharedTravel', function () {
     return view('sharedTravel');
 });
-Route::get('/sharedTravel/{travel_id}', 'FollowersController@allSharedTravel');
 Route::get('/search', 'SearchController@viewSearch');
 Route::get('/search', 'SearchController@search');
 Route::get('/searchResult/{id}', 'SearchController@bringAll');

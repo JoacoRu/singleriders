@@ -139,13 +139,13 @@
             @endforeach
           <div class="col-12 p-0 col-md-8">
            <h2 class=itiTitle>Itinerario del Viaje</h2>
-          @for ($i=0; $i < $diff->format('%d') ; $i++) :?>
-          <p>Día {{ $i }}</p>
+          
+          <p>Faltan {{ $diff }} Días</p>
           <p><div class="input-group">
           <span class="input-group-addon"></span>
           <input type="text" class="form-control" placeholder="Itinerario">
           </div></p>
-          @endfor
+          
       </div>
     </section>
 
