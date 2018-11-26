@@ -29,7 +29,7 @@ class FollowersController extends Controller
         $me = Auth::id();
         $unfollow = $this->existLike($me);
 
-        if($unfollow != 0){
+        if(false){
            $respuesta = 'Ya estas siguiendo a este viaje'; 
         }else{
             Follower::create([
@@ -37,7 +37,7 @@ class FollowersController extends Controller
                 'user_id'          => $request->creador_viaje,
                 'follower_user_id' => $me,
             ]);
-            $respuesta = redirect('/sharedTravel');
+            $respuesta = redirect('/sharedTravel/'. $request->travel_id);
         }
 
         return $respuesta;
@@ -48,7 +48,28 @@ class FollowersController extends Controller
         $sharedTravel= Follower::where('follower_user_id', $me)
                                 ->join('travels', 'followers.travel_id', 'travels.travel_id')
                                 ->get();
+    
+            
+        return view('/sharedTravel', ['sharedTravel' => $sharedTravel]); 
 
-        return view('/sharedTravel', ['sharedTravel' => $sharedTravel]);                        
     }
+
+
+    /**<p><?=$date1->format('d-m-y') ?></p>
+<p><?=$date2->format('d-m-y') ?></p>
+<p><?=$diff->format('La resta da %d días') ?></p>
+
+<?php for ($i=0; $i < $diff->format('%d') ; $i++) :?>
+  <p>Día <?= $i ?></p>
+  <p><div class="input-group">
+    <span class="input-group-addon"></span>
+    <input type="text" class="form-control" placeholder="Itinerario">
+  </div></p>
+<?php endfor;?> */
+    /* public function showItinerary(){
+        $travel=Follower::
+        $date1=Find::(dateIn)
+        $date2=
+        $diff=$date2-$date1;
+    } */
 }
