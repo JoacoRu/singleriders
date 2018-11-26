@@ -531,6 +531,13 @@ a:hover {
   width: 100%;
 }
 
+.botones-modal{
+  flex: wrap;
+}
+
+#sharedTitle{
+  color:#343a40;
+}
 /* NOTE: fin estilos nueva home */
 
 
@@ -611,4 +618,5 @@ a:hover {
   .buscador{
     margin-right: 15%;
   }
+
 }
