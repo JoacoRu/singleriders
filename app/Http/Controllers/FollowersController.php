@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Travel;
 use App\User;
+use App\Follower;
+
 
 class FollowersController extends Controller
 {
@@ -19,8 +21,12 @@ class FollowersController extends Controller
     public function follows(Request $request){
 
     $me = Auth::id();
-    $otherUser = User::find($request->creador_viaje);
-    $otherUser->Following()->attach($request->travel_id);
+    $repsuesta = Follower::create([
+            'travel_id'        => $request->travel_id,
+            'user_id'          => $request->creador_viaje,
+            'follower_user_id' => $me,
+    ]);
+
     return redirect('/sharedTravel');
     }
 
