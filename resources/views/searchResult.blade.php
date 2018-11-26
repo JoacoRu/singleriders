@@ -19,7 +19,7 @@
             <div class="row p-0 m-0 bg-white rounded home-row-main d-flex d-flex justify-content-around">
                 <div class="col-12 p-0 top-muro-image d-flex align-items-center justify-content-center">
                 @foreach($user as $u)
-                    <h1 class="font-weight-bold text-center">{{ $u['name'] }} {{ $u['lastname']}} </h1>
+                    <h1 class="font-weight-bold text-center text-capitalize">{{ $u['name'] }} {{ $u['lastname']}} </h1>
                 </div>
                 @endforeach
 

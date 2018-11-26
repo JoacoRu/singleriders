@@ -11,6 +11,11 @@ use App\User;
 
 class TravelController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
 /**
      * Where to redirect users after registration.
      *

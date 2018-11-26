@@ -33,6 +33,9 @@ Route::post('/edit_profile', 'EditProfileController@validator');
 Route::get('/profile', 'ProfileController@showView');
 Route::post('/profile', 'ProfileController@store');
 Route::get('/profile', 'ProfileController@getAllPost');
+/* Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
+    
+}); */
 Route::post('/profileLike', 'ProfileController@insertLike');
 Route::get('/profileBringLike', 'ProfileController@bringLike');
 Route::get('/profileDislike', 'ProfileController@getAllPostJson');

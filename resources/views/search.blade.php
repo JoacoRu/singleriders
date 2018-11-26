@@ -42,7 +42,7 @@
                     <div class="card mb-3 tarjeta">
                         <img class="card-img-top" src="images/{{$search['src']}}" alt="Card image cap">
                         <div class="card-body">
-                            <h5 class="card-title" style="text-align: center;">{{ $search['name'] }} {{ $search['lastname'] }}</h5>
+                            <h5 class="card-title text-capitalize text-capitalize font-weight-bold" style="text-align: center;">{{ $search['name'] }} {{ $search['lastname'] }}</h5>
                             <p class="card-text" style="text-align: center;"><small class="text-muted"><a href="/searchResult/{{ $search['id']}}">Ver Perfil</a></small></p>
                         </div>
                     </div>

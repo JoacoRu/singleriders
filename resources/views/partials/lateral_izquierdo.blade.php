@@ -4,11 +4,14 @@
       <ul class="d-block list-unstyled w-100 py-4 border rounded shadow-perfil">
         <li class="text-center">
         @if(Auth::user()->src)
-          <img src="images/{{Auth::user()->src }}" alt="" style="max-width: 150px;" class="border rounded-circle" src="" alt="" id="foto-perfil">
+          <img src="{{ asset('images').'/'.Auth::user()->src}}" alt="" style="max-width: 150px;" class="border rounded-circle" src="" alt="" id="foto-perfil">
         @else
           <img src="images/perfil.jpg" alt="" width="100px" style="max-width: 150px;" class="border rounded-circle" src="" alt="" id="foto-perfil">
         @endif
         </li>
+
+        <li class="text-center mt-3"><span class="mb-1 text-capitalize font-weight-bold">{{Auth::user()->name}}  {{Auth::user()->lastname}} </span></li>
+
         <li class="text-center mt-3"><a class="btn btn-outline-secondary" href="{{ 'edit_profile' }}"><img src="{{ asset('images/iconos/home/editar.png') }}" alt=""> <span class="mb-1">Editar perfil</span></a></li>
       </ul>
     </div>

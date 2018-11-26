@@ -11,6 +11,11 @@ use App\Follower;
 
 class FollowersController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
    /**
     * Follow a user.
     *
