@@ -58,4 +58,5 @@ Route::get('/sharedTravel/{travel_id}', 'FollowersController@allSharedTravel');
 
 Route::get('/search', 'SearchController@viewSearch');
 Route::get('/search', 'SearchController@search');
-Route::get('/searchResult/{id}', 'SearchController@bringUser');
+Route::get('/searchResult/{id}', 'SearchController@bringAll');
+Route::post('/searchResult/{id}', 'SearchController@insertLike');

@@ -42,7 +42,6 @@ class ProfileController extends Controller
             $respuesta =  redirect('/profile');
         }
             return $respuesta;
-        // return view('profile', ['respuesta' => $respuesta]);
     }
 
     public function getAllPost()
